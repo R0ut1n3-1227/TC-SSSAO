@@ -58,6 +58,3 @@ pip install -r requirements.txt
 python scripts/build/build_ontology.py
 ```
 
-构建器包含内部检查；仅在明确需要构建时运行。日常编辑不自动执行构建、验证或审核。
-
-公开仓库仅收录本体相关资源。论文、实验结果、数据集和其他本地资料不在发布范围内。
