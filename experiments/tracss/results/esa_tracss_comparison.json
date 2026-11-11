@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "esa": {
+    "samples": 162634,
+    "conjunctions": 13154,
+    "states": {
+      "Normal": 141471,
+      "Attention": 20447,
+      "Warning": 716,
+      "Dangerous": 0
+    },
+    "d_lt_h": 0,
+    "pc_gt_1e_4": 716,
+    "pc_gt_1e_4_and_d_lt_h": 0,
+    "pinned_state_counts": {
+      "Normal": 141471,
+      "Attention": 20447,
+      "Warning": 716,
+      "Dangerous": 0
+    },
+    "recomputed_equals_pinned": true,
+    "source": "data/esa_cdm/processed/esa_train_normalized.csv.gz"
+  },
+  "tracss": {
+    "samples": 283557,
+    "conjunctions": 283557,
+    "unique_object_pairs": 89341,
+    "unique_objects": 22907,
+    "states": {
+      "Normal": 86585,
+      "Attention": 196666,
+      "Warning": 306,
+      "Dangerous": 0
+    },
+    "d_lt_h": 1,
+    "pc_gt_1e_4": 305,
+    "pc_gt_1e_4_and_d_lt_h": 0
+  },
+  "table_md": "| Item | ESA | TraCSS |\n| --- | ---: | ---: |\n| samples | 162634 | 283557 |\n| conjunctions | 13154 | 283557 |\n| Normal | 141471 | 86585 |\n| Attention | 20447 | 196666 |\n| Warning | 716 | 306 |\n| Dangerous | 0 | 0 |\n| d_lt_h | 0 | 1 |\n| pc_gt_1e_4 | 716 | 305 |\n| pc_gt_1e_4_and_d_lt_h | 0 | 0 |",
+  "note": "Internal comparison only; not written into the paper. ESA samples are CDM snapshots (multiple per event), TraCSS samples are unique conjunctions (one row per conjunction)."
+}

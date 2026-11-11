@@ -1,0 +1,67 @@
+{
+  "test": "unrated_snapshot_barrier",
+  "date": "2026-10-13T10:53:33.755113",
+  "passed": true,
+  "case_count": 12,
+  "passed_count": 12,
+  "cases": [
+    {
+      "name": "A1 event_facts: unrated blocks all transitions",
+      "status": "PASS"
+    },
+    {
+      "name": "A2 event_facts: leading unrated does not poison downstream pair",
+      "status": "PASS"
+    },
+    {
+      "name": "A3 event_facts: rated→unrated pair, no transition",
+      "status": "PASS"
+    },
+    {
+      "name": "A4 event_facts: rated pair generates transition (positive control)",
+      "status": "PASS"
+    },
+    {
+      "name": "A5 event_facts: valid-but-unrated (pass/NA) blocks adjacency",
+      "status": "PASS"
+    },
+    {
+      "name": "A6 event_facts: late unrated revokes pre-existing recovery edge",
+      "status": "PASS"
+    },
+    {
+      "name": "A7 event_facts: late rated middle replaces recovery edge",
+      "status": "PASS"
+    },
+    {
+      "name": "B1 main(): gate excludes 2-eligible event, selects 3-eligible",
+      "status": "PASS"
+    },
+    {
+      "name": "B2 main(): DISCRIMINATOR — unrated at probe position ⇒ stale == 0",
+      "status": "PASS"
+    },
+    {
+      "name": "B3 main(): late unrated produces then revokes recovery edge (stale == 2)",
+      "status": "PASS"
+    },
+    {
+      "name": "B4 main(): no eligible group raises RuntimeError",
+      "status": "PASS"
+    },
+    {
+      "name": "B5 main(): DISCRIMINATOR — valid-but-unrated at probe position ⇒ stale == 0",
+      "status": "PASS"
+    }
+  ],
+  "levels": {
+    "event_facts_unit": 7,
+    "production_main_entry": 5
+  },
+  "assertion": "unrated blocks adjacency at both event_facts() and the real production main() level; both guards (preflight_pass=False and state=NA) tested in isolation; late-arrival revocation tested incrementally (A6/A7) and through main()'s delayed probe (B3); B2/B5 discriminate the old prefilter regression via stale_adjacency_edges_removed == 0",
+  "entry_points_tested": [
+    "event_facts() — production adjacency derivation",
+    "main() — real production entry (monkeypatched load_processed/save_json; no dataset read, streaming_replay.json not overwritten)"
+  ],
+  "old_bug": "prefilter removed unrated rows before groupby; gate outcomes are provably identical (eligible_count == prefiltered group size), so main()-level discrimination uses the delayed-recompute stale counter with the unrated row at probe position rows[2]"
+}

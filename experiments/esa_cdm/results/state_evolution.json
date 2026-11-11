@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "metrics": {
+    "event_count": 13154,
+    "mean_cdms_per_event": 12.363843697734529,
+    "median_cdms_per_event": 13.0,
+    "max_cdms_per_event": 23,
+    "events_with_at_least_2_valid_snapshots": 12929,
+    "events_with_state_change": 3118,
+    "events_with_state_upgrade": 1294,
+    "events_with_state_recovery": 2950,
+    "b3_transits_to": 5179,
+    "warning_to_dangerous_degrades_to": 0,
+    "severity_decreases_recovered_to": 3574,
+    "err_cross_event": 0,
+    "err_within_non_adjacent": 0,
+    "err_time_direction": 0,
+    "err_recovers_direction": 0,
+    "err_degrades_warning": 0,
+    "err_transits_same_rank": 0,
+    "err_mismatch_predicate": 0,
+    "err_mismatch_predicate2": 0,
+    "err_missing_recovers_on_downgrade": 0,
+    "err_missing_degrades_on_warning_dangerous": 0,
+    "err_direction_field_inconsistent": 0,
+    "error_details": []
+  },
+  "temporal_state_agreement": [
+    {
+      "days_before_tca": 7.0,
+      "sample_events": 7297,
+      "agreement_with_final_cdm": 0.7863505550226121,
+      "selection_tolerance_days": 0.5
+    },
+    {
+      "days_before_tca": 5.0,
+      "sample_events": 8775,
+      "agreement_with_final_cdm": 0.8423931623931624,
+      "selection_tolerance_days": 0.5
+    },
+    {
+      "days_before_tca": 3.0,
+      "sample_events": 8932,
+      "agreement_with_final_cdm": 0.9199507389162561,
+      "selection_tolerance_days": 0.5
+    },
+    {
+      "days_before_tca": 2.0,
+      "sample_events": 9105,
+      "agreement_with_final_cdm": 0.9527732015376167,
+      "selection_tolerance_days": 0.5
+    },
+    {
+      "days_before_tca": 1.0,
+      "sample_events": 9299,
+      "agreement_with_final_cdm": 0.9787073878911711,
+      "selection_tolerance_days": 0.5
+    }
+  ],
+  "final_cdm_semantics": "best available knowledge, not absolute collision ground truth",
+  "ordering": "within event_id, descending time_to_tca (larger means earlier CDM)"
+}

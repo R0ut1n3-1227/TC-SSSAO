@@ -1,0 +1,102 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix onto:    <https://w3id.org/tc-sssao#> .
+
+#####################################################################
+# TC-SSSAO Severity Rank Shape
+#
+# 验证目标：SituationState 子类（Normal/Attention/Warning/Dangerous）
+#   必须满足：
+#   - hasSeverityRank minCount 1, maxCount 1
+#   - hasSeverityRank datatype xsd:integer
+#   - hasSeverityRank sh:in (0, 1, 2, 3)
+#
+# 严重度级别语义（论文第 3.4.1 节）：
+#   0 = Normal（正常）
+#   1 = Attention（关注）
+#   2 = Warning（预警）
+#   3 = Dangerous（危险）
+#
+# 注意：hasSeverityRank 在 OWL 层声明为域 SituationState、值域 xsd:integer；
+#   本 SHACL 约束进一步限定 Normal/Attention/Warning/Dangerous 四个子类的取值集合。
+#####################################################################
+
+<https://w3id.org/tc-sssao/shapes/SeverityRankShape>
+    a owl:Ontology ;
+    owl:versionInfo "1.0.0" ;
+    rdfs:comment "SituationState 子类严重度约束：hasSeverityRank ∈ {0,1,2,3}"@zh .
+
+# NormalSituationState: 严重度级别 0
+onto:NormalSituationStateSeverityShape a sh:NodeShape ;
+    sh:targetClass onto:NormalSituationState ;
+    rdfs:comment "正常态势状态（NormalSituationState）的严重度级别必须为 0"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "NormalSituationState" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "正常态势状态的严重度级别（hasSeverityRank）必须为 0" ;
+    sh:property [
+        sh:path onto:hasSeverityRank ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:integer ;
+        sh:in (0) ;
+        sh:message "正常态势状态的严重度级别必须为整数 0"@zh
+    ] .
+
+# AttentionSituationState: 严重度级别 1
+onto:AttentionSituationStateSeverityShape a sh:NodeShape ;
+    sh:targetClass onto:AttentionSituationState ;
+    rdfs:comment "关注态势状态（AttentionSituationState）的严重度级别必须为 1"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "AttentionSituationState" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "关注态势状态的严重度级别（hasSeverityRank）必须为 1" ;
+    sh:property [
+        sh:path onto:hasSeverityRank ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:integer ;
+        sh:in (1) ;
+        sh:message "关注态势状态的严重度级别必须为整数 1"@zh
+    ] .
+
+# WarningSituationState: 严重度级别 2
+onto:WarningSituationStateSeverityShape a sh:NodeShape ;
+    sh:targetClass onto:WarningSituationState ;
+    rdfs:comment "预警态势状态（WarningSituationState）的严重度级别必须为 2"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "WarningSituationState" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "预警态势状态的严重度级别（hasSeverityRank）必须为 2" ;
+    sh:property [
+        sh:path onto:hasSeverityRank ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:integer ;
+        sh:in (2) ;
+        sh:message "预警态势状态的严重度级别必须为整数 2"@zh
+    ] .
+
+# DangerousSituationState: 严重度级别 3
+onto:DangerousSituationStateSeverityShape a sh:NodeShape ;
+    sh:targetClass onto:DangerousSituationState ;
+    rdfs:comment "危险态势状态（DangerousSituationState）的严重度级别必须为 3"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "DangerousSituationState" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "危险态势状态的严重度级别（hasSeverityRank）必须为 3" ;
+    sh:property [
+        sh:path onto:hasSeverityRank ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:integer ;
+        sh:in (3) ;
+        sh:message "危险态势状态的严重度级别必须为整数 3"@zh
+    ] .

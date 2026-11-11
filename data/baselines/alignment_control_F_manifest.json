@@ -1,0 +1,85 @@
+{
+  "F_count": 16,
+  "F_triples": [
+    {
+      "s": "https://w3id.org/tc-sssao#TimeInstant",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "o": "http://www.w3.org/2006/time#Instant"
+    },
+    {
+      "s": "https://w3id.org/tc-sssao#Sensor",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "o": "http://www.w3.org/ns/sosa/Sensor"
+    },
+    {
+      "s": "https://w3id.org/tc-sssao#generatedByActivity",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
+      "o": "http://www.w3.org/ns/prov#wasGeneratedBy"
+    },
+    {
+      "s": "https://w3id.org/tc-sssao#ObservationActivity",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "o": "http://www.w3.org/ns/sosa/Observation"
+    },
+    {
+      "s": "https://w3id.org/tc-sssao#CausalAssertion",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "o": "http://www.w3.org/ns/prov#Entity"
+    },
+    {
+      "s": "https://w3id.org/tc-sssao#SpaceObject",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "o": "http://www.opengis.net/ont/geosparql#Feature"
+    },
+    {
+      "s": "https://w3id.org/tc-sssao#TimeInterval",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "o": "http://www.w3.org/2006/time#Interval"
+    },
+    {
+      "s": "https://w3id.org/tc-sssao#hasCausalEvidence",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
+      "o": "http://www.w3.org/ns/prov#wasDerivedFrom"
+    },
+    {
+      "s": "https://w3id.org/tc-sssao#ObservationData",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "o": "http://www.w3.org/ns/sosa/Result"
+    },
+    {
+      "s": "https://w3id.org/tc-sssao#SSAActivity",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "o": "http://www.w3.org/ns/prov#Activity"
+    },
+    {
+      "s": "https://w3id.org/tc-sssao#DataProvider",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "o": "http://www.w3.org/ns/prov#Agent"
+    },
+    {
+      "s": "https://w3id.org/tc-sssao#occursAtTime",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
+      "o": "http://www.w3.org/2006/time#hasTime"
+    },
+    {
+      "s": "https://w3id.org/tc-sssao#Orbit",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "o": "http://www.opengis.net/ont/geosparql#Feature"
+    },
+    {
+      "s": "https://w3id.org/tc-sssao#occursInTimeInterval",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
+      "o": "http://www.w3.org/2006/time#hasTime"
+    },
+    {
+      "s": "https://w3id.org/tc-sssao#madeBySensor",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
+      "o": "http://www.w3.org/ns/sosa/madeBySensor"
+    },
+    {
+      "s": "https://w3id.org/tc-sssao#SSAData",
+      "p": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "o": "http://www.w3.org/ns/prov#Entity"
+    }
+  ]
+}

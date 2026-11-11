@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "TC-SSSAO: Temporal-Causal Space Security Situational Awareness Ontology"
+date-released: ""
+license: MIT
+# 作者信息：投稿论文当前为匿名稿件，仓库无明确个人作者信息，
+# 故使用与 LICENSE 版权行一致的集体署名；正式公开时由作者补全。
+authors:
+  - name: "TC-SSSAO contributors"
+# repository-code: 尚无公开仓库；公开后由作者补充，不预填虚构地址。
+# DOI: 未注册，不填写。

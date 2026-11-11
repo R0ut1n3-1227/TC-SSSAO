@@ -1,0 +1,350 @@
+{
+  "status": "PASS",
+  "repeats_per_scale": 3,
+  "sizes": [
+    {
+      "event_count": 100,
+      "cdm_count": 1167,
+      "estimated_input_triples_from_mapping_template": 32009,
+      "estimated_output_triples_from_mapping_template": 35517,
+      "input_contract_s": {
+        "mean": 0.0017460333341053531,
+        "median": 0.001832099998864578,
+        "std": 0.00019537646504851422,
+        "p95": 0.0018784500014589866
+      },
+      "event_partitioned_temporal_sort_s": {
+        "mean": 0.0011994999998326723,
+        "median": 0.001160100000561215,
+        "std": 0.00014740362989909423,
+        "p95": 0.0013423500000499188
+      },
+      "r5_r8_execution_layer_s": {
+        "mean": 0.00031816666766341467,
+        "median": 0.0003116000007139519,
+        "std": 5.2657984801414097e-05,
+        "p95": 0.00036758000132977033
+      },
+      "b3_execution_layer_s": {
+        "mean": 0.1757531999986289,
+        "median": 0.17452349999803118,
+        "std": 0.0032255255686207463,
+        "p95": 0.17892377999924064
+      },
+      "empty_causal_invariant_check_s": {
+        "mean": 3.3333223351898294e-07,
+        "median": 3.9999940781854093e-07,
+        "std": 1.1547093308388454e-07,
+        "p95": 3.9999940781854093e-07
+      },
+      "other_validation_s": {
+        "mean": 4.100000054071037e-05,
+        "median": 4.13999987358693e-05,
+        "std": 1.3453610213811502e-06,
+        "p95": 4.20300002588192e-05
+      },
+      "total_s": {
+        "mean": 0.18019806666658647,
+        "median": 0.17898029999923892,
+        "std": 0.0027916212682015766,
+        "p95": 0.18295056000024487
+      }
+    },
+    {
+      "event_count": 500,
+      "cdm_count": 6399,
+      "estimated_input_triples_from_mapping_template": 175263,
+      "estimated_output_triples_from_mapping_template": 194517,
+      "input_contract_s": {
+        "mean": 0.0027552666664026524,
+        "median": 0.0026930999993055593,
+        "std": 0.00012089906135864559,
+        "p95": 0.0028744499984895812
+      },
+      "event_partitioned_temporal_sort_s": {
+        "mean": 0.0019554666675200374,
+        "median": 0.0019130000000586733,
+        "std": 0.00017207606803847065,
+        "p95": 0.002121620000616531
+      },
+      "r5_r8_execution_layer_s": {
+        "mean": 0.00031970000054570846,
+        "median": 0.0003187000002071727,
+        "std": 9.738584181871108e-06,
+        "p95": 0.0003287800016551046
+      },
+      "b3_execution_layer_s": {
+        "mean": 0.8721221666649702,
+        "median": 0.8677223999984562,
+        "std": 0.012219792606463215,
+        "p95": 0.8841115799983527
+      },
+      "empty_causal_invariant_check_s": {
+        "mean": 2.3333389738885066e-07,
+        "median": 2.00001522898674e-07,
+        "std": 5.7736516764617694e-08,
+        "p95": 2.900022082030773e-07
+      },
+      "other_validation_s": {
+        "mean": 4.7433334354233615e-05,
+        "median": 4.830000034417026e-05,
+        "std": 1.9502126572780653e-06,
+        "p95": 4.8750000496511346e-05
+      },
+      "total_s": {
+        "mean": 0.8784459333328414,
+        "median": 0.873814599999605,
+        "std": 0.012491146400509138,
+        "p95": 0.8907136299985723
+      }
+    },
+    {
+      "event_count": 1000,
+      "cdm_count": 12903,
+      "estimated_input_triples_from_mapping_template": 353371,
+      "estimated_output_triples_from_mapping_template": 392206,
+      "input_contract_s": {
+        "mean": 0.004279533333222692,
+        "median": 0.004163200002949452,
+        "std": 0.0002253722298939882,
+        "p95": 0.004501689997050562
+      },
+      "event_partitioned_temporal_sort_s": {
+        "mean": 0.0030512333311586795,
+        "median": 0.002974699997139396,
+        "std": 0.00013420843353730705,
+        "p95": 0.0031830499989155213
+      },
+      "r5_r8_execution_layer_s": {
+        "mean": 0.00035846666651195846,
+        "median": 0.0003556000010576099,
+        "std": 2.5222476774519123e-05,
+        "p95": 0.00038205999953788705
+      },
+      "b3_execution_layer_s": {
+        "mean": 1.737951433332152,
+        "median": 1.7330733999988297,
+        "std": 0.01359059740771266,
+        "p95": 1.7512843599979533
+      },
+      "empty_causal_invariant_check_s": {
+        "mean": 6.333345178669939e-07,
+        "median": 7.00001692166552e-07,
+        "std": 3.0550380017304274e-07,
+        "p95": 8.799997885944322e-07
+      },
+      "other_validation_s": {
+        "mean": 6.779999966965988e-05,
+        "median": 6.769999890821055e-05,
+        "std": 1.705021880316946e-05,
+        "p95": 8.317999891005456e-05
+      },
+      "total_s": {
+        "mean": 1.7471544666671737,
+        "median": 1.7420455000028596,
+        "std": 0.013492143858687597,
+        "p95": 1.760414050000327
+      }
+    },
+    {
+      "event_count": 2000,
+      "cdm_count": 24578,
+      "estimated_input_triples_from_mapping_template": 673596,
+      "estimated_output_triples_from_mapping_template": 747571,
+      "input_contract_s": {
+        "mean": 0.007200066667185941,
+        "median": 0.007311900000786409,
+        "std": 0.0004867820098228171,
+        "p95": 0.007590270002037869
+      },
+      "event_partitioned_temporal_sort_s": {
+        "mean": 0.005439566666609608,
+        "median": 0.0050658000000112224,
+        "std": 0.0007000762117308785,
+        "p95": 0.006129059999148012
+      },
+      "r5_r8_execution_layer_s": {
+        "mean": 0.0004748000016358371,
+        "median": 0.0004408000022522174,
+        "std": 6.827561745014793e-05,
+        "p95": 0.0005421400011982769
+      },
+      "b3_execution_layer_s": {
+        "mean": 3.6640020000013465,
+        "median": 3.7159194000014395,
+        "std": 0.13056792328143613,
+        "p95": 3.7561549800000646
+      },
+      "empty_causal_invariant_check_s": {
+        "mean": 3.666658206687619e-07,
+        "median": 3.9999940781854093e-07,
+        "std": 5.773546654194227e-08,
+        "p95": 3.9999940781854093e-07
+      },
+      "other_validation_s": {
+        "mean": 8.180000077118166e-05,
+        "median": 8.610000077169389e-05,
+        "std": 1.579525467309191e-05,
+        "p95": 9.411000282852911e-05
+      },
+      "total_s": {
+        "mean": 3.678979566666385,
+        "median": 3.729993699998886,
+        "std": 0.12942628058472222,
+        "p95": 3.7706118699999935
+      }
+    },
+    {
+      "event_count": 5000,
+      "cdm_count": 61741,
+      "estimated_input_triples_from_mapping_template": 1691987,
+      "estimated_output_triples_from_mapping_template": 1877818,
+      "input_contract_s": {
+        "mean": 0.015517499998774534,
+        "median": 0.015161499999521766,
+        "std": 0.0007323568062201657,
+        "p95": 0.016239969999878666
+      },
+      "event_partitioned_temporal_sort_s": {
+        "mean": 0.019831766667872824,
+        "median": 0.02068449999933364,
+        "std": 0.0015361557877811344,
+        "p95": 0.020745610002995817
+      },
+      "r5_r8_execution_layer_s": {
+        "mean": 0.0006993000000268997,
+        "median": 0.0006610000018554274,
+        "std": 0.00012734547226200837,
+        "p95": 0.0008233599972299998
+      },
+      "b3_execution_layer_s": {
+        "mean": 8.804202633333867,
+        "median": 8.805325900000753,
+        "std": 0.04830059689683488,
+        "p95": 8.847271209999963
+      },
+      "empty_causal_invariant_check_s": {
+        "mean": 3.0000107168840867e-07,
+        "median": 3.00002284348011e-07,
+        "std": 2.1003880435805544e-12,
+        "p95": 3.00002284348011e-07
+      },
+      "other_validation_s": {
+        "mean": 0.00012653333396883681,
+        "median": 0.00012740000238409266,
+        "std": 1.6217377244928598e-05,
+        "p95": 0.0001408099997206591
+      },
+      "total_s": {
+        "mean": 8.843149433333261,
+        "median": 8.842247099997621,
+        "std": 0.04899583209047458,
+        "p95": 8.887555890000659
+      }
+    },
+    {
+      "event_count": 10000,
+      "cdm_count": 123433,
+      "estimated_input_triples_from_mapping_template": 3382636,
+      "estimated_output_triples_from_mapping_template": 3754160,
+      "input_contract_s": {
+        "mean": 0.03196423333550532,
+        "median": 0.03281740000238642,
+        "std": 0.002925297800103484,
+        "p95": 0.034213030001410516
+      },
+      "event_partitioned_temporal_sort_s": {
+        "mean": 0.0393165333334764,
+        "median": 0.03827449999880628,
+        "std": 0.002276459116970373,
+        "p95": 0.04156220000186295
+      },
+      "r5_r8_execution_layer_s": {
+        "mean": 0.0012555333341879304,
+        "median": 0.0012705000008281786,
+        "std": 7.921756806137228e-05,
+        "p95": 0.001320629999463563
+      },
+      "b3_execution_layer_s": {
+        "mean": 17.636146066666697,
+        "median": 17.581685799999832,
+        "std": 0.14226824738089228,
+        "p95": 17.7760078599993
+      },
+      "empty_causal_invariant_check_s": {
+        "mean": 3.333334461785853e-07,
+        "median": 3.00002284348011e-07,
+        "std": 5.773441637657516e-08,
+        "p95": 3.8999969547148795e-07
+      },
+      "other_validation_s": {
+        "mean": 0.00029159999879387516,
+        "median": 0.00022329999774228781,
+        "std": 0.00012414664905151783,
+        "p95": 0.0004137400006584357
+      },
+      "total_s": {
+        "mean": 17.713885799998632,
+        "median": 17.659787999997206,
+        "std": 0.13746683651727398,
+        "p95": 17.849133329996768
+      }
+    },
+    {
+      "event_count": 13154,
+      "cdm_count": 162634,
+      "estimated_input_triples_from_mapping_template": 4456833,
+      "estimated_output_triples_from_mapping_template": 4946340,
+      "input_contract_s": {
+        "mean": 0.038354166665764446,
+        "median": 0.03728140000021085,
+        "std": 0.0019918807811105657,
+        "p95": 0.04031538999988697
+      },
+      "event_partitioned_temporal_sort_s": {
+        "mean": 0.05423486666647174,
+        "median": 0.04961639999964973,
+        "std": 0.009418551383076977,
+        "p95": 0.06352571999887005
+      },
+      "r5_r8_execution_layer_s": {
+        "mean": 0.0014190666673433345,
+        "median": 0.0012442000006558374,
+        "std": 0.000394153488436577,
+        "p95": 0.0018077799995808164
+      },
+      "b3_execution_layer_s": {
+        "mean": 21.605524466667703,
+        "median": 21.34487530000115,
+        "std": 0.4514890367038643,
+        "p95": 22.048660720000772
+      },
+      "empty_causal_invariant_check_s": {
+        "mean": 2.666662718790273e-07,
+        "median": 2.999986463692039e-07,
+        "std": 5.773336615389869e-08,
+        "p95": 2.999986463692039e-07
+      },
+      "other_validation_s": {
+        "mean": 0.0002507666661889137,
+        "median": 0.00024309999935212545,
+        "std": 1.8530336254552198e-05,
+        "p95": 0.000269020000268938
+      },
+      "total_s": {
+        "mean": 21.704349833333254,
+        "median": 21.43754160000026,
+        "std": 0.4630944897740139,
+        "p95": 22.1589305700003
+      }
+    }
+  ],
+  "scope_note": "Wall-clock timings cover the event-partitioned Pandas/NumPy execution layer, not full RDF construction, pySHACL, or production triple-store inference.",
+  "timing_excludes": "Loading the full processed CSV and selecting each event subset occur outside run_once timing.",
+  "triple_count_note": "Triple counts are deterministic estimates from the documented mapping template; the full RDF graphs were not materialized.",
+  "fixed_point_note": "No fixed-point iteration count is reported for scalability because this execution layer does not run iterative SHACL-SPARQL materialization.",
+  "process_peak_working_set_mb_with_full_dataset_loaded": 248.30078125,
+  "memory_note": "The complete 162,634-row processed table is loaded before scale subsets are run; this cumulative process peak is not a per-scale independent memory measurement.",
+  "r1_note": "Temporal ordering is local sorting within event_id partitions, not original R1 global pairwise materialization; global worst-case relation growth remains O(N^2).",
+  "r3_r4_note": "Not executed because the anonymised ESA dataset lacks a real manoeuvre-to-approach chain."
+}

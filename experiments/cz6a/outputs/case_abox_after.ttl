@@ -1,0 +1,406 @@
+@prefix case: <https://w3id.org/tc-sssao/data/cz6a-case#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix onto: <https://w3id.org/tc-sssao#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+case:CZ6A_Fragment_54263 a _:cb2ce17ee7eb747a5641734c95dfa45202431e60fb9ac937b11258493b8fc4670cd,
+        _:cb3193a65f68c24c52a33a451ad42a93d26e6b7318da9c607c1b0d9c5b5a9213057,
+        _:cb31c1f2f041a0680ef7802cf1fd91503d1489d31ea43115b308990120025fb109b,
+        _:cb3a28b4cb8dda5bc52f77422cf85e07d273382179263589aa1ffbefa27e85a1c02,
+        _:cb3b60eae902eb6331be467d4b21194f793aee8266fbecbf5712280159fecd80750,
+        _:cb3bd4500fc9ac3398fc2052aa3df902c85cc0531ec27c236e0e44c230e60f6546a,
+        geo:Feature,
+        rdfs:Resource,
+        onto:ArtificialSpaceObject,
+        onto:RocketDebris,
+        onto:SpaceDebris,
+        onto:SpaceObject ;
+    onto:hasObjectID "54263"^^xsd:string ;
+    onto:hasOrbit case:Orbit_54263_Early .
+
+case:CZ6A_Fragment_54334 a _:cb2ce17ee7eb747a5641734c95dfa45202431e60fb9ac937b11258493b8fc4670cd,
+        _:cb3193a65f68c24c52a33a451ad42a93d26e6b7318da9c607c1b0d9c5b5a9213057,
+        _:cb31c1f2f041a0680ef7802cf1fd91503d1489d31ea43115b308990120025fb109b,
+        _:cb3a28b4cb8dda5bc52f77422cf85e07d273382179263589aa1ffbefa27e85a1c02,
+        _:cb3b60eae902eb6331be467d4b21194f793aee8266fbecbf5712280159fecd80750,
+        _:cb3bd4500fc9ac3398fc2052aa3df902c85cc0531ec27c236e0e44c230e60f6546a,
+        geo:Feature,
+        rdfs:Resource,
+        onto:ArtificialSpaceObject,
+        onto:RocketDebris,
+        onto:SpaceDebris,
+        onto:SpaceObject ;
+    onto:hasObjectID "54334"^^xsd:string ;
+    onto:hasOrbit case:Orbit_54334_Early .
+
+case:CZ6A_Fragment_54344 a _:cb2ce17ee7eb747a5641734c95dfa45202431e60fb9ac937b11258493b8fc4670cd,
+        _:cb3193a65f68c24c52a33a451ad42a93d26e6b7318da9c607c1b0d9c5b5a9213057,
+        _:cb31c1f2f041a0680ef7802cf1fd91503d1489d31ea43115b308990120025fb109b,
+        _:cb3a28b4cb8dda5bc52f77422cf85e07d273382179263589aa1ffbefa27e85a1c02,
+        _:cb3b60eae902eb6331be467d4b21194f793aee8266fbecbf5712280159fecd80750,
+        _:cb3bd4500fc9ac3398fc2052aa3df902c85cc0531ec27c236e0e44c230e60f6546a,
+        geo:Feature,
+        rdfs:Resource,
+        onto:ArtificialSpaceObject,
+        onto:RocketDebris,
+        onto:SpaceDebris,
+        onto:SpaceObject ;
+    onto:hasObjectID "54344"^^xsd:string ;
+    onto:hasOrbit case:Orbit_54344_Early .
+
+case:CZ6A_FragmentationRiskAssertion a [ ],
+        [ ],
+        [ ],
+        [ ],
+        rdfs:Resource,
+        prov:Entity,
+        onto:CausalAssertion,
+        onto:DirectCausalAssertion ;
+    prov:wasDerivedFrom case:CZ6A_DebrisRiskAssessment ;
+    onto:hasCausalEvidence case:CZ6A_DebrisRiskAssessment ;
+    onto:hasCausalMechanism "高轨解体产生大量长寿命在轨碎片，对同轨道区域空间目标构成持续碰撞风险（机制描述对应外部评估结论）"^^xsd:string ;
+    onto:hasCause case:CZ6A_Fragmentation_2022 ;
+    onto:hasEffect case:CZ6A_DebrisRiskEvent .
+
+onto:derived_debris_risk_f5da89a6cd738b34bfda1e1682c73bcbf2b73d0db44de0e95a6da168c1c98aa6 onto:mitigatedBy case:ContinuousTrackingMeasure .
+
+case:GroundRadar_01 a [ ],
+        [ ],
+        rdfs:Resource,
+        sosa:Sensor,
+        onto:ObservationSystem,
+        onto:RadarSensor,
+        onto:Sensor ;
+    onto:generatesData case:BaselineTrackingReport .
+
+case:NASA_ODQN_Provider a rdfs:Resource,
+        prov:Agent,
+        onto:DataProvider,
+        onto:SpaceOrganization ;
+    rdfs:label "NASA Orbital Debris Quarterly News (Vol. 27, Issue 1)"@en .
+
+case:Orbit_54263_Early a _:cb12542f07167034d7908e95582961849b539b843b40f08a86366036b4cc6a3355f,
+        _:cb1706567e93be06d3f2558ddd1de7c66b7ee8965880c3b3513f1589d49737df4e9,
+        _:cb1734a30f6c9c2290469b75b4474e82d62506f65e4a5868882ca0ee993f057d52d,
+        _:cb1f9b64eab8d616467e928aef421b3a6b83b544b8cc5cdc7f4403dd1bbb2b6e094,
+        _:cb2147002ef4a7ee1a4b3b9b6c87b635616d3d765e68a37643324cafaa22b5318fc,
+        geo:Feature,
+        rdfs:Resource,
+        onto:EarthOrbit,
+        onto:LowEarthOrbit,
+        onto:Orbit ;
+    case:apogeeKm "1282.0035"^^xsd:float ;
+    case:perigeeKm "825.832"^^xsd:float .
+
+case:Orbit_54334_Early a _:cb12542f07167034d7908e95582961849b539b843b40f08a86366036b4cc6a3355f,
+        _:cb1706567e93be06d3f2558ddd1de7c66b7ee8965880c3b3513f1589d49737df4e9,
+        _:cb1734a30f6c9c2290469b75b4474e82d62506f65e4a5868882ca0ee993f057d52d,
+        _:cb1f9b64eab8d616467e928aef421b3a6b83b544b8cc5cdc7f4403dd1bbb2b6e094,
+        _:cb2147002ef4a7ee1a4b3b9b6c87b635616d3d765e68a37643324cafaa22b5318fc,
+        geo:Feature,
+        rdfs:Resource,
+        onto:EarthOrbit,
+        onto:LowEarthOrbit,
+        onto:Orbit ;
+    case:apogeeKm "856.4783"^^xsd:float ;
+    case:perigeeKm "661.3593"^^xsd:float .
+
+case:Orbit_54344_Early a _:cb12542f07167034d7908e95582961849b539b843b40f08a86366036b4cc6a3355f,
+        _:cb1706567e93be06d3f2558ddd1de7c66b7ee8965880c3b3513f1589d49737df4e9,
+        _:cb1734a30f6c9c2290469b75b4474e82d62506f65e4a5868882ca0ee993f057d52d,
+        _:cb1f9b64eab8d616467e928aef421b3a6b83b544b8cc5cdc7f4403dd1bbb2b6e094,
+        _:cb2147002ef4a7ee1a4b3b9b6c87b635616d3d765e68a37643324cafaa22b5318fc,
+        geo:Feature,
+        rdfs:Resource,
+        onto:EarthOrbit,
+        onto:LowEarthOrbit,
+        onto:Orbit ;
+    case:apogeeKm "911.7746"^^xsd:float ;
+    case:perigeeKm "829.8579"^^xsd:float .
+
+case:Wacker2025_Provider a rdfs:Resource,
+        prov:Agent,
+        onto:DataProvider,
+        onto:SpaceOrganization ;
+    rdfs:label "Wacker et al. (2025), 9th European Conference on Space Debris"@en .
+
+case:apogeeKm a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "远地点高度（km）"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf case:apogeeKm .
+
+case:assessedCause a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "评估原因"@zh ;
+    rdfs:domain onto:FragmentationEvent ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf case:assessedCause .
+
+case:catalogedFragmentCount a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "编目碎片数量"@zh ;
+    rdfs:domain onto:FragmentationEvent ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf case:catalogedFragmentCount .
+
+case:eccentricity a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "轨道偏心率"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf case:eccentricity .
+
+case:fragmentsInOrbitCount a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "在轨碎片数量"@zh ;
+    rdfs:domain onto:FragmentationEvent ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf case:fragmentsInOrbitCount .
+
+case:inclinationDeg a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "轨道倾角（deg）"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf case:inclinationDeg .
+
+case:perigeeKm a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "近地点高度（km）"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf case:perigeeKm .
+
+case:reportTime a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "观测报告时间"@zh ;
+    rdfs:domain onto:ObservationData ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf case:reportTime .
+
+case:semiMajorAxisKm a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "半长轴（km）"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf case:semiMajorAxisKm .
+
+onto:derived_physical_threat_f5da89a6cd738b34bfda1e1682c73bcbf2b73d0db44de0e95a6da168c1c98aa6 onto:mayManifestAsEvent case:CZ6A_DebrisRiskEvent ;
+    onto:requiresResponseMeasure case:ContinuousTrackingMeasure ;
+    onto:threatMitigatedBy case:ContinuousTrackingMeasure .
+
+case:CZ6A_Fragmentation_2022 a [ ],
+        _:cb10ecc1a5ab9a4e39fa482a69265144597b7be754e676ae5fb11635683ed2d43ec,
+        _:cb121d63e65a8fa1815b7faa14275d727f25a0500de37e5f0abfb6e4f30caacf2d8,
+        _:cb1354f9f91e00482e4ceec8b1a01c4d346b24e1b621f2843d685574331d13370ad,
+        _:cb13a975041f02cc3b5b57209bd2d27dce224901b89bc0e3a057bf9ede927984818,
+        _:cb13fb8d8481169fb46b54dd0177e11bab3b0798bb3bc61ec6440b1926ed260ac0a,
+        _:cb1409673aab0051664c1d549d68d307af504c82c05a9b1c6c5adb490bd988c4dbf,
+        _:cb1437b3cb83de6d22a0633c749239c419f66ae2c6242fd1a34866add0815662e03,
+        _:cb1443d55d29d2bc815486714f372d5780c0c7c318b5ed4f77d3ae06903b1b05f7f,
+        _:cb1453c275989f33e712bf2108328247524f3ded5fe18ae3547288b66d7f5b77ced,
+        _:cb160c5d064ba8575b2c22490543c6b3d302858cde5b31e452688799db0986d374d,
+        _:cb164bf6244ed87aa3f80529400e2c9ca8e798b2f2f3e8ed545a3700182e78a8278,
+        _:cb16e7665cebf54812cec617ccc463ec30a38622cf71697d98b48063909f3ccb286,
+        _:cb17a9ba4c4bd4c0a07f664f45165f7a3aee3eda9ed2c9b7533e13a23e861ab2c96,
+        _:cb18974ede4f7dd1e769fa30032ff5fb36c68e2f1d476cd813220bdab1c3859859c,
+        [ ],
+        _:cb1a6f2f30477a251bd8da152039e2184cf01e2110d2ea71065f83cff6ae0801b0e,
+        _:cb1c9e75a6d01860d8d85a51af8d067baf55193120a634459a5fc99c52fd7c5396a,
+        _:cb1db9df69873ff291534e233f2902e707849bac284b00f44be3460dc784d2f1a10,
+        _:cb1dd6abc44529684567298ccdb5c1c3561ccf920e7beb7b4751f5ae0a7dc4324b8,
+        _:cb1e4a10eb0bea38aca503622cd2a176a53ea162c6427adf5e4e126ee16506171d2,
+        _:cb1eb3e352a23c9cd899c8c7a2b7481d3b61716229654936d169a8d3ffe8e8aae60,
+        [ ],
+        _:cbf573fc32db27f69ea565c18744cc5df24ff70a31ac7f3a15225f5ec0ebb18e35,
+        rdfs:Resource,
+        onto:FragmentationEvent,
+        onto:OrbitalEvent,
+        onto:SpaceEvent ;
+    onto:affectsObject case:CZ6A_2022_151B ;
+    onto:causesEvent case:CZ6A_DebrisRiskEvent ;
+    onto:detectedFromData case:BaselineTrackingReport ;
+    onto:hasDuration "PT1M"^^xsd:duration ;
+    onto:hasEndTime "2022-11-12T05:20:00+00:00"^^xsd:dateTime ;
+    onto:hasEventConfidence "0.9"^^xsd:float ;
+    onto:hasEventDescription "CZ-6A 2022-151B 上面级发生解体并形成大量编目碎片"^^xsd:string ;
+    onto:hasEventID "EV-CZ6A-FRAG-2022"^^xsd:string ;
+    onto:hasEventLevel "major"^^xsd:string ;
+    onto:hasEventType "fragmentation"^^xsd:string ;
+    onto:hasOccurrenceTime "2022-11-12T05:19:00+00:00"^^xsd:dateTime ;
+    onto:hasStartTime "2022-11-12T05:19:00+00:00"^^xsd:dateTime ;
+    onto:involvesObject case:CZ6A_2022_151B ;
+    onto:occursInOrbit case:CZ6A_Orbit_2022 ;
+    onto:precedesEvent case:CZ6A_TrackingEvent_2023 ;
+    case:assessedCause "accidental_explosion"^^xsd:string ;
+    case:catalogedFragmentCount 533 ;
+    case:fragmentsInOrbitCount 529 .
+
+case:CZ6A_TrackingEvent_2023 a [ ],
+        _:cb10ecc1a5ab9a4e39fa482a69265144597b7be754e676ae5fb11635683ed2d43ec,
+        _:cb121d63e65a8fa1815b7faa14275d727f25a0500de37e5f0abfb6e4f30caacf2d8,
+        _:cb1354f9f91e00482e4ceec8b1a01c4d346b24e1b621f2843d685574331d13370ad,
+        _:cb13a975041f02cc3b5b57209bd2d27dce224901b89bc0e3a057bf9ede927984818,
+        _:cb13fb8d8481169fb46b54dd0177e11bab3b0798bb3bc61ec6440b1926ed260ac0a,
+        _:cb1409673aab0051664c1d549d68d307af504c82c05a9b1c6c5adb490bd988c4dbf,
+        _:cb1437b3cb83de6d22a0633c749239c419f66ae2c6242fd1a34866add0815662e03,
+        _:cb1443d55d29d2bc815486714f372d5780c0c7c318b5ed4f77d3ae06903b1b05f7f,
+        _:cb1453c275989f33e712bf2108328247524f3ded5fe18ae3547288b66d7f5b77ced,
+        _:cb160c5d064ba8575b2c22490543c6b3d302858cde5b31e452688799db0986d374d,
+        _:cb164bf6244ed87aa3f80529400e2c9ca8e798b2f2f3e8ed545a3700182e78a8278,
+        _:cb16e7665cebf54812cec617ccc463ec30a38622cf71697d98b48063909f3ccb286,
+        _:cb17a9ba4c4bd4c0a07f664f45165f7a3aee3eda9ed2c9b7533e13a23e861ab2c96,
+        _:cb18974ede4f7dd1e769fa30032ff5fb36c68e2f1d476cd813220bdab1c3859859c,
+        _:cb1a6f2f30477a251bd8da152039e2184cf01e2110d2ea71065f83cff6ae0801b0e,
+        _:cb1c9e75a6d01860d8d85a51af8d067baf55193120a634459a5fc99c52fd7c5396a,
+        _:cb1db9df69873ff291534e233f2902e707849bac284b00f44be3460dc784d2f1a10,
+        _:cb1dd6abc44529684567298ccdb5c1c3561ccf920e7beb7b4751f5ae0a7dc4324b8,
+        _:cb1e4a10eb0bea38aca503622cd2a176a53ea162c6427adf5e4e126ee16506171d2,
+        _:cb1eb3e352a23c9cd899c8c7a2b7481d3b61716229654936d169a8d3ffe8e8aae60,
+        [ ],
+        _:cbf573fc32db27f69ea565c18744cc5df24ff70a31ac7f3a15225f5ec0ebb18e35,
+        rdfs:Resource,
+        onto:ObservationEvent,
+        onto:SpaceEvent,
+        onto:TrackingEvent ;
+    onto:affectsObject case:CZ6A_2022_151B ;
+    onto:detectedFromData case:BaselineTrackingReport ;
+    onto:followsEvent case:CZ6A_Fragmentation_2022 ;
+    onto:hasDuration "PT1H"^^xsd:duration ;
+    onto:hasEndTime "2023-01-31T01:00:00+00:00"^^xsd:dateTime ;
+    onto:hasEventConfidence "0.9"^^xsd:float ;
+    onto:hasEventDescription "对CZ-6A解体碎片群进行后续编目和轨道跟踪"^^xsd:string ;
+    onto:hasEventID "EV-CZ6A-TRACK-2023"^^xsd:string ;
+    onto:hasEventLevel "routine"^^xsd:string ;
+    onto:hasEventType "tracking"^^xsd:string ;
+    onto:hasOccurrenceTime "2023-01-31T00:00:00+00:00"^^xsd:dateTime ;
+    onto:hasStartTime "2023-01-31T00:00:00+00:00"^^xsd:dateTime ;
+    onto:involvesObject case:CZ6A_2022_151B ;
+    onto:observedBySensor case:GroundRadar_01 ;
+    onto:occursInOrbit case:CZ6A_Orbit_2022 .
+
+case:CZ6A_DebrisRiskAssessment a rdfs:Resource,
+        prov:Entity,
+        onto:AssessmentData,
+        onto:RiskAssessmentData,
+        onto:SSAData,
+        onto:SituationAssessmentData ;
+    prov:wasAttributedTo case:Wacker2025_Provider ;
+    onto:describesObject case:CZ6A_2022_151B ;
+    onto:hasDataID "WACKER-2025-SDC9-220-CZ6A"^^xsd:string ;
+    onto:hasDataSource "Wacker D R, Klinner-Teo T, Ly J, et al. Analysis of recent CZ-6A rocket upper stage fragmentations. Proc. 9th European Conference on Space Debris, Bonn: ESA Space Debris Office, 2025."^^xsd:string ;
+    onto:hasDataType "orbital_debris_environment_assessment"^^xsd:string .
+
+case:ContinuousTrackingMeasure a [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        rdfs:Resource,
+        onto:ResponseMeasure ;
+    onto:hasMeasureDescription "持续更新碎片轨道并监测其与运营航天器的潜在交会风险"^^xsd:string ;
+    onto:hasMeasureID "RM-CZ6A-01"^^xsd:string ;
+    onto:hasMeasureLevel "important"^^xsd:string ;
+    onto:hasMeasureType "持续跟踪与交会监测"^^xsd:string ;
+    onto:isImplementedByEvent case:CZ6A_TrackingEvent_2023 ;
+    onto:mitigatesRisk onto:derived_debris_risk_f5da89a6cd738b34bfda1e1682c73bcbf2b73d0db44de0e95a6da168c1c98aa6 ;
+    onto:respondsToEvent case:CZ6A_DebrisRiskEvent ;
+    onto:respondsToThreat onto:derived_physical_threat_f5da89a6cd738b34bfda1e1682c73bcbf2b73d0db44de0e95a6da168c1c98aa6 .
+
+case:BaselineTrackingReport a [ ],
+        rdfs:Resource,
+        prov:Entity,
+        sosa:Result,
+        onto:ObservationData,
+        onto:SSAData ;
+    prov:wasAttributedTo case:NASA_ODQN_Provider ;
+    onto:describesObject case:CZ6A_2022_151B ;
+    onto:hasDataConfidence "0.9"^^xsd:float ;
+    onto:hasDataID "NASA-ODQN-27-1-CZ6A-2022-151B"^^xsd:string ;
+    onto:hasDataSource "NASA Orbital Debris Quarterly News, Vol. 27, Issue 1"^^xsd:string ;
+    onto:hasErrorValue "0.05"^^xsd:float ;
+    case:reportTime "2023-01-31T00:00:00+00:00"^^xsd:dateTime .
+
+case:CZ6A_DebrisRiskEvent a _:cb10ecc1a5ab9a4e39fa482a69265144597b7be754e676ae5fb11635683ed2d43ec,
+        _:cb121d63e65a8fa1815b7faa14275d727f25a0500de37e5f0abfb6e4f30caacf2d8,
+        _:cb1354f9f91e00482e4ceec8b1a01c4d346b24e1b621f2843d685574331d13370ad,
+        _:cb13a975041f02cc3b5b57209bd2d27dce224901b89bc0e3a057bf9ede927984818,
+        _:cb13fb8d8481169fb46b54dd0177e11bab3b0798bb3bc61ec6440b1926ed260ac0a,
+        _:cb1409673aab0051664c1d549d68d307af504c82c05a9b1c6c5adb490bd988c4dbf,
+        _:cb1437b3cb83de6d22a0633c749239c419f66ae2c6242fd1a34866add0815662e03,
+        _:cb1443d55d29d2bc815486714f372d5780c0c7c318b5ed4f77d3ae06903b1b05f7f,
+        _:cb1453c275989f33e712bf2108328247524f3ded5fe18ae3547288b66d7f5b77ced,
+        _:cb160c5d064ba8575b2c22490543c6b3d302858cde5b31e452688799db0986d374d,
+        _:cb164bf6244ed87aa3f80529400e2c9ca8e798b2f2f3e8ed545a3700182e78a8278,
+        _:cb16e7665cebf54812cec617ccc463ec30a38622cf71697d98b48063909f3ccb286,
+        _:cb17a9ba4c4bd4c0a07f664f45165f7a3aee3eda9ed2c9b7533e13a23e861ab2c96,
+        _:cb18974ede4f7dd1e769fa30032ff5fb36c68e2f1d476cd813220bdab1c3859859c,
+        _:cb1a6f2f30477a251bd8da152039e2184cf01e2110d2ea71065f83cff6ae0801b0e,
+        _:cb1c9e75a6d01860d8d85a51af8d067baf55193120a634459a5fc99c52fd7c5396a,
+        _:cb1db9df69873ff291534e233f2902e707849bac284b00f44be3460dc784d2f1a10,
+        _:cb1dd6abc44529684567298ccdb5c1c3561ccf920e7beb7b4751f5ae0a7dc4324b8,
+        _:cb1e4a10eb0bea38aca503622cd2a176a53ea162c6427adf5e4e126ee16506171d2,
+        _:cb1eb3e352a23c9cd899c8c7a2b7481d3b61716229654936d169a8d3ffe8e8aae60,
+        _:cbf573fc32db27f69ea565c18744cc5df24ff70a31ac7f3a15225f5ec0ebb18e35,
+        rdfs:Resource,
+        onto:DebrisRiskEvent,
+        onto:RiskEvent,
+        onto:SpaceEvent ;
+    onto:affectsObject case:CZ6A_2022_151B ;
+    onto:hasEventDescription "Wacker et al. (2025) 对 CZ-6A 2022-151B 上面级解体碎片的轨道寿命、空间密度和碰撞通量进行了长期评估。结果表明，该次解体形成的碎片具有长期在轨特征，并对约 800 km 轨道区域的空间密度和碰撞风险产生持续影响。本文据此将该碎片风险作为具有外部评估来源的显式事件知识。"^^xsd:string ;
+    onto:hasEventID "EV-CZ6A-DEBRIS-RISK"^^xsd:string ;
+    onto:hasEventType "debris_risk"^^xsd:string ;
+    onto:indicatesThreat onto:derived_physical_threat_f5da89a6cd738b34bfda1e1682c73bcbf2b73d0db44de0e95a6da168c1c98aa6 ;
+    onto:involvesObject case:CZ6A_2022_151B ;
+    onto:occursInOrbit case:CZ6A_Orbit_2022 ;
+    onto:supportedByData case:BaselineTrackingReport,
+        case:CZ6A_DebrisRiskAssessment .
+
+case:CZ6A_Orbit_2022 a _:cb12542f07167034d7908e95582961849b539b843b40f08a86366036b4cc6a3355f,
+        _:cb1706567e93be06d3f2558ddd1de7c66b7ee8965880c3b3513f1589d49737df4e9,
+        _:cb1734a30f6c9c2290469b75b4474e82d62506f65e4a5868882ca0ee993f057d52d,
+        _:cb1f9b64eab8d616467e928aef421b3a6b83b544b8cc5cdc7f4403dd1bbb2b6e094,
+        _:cb2147002ef4a7ee1a4b3b9b6c87b635616d3d765e68a37643324cafaa22b5318fc,
+        geo:Feature,
+        rdfs:Resource,
+        onto:EarthOrbit,
+        onto:LowEarthOrbit,
+        onto:Orbit ;
+    case:apogeeKm "847.0"^^xsd:float ;
+    case:eccentricity "0.002327"^^xsd:float ;
+    case:inclinationDeg "98.8"^^xsd:float ;
+    case:perigeeKm "813.0"^^xsd:float ;
+    case:semiMajorAxisKm "7208.15"^^xsd:float .
+
+case:CZ6A_2022_151B a _:cb2ce17ee7eb747a5641734c95dfa45202431e60fb9ac937b11258493b8fc4670cd,
+        _:cb3193a65f68c24c52a33a451ad42a93d26e6b7318da9c607c1b0d9c5b5a9213057,
+        _:cb31c1f2f041a0680ef7802cf1fd91503d1489d31ea43115b308990120025fb109b,
+        _:cb3a28b4cb8dda5bc52f77422cf85e07d273382179263589aa1ffbefa27e85a1c02,
+        _:cb3b60eae902eb6331be467d4b21194f793aee8266fbecbf5712280159fecd80750,
+        _:cb3bd4500fc9ac3398fc2052aa3df902c85cc0531ec27c236e0e44c230e60f6546a,
+        geo:Feature,
+        rdfs:Resource,
+        onto:ArtificialSpaceObject,
+        onto:RocketBody,
+        onto:SpaceObject ;
+    onto:hasObjectID "54236"^^xsd:string ;
+    onto:hasOrbit case:CZ6A_Orbit_2022 .
+

@@ -1,0 +1,60 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix onto:    <https://w3id.org/tc-sssao#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+#####################################################################
+# TC-SSSAO 规则部署配置（deployment-specific configuration）
+#
+# M2 第二阶段（2026-09-04）：旧五参数（θ_W=0.7、θ_AD=5.0、θ_AW=0.6、
+# θ_DP=0.8、θ_DD=1.0）已删除。碰撞风险态势规则 R5—R8 不再使用
+# hasRiskValue 综合评分，改用两个碰撞概率（Pc）判据参数：
+#   θ_A（attentionPcThreshold）   = 1E-7
+#   θ_M（mitigationPcThreshold）  = 1E-4
+# 工程依据（在线核实 2026-09-04）：
+#   θ_A = 1E-7：NASA CARA 运行关注水平——Pc > 1E-07 的事件定义为 yellow
+#     事件，"merit increased monitoring and attention"
+#     （NASA-SP-20205011318/REV2-VOL2, August 2026, Appendix F）。
+#   θ_M = 1E-4：NASA 高风险减缓判据——"Pursue mitigation if the Pc value
+#     exceeds 1E-04 (1 in 10,000)"，以及"miss distance 小于 hard-body
+#     radius 时采取减缓"（NASA-SP-20205011318/REV2-VOL1, August 2026,
+#     Section 6.0；流程框架见 NPR 8079.1, effective 2023-06-27）。
+#   组合硬体半径 h(e) 为事件级输入（hasCombinedHardBodyRadius），
+#   由外部交会评估给出，不是全局部署常数。
+#
+# 以下数值属于规则部署配置，由任务运行方在部署规则时设定，
+# 不构成本体模式层中的领域常数或不可变领域事实。
+# 注意：NASA 提供的是工程风险指标与判据；Normal/Attention/Warning/
+# Dangerous 四级是 TC-SSSAO 的实验语义映射，不是 NASA 官方状态分类。
+#
+# 使用方式（重要）：
+#   pySHACL 的 SPARQL 规则 WHERE 子句只对"数据图"求值，对 SHACL 规则图
+#   中的节点不可见。因此本文件必须被各运行脚本合并进数据图
+#   （与本体一起），R5—R8 才能读取到配置参数。请勿将配置实例放入
+#   tc_sssao_rules.ttl（规则图），否则参数匹配会静默失败。
+#   部署时应保证数据图中恰好存在一个 RuleDeploymentConfiguration 实例。
+#####################################################################
+
+# 规则部署配置版本元数据（M4 第一阶段；文档级元数据）
+<https://w3id.org/tc-sssao/config> a owl:Ontology ;
+    owl:versionInfo "1.0.0" ;
+    owl:versionIRI <https://w3id.org/tc-sssao/config/1.0.0> ;
+    dcterms:title "TC-SSSAO rule deployment configuration"@en ;
+    dcterms:title "TC-SSSAO 规则部署配置"@zh ;
+    dcterms:modified "2026-09-04"^^xsd:date ;
+    dcterms:license <https://opensource.org/license/mit> .
+
+onto:RuleDeploymentConfiguration a owl:Class ;
+    rdfs:comment "规则部署配置：承载风险态势规则的部署参数，不属于领域知识。"@zh .
+
+onto:attentionPcThreshold a owl:DatatypeProperty ;
+    rdfs:comment "θ_A：运行关注碰撞概率（Pc）阈值，实验参考值 1E-7（NASA CARA 运行关注水平）"@zh .
+onto:mitigationPcThreshold a owl:DatatypeProperty ;
+    rdfs:comment "θ_M：高风险减缓碰撞概率（Pc）阈值，实验参考值 1E-4（NASA CARA / NPR 8079.1 减缓判据）"@zh .
+
+onto:RiskSituationRuleConfig a onto:RuleDeploymentConfiguration ;
+    rdfs:comment "风险态势规则部署配置（实验示例配置）：数值由任务运行方在部署时配置，非领域常数。"@zh ;
+    onto:attentionPcThreshold "1.0E-7"^^xsd:float ;
+    onto:mitigationPcThreshold "1.0E-4"^^xsd:float .

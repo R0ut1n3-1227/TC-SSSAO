@@ -1,0 +1,24 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{submission-layout}[2026/11/11 Royal submission front matter]
+% Keep the publisher's class and Royal geometry unchanged. Suppress unassigned
+% production metadata and give the manuscript title the full text width.
+\makeatletter
+\renewcommand{\@maketitle}{%
+  {\sagesf\raggedright\titlesize\bfseries\@title\par}%
+  \vspace{12pt}%
+  {\sagesf\raggedright\large\bfseries\@author\par}%
+  \vspace{12pt}%
+  \noindent\usebox\absbox\par
+  \vspace{10pt}%
+  \noindent\@keywords\par
+  \vspace{12pt}%
+}
+\def\ps@submission{%
+  \def\@oddhead{\small\sagesf\leftmark\hfil\thepage}%
+  \let\@evenhead\@oddhead
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty
+}
+\let\ps@title\ps@plain
+\pagestyle{submission}
+\makeatother

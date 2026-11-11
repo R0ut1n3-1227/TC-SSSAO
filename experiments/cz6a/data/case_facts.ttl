@@ -1,0 +1,192 @@
+@prefix onto: <https://w3id.org/tc-sssao#> .
+@prefix case: <https://w3id.org/tc-sssao/data/cz6a-case#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+# ============================================================
+# CZ-6A 2022-151B 单案例表示与推理实验：推理前显式事实
+#
+# M3 第一阶段（2026-09-04）证据化重构：
+# - 案例的科学结论（解体形成的碎片环境及其长期碰撞风险影响）来自公开
+#   来源：NASA ODQN Vol.27 Issue 1 提供解体时间、编目/在轨碎片数量等
+#   事实；Wacker et al. 2025（SDC9 paper 220）提供碎片环境及长期碰撞
+#   风险影响的外部分析，编码为 RiskAssessmentData。
+# - DebrisRiskEvent 与 DirectCausalAssertion 是来源支撑的显式案例事实，
+#   不再由任何案例专属规则按碎片数量/轨道高度阈值生成。
+# - 推理前不写入 precedesEvent、causesEvent、indicatesThreat、
+#   mayManifestAsEvent、producesRisk、requiresResponseMeasure、
+#   respondsToThreat、threatMitigatedBy、mitigatesRisk、mitigatedBy
+#   等待验证的通用规则输出；PhysicalThreat / DebrisRisk 实例由 B4 派生。
+# - 案例不再包含 Normal/Attention 态势状态与 StateTransition：
+#   公开资料证明解体及碎片环境影响，并不等于提供 TC-SSSAO 四级风险状态
+#   中的具体级别；四级态势验证由通用四快照场景（M2 第二阶段）承担。
+# - catalogedFragmentCount / perigeeKm 等仅作描述性事实记录来源数据，
+#   不作为任何规则的判定阈值。
+# ============================================================
+
+case:CZ6A_2022_151B
+    a onto:RocketBody ;
+    onto:hasObjectID "54236"^^xsd:string ;
+    onto:hasOrbit case:CZ6A_Orbit_2022 .
+
+case:CZ6A_Orbit_2022
+    a onto:LowEarthOrbit ;
+    case:perigeeKm "813"^^xsd:float ;
+    case:apogeeKm "847"^^xsd:float ;
+    case:inclinationDeg "98.8"^^xsd:float ;
+    case:semiMajorAxisKm "7208.15"^^xsd:float ;
+    case:eccentricity "0.002327"^^xsd:float .
+
+case:CZ6A_Fragment_54263
+    a onto:RocketDebris ;
+    onto:hasObjectID "54263"^^xsd:string ;
+    onto:hasOrbit case:Orbit_54263_Early .
+
+case:Orbit_54263_Early
+    a onto:LowEarthOrbit ;
+    case:perigeeKm "825.8320"^^xsd:float ;
+    case:apogeeKm "1282.0035"^^xsd:float .
+
+case:CZ6A_Fragment_54334
+    a onto:RocketDebris ;
+    onto:hasObjectID "54334"^^xsd:string ;
+    onto:hasOrbit case:Orbit_54334_Early .
+
+case:Orbit_54334_Early
+    a onto:LowEarthOrbit ;
+    case:perigeeKm "661.3593"^^xsd:float ;
+    case:apogeeKm "856.4783"^^xsd:float .
+
+case:CZ6A_Fragment_54344
+    a onto:RocketDebris ;
+    onto:hasObjectID "54344"^^xsd:string ;
+    onto:hasOrbit case:Orbit_54344_Early .
+
+case:Orbit_54344_Early
+    a onto:LowEarthOrbit ;
+    case:perigeeKm "829.8579"^^xsd:float ;
+    case:apogeeKm "911.7746"^^xsd:float .
+
+# ---------- 观测证据（NASA ODQN Vol.27 Issue 1）----------
+case:GroundRadar_01
+    a onto:RadarSensor ;
+    onto:generatesData case:BaselineTrackingReport .
+
+case:BaselineTrackingReport
+    a onto:ObservationData ;
+    onto:hasDataID "NASA-ODQN-27-1-CZ6A-2022-151B"^^xsd:string ;
+    onto:hasDataSource "NASA Orbital Debris Quarterly News, Vol. 27, Issue 1"^^xsd:string ;
+    case:reportTime "2023-01-31T00:00:00Z"^^xsd:dateTime ;
+    onto:hasDataConfidence "0.90"^^xsd:float ;
+    onto:hasErrorValue "0.05"^^xsd:float ;
+    onto:describesObject case:CZ6A_2022_151B .
+
+# ---------- 解体事件（NASA ODQN 事实记录）----------
+case:CZ6A_Fragmentation_2022
+    a onto:FragmentationEvent ;
+    onto:hasEventID "EV-CZ6A-FRAG-2022"^^xsd:string ;
+    onto:hasEventType "fragmentation"^^xsd:string ;
+    onto:hasEventLevel "major"^^xsd:string ;
+    onto:hasOccurrenceTime "2022-11-12T05:19:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2022-11-12T05:19:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2022-11-12T05:20:00Z"^^xsd:dateTime ;
+    onto:hasDuration "PT1M"^^xsd:duration ;
+    onto:hasEventConfidence "0.90"^^xsd:float ;
+    onto:hasEventDescription "CZ-6A 2022-151B 上面级发生解体并形成大量编目碎片"^^xsd:string ;
+    onto:involvesObject case:CZ6A_2022_151B ;
+    onto:affectsObject case:CZ6A_2022_151B ;
+    onto:occursInOrbit case:CZ6A_Orbit_2022 ;
+    onto:detectedFromData case:BaselineTrackingReport ;
+    case:catalogedFragmentCount "533"^^xsd:integer ;
+    case:fragmentsInOrbitCount "529"^^xsd:integer ;
+    case:assessedCause "accidental_explosion"^^xsd:string .
+
+case:CZ6A_TrackingEvent_2023
+    a onto:TrackingEvent ;
+    onto:hasEventID "EV-CZ6A-TRACK-2023"^^xsd:string ;
+    onto:hasEventType "tracking"^^xsd:string ;
+    onto:hasEventLevel "routine"^^xsd:string ;
+    onto:hasOccurrenceTime "2023-01-31T00:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2023-01-31T00:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2023-01-31T01:00:00Z"^^xsd:dateTime ;
+    onto:hasDuration "PT1H"^^xsd:duration ;
+    onto:hasEventConfidence "0.90"^^xsd:float ;
+    onto:hasEventDescription "对CZ-6A解体碎片群进行后续编目和轨道跟踪"^^xsd:string ;
+    onto:involvesObject case:CZ6A_2022_151B ;
+    onto:affectsObject case:CZ6A_2022_151B ;
+    onto:occursInOrbit case:CZ6A_Orbit_2022 ;
+    onto:observedBySensor case:GroundRadar_01 ;
+    onto:detectedFromData case:BaselineTrackingReport .
+
+# ---------- 评估证据（Wacker et al. 2025 外部风险评估）----------
+# 仅记录来源实际支持的内容：该研究分析了 CZ-6A 上面级 2022-151B 等
+# 解体事件形成的碎片环境及其长期碰撞风险影响。hasDataType 仅承担数据
+# 语义标签，不是风险等级；来源未给出定量置信度，故不记录置信度数值。
+case:CZ6A_DebrisRiskAssessment
+    a onto:RiskAssessmentData ;
+    onto:hasDataID "WACKER-2025-SDC9-220-CZ6A"^^xsd:string ;
+    onto:hasDataType "orbital_debris_environment_assessment"^^xsd:string ;
+    onto:hasDataSource "Wacker D R, Klinner-Teo T, Ly J, et al. Analysis of recent CZ-6A rocket upper stage fragmentations. Proc. 9th European Conference on Space Debris, Bonn: ESA Space Debris Office, 2025."^^xsd:string ;
+    onto:describesObject case:CZ6A_2022_151B .
+
+# ---------- 标准溯源断言（M5 Phase 1，spec 第 8.6 节）----------
+# 两个 DataProvider 实例对应上文 hasDataSource 字面量已引用的真实来源，
+# 不凭空新增来源；prov:wasAttributedTo 在实例层表达标准 provenance，
+# hasDataSource 继续保留为 human-readable 字面量引用（不对 prov: 形式映射）。
+case:NASA_ODQN_Provider
+    a onto:DataProvider ;
+    rdfs:label "NASA Orbital Debris Quarterly News (Vol. 27, Issue 1)"@en .
+
+case:Wacker2025_Provider
+    a onto:DataProvider ;
+    rdfs:label "Wacker et al. (2025), 9th European Conference on Space Debris"@en .
+
+case:BaselineTrackingReport
+    prov:wasAttributedTo case:NASA_ODQN_Provider .
+
+case:CZ6A_DebrisRiskAssessment
+    prov:wasAttributedTo case:Wacker2025_Provider .
+
+# ---------- 来源支撑的显式碎片风险事件知识 ----------
+# 对应外部风险评估确认的碎片风险：不再由案例阈值规则生成。
+# 不记录来源未支持的 hasRiskValue、hasEventLevel、hasEventConfidence
+# 及起止时间/持续时间。R13 要求的 ObservationData 证据由
+# BaselineTrackingReport 承担，风险评估证据由 CZ6A_DebrisRiskAssessment 承担。
+# 作用范围说明：Wacker et al. (2025) 给出的"十年碰撞风险约增加 20%"
+# 是 2022-151B 与 2024-140U 两次 CZ-6A 上面级解体碎片云的联合估计，
+# 不作为本单一事件实例的属性记录。
+case:CZ6A_DebrisRiskEvent
+    a onto:DebrisRiskEvent ;
+    onto:hasEventID "EV-CZ6A-DEBRIS-RISK"^^xsd:string ;
+    onto:hasEventType "debris_risk"^^xsd:string ;
+    onto:hasEventDescription "Wacker et al. (2025) 对 CZ-6A 2022-151B 上面级解体碎片的轨道寿命、空间密度和碰撞通量进行了长期评估。结果表明，该次解体形成的碎片具有长期在轨特征，并对约 800 km 轨道区域的空间密度和碰撞风险产生持续影响。本文据此将该碎片风险作为具有外部评估来源的显式事件知识。"^^xsd:string ;
+    onto:involvesObject case:CZ6A_2022_151B ;
+    onto:affectsObject case:CZ6A_2022_151B ;
+    onto:occursInOrbit case:CZ6A_Orbit_2022 ;
+    onto:supportedByData case:BaselineTrackingReport ;
+    onto:supportedByData case:CZ6A_DebrisRiskAssessment .
+
+# ---------- 来源支撑的显式因果断言 ----------
+# 因果断言本身记录来自外部研究和案例建模的知识；B1 仅将其投影为
+# 直接 causesEvent 关系。来源未给出该因果关系的定量置信度，
+# 故不记录 hasCausalConfidence（M3 起该属性为可选元数据）。
+case:CZ6A_FragmentationRiskAssertion
+    a onto:DirectCausalAssertion ;
+    onto:hasCause case:CZ6A_Fragmentation_2022 ;
+    onto:hasEffect case:CZ6A_DebrisRiskEvent ;
+    onto:hasCausalEvidence case:CZ6A_DebrisRiskAssessment ;
+    onto:hasCausalMechanism "高轨解体产生大量长寿命在轨碎片，对同轨道区域空间目标构成持续碰撞风险（机制描述对应外部评估结论）"^^xsd:string .
+
+# ---------- 应用层响应知识（显式给出，非规则发明）----------
+# ContinuousTrackingMeasure 是本文用于验证响应关系的领域应用知识，
+# 并非 NASA/Wacker 来源明确提出的措施；B5 不负责选择或生成具体措施，
+# 只将其与派生的威胁/风险建立语义连接。
+case:ContinuousTrackingMeasure
+    a onto:ResponseMeasure ;
+    onto:hasMeasureID "RM-CZ6A-01"^^xsd:string ;
+    onto:hasMeasureType "持续跟踪与交会监测"^^xsd:string ;
+    onto:hasMeasureLevel "important"^^xsd:string ;
+    onto:hasMeasureDescription "持续更新碎片轨道并监测其与运营航天器的潜在交会风险"^^xsd:string ;
+    onto:respondsToEvent case:CZ6A_DebrisRiskEvent ;
+    onto:isImplementedByEvent case:CZ6A_TrackingEvent_2023 .

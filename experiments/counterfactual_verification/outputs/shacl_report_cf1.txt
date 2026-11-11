@@ -1,0 +1,24 @@
+Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in SPARQLConstraintComponent (http://www.w3.org/ns/shacl#SPARQLConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: onto:EventDataEvidenceShape
+	Focus Node: <https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver>
+	Value Node: <https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver>
+	Source Constraint: [ sh:message Literal("空间事件缺少数据证据（detectedFromData 或 supportedByData）", lang=zh) ; sh:select Literal("
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            SELECT $this
+            WHERE {
+                $this a onto:SpaceEvent .
+                FILTER NOT EXISTS {
+                    $this onto:detectedFromData ?d .
+                    ?d a onto:ObservationData .
+                }
+                FILTER NOT EXISTS {
+                    $this onto:supportedByData ?d .
+                    ?d a onto:ObservationData .
+                }
+            }
+        ") ]
+	Message: 空间事件缺少数据证据（detectedFromData 或 supportedByData）

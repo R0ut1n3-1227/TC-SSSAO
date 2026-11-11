@@ -1,0 +1,313 @@
+{
+  "test": "error_detector_bad_edge_injection",
+  "date": "2026-10-13T10:53:34.971859",
+  "passed": true,
+  "case_count": 9,
+  "counter_count": 11,
+  "assertion": "full 11-counter vector == documented expectation per case (target counter == 1 implied); error_details length == total counted errors; coupled categories pinned explicitly",
+  "coupled_categories": {
+    "Type 3": "time-reversed edge is necessarily non-adjacent (also Type 2)",
+    "Type 4/7a": "same recovers-with-increase edge, two counter wordings",
+    "Type 5/7b": "same degrades-not-2->3 edge, two counter wordings",
+    "Type 6": "same-rank edge built cross-event (also Type 1)"
+  },
+  "cases": [
+    {
+      "label": "Type 1: cross_event (different event_keys)",
+      "target_counter": "err_cross_event",
+      "observed_target": 1,
+      "observed_vector": {
+        "err_cross_event": 1,
+        "err_within_non_adjacent": 0,
+        "err_time_direction": 0,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 0
+      },
+      "expected_vector": {
+        "err_cross_event": 1,
+        "err_within_non_adjacent": 0,
+        "err_time_direction": 0,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 0
+      },
+      "error_details_count": 1,
+      "passed": true
+    },
+    {
+      "label": "Type 2: within_non_adjacent (group_position gap=2)",
+      "target_counter": "err_within_non_adjacent",
+      "observed_target": 1,
+      "observed_vector": {
+        "err_cross_event": 0,
+        "err_within_non_adjacent": 1,
+        "err_time_direction": 0,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 0
+      },
+      "expected_vector": {
+        "err_cross_event": 0,
+        "err_within_non_adjacent": 1,
+        "err_time_direction": 0,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 0
+      },
+      "error_details_count": 1,
+      "passed": true
+    },
+    {
+      "label": "Type 3: time_direction (time doesn't decrease; coupled with non-adjacency)",
+      "target_counter": "err_time_direction",
+      "observed_target": 1,
+      "observed_vector": {
+        "err_cross_event": 0,
+        "err_within_non_adjacent": 1,
+        "err_time_direction": 1,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 0
+      },
+      "expected_vector": {
+        "err_cross_event": 0,
+        "err_within_non_adjacent": 1,
+        "err_time_direction": 1,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 0
+      },
+      "error_details_count": 2,
+      "passed": true
+    },
+    {
+      "label": "Type 4/7a: recovers_direction + mismatch_predicate (recovers but r1<r2; coupled)",
+      "target_counter": "err_recovers_direction",
+      "observed_target": 1,
+      "observed_vector": {
+        "err_cross_event": 0,
+        "err_within_non_adjacent": 0,
+        "err_time_direction": 0,
+        "err_recovers_direction": 1,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 1,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 0
+      },
+      "expected_vector": {
+        "err_cross_event": 0,
+        "err_within_non_adjacent": 0,
+        "err_time_direction": 0,
+        "err_recovers_direction": 1,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 1,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 0
+      },
+      "error_details_count": 2,
+      "passed": true
+    },
+    {
+      "label": "Type 5/7b: degrades_warning + degrades_predicate_mismatch (degrades but not 2->3; coupled)",
+      "target_counter": "err_degrades_warning",
+      "observed_target": 1,
+      "observed_vector": {
+        "err_cross_event": 0,
+        "err_within_non_adjacent": 0,
+        "err_time_direction": 0,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 1,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 1,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 0
+      },
+      "expected_vector": {
+        "err_cross_event": 0,
+        "err_within_non_adjacent": 0,
+        "err_time_direction": 0,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 1,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 1,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 0
+      },
+      "error_details_count": 2,
+      "passed": true
+    },
+    {
+      "label": "Type 6: transits_same_rank (r1==r2; coupled with cross_event)",
+      "target_counter": "err_transits_same_rank",
+      "observed_target": 1,
+      "observed_vector": {
+        "err_cross_event": 1,
+        "err_within_non_adjacent": 0,
+        "err_time_direction": 0,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 1,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 0
+      },
+      "expected_vector": {
+        "err_cross_event": 1,
+        "err_within_non_adjacent": 0,
+        "err_time_direction": 0,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 1,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 0
+      },
+      "error_details_count": 2,
+      "passed": true
+    },
+    {
+      "label": "Type 8: missing_recovers_on_downgrade (r1>r2 but recovers=False; single violation)",
+      "target_counter": "err_missing_recovers_on_downgrade",
+      "observed_target": 1,
+      "observed_vector": {
+        "err_cross_event": 0,
+        "err_within_non_adjacent": 0,
+        "err_time_direction": 0,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 1,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 0
+      },
+      "expected_vector": {
+        "err_cross_event": 0,
+        "err_within_non_adjacent": 0,
+        "err_time_direction": 0,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 1,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 0
+      },
+      "error_details_count": 1,
+      "passed": true
+    },
+    {
+      "label": "Type 9: missing_degrades_on_warning_dangerous (2->3 but degrades=False; single violation)",
+      "target_counter": "err_missing_degrades_on_warning_dangerous",
+      "observed_target": 1,
+      "observed_vector": {
+        "err_cross_event": 0,
+        "err_within_non_adjacent": 0,
+        "err_time_direction": 0,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 1,
+        "err_direction_field_inconsistent": 0
+      },
+      "expected_vector": {
+        "err_cross_event": 0,
+        "err_within_non_adjacent": 0,
+        "err_time_direction": 0,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 1,
+        "err_direction_field_inconsistent": 0
+      },
+      "error_details_count": 1,
+      "passed": true
+    },
+    {
+      "label": "Type 10: direction_field_inconsistent (single violation)",
+      "target_counter": "err_direction_field_inconsistent",
+      "observed_target": 1,
+      "observed_vector": {
+        "err_cross_event": 0,
+        "err_within_non_adjacent": 0,
+        "err_time_direction": 0,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 1
+      },
+      "expected_vector": {
+        "err_cross_event": 0,
+        "err_within_non_adjacent": 0,
+        "err_time_direction": 0,
+        "err_recovers_direction": 0,
+        "err_degrades_warning": 0,
+        "err_transits_same_rank": 0,
+        "err_mismatch_predicate": 0,
+        "err_mismatch_predicate2": 0,
+        "err_missing_recovers_on_downgrade": 0,
+        "err_missing_degrades_on_warning_dangerous": 0,
+        "err_direction_field_inconsistent": 1
+      },
+      "error_details_count": 1,
+      "passed": true
+    }
+  ]
+}

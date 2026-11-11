@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="7" skipped="0" tests="43" time="57.640" timestamp="2026-10-11T21:50:05.533971+08:00" hostname="R0ut1n3"><testcase classname="tests.test_rule_input_preflight" name="test_config_zero_instances_fail" time="0.393" /><testcase classname="tests.test_rule_input_preflight" name="test_config_one_instance_pass" time="0.332" /><testcase classname="tests.test_rule_input_preflight" name="test_config_two_instances_fail" time="0.340"><failure message="AssertionError: Two configs should fail validation&#10;assert not True">def test_config_two_instances_fail():
+        """P3: 2 RuleDeploymentConfiguration instances -&gt; should FAIL."""
+        fixture = FIXTURES_DIR / "p3_two_configs.ttl"
+        data = Graph()
+        data.parse(fixture.as_uri(), format="turtle")
+    
+        config_count = count_rule_deployment_configs(data)
+        assert config_count == 2, f"Expected 2 configs, got {config_count}"
+    
+        # Multiple configs is invalid - should produce a violation
+        shapes = load_extra_shapes()
+        ontology = load_ontology()
+        conforms, report, _ = run_shacl_validation(data, shapes, ontology)
+&gt;       assert not conforms, "Two configs should fail validation"
+E       AssertionError: Two configs should fail validation
+E       assert not True
+
+tests\test_rule_input_preflight.py:183: AssertionError</failure></testcase><testcase classname="tests.test_rule_input_preflight" name="test_thetaA_negative_fail" time="0.100"><failure message="AssertionError: thetaA cannot be negative&#10;assert -1e-07 &gt;= 0">def test_thetaA_negative_fail():
+        """P4: thetaA (attentionPcThreshold) negative -&gt; should FAIL."""
+        fixture = FIXTURES_DIR / "p4_thetaA_negative.ttl"
+        data = Graph()
+        data.parse(fixture.as_uri(), format="turtle")
+    
+        ontology = load_ontology()
+        rules = load_rules()
+        config = load_rule_config()
+    
+        # Check config value
+        for config_node in data.subjects(RDF.type, ONTO.RuleDeploymentConfiguration):
+            theta_a = next(
+                data.objects(config_node, ONTO.attentionPcThreshold), None
+            )
+            if theta_a is not None:
+                theta_a_val = float(theta_a)
+                assert theta_a_val &lt; 0, "thetaA should be negative for this test"
+                # Negative theta is invalid for probability
+&gt;               assert theta_a_val &gt;= 0, "thetaA cannot be negative"
+E               AssertionError: thetaA cannot be negative
+E               assert -1e-07 &gt;= 0
+
+tests\test_rule_input_preflight.py:210: AssertionError</failure></testcase><testcase classname="tests.test_rule_input_preflight" name="test_thetaM_greater_than_1_fail" time="0.002"><failure message="AssertionError: thetaM cannot exceed 1&#10;assert 1.5 &lt;= 1">def test_thetaM_greater_than_1_fail():
+        """P5: thetaM (mitigationPcThreshold) &gt; 1 -&gt; should FAIL."""
+        fixture = FIXTURES_DIR / "p5_thetaM_gt_1.ttl"
+        data = Graph()
+        data.parse(fixture.as_uri(), format="turtle")
+    
+        for config_node in data.subjects(RDF.type, ONTO.RuleDeploymentConfiguration):
+            theta_m = next(
+                data.objects(config_node, ONTO.mitigationPcThreshold), None
+            )
+            if theta_m is not None:
+                theta_m_val = float(theta_m)
+                assert theta_m_val &gt; 1, "thetaM should be &gt; 1 for this test"
+                # Probability &gt; 1 is invalid
+&gt;               assert theta_m_val &lt;= 1, "thetaM cannot exceed 1"
+E               AssertionError: thetaM cannot exceed 1
+E               assert 1.5 &lt;= 1
+
+tests\test_rule_input_preflight.py:227: AssertionError</failure></testcase><testcase classname="tests.test_rule_input_preflight" name="test_thetaA_equals_thetaM_fail" time="0.002"><failure message="AssertionError: thetaA must be &lt; thetaM&#10;assert 0.0001 &lt; 0.0001&#10; +  where 0.0001 = float(rdflib.term.Literal('0.0001', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#float')))&#10; +  and   0.0001 = float(rdflib.term.Literal('0.0001', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#float')))">def test_thetaA_equals_thetaM_fail():
+        """P6: thetaA == thetaM -&gt; should FAIL (must be strictly less)."""
+        fixture = FIXTURES_DIR / "p6_thetaA_eq_thetaM.ttl"
+        data = Graph()
+        data.parse(fixture.as_uri(), format="turtle")
+    
+        for config_node in data.subjects(RDF.type, ONTO.RuleDeploymentConfiguration):
+            theta_a = next(
+                data.objects(config_node, ONTO.attentionPcThreshold), None
+            )
+            theta_m = next(
+                data.objects(config_node, ONTO.mitigationPcThreshold), None
+            )
+            if theta_a is not None and theta_m is not None:
+                assert float(theta_a) == float(theta_m), "thetaA should equal thetaM for this test"
+                # Equal thetas violate the strict inequality requirement
+&gt;               assert float(theta_a) &lt; float(theta_m), "thetaA must be &lt; thetaM"
+E               AssertionError: thetaA must be &lt; thetaM
+E               assert 0.0001 &lt; 0.0001
+E                +  where 0.0001 = float(rdflib.term.Literal('0.0001', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#float')))
+E                +  and   0.0001 = float(rdflib.term.Literal('0.0001', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#float')))
+
+tests\test_rule_input_preflight.py:246: AssertionError</failure></testcase><testcase classname="tests.test_rule_input_preflight" name="test_thetaA_greater_than_thetaM_fail" time="0.002"><failure message="AssertionError: thetaA must be &lt; thetaM&#10;assert 0.001 &lt; 1e-07&#10; +  where 0.001 = float(rdflib.term.Literal('0.001', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#float')))&#10; +  and   1e-07 = float(rdflib.term.Literal('1e-07', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#float')))">def test_thetaA_greater_than_thetaM_fail():
+        """P7: thetaA &gt; thetaM -&gt; should FAIL."""
+        fixture = FIXTURES_DIR / "p7_thetaA_gt_thetaM.ttl"
+        data = Graph()
+        data.parse(fixture.as_uri(), format="turtle")
+    
+        for config_node in data.subjects(RDF.type, ONTO.RuleDeploymentConfiguration):
+            theta_a = next(
+                data.objects(config_node, ONTO.attentionPcThreshold), None
+            )
+            theta_m = next(
+                data.objects(config_node, ONTO.mitigationPcThreshold), None
+            )
+            if theta_a is not None and theta_m is not None:
+                assert float(theta_a) &gt; float(theta_m), "thetaA should &gt; thetaM for this test"
+                # Inverted thetas violate ordering
+&gt;               assert float(theta_a) &lt; float(theta_m), "thetaA must be &lt; thetaM"
+E               AssertionError: thetaA must be &lt; thetaM
+E               assert 0.001 &lt; 1e-07
+E                +  where 0.001 = float(rdflib.term.Literal('0.001', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#float')))
+E                +  and   1e-07 = float(rdflib.term.Literal('1e-07', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#float')))
+
+tests\test_rule_input_preflight.py:265: AssertionError</failure></testcase><testcase classname="tests.test_rule_input_preflight" name="test_normal_thresholds_pass" time="0.336" /><testcase classname="tests.test_rule_input_preflight" name="test_Pc_multivalued_fail" time="0.392" /><testcase classname="tests.test_rule_input_preflight" name="test_Pc_negative_fail" time="0.343" /><testcase classname="tests.test_rule_input_preflight" name="test_Pc_greater_than_1_fail" time="0.369" /><testcase classname="tests.test_rule_input_preflight" name="test_Pc_valid_pass" time="0.363"><failure message="AssertionError: Valid Pc should pass&#10;assert False">def test_Pc_valid_pass():
+        """P12: Valid Pc (0 &lt; Pc &lt;= 1) -&gt; should PASS."""
+        fixture = FIXTURES_DIR / "p12_pc_valid.ttl"
+        data = Graph()
+        data.parse(fixture.as_uri(), format="turtle")
+    
+        shapes = load_extra_shapes()
+        ontology = load_ontology()
+        conforms, _, _ = run_shacl_validation(data, shapes, ontology)
+&gt;       assert conforms, "Valid Pc should pass"
+E       AssertionError: Valid Pc should pass
+E       assert False
+
+tests\test_rule_input_preflight.py:330: AssertionError</failure></testcase><testcase classname="tests.test_rule_input_preflight" name="test_missDistance_multivalued_fail" time="0.361" /><testcase classname="tests.test_rule_input_preflight" name="test_missDistance_negative_fail" time="0.373" /><testcase classname="tests.test_rule_input_preflight" name="test_HBR_multivalued_fail" time="0.350" /><testcase classname="tests.test_rule_input_preflight" name="test_HBR_zero_fail" time="0.370" /><testcase classname="tests.test_rule_input_preflight" name="test_HBR_negative_fail" time="0.357" /><testcase classname="tests.test_rule_input_preflight" name="test_primary_multivalued_fail" time="0.366" /><testcase classname="tests.test_rule_input_preflight" name="test_secondary_multivalued_fail" time="0.367" /><testcase classname="tests.test_rule_input_preflight" name="test_primary_equals_secondary_fail" time="0.368" /><testcase classname="tests.test_rule_input_preflight" name="test_severity_rank_minus1_fail" time="0.333" /><testcase classname="tests.test_rule_input_preflight" name="test_severity_rank_4_fail" time="0.348" /><testcase classname="tests.test_rule_input_preflight" name="test_severity_rank_0_1_2_3_pass" time="0.364" /><testcase classname="tests.test_rule_input_preflight" name="test_causalAssertion_missing_evidence_fail" time="0.354" /><testcase classname="tests.test_rule_input_preflight" name="test_causalAssertion_two_effects_fail" time="0.440" /><testcase classname="tests.test_rule_input_preflight" name="test_causalAssertion_complete_pass" time="0.453" /><testcase classname="tests.test_rule_input_preflight" name="test_stateTransition_missing_trigger_fail" time="0.355" /><testcase classname="tests.test_rule_input_preflight" name="test_stateTransition_two_targets_fail" time="0.364" /><testcase classname="tests.test_rule_input_preflight" name="test_stateTransition_complete_pass" time="0.368" /><testcase classname="tests.test_rule_input_preflight" name="test_collisionRisk_blank_node_fail" time="0.395" /><testcase classname="tests.test_rule_input_preflight" name="test_collisionRisk_named_iri_pass" time="0.378"><failure message="AssertionError: Named IRI CollisionRiskEvent should pass&#10;assert False">def test_collisionRisk_named_iri_pass():
+        """P31: CollisionRiskEvent with named IRI -&gt; should PASS."""
+        fixture = FIXTURES_DIR / "p31_named_iri_collision_risk.ttl"
+        data = Graph()
+        data.parse(fixture.as_uri(), format="turtle")
+    
+        shapes = load_extra_shapes()
+        ontology = load_ontology()
+        conforms, _, _ = run_shacl_validation(data, shapes, ontology)
+&gt;       assert conforms, "Named IRI CollisionRiskEvent should pass"
+E       AssertionError: Named IRI CollisionRiskEvent should pass
+E       assert False
+
+tests\test_rule_input_preflight.py:593: AssertionError</failure></testcase><testcase classname="tests.test_rule_input_preflight" name="test_b3_adjacency_with_unrated_middle_event" time="8.891" /><testcase classname="tests.test_rule_input_preflight" name="test_b3_severity_increasing_normal_to_attention_pass" time="5.389" /><testcase classname="tests.test_rule_input_preflight" name="test_b3_severity_increasing_attention_to_warning_pass" time="5.625" /><testcase classname="tests.test_rule_input_preflight" name="test_b3_severity_increasing_warning_to_dangerous_pass" time="5.496" /><testcase classname="tests.test_rule_input_preflight" name="test_b3_severity_decreasing_dangerous_to_warning" time="5.410" /><testcase classname="tests.test_rule_input_preflight" name="test_b3_severity_decreasing_warning_to_attention" time="5.507" /><testcase classname="tests.test_rule_input_preflight" name="test_b3_no_same_severity_transition" time="5.442" /><testcase classname="tests.test_rule_input_preflight" name="test_collision_risk_with_observation_plus_assessment_pass" time="1.061" /><testcase classname="tests.test_rule_input_preflight" name="test_collision_risk_assessment_only_fail" time="0.944" /><testcase classname="tests.test_rule_input_preflight" name="test_causesEvent_from_R3_R4_without_CausalAssertion" time="1.133" /><testcase classname="tests.test_rule_input_preflight" name="test_causesEvent_from_B1_with_complete_CausalAssertion" time="1.235" /><testcase classname="tests.test_rule_input_preflight" name="test_explicit_CausalAssertion_missing_evidence_fail" time="0.407" /></testsuite></testsuites>

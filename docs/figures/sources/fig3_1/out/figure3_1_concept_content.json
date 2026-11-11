@@ -1,0 +1,388 @@
+{
+  "figure": "figure3_1_concept",
+  "nature": "publication-layout vector redraw based on audited OWL content; not a Protégé/OntoGraf raw export",
+  "sources": [
+    "ontology/tc_sssao.owl",
+    "paper/Chinese/sections/chapter3_ontology.tex",
+    "docs/figures/sources/fig3_1/class_inventory_final_drawing.tsv",
+    "docs/figures/sources/fig3_1/relation_inventory_final_drawing.tsv"
+  ],
+  "canvas": {
+    "width": 5200,
+    "height": 2500
+  },
+  "class_modules": {
+    "Space Object / Orbit": [
+      "SpaceObject",
+      "ArtificialSpaceObject",
+      "Spacecraft",
+      "Satellite",
+      "RocketBody",
+      "SpaceDebris",
+      "Orbit",
+      "EarthOrbit"
+    ],
+    "Observation System / Data": [
+      "ObservationSystem",
+      "Sensor",
+      "RadarSensor",
+      "OpticalSensor",
+      "InfraredSensor",
+      "SensorNetwork",
+      "SSAData",
+      "ObservationData"
+    ],
+    "Space Event / Temporal Relation": [
+      "SpaceEvent",
+      "ObjectBehaviorEvent",
+      "OrbitalEvent",
+      "SpatialRelationEvent",
+      "RiskEvent",
+      "OrbitManeuverEvent",
+      "ApproachEvent",
+      "CollisionRiskEvent"
+    ],
+    "Causal Assertion / Event Relation": [
+      "CausalAssertion",
+      "MultiCauseAssertion"
+    ],
+    "Situation State / State Transition": [
+      "SituationState",
+      "NormalSituationState",
+      "AttentionSituationState",
+      "WarningSituationState",
+      "DangerousSituationState",
+      "StateTransition"
+    ],
+    "Threat / Risk / Response": [
+      "SecurityThreat",
+      "PhysicalThreat",
+      "EnvironmentalThreat",
+      "SecurityRisk",
+      "CollisionRisk",
+      "DebrisRisk",
+      "ResponseMeasure",
+      "AvoidanceMeasure"
+    ]
+  },
+  "subclass_edges": [
+    {
+      "child": "ArtificialSpaceObject",
+      "parent": "SpaceObject",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "Spacecraft",
+      "parent": "ArtificialSpaceObject",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "Satellite",
+      "parent": "Spacecraft",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "RocketBody",
+      "parent": "ArtificialSpaceObject",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "SpaceDebris",
+      "parent": "ArtificialSpaceObject",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "EarthOrbit",
+      "parent": "Orbit",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "Sensor",
+      "parent": "ObservationSystem",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "RadarSensor",
+      "parent": "Sensor",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "OpticalSensor",
+      "parent": "Sensor",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "InfraredSensor",
+      "parent": "Sensor",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "SensorNetwork",
+      "parent": "ObservationSystem",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "ObservationData",
+      "parent": "SSAData",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "ObjectBehaviorEvent",
+      "parent": "SpaceEvent",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "OrbitalEvent",
+      "parent": "SpaceEvent",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "SpatialRelationEvent",
+      "parent": "SpaceEvent",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "RiskEvent",
+      "parent": "SpaceEvent",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "OrbitManeuverEvent",
+      "parent": "ObjectBehaviorEvent",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "OrbitManeuverEvent",
+      "parent": "OrbitalEvent",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "ApproachEvent",
+      "parent": "SpatialRelationEvent",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "CollisionRiskEvent",
+      "parent": "RiskEvent",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "CollisionRiskEvent",
+      "parent": "SpatialRelationEvent",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "MultiCauseAssertion",
+      "parent": "CausalAssertion",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "NormalSituationState",
+      "parent": "SituationState",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "AttentionSituationState",
+      "parent": "SituationState",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "WarningSituationState",
+      "parent": "SituationState",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "DangerousSituationState",
+      "parent": "SituationState",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "PhysicalThreat",
+      "parent": "SecurityThreat",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "EnvironmentalThreat",
+      "parent": "SecurityThreat",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "CollisionRisk",
+      "parent": "SecurityRisk",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "DebrisRisk",
+      "parent": "SecurityRisk",
+      "direction": "child-to-parent"
+    },
+    {
+      "child": "AvoidanceMeasure",
+      "parent": "ResponseMeasure",
+      "direction": "child-to-parent"
+    }
+  ],
+  "property_edges": [
+    {
+      "property": "hasOrbit",
+      "source": "SpaceObject",
+      "target": "Orbit",
+      "style": "solid",
+      "display": "arrow"
+    },
+    {
+      "property": "generatesData",
+      "source": "ObservationSystem",
+      "target": "ObservationData",
+      "style": "solid",
+      "display": "arrow"
+    },
+    {
+      "property": "involvesObject",
+      "source": "SpaceEvent",
+      "target": "SpaceObject",
+      "style": "solid",
+      "display": "arrow"
+    },
+    {
+      "property": "occursInOrbit",
+      "source": "SpaceEvent",
+      "target": "Orbit",
+      "style": "solid",
+      "display": "arrow"
+    },
+    {
+      "property": "detectedFromData",
+      "source": "SpaceEvent",
+      "target": "SSAData",
+      "style": "solid",
+      "display": "arrow"
+    },
+    {
+      "property": "precedesEvent",
+      "source": "SpaceEvent",
+      "target": "SpaceEvent",
+      "style": "text-note",
+      "display": "text-note"
+    },
+    {
+      "property": "followsEvent",
+      "source": "SpaceEvent",
+      "target": "SpaceEvent",
+      "style": "text-note",
+      "display": "text-note"
+    },
+    {
+      "property": "overlapsWithEvent",
+      "source": "SpaceEvent",
+      "target": "SpaceEvent",
+      "style": "text-note",
+      "display": "text-note"
+    },
+    {
+      "property": "hasCause",
+      "source": "CausalAssertion",
+      "target": "SpaceEvent",
+      "style": "solid",
+      "display": "shared-arrow"
+    },
+    {
+      "property": "hasEffect",
+      "source": "CausalAssertion",
+      "target": "SpaceEvent",
+      "style": "solid",
+      "display": "shared-arrow"
+    },
+    {
+      "property": "hasCausalEvidence",
+      "source": "CausalAssertion",
+      "target": "SSAData",
+      "style": "solid",
+      "display": "arrow"
+    },
+    {
+      "property": "causesEvent",
+      "source": "SpaceEvent",
+      "target": "SpaceEvent",
+      "style": "red-text-note",
+      "display": "text-note"
+    },
+    {
+      "property": "leadsToState",
+      "source": "SpaceEvent",
+      "target": "SituationState",
+      "style": "dashed",
+      "display": "arrow"
+    },
+    {
+      "property": "hasSourceState",
+      "source": "StateTransition",
+      "target": "SituationState",
+      "style": "solid",
+      "display": "shared-arrow"
+    },
+    {
+      "property": "hasTargetState",
+      "source": "StateTransition",
+      "target": "SituationState",
+      "style": "solid",
+      "display": "shared-arrow"
+    },
+    {
+      "property": "transitsTo",
+      "source": "SituationState",
+      "target": "SituationState",
+      "style": "red-text-note",
+      "display": "text-note"
+    },
+    {
+      "property": "degradesTo",
+      "source": "SituationState",
+      "target": "SituationState",
+      "style": "red-text-note",
+      "display": "text-note"
+    },
+    {
+      "property": "indicatesThreat",
+      "source": "SpaceEvent",
+      "target": "SecurityThreat",
+      "style": "solid",
+      "display": "arrow"
+    },
+    {
+      "property": "producesRisk",
+      "source": "SecurityThreat",
+      "target": "SecurityRisk",
+      "style": "solid",
+      "display": "arrow"
+    },
+    {
+      "property": "riskLeadsToState",
+      "source": "SecurityRisk",
+      "target": "SituationState",
+      "style": "solid",
+      "display": "arrow"
+    },
+    {
+      "property": "requiresResponseMeasure",
+      "source": "SecurityThreat",
+      "target": "ResponseMeasure",
+      "style": "solid",
+      "display": "arrow"
+    },
+    {
+      "property": "mitigatesRisk",
+      "source": "ResponseMeasure",
+      "target": "SecurityRisk",
+      "style": "solid",
+      "display": "arrow"
+    }
+  ],
+  "representative_descendants_without_subclass_edges": [],
+  "legend": [
+    "实线箭头：模式层/显式语义关系",
+    "红色虚线箭头：规则可生成的实例关系",
+    "细实线：subClassOf",
+    "不同底色：不同知识模块"
+  ]
+}

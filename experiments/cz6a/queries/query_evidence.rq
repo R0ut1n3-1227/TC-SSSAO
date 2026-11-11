@@ -1,0 +1,11 @@
+PREFIX onto: <https://w3id.org/tc-sssao#>
+PREFIX case: <https://w3id.org/tc-sssao/data/cz6a-case#>
+# 证据链查询：碎片风险事件的观测证据与外部风险评估证据
+SELECT ?event ?evidence ?evidenceType ?source
+WHERE {
+  VALUES ?event { case:CZ6A_DebrisRiskEvent case:CZ6A_Fragmentation_2022 case:CZ6A_TrackingEvent_2023 }
+  { ?event onto:supportedByData ?evidence } UNION { ?event onto:detectedFromData ?evidence }
+  ?evidence a ?evidenceType .
+  OPTIONAL { ?evidence onto:hasDataSource ?source }
+}
+ORDER BY ?event ?evidence

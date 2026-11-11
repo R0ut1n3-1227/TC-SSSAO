@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "total_cdms": 162634,
+  "total_events": 13154,
+  "valid_pc": 162634,
+  "valid_miss_distance": 162634,
+  "valid_hbr": 162634,
+  "complete_r5_r8_input": 162634,
+  "mapping_coverage": 1.0,
+  "execution_layer_input_contract_pass": 162634,
+  "execution_layer_input_contract_reject": 0,
+  "execution_layer_input_contract_pass_rate": 1.0,
+  "formal_rdf_preflight_executed_on_full_esa_dataset": false,
+  "scope_note": "Pandas execution-layer checks equivalent to the R5--R8 numeric/role input contract; not the formal RDF Input Preflight program.",
+  "rejection_reasons": {}
+}

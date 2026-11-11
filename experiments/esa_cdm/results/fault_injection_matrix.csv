@@ -1,0 +1,12 @@
+fault,detector,expected,actual,detail,pass
+Pc > 1,execution-layer input contract (P9 analogue),True,True,injected Pc=1.01,True
+Pc < 0,execution-layer input contract (P9 analogue),True,True,injected Pc=-0.01,True
+negative miss distance,execution-layer input contract (P12 analogue),True,True,injected d=-1 km,True
+duplicate Pc values,execution-layer input contract (P8 analogue),True,True,two distinct Pc literals on one risk-event IRI,True
+primary == secondary,execution-layer input contract (P18 analogue),True,True,same event-scoped IRI,True
+missing AssessmentData,execution-layer evidence contract,True,True,risk snapshot has no AssessmentData/PredictionData evidence,True
+invalid HBR,execution-layer input contract (P14 analogue),True,True,injected HBR=0,True
+time-order corruption,execution-layer relative-time check (R9 analogue),True,True,arrival order must have strictly decreasing time_to_tca,True
+bidirectional causesEvent,R10,True,True,two opposite directed edges,True
+3-node causal cycle,R11,True,True,directed 3-cycle,True
+State start > end,R14,True,True,state interval reversed,True

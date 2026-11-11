@@ -1,0 +1,44 @@
+{
+ "source": "ontology/tc_sssao.owl",
+ "method": "rdflib, ONTO 命名空间口径: named=IRI rdf:type owl:Class 且 IRI 属于 https://w3id.org/tc-sssao#; anonymous=BNode rdf:type owl:Class; object/datatype=同口径 owl:ObjectProperty/DatatypeProperty; triples=len(graph); 外部标准本体 DL 声明单列，不计入论文口径",
+ "statistics": {
+  "named_classes": 86,
+  "anonymous_class_expressions": 1,
+  "object_properties": 65,
+  "datatype_properties": 68,
+  "ontology_triples": 1703
+ },
+ "external_standard_declarations": {
+  "classes": 10,
+  "object_properties": 5,
+  "datatype_properties": 0
+ },
+ "checks": {
+  "named_classes": {
+   "computed": 86,
+   "paper_4_2_1": 86,
+   "match": true
+  },
+  "anonymous_class_expressions": {
+   "computed": 1,
+   "paper_4_2_1": 1,
+   "match": true
+  },
+  "object_properties": {
+   "computed": 65,
+   "paper_4_2_1": 65,
+   "match": true
+  },
+  "datatype_properties": {
+   "computed": 68,
+   "paper_4_2_1": 68,
+   "match": true
+  },
+  "ontology_triples": {
+   "computed": 1703,
+   "paper_4_2_1": 1703,
+   "match": true
+  }
+ },
+ "status": "PASS"
+}

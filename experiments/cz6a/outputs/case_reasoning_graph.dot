@@ -1,0 +1,15 @@
+digraph G {
+  rankdir="LR";
+  node [shape=box, fontname="SimHei"];
+  "ContinuousTrackingMeasure" -> "CZ6A_DebrisRiskEvent" [label="respondsToEvent", color="black", style="solid"];
+  "derived_debris_risk_f5da89a6" -> "ContinuousTrackingMeasure" [label="mitigatedBy", color="red", style="dashed"];
+  "derived_physical_threat_f5da89a6" -> "CZ6A_DebrisRiskEvent" [label="mayManifestAsEvent", color="red", style="dashed"];
+  "derived_physical_threat_f5da89a6" -> "ContinuousTrackingMeasure" [label="requiresResponseMeasure", color="red", style="dashed"];
+  "derived_physical_threat_f5da89a6" -> "ContinuousTrackingMeasure" [label="threatMitigatedBy", color="red", style="dashed"];
+  "CZ6A_DebrisRiskEvent" -> "derived_physical_threat_f5da89a6" [label="indicatesThreat", color="red", style="dashed"];
+  "CZ6A_Fragmentation_2022" -> "CZ6A_DebrisRiskEvent" [label="causesEvent", color="red", style="dashed"];
+  "CZ6A_Fragmentation_2022" -> "CZ6A_TrackingEvent_2023" [label="precedesEvent", color="red", style="dashed"];
+  "CZ6A_TrackingEvent_2023" -> "CZ6A_Fragmentation_2022" [label="followsEvent", color="red", style="dashed"];
+  "ContinuousTrackingMeasure" -> "derived_debris_risk_f5da89a6" [label="mitigatesRisk", color="red", style="dashed"];
+  "ContinuousTrackingMeasure" -> "derived_physical_threat_f5da89a6" [label="respondsToThreat", color="red", style="dashed"];
+}

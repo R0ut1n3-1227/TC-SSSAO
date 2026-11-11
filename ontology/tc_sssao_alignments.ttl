@@ -1,0 +1,250 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix onto:    <https://w3id.org/tc-sssao#> .
+@prefix time:    <http://www.w3.org/2006/time#> .
+@prefix sosa:    <http://www.w3.org/ns/sosa/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix geo:     <http://www.opengis.net/ont/geosparql#> .
+
+#####################################################################
+# TC-SSSAO 标准词汇语义对齐模块（standard alignment module）
+#
+# 真源关系（spec 第 4 节）：
+#   本文件 = TC-SSSAO 与通用标准本体之间正式语义映射的唯一真源
+#   （source of truth，可审计）；
+#   scripts/build/patch_owl_m5_alignment.py = 将本模块合并进正式
+#   owl/tc_sssao.owl 并移除失效映射的构建过程，合并后自动执行
+#   图级一致性校验（主 OWL 必须包含本模块全部三元组）。
+#
+# 对齐原则：
+#   - 选择性对齐（selective alignment），不整体 owl:imports 外部本体；
+#   - 只使用 rdfs:subClassOf / rdfs:subPropertyOf / rdfs:seeAlso，
+#     不使用 owl:equivalentClass / owl:equivalentProperty；
+#   - ObjectProperty 与 DatatypeProperty 不跨类型映射；
+#   - 外部术语仅保留 OWL 2 DL 类型所需的最小声明，
+#     不复制外部本体的定义公理。
+#
+# 标准版本基线（spec 第 3 节）：
+#   OWL-Time  : W3C Recommendation, 19 October 2017
+#   SOSA/SSN  : W3C Recommendation, 19 October 2017
+#              （"2023 Edition" 为草案工作，不作为本论文标准基线）
+#   PROV-O    : W3C Recommendation, 30 April 2013
+#   GeoSPARQL : OGC GeoSPARQL 1.1, OGC 22-047r1
+#####################################################################
+
+<https://w3id.org/tc-sssao/alignments> a owl:Ontology ;
+    owl:versionInfo "1.0.0" ;
+    owl:versionIRI <https://w3id.org/tc-sssao/alignments/1.0.0> ;
+    dcterms:title "TC-SSSAO standard vocabulary alignments"@en ;
+    dcterms:title "TC-SSSAO 标准词汇语义对齐模块"@zh ;
+    dcterms:modified "2026-09-05"^^xsd:date ;
+    dcterms:license <https://opensource.org/license/mit> ;
+    rdfs:comment "Selective semantic alignments between TC-SSSAO and OWL-Time, SOSA/SSN, PROV-O and GeoSPARQL. Source of truth merged into owl/tc_sssao.owl by scripts/build/patch_owl_m5_alignment.py."@en .
+
+# ============================================================
+# 0. 对齐说明标注属性（spec 第 5 节）
+# ============================================================
+
+onto:alignmentRationale a owl:AnnotationProperty ;
+    rdfs:label "对齐理由"@zh ;
+    rdfs:comment "说明 TC-SSSAO 与标准词汇之间采用 subClassOf / subPropertyOf / seeAlso 或不做正式对齐的理由。"@zh .
+
+# ============================================================
+# 1. 外部术语最小声明（OWL 2 DL 类型完整性；不复制外部定义）
+# ============================================================
+
+time:Instant          a owl:Class .
+time:Interval         a owl:Class .
+time:hasTime          a owl:ObjectProperty .
+
+sosa:Sensor           a owl:Class .
+sosa:Observation      a owl:Class .
+sosa:Result           a owl:Class .
+sosa:madeBySensor     a owl:ObjectProperty .
+
+prov:Entity           a owl:Class .
+prov:Activity         a owl:Class .
+prov:Agent            a owl:Class .
+prov:wasGeneratedBy   a owl:ObjectProperty .
+prov:wasDerivedFrom   a owl:ObjectProperty .
+
+geo:Feature           a owl:Class .
+geo:Geometry          a owl:Class .
+geo:hasGeometry       a owl:ObjectProperty .
+
+# 外部术语声明处理说明（spec 第 11 节）：
+#   - geo:wktLiteral (rdfs:Datatype) 在主本体 rdfs:range / owl:someValuesFrom
+#     逻辑位置使用，声明保留；
+#   - geo:asWKT 在错误 subPropertyOf 移除后仅作 seeAlso 注解值出现，
+#     其本地伪声明已由 patch_owl_m5_alignment.py 移除（不复制外部标准定义）；
+#   - sosa:madeBySensor / prov:wasGeneratedBy 作为被保留正式映射的
+#     subPropertyOf 目标，属于逻辑位置使用，其声明保留（本模块幂等重声明）。
+
+# ============================================================
+# 2. OWL-Time 对齐（spec 第 6 节）
+# ============================================================
+
+onto:TimeInstant
+    rdfs:subClassOf time:Instant ;
+    onto:alignmentRationale
+      "TC-SSSAO TimeInstant is the application-domain time-point representation; it is specialized from time:Instant rather than redefining OWL-Time."@en .
+
+onto:TimeInterval
+    rdfs:subClassOf time:Interval ;
+    onto:alignmentRationale
+      "TC-SSSAO TimeInterval is the application-domain time-interval representation, specialized from time:Interval."@en .
+
+onto:occursAtTime
+    rdfs:subPropertyOf time:hasTime ;
+    onto:alignmentRationale
+      "occursAtTime links a SpaceEvent to a TimeInstant (which is aligned with time:Instant); time:hasTime is the generic OWL-Time property connecting a resource to a temporal entity."@en .
+
+onto:occursInTimeInterval
+    rdfs:subPropertyOf time:hasTime ;
+    onto:alignmentRationale
+      "occursInTimeInterval links a SpaceEvent to a TimeInterval (aligned with time:Interval); it is therefore a specialization of time:hasTime."@en .
+
+# 字面量时间属性（hasOccurrenceTime / hasStartTime / hasEndTime / hasDuration）
+# 为 owl:DatatypeProperty（range xsd:dateTime / xsd:duration），服务于
+# SHACL-SPARQL 数值比较；time:hasTime / hasBeginning / hasEnd 为 object-level
+# 关系，二者类型层次不同，严禁跨类型 subPropertyOf 映射。保留原有
+# rdfs:seeAlso 注解（见主 OWL），并在论文 3.2.6 节说明双层设计。
+
+onto:precedesEvent
+    rdfs:seeAlso <http://www.w3.org/2006/time#before> ;
+    onto:alignmentRationale
+      "OWL-Time time:before relates temporal entities; TC-SSSAO precedesEvent relates SpaceEvent instances (domain events, not temporal entities). The two are at different semantic levels, so only a seeAlso reference is kept."@en .
+
+onto:overlapsWithEvent
+    rdfs:seeAlso <http://www.w3.org/2006/time#intervalOverlaps> ;
+    onto:alignmentRationale
+      "time:intervalOverlaps relates time intervals; TC-SSSAO overlapsWithEvent relates SpaceEvent instances with overlapping time intervals. Different semantic level: seeAlso only."@en .
+
+# ============================================================
+# 3. SOSA/SSN 对齐（spec 第 7 节）
+# ============================================================
+
+onto:Sensor
+    rdfs:subClassOf sosa:Sensor ;
+    onto:alignmentRationale
+      "TC-SSSAO Sensor represents sensing systems used for SSA and is modeled as a domain-specific specialization of sosa:Sensor."@en .
+
+onto:ObservationActivity
+    rdfs:subClassOf sosa:Observation ;
+    onto:alignmentRationale
+      "ObservationActivity is the activity of observing space objects; this corresponds to the observation act in SOSA, so it is specialized from sosa:Observation. This makes madeBySensor (domain ObservationActivity, range Sensor) consistent with its super-property sosa:madeBySensor."@en .
+
+onto:ObservationData
+    rdfs:subClassOf sosa:Result ;
+    onto:alignmentRationale
+      "ObservationData is the data produced by an observation activity, i.e. the result of the act, not the act itself. It is therefore aligned with sosa:Result. The previous seeAlso link to sosa:Observation was conceptually inaccurate and has been removed."@en .
+
+# madeBySensor ⊑ sosa:madeBySensor 原映射保留（VALID，见主 OWL）：
+#  domain ObservationActivity ⊑ sosa:Observation、range Sensor ⊑ sosa:Sensor，
+#  与 SOSA 中 madeBySensor 的 Observation→Sensor 语义一致。
+
+# 已删除的错误映射（spec 7.4 / 7.5，由 patch_owl_m5_alignment.py 执行）：
+#   onto:hasObservationResult ⊑ sosa:hasResult
+#     —— domain ObservationData、range SpaceObject，与 SOSA 的
+#        Observation→Result 语义不一致，标记 LOCAL_DOMAIN_PROPERTY 进入审计；
+#   onto:hasFeatureOfInterest ⊑ sosa:hasFeatureOfInterest
+#     —— domain SSAData（数据记录指向其关切目标），SOSA 的
+#        hasFeatureOfInterest 用于 Observation/Actuation/Sampling 活动，
+#        语义层次不同，保留为本地属性。
+
+onto:ObservationSystem
+    rdfs:seeAlso <http://www.w3.org/ns/sosa/Platform> ;
+    onto:alignmentRationale
+      "TC-SSSAO ObservationSystem is an SSA-oriented aggregate covering sensors, sensor networks, ground stations, tracking and surveillance systems; since Sensor itself is a subclass, ObservationSystem is not strictly synonymous with sosa:Platform, so no formal subclass/equivalent mapping is made."@en .
+
+onto:SpaceObject
+    rdfs:seeAlso <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+    onto:alignmentRationale
+      "A SpaceObject can play the SOSA FeatureOfInterest role in concrete observation contexts, but it is a domain entity type; TC-SSSAO does not globally define every space object as a FeatureOfInterest."@en .
+
+# ============================================================
+# 4. PROV-O 对齐（spec 第 8 节）
+# ============================================================
+
+onto:SSAData
+    rdfs:subClassOf prov:Entity ;
+    onto:alignmentRationale
+      "SSAData is information that is produced, used, cited and traced; all data subclasses (ObservationData, AssessmentData, PredictionData, RiskAssessmentData, TrackingData, ...) thereby become prov:Entity."@en .
+
+onto:SSAActivity
+    rdfs:subClassOf prov:Activity ;
+    onto:alignmentRationale
+      "SSAActivity covers data/knowledge processing activities (observation, tracking, prediction, conjunction assessment); it is a domain specialization of prov:Activity."@en .
+
+onto:DataProvider
+    rdfs:subClassOf prov:Agent ;
+    onto:alignmentRationale
+      "DataProvider is the agent that provides SSA data; it is a domain specialization of prov:Agent."@en .
+
+# generatedByActivity ⊑ prov:wasGeneratedBy 原映射保留（VALID，见主 OWL）：
+#  domain SSAData ⊑ prov:Entity、range SSAActivity ⊑ prov:Activity，语义一致。
+
+onto:CausalAssertion
+    rdfs:subClassOf prov:Entity ;
+    onto:alignmentRationale
+      "A CausalAssertion is a reified knowledge record (with cause, effect and evidence); as a piece of traceable information it is a prov:Entity."@en .
+
+onto:hasCausalEvidence
+    rdfs:subPropertyOf prov:wasDerivedFrom ;
+    onto:alignmentRationale
+      "hasCausalEvidence (domain CausalAssertion, range SSAData) states that the assertion is supported by evidence data; with CausalAssertion and SSAData both aligned to prov:Entity, this is a provenance derivation relation. It does NOT express event-level causation (causesEvent): provenance and causal relation are distinct."@en .
+
+# generatedBy（ObservationData→ObservationSystem）不升级：ObservationSystem
+#  不是 prov:Activity，功能相似但语义角色不同，保留 seeAlso（主 OWL）。
+# hasDataSource（SSAData→xsd:string）为 human-readable 字面量来源引用，
+#  严禁映射到 prov:wasAttributedTo（Entity→Agent）；标准溯源经
+#  prov:wasAttributedTo + DataProvider 实例在案例数据中表达（见
+#  experiments/standard_interoperability/data/prov_alignment.ttl）。
+
+# ============================================================
+# 5. GeoSPARQL 对齐（spec 第 9 节）
+# ============================================================
+
+onto:SpaceObject
+    rdfs:subClassOf geo:Feature ;
+    onto:alignmentRationale
+      "SpaceObject is a domain entity with spatial location/geometry representation; as a Feature it may be linked to a geo:Geometry via geo:hasGeometry. The previous direct subPropertyOf geo:asWKT shortcut (SpaceObject -> wktLiteral) conflated Feature and Geometry and has been removed."@en .
+
+onto:Orbit
+    rdfs:subClassOf geo:Feature ;
+    onto:alignmentRationale
+      "Orbit is modeled as a domain object carrying orbital parameters, orbit type and trajectory geometry, not as a pure geometry node; it is therefore a geo:Feature whose actual path geometry can be linked via geo:hasGeometry. Orbit is not equivalent to geo:Geometry."@en .
+
+# 已删除的错误映射（spec 9.1，由 patch_owl_m5_alignment.py 执行）：
+#   onto:hasObjectWKTGeometry ⊑ geo:asWKT
+#   onto:hasOrbitWKTGeometry  ⊑ geo:asWKT
+#  —— geo:asWKT 的 subject 应为 geo:Geometry，而非 SpaceObject/Orbit 领域对象。
+#     两个本地 WKT shortcut 属性已从发布模式中移除；几何互操作统一采用
+#     GeoSPARQL 的 Feature—Geometry—WKT 模式：
+#   SpaceObject / Orbit  — geo:hasGeometry →  geo:Geometry  — geo:asWKT →  wktLiteral
+#  示例见 experiments/standard_interoperability/data/geosparql_alignment.ttl。
+
+# ============================================================
+# 6. 保留映射与解除映射的说明性标注（审计可读）
+# ============================================================
+
+# —— 保留的正式映射（基线评估 VALID）——
+onto:madeBySensor
+    onto:alignmentRationale
+      "Kept formal mapping: madeBySensor (domain ObservationActivity, range Sensor) is a sub-property of sosa:madeBySensor; with ObservationActivity aligned to sosa:Observation and Sensor to sosa:Sensor, the SOSA Observation->Sensor semantics is preserved."@en .
+
+onto:generatedByActivity
+    onto:alignmentRationale
+      "Kept formal mapping: generatedByActivity (domain SSAData, range SSAActivity) is a sub-property of prov:wasGeneratedBy; with SSAData aligned to prov:Entity and SSAActivity to prov:Activity, the PROV generation semantics is preserved."@en .
+
+# —— 解除错误正式映射后的本地属性（保留使用，见 concept usage audit）——
+onto:hasObservationResult
+    onto:alignmentRationale
+      "Local domain property (ObservationData -> SpaceObject): it links observation data to the observed space object, which is NOT the SOSA hasResult relation (Observation -> Result). The former subPropertyOf sosa:hasResult mapping has been removed; the property remains in use as a local property."@en .
+
+onto:hasFeatureOfInterest
+    onto:alignmentRationale
+      "Local domain property (SSAData -> SpaceObject): a data record points to its target of interest, whereas SOSA hasFeatureOfInterest relates an Observation/Actuation/Sampling ACT to its feature. Different semantic level; the former subPropertyOf sosa:hasFeatureOfInterest mapping has been removed."@en .

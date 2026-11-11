@@ -1,0 +1,14 @@
+{
+ "objects_by_category": {
+  "TLE": 22457,
+  "historical CDM": 347,
+  "maneuvering/victim": 86,
+  "fictitious": 9,
+  "OUT-OF-GUIDE-RANGE": 5,
+  "Osiris-Rex/victim": 4
+ },
+ "out_of_guide_range_count": 5,
+ "pair_conjunctions_max": 216,
+ "pair_conjunctions_median": 1.0,
+ "pairs_with_multiple_conjunctions": 17981
+}

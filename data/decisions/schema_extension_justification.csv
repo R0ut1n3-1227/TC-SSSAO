@@ -1,0 +1,73 @@
+term,entity_type,reason,evidence,keep
+CyberSecurityRisk,class,保留为领域扩展（spec 17.A/B）：图件范围（×3）,图件×3,yes
+CyberThreat,class,保留为领域扩展（spec 17.A/B）：图件范围（×3）,图件×3,yes
+ElectromagneticEnvironment,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1,yes
+EnvironmentalThreat,class,保留为领域扩展（spec 17.A/B）：图件范围（×3）,图件×3,yes
+GroundStation,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1,yes
+IndirectCausalAssertion,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; 结构引用×1,yes
+InhibitingCausalAssertion,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; 结构引用×1,yes
+MicrometeoroidEnvironment,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1,yes
+MitigationMeasure,class,保留为领域扩展（spec 17.A/B）：图件范围（×3）,图件×3,yes
+OrbitalCongestionEnvironment,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; 结构引用×1,yes
+PromotingCausalAssertion,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; 结构引用×1,yes
+RadiationEnvironment,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; 结构引用×1,yes
+RecoveryTransition,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1,yes
+RiskEscalationTransition,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1,yes
+RiskReductionTransition,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1,yes
+SensorNetwork,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）；图件范围（×3）,论文×1; 图件×3,yes
+SpaceWeather,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1,yes
+SurveillanceSystem,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1,yes
+ThreatEscalationTransition,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1,yes
+TrackingSystem,class,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1,yes
+WarningMeasure,class,保留为领域扩展（spec 17.A/B）：图件范围（×3）,图件×3,yes
+affectsOrbit,object_property,保留为领域扩展：被保留类上的 restriction 宿主结构（宿主：ObjectBehaviorEvent）,restriction宿主×1; 结构引用×1,yes
+affectsState,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+causedByEvent,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×4）,论文×4; inverseOf伙伴保留; 结构引用×1,yes
+changesOrbit,object_property,保留为领域扩展：被保留类上的 restriction 宿主结构（宿主：OrbitManeuverEvent）,restriction宿主×1; 结构引用×1,yes
+containsEvent,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×3）,论文×3; inverseOf伙伴保留; 结构引用×1,yes
+evolvesTo,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+generatedBy,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×8）,论文×8; inverseOf伙伴保留; 结构引用×1,yes
+hasArgumentOfPerigee,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasBeginning,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasCongestionLevel,datatype_property,保留为领域扩展：被保留类上的 restriction 宿主结构（宿主：OrbitalCongestionEnvironment）,restriction宿主×1; 结构引用×1,yes
+hasEnd,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasEnvironmentType,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×2）,论文×2; restriction宿主×1; 结构引用×1,yes
+hasGeometricErrorValue,datatype_property,保留为领域扩展：被保留类上的 restriction 宿主结构（宿主：GeometricConstruct）,restriction宿主×1; 结构引用×1,yes
+hasImpactScope,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasLaunchCountry,datatype_property,保留为领域扩展：被保留类上的 restriction 宿主结构（宿主：ArtificialSpaceObject）,restriction宿主×1; 结构引用×1,yes
+hasLaunchDate,datatype_property,保留为领域扩展：被保留类上的 restriction 宿主结构（宿主：ArtificialSpaceObject）,restriction宿主×1; 结构引用×1,yes
+hasManeuverType,datatype_property,保留为领域扩展：被保留类上的 restriction 宿主结构（宿主：OrbitManeuverEvent）,restriction宿主×1; 结构引用×1,yes
+hasMass,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasMeanAnomaly,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasMissionType,datatype_property,保留为领域扩展：被保留类上的 restriction 宿主结构（宿主：Spacecraft）,restriction宿主×1; 结构引用×1,yes
+hasOperatorName,datatype_property,保留为领域扩展：被保留类上的 restriction 宿主结构（宿主：ArtificialSpaceObject）,restriction宿主×1; 结构引用×1,yes
+hasOrbitalPeriod,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasRAAN,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasRadiationLevel,datatype_property,保留为领域扩展：被保留类上的 restriction 宿主结构（宿主：RadiationEnvironment）,restriction宿主×1; 结构引用×1,yes
+hasResolution,datatype_property,保留为领域扩展：被保留类上的 restriction 宿主结构（宿主：Sensor）,restriction宿主×1; 结构引用×1,yes
+hasRiskLevel,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasSize,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasSpatialRelationship,datatype_property,保留为领域扩展：被保留类上的 restriction 宿主结构（宿主：SpatialRelationEvent）,restriction宿主×1; 结构引用×1,yes
+hasStateDescription,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasStateDuration,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasStateLevel,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasStateType,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasStateUpdateTime,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasThreatConfidence,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasThreatLevel,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+hasThreatSource,datatype_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+implementsMeasure,object_property,保留为领域扩展（spec 17.E）：保留属性的 inverseOf 伙伴（isImplementedByEvent）,inverseOf伙伴保留; 结构引用×1,yes
+increasesThreat,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+isInvolvedInEvent,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; inverseOf伙伴保留; 结构引用×1,yes
+isOrbitOf,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×2）,论文×2; inverseOf伙伴保留; 结构引用×1,yes
+meetsEvent,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1,yes
+occursDuringEvent,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×4）,论文×4; restriction宿主×1; inverseOf伙伴保留; 结构引用×2,yes
+producesData,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×8）,论文×8; inverseOf伙伴保留; 结构引用×1,yes
+recoversTo,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×9）,论文×9; restriction宿主×2; 结构引用×2,yes
+resultedFromEvent,object_property,保留为领域扩展（spec 17.E）：保留属性的 inverseOf 伙伴（resultsInEvent）,inverseOf伙伴保留; 结构引用×1,yes
+resultsInEvent,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; inverseOf伙伴保留; 结构引用×2,yes
+stateCausedByEvent,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×5）,论文×5; restriction宿主×1; inverseOf伙伴保留; 结构引用×2,yes
+transitsFrom,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×6）,论文×6; restriction宿主×3; inverseOf伙伴保留; 结构引用×4,yes
+triggersEvent,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+triggersState,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes
+updatesState,object_property,保留为领域扩展（spec 17.A/B）：论文明确描述（×1）,论文×1; restriction宿主×1; 结构引用×1,yes

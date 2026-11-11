@@ -1,0 +1,4997 @@
+{
+  "status": "PASS",
+  "generated_at": "2026-10-22T06:07:43.895846+00:00",
+  "metrics": [
+    {
+      "metric": "archive_bytes",
+      "value": 221128642,
+      "source_file": "data/esa_cdm/metadata/download_verification.json",
+      "script": "01_download_or_verify.py",
+      "timestamp": "2026-10-22T06:07:43.892019+00:00"
+    },
+    {
+      "metric": "extracted_files[0].bytes",
+      "value": 35303060,
+      "source_file": "data/esa_cdm/metadata/download_verification.json",
+      "script": "01_download_or_verify.py",
+      "timestamp": "2026-10-22T06:07:43.892033+00:00"
+    },
+    {
+      "metric": "extracted_files[1].bytes",
+      "value": 3042300,
+      "source_file": "data/esa_cdm/metadata/download_verification.json",
+      "script": "01_download_or_verify.py",
+      "timestamp": "2026-10-22T06:07:43.892039+00:00"
+    },
+    {
+      "metric": "extracted_files[2].bytes",
+      "value": 233600296,
+      "source_file": "data/esa_cdm/metadata/download_verification.json",
+      "script": "01_download_or_verify.py",
+      "timestamp": "2026-10-22T06:07:43.892042+00:00"
+    },
+    {
+      "metric": "extracted_files[3].bytes",
+      "value": 8020,
+      "source_file": "data/esa_cdm/metadata/download_verification.json",
+      "script": "01_download_or_verify.py",
+      "timestamp": "2026-10-22T06:07:43.892046+00:00"
+    },
+    {
+      "metric": "official_claims.training_rows",
+      "value": 162634,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892292+00:00"
+    },
+    {
+      "metric": "official_claims.training_unique_events",
+      "value": 13154,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892298+00:00"
+    },
+    {
+      "metric": "official_claims.columns",
+      "value": 103,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892300+00:00"
+    },
+    {
+      "metric": "official_claims.testing_rows",
+      "value": 24484,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892303+00:00"
+    },
+    {
+      "metric": "official_claims.testing_unique_events",
+      "value": 2167,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892305+00:00"
+    },
+    {
+      "metric": "checks.training_rows",
+      "value": true,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892307+00:00"
+    },
+    {
+      "metric": "checks.training_unique_events",
+      "value": true,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892310+00:00"
+    },
+    {
+      "metric": "checks.training_columns",
+      "value": true,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892312+00:00"
+    },
+    {
+      "metric": "files[0].bytes",
+      "value": 35303060,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892316+00:00"
+    },
+    {
+      "metric": "files[0].rows",
+      "value": 24484,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892318+00:00"
+    },
+    {
+      "metric": "files[0].unique_events",
+      "value": 2167,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892320+00:00"
+    },
+    {
+      "metric": "files[0].columns",
+      "value": 103,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892322+00:00"
+    },
+    {
+      "metric": "files[0].exact_duplicate_rows",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892324+00:00"
+    },
+    {
+      "metric": "files[0].duplicate_event_time_rows",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892326+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.event_id",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892328+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.time_to_tca",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892330+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.mission_id",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892332+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.risk",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892337+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.max_risk_estimate",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892339+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.max_risk_scaling",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892341+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.miss_distance",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892343+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.relative_speed",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892345+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.relative_position_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892347+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.relative_position_t",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892351+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.relative_position_n",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892355+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.relative_velocity_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892357+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.relative_velocity_t",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892358+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.relative_velocity_n",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892360+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_time_lastob_start",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892362+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_time_lastob_end",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892364+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_recommended_od_span",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892366+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_actual_od_span",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892368+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_obs_available",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892370+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_obs_used",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892374+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_residuals_accepted",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892375+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_weighted_rms",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892377+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_rcs_estimate",
+      "value": 499,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892380+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_cd_area_over_mass",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892381+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_cr_area_over_mass",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892383+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_sedr",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892385+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_j2k_sma",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892387+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_j2k_ecc",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892389+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_j2k_inc",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892391+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_ct_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892393+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_cn_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892394+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_cn_t",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892396+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_crdot_r",
+      "value": 1217,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892398+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_crdot_t",
+      "value": 1217,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892400+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_crdot_n",
+      "value": 1217,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892402+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_ctdot_r",
+      "value": 1217,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892406+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_ctdot_t",
+      "value": 1217,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892408+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_ctdot_n",
+      "value": 1217,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892409+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_ctdot_rdot",
+      "value": 1217,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892412+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_cndot_r",
+      "value": 1217,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892414+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_cndot_t",
+      "value": 1217,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892416+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_cndot_n",
+      "value": 1217,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892418+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_cndot_rdot",
+      "value": 1217,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892421+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_cndot_tdot",
+      "value": 1217,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892422+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_object_type",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892424+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_time_lastob_start",
+      "value": 6,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892426+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_time_lastob_end",
+      "value": 6,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892429+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_recommended_od_span",
+      "value": 6,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892431+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_actual_od_span",
+      "value": 6,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892434+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_obs_available",
+      "value": 6,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892436+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_obs_used",
+      "value": 6,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892438+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_residuals_accepted",
+      "value": 6,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892440+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_weighted_rms",
+      "value": 6,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892442+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_rcs_estimate",
+      "value": 7465,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892444+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_cd_area_over_mass",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892446+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_cr_area_over_mass",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892448+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_sedr",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892449+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_j2k_sma",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892451+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_j2k_ecc",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892454+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_j2k_inc",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892456+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_ct_r",
+      "value": 6,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892458+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_cn_r",
+      "value": 6,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892460+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_cn_t",
+      "value": 6,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892461+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_crdot_r",
+      "value": 1223,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892463+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_crdot_t",
+      "value": 1223,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892465+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_crdot_n",
+      "value": 1223,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892467+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_ctdot_r",
+      "value": 1223,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892468+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_ctdot_t",
+      "value": 1223,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892470+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_ctdot_n",
+      "value": 1223,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892474+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_ctdot_rdot",
+      "value": 1223,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892476+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_cndot_r",
+      "value": 1223,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892478+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_cndot_t",
+      "value": 1223,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892480+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_cndot_n",
+      "value": 1223,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892482+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_cndot_rdot",
+      "value": 1223,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892484+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_cndot_tdot",
+      "value": 1223,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892488+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_span",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892489+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_span",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892493+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_h_apo",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892495+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_h_per",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892497+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_h_apo",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892498+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_h_per",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892500+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.geocentric_latitude",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892502+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.azimuth",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892504+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.elevation",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892506+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.mahalanobis_distance",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892508+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_position_covariance_det",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892510+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_position_covariance_det",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892512+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_sigma_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892514+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_sigma_r",
+      "value": 6,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892516+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_sigma_t",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892518+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_sigma_t",
+      "value": 6,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892520+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_sigma_n",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892522+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_sigma_n",
+      "value": 6,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892524+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_sigma_rdot",
+      "value": 1217,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892526+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_sigma_rdot",
+      "value": 1223,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892528+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_sigma_tdot",
+      "value": 1217,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892530+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_sigma_tdot",
+      "value": 1223,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892531+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.t_sigma_ndot",
+      "value": 1217,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892533+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.c_sigma_ndot",
+      "value": 1223,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892535+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.F10",
+      "value": 1329,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892537+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.F3M",
+      "value": 1329,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892539+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.SSN",
+      "value": 1329,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892542+00:00"
+    },
+    {
+      "metric": "files[0].missing_values.AP",
+      "value": 1329,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892544+00:00"
+    },
+    {
+      "metric": "files[1].bytes",
+      "value": 3042300,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892548+00:00"
+    },
+    {
+      "metric": "files[1].rows",
+      "value": 2167,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892550+00:00"
+    },
+    {
+      "metric": "files[1].unique_events",
+      "value": 2167,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892553+00:00"
+    },
+    {
+      "metric": "files[1].columns",
+      "value": 103,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892557+00:00"
+    },
+    {
+      "metric": "files[1].exact_duplicate_rows",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892559+00:00"
+    },
+    {
+      "metric": "files[1].duplicate_event_time_rows",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892561+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.event_id",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892563+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.time_to_tca",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892565+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.mission_id",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892567+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.true_risk",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892569+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.max_risk_estimate",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892571+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.max_risk_scaling",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892573+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.miss_distance",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892575+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.relative_speed",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892576+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.relative_position_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892579+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.relative_position_t",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892581+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.relative_position_n",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892582+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.relative_velocity_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892584+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.relative_velocity_t",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892586+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.relative_velocity_n",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892588+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_time_lastob_start",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892590+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_time_lastob_end",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892592+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_recommended_od_span",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892593+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_actual_od_span",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892595+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_obs_available",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892598+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_obs_used",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892600+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_residuals_accepted",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892602+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_weighted_rms",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892604+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_rcs_estimate",
+      "value": 40,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892607+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_cd_area_over_mass",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892609+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_cr_area_over_mass",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892611+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_sedr",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892613+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_j2k_sma",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892614+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_j2k_ecc",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892616+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_j2k_inc",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892619+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_ct_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892623+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_cn_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892624+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_cn_t",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892626+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_crdot_r",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892628+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_crdot_t",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892630+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_crdot_n",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892631+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_ctdot_r",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892633+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_ctdot_t",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892635+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_ctdot_n",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892637+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_ctdot_rdot",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892638+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_cndot_r",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892640+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_cndot_t",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892642+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_cndot_n",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892644+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_cndot_rdot",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892646+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_cndot_tdot",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892648+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_object_type",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892650+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_time_lastob_start",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892652+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_time_lastob_end",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892654+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_recommended_od_span",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892656+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_actual_od_span",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892658+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_obs_available",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892660+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_obs_used",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892662+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_residuals_accepted",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892664+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_weighted_rms",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892665+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_rcs_estimate",
+      "value": 646,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892667+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_cd_area_over_mass",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892671+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_cr_area_over_mass",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892674+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_sedr",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892676+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_j2k_sma",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892678+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_j2k_ecc",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892681+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_j2k_inc",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892683+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_ct_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892687+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_cn_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892689+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_cn_t",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892690+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_crdot_r",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892692+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_crdot_t",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892694+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_crdot_n",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892696+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_ctdot_r",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892698+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_ctdot_t",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892700+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_ctdot_n",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892702+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_ctdot_rdot",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892704+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_cndot_r",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892706+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_cndot_t",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892708+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_cndot_n",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892709+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_cndot_rdot",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892712+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_cndot_tdot",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892714+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_span",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892715+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_span",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892717+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_h_apo",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892719+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_h_per",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892721+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_h_apo",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892723+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_h_per",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892725+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.geocentric_latitude",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892726+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.azimuth",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892728+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.elevation",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892730+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.mahalanobis_distance",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892732+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_position_covariance_det",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892733+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_position_covariance_det",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892737+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_sigma_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892739+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_sigma_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892741+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_sigma_t",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892743+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_sigma_t",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892744+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_sigma_n",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892746+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_sigma_n",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892751+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_sigma_rdot",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892753+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_sigma_rdot",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892755+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_sigma_tdot",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892758+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_sigma_tdot",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892759+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.t_sigma_ndot",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892761+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.c_sigma_ndot",
+      "value": 238,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892763+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.F10",
+      "value": 105,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892765+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.F3M",
+      "value": 105,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892767+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.SSN",
+      "value": 105,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892769+00:00"
+    },
+    {
+      "metric": "files[1].missing_values.AP",
+      "value": 105,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892771+00:00"
+    },
+    {
+      "metric": "files[2].bytes",
+      "value": 233600296,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892774+00:00"
+    },
+    {
+      "metric": "files[2].rows",
+      "value": 162634,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892776+00:00"
+    },
+    {
+      "metric": "files[2].unique_events",
+      "value": 13154,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892779+00:00"
+    },
+    {
+      "metric": "files[2].columns",
+      "value": 103,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892780+00:00"
+    },
+    {
+      "metric": "files[2].exact_duplicate_rows",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892782+00:00"
+    },
+    {
+      "metric": "files[2].duplicate_event_time_rows",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892784+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.event_id",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892786+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.time_to_tca",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892789+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.mission_id",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892791+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.risk",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892793+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.max_risk_estimate",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892795+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.max_risk_scaling",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892798+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.miss_distance",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892800+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.relative_speed",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892802+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.relative_position_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892804+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.relative_position_t",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892806+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.relative_position_n",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892808+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.relative_velocity_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892810+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.relative_velocity_t",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892812+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.relative_velocity_n",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892814+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_time_lastob_start",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892816+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_time_lastob_end",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892820+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_recommended_od_span",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892822+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_actual_od_span",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892823+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_obs_available",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892825+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_obs_used",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892828+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_residuals_accepted",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892831+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_weighted_rms",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892833+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_rcs_estimate",
+      "value": 3277,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892835+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_cd_area_over_mass",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892837+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_cr_area_over_mass",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892839+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_sedr",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892840+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_j2k_sma",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892842+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_j2k_ecc",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892844+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_j2k_inc",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892846+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_ct_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892848+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_cn_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892850+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_cn_t",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892852+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_crdot_r",
+      "value": 9230,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892854+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_crdot_t",
+      "value": 9230,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892856+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_crdot_n",
+      "value": 9230,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892857+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_ctdot_r",
+      "value": 9230,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892859+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_ctdot_t",
+      "value": 9230,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892861+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_ctdot_n",
+      "value": 9230,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892864+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_ctdot_rdot",
+      "value": 9230,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892866+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_cndot_r",
+      "value": 9230,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892868+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_cndot_t",
+      "value": 9230,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892870+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_cndot_n",
+      "value": 9230,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892871+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_cndot_rdot",
+      "value": 9230,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892873+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_cndot_tdot",
+      "value": 9230,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892875+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_object_type",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892877+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_time_lastob_start",
+      "value": 11,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892879+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_time_lastob_end",
+      "value": 11,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892882+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_recommended_od_span",
+      "value": 11,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892884+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_actual_od_span",
+      "value": 11,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892886+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_obs_available",
+      "value": 11,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892887+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_obs_used",
+      "value": 11,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892889+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_residuals_accepted",
+      "value": 11,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892891+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_weighted_rms",
+      "value": 11,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892893+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_rcs_estimate",
+      "value": 52841,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892895+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_cd_area_over_mass",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892896+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_cr_area_over_mass",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892900+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_sedr",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892902+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_j2k_sma",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892904+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_j2k_ecc",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892906+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_j2k_inc",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892908+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_ct_r",
+      "value": 11,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892910+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_cn_r",
+      "value": 11,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892911+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_cn_t",
+      "value": 11,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892914+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_crdot_r",
+      "value": 9241,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892916+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_crdot_t",
+      "value": 9241,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892917+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_crdot_n",
+      "value": 9241,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892919+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_ctdot_r",
+      "value": 9241,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892923+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_ctdot_t",
+      "value": 9241,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892925+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_ctdot_n",
+      "value": 9241,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892926+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_ctdot_rdot",
+      "value": 9241,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892929+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_cndot_r",
+      "value": 9241,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892930+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_cndot_t",
+      "value": 9241,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892932+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_cndot_n",
+      "value": 9241,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892935+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_cndot_rdot",
+      "value": 9241,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892937+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_cndot_tdot",
+      "value": 9241,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892939+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_span",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892941+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_span",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892942+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_h_apo",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892945+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_h_per",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892948+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_h_apo",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892950+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_h_per",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892952+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.geocentric_latitude",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892954+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.azimuth",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892956+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.elevation",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892958+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.mahalanobis_distance",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892960+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_position_covariance_det",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892962+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_position_covariance_det",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892964+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_sigma_r",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892966+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_sigma_r",
+      "value": 11,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892967+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_sigma_t",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892970+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_sigma_t",
+      "value": 11,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892971+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_sigma_n",
+      "value": 0,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892973+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_sigma_n",
+      "value": 11,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892975+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_sigma_rdot",
+      "value": 9230,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892978+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_sigma_rdot",
+      "value": 9241,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892982+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_sigma_tdot",
+      "value": 9230,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892984+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_sigma_tdot",
+      "value": 9241,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892986+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.t_sigma_ndot",
+      "value": 9230,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892988+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.c_sigma_ndot",
+      "value": 9241,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892990+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.F10",
+      "value": 6822,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892992+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.F3M",
+      "value": 6822,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892993+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.SSN",
+      "value": 6822,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892995+00:00"
+    },
+    {
+      "metric": "files[2].missing_values.AP",
+      "value": 6822,
+      "source_file": "data/esa_cdm/metadata/DATASET_AUDIT.json",
+      "script": "02_dataset_audit.py",
+      "timestamp": "2026-10-22T06:07:43.892997+00:00"
+    },
+    {
+      "metric": "rows",
+      "value": 162634,
+      "source_file": "data/esa_cdm/processed/preprocess_summary.json",
+      "script": "03_preprocess_cdm.py",
+      "timestamp": "2026-10-22T06:07:43.893162+00:00"
+    },
+    {
+      "metric": "events",
+      "value": 13154,
+      "source_file": "data/esa_cdm/processed/preprocess_summary.json",
+      "script": "03_preprocess_cdm.py",
+      "timestamp": "2026-10-22T06:07:43.893167+00:00"
+    },
+    {
+      "metric": "execution_layer_input_contract_pass",
+      "value": 162634,
+      "source_file": "data/esa_cdm/processed/preprocess_summary.json",
+      "script": "03_preprocess_cdm.py",
+      "timestamp": "2026-10-22T06:07:43.893170+00:00"
+    },
+    {
+      "metric": "execution_layer_input_contract_reject",
+      "value": 0,
+      "source_file": "data/esa_cdm/processed/preprocess_summary.json",
+      "script": "03_preprocess_cdm.py",
+      "timestamp": "2026-10-22T06:07:43.893172+00:00"
+    },
+    {
+      "metric": "seed",
+      "value": 20260911,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893317+00:00"
+    },
+    {
+      "metric": "events",
+      "value": 50,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893322+00:00"
+    },
+    {
+      "metric": "cdms",
+      "value": 100,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893324+00:00"
+    },
+    {
+      "metric": "input_triples",
+      "value": 3400,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893326+00:00"
+    },
+    {
+      "metric": "output_triples",
+      "value": 3717,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893328+00:00"
+    },
+    {
+      "metric": "fixed_point_iterations",
+      "value": 2,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893333+00:00"
+    },
+    {
+      "metric": "additions_per_round[0]",
+      "value": 300,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893336+00:00"
+    },
+    {
+      "metric": "additions_per_round[1]",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893338+00:00"
+    },
+    {
+      "metric": "b3_transitions_execution_layer",
+      "value": 8,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893341+00:00"
+    },
+    {
+      "metric": "checks.csv_parse",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893345+00:00"
+    },
+    {
+      "metric": "checks.pc_transform",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893347+00:00"
+    },
+    {
+      "metric": "checks.unit_transform",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893349+00:00"
+    },
+    {
+      "metric": "checks.rdf_generation",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893351+00:00"
+    },
+    {
+      "metric": "checks.execution_layer_input_contract",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893353+00:00"
+    },
+    {
+      "metric": "checks.r5_r8_executable",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893355+00:00"
+    },
+    {
+      "metric": "checks.unique_state",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893357+00:00"
+    },
+    {
+      "metric": "checks.b3_relative_order",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893359+00:00"
+    },
+    {
+      "metric": "checks.rdf_parse",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893361+00:00"
+    },
+    {
+      "metric": "checks.r5_r8_construct_fixed_point",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/rdf_50event_report.json",
+      "script": "04_build_rdf.py",
+      "timestamp": "2026-10-22T06:07:43.893362+00:00"
+    },
+    {
+      "metric": "total_cdms",
+      "value": 162634,
+      "source_file": "experiments/esa_cdm/results/mapping_coverage.json",
+      "script": "05_preflight_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893516+00:00"
+    },
+    {
+      "metric": "total_events",
+      "value": 13154,
+      "source_file": "experiments/esa_cdm/results/mapping_coverage.json",
+      "script": "05_preflight_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893521+00:00"
+    },
+    {
+      "metric": "valid_pc",
+      "value": 162634,
+      "source_file": "experiments/esa_cdm/results/mapping_coverage.json",
+      "script": "05_preflight_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893524+00:00"
+    },
+    {
+      "metric": "valid_miss_distance",
+      "value": 162634,
+      "source_file": "experiments/esa_cdm/results/mapping_coverage.json",
+      "script": "05_preflight_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893526+00:00"
+    },
+    {
+      "metric": "valid_hbr",
+      "value": 162634,
+      "source_file": "experiments/esa_cdm/results/mapping_coverage.json",
+      "script": "05_preflight_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893528+00:00"
+    },
+    {
+      "metric": "complete_r5_r8_input",
+      "value": 162634,
+      "source_file": "experiments/esa_cdm/results/mapping_coverage.json",
+      "script": "05_preflight_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893529+00:00"
+    },
+    {
+      "metric": "mapping_coverage",
+      "value": 1.0,
+      "source_file": "experiments/esa_cdm/results/mapping_coverage.json",
+      "script": "05_preflight_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893532+00:00"
+    },
+    {
+      "metric": "execution_layer_input_contract_pass",
+      "value": 162634,
+      "source_file": "experiments/esa_cdm/results/mapping_coverage.json",
+      "script": "05_preflight_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893534+00:00"
+    },
+    {
+      "metric": "execution_layer_input_contract_reject",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/mapping_coverage.json",
+      "script": "05_preflight_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893539+00:00"
+    },
+    {
+      "metric": "execution_layer_input_contract_pass_rate",
+      "value": 1.0,
+      "source_file": "experiments/esa_cdm/results/mapping_coverage.json",
+      "script": "05_preflight_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893541+00:00"
+    },
+    {
+      "metric": "formal_rdf_preflight_executed_on_full_esa_dataset",
+      "value": false,
+      "source_file": "experiments/esa_cdm/results/mapping_coverage.json",
+      "script": "05_preflight_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893543+00:00"
+    },
+    {
+      "metric": "theta_A",
+      "value": 1e-07,
+      "source_file": "experiments/esa_cdm/results/risk_state_distribution.json",
+      "script": "06_risk_state_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893699+00:00"
+    },
+    {
+      "metric": "theta_M",
+      "value": 0.0001,
+      "source_file": "experiments/esa_cdm/results/risk_state_distribution.json",
+      "script": "06_risk_state_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893723+00:00"
+    },
+    {
+      "metric": "classified_cdms",
+      "value": 162634,
+      "source_file": "experiments/esa_cdm/results/risk_state_distribution.json",
+      "script": "06_risk_state_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893725+00:00"
+    },
+    {
+      "metric": "states.Normal.count",
+      "value": 141471,
+      "source_file": "experiments/esa_cdm/results/risk_state_distribution.json",
+      "script": "06_risk_state_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893728+00:00"
+    },
+    {
+      "metric": "states.Normal.ratio",
+      "value": 0.8698734581944735,
+      "source_file": "experiments/esa_cdm/results/risk_state_distribution.json",
+      "script": "06_risk_state_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893730+00:00"
+    },
+    {
+      "metric": "states.Attention.count",
+      "value": 20447,
+      "source_file": "experiments/esa_cdm/results/risk_state_distribution.json",
+      "script": "06_risk_state_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893732+00:00"
+    },
+    {
+      "metric": "states.Attention.ratio",
+      "value": 0.12572401834794691,
+      "source_file": "experiments/esa_cdm/results/risk_state_distribution.json",
+      "script": "06_risk_state_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893735+00:00"
+    },
+    {
+      "metric": "states.Warning.count",
+      "value": 716,
+      "source_file": "experiments/esa_cdm/results/risk_state_distribution.json",
+      "script": "06_risk_state_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893737+00:00"
+    },
+    {
+      "metric": "states.Warning.ratio",
+      "value": 0.004402523457579596,
+      "source_file": "experiments/esa_cdm/results/risk_state_distribution.json",
+      "script": "06_risk_state_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893739+00:00"
+    },
+    {
+      "metric": "states.Dangerous.count",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/risk_state_distribution.json",
+      "script": "06_risk_state_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893741+00:00"
+    },
+    {
+      "metric": "states.Dangerous.ratio",
+      "value": 0.0,
+      "source_file": "experiments/esa_cdm/results/risk_state_distribution.json",
+      "script": "06_risk_state_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893743+00:00"
+    },
+    {
+      "metric": "no_state",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/risk_state_distribution.json",
+      "script": "06_risk_state_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893745+00:00"
+    },
+    {
+      "metric": "multi_state",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/risk_state_distribution.json",
+      "script": "06_risk_state_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893747+00:00"
+    },
+    {
+      "metric": "unique_state_rate",
+      "value": 1.0,
+      "source_file": "experiments/esa_cdm/results/risk_state_distribution.json",
+      "script": "06_risk_state_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893749+00:00"
+    },
+    {
+      "metric": "metrics.event_count",
+      "value": 13154,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893913+00:00"
+    },
+    {
+      "metric": "metrics.mean_cdms_per_event",
+      "value": 12.363843697734529,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893918+00:00"
+    },
+    {
+      "metric": "metrics.median_cdms_per_event",
+      "value": 13.0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893920+00:00"
+    },
+    {
+      "metric": "metrics.max_cdms_per_event",
+      "value": 23,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893922+00:00"
+    },
+    {
+      "metric": "metrics.events_with_at_least_2_valid_snapshots",
+      "value": 12929,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893924+00:00"
+    },
+    {
+      "metric": "metrics.events_with_state_change",
+      "value": 3118,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893926+00:00"
+    },
+    {
+      "metric": "metrics.events_with_state_upgrade",
+      "value": 1294,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893927+00:00"
+    },
+    {
+      "metric": "metrics.events_with_state_recovery",
+      "value": 2950,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893929+00:00"
+    },
+    {
+      "metric": "metrics.b3_transits_to",
+      "value": 5179,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893931+00:00"
+    },
+    {
+      "metric": "metrics.warning_to_dangerous_degrades_to",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893933+00:00"
+    },
+    {
+      "metric": "metrics.severity_decreases_recovered_to",
+      "value": 3574,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893935+00:00"
+    },
+    {
+      "metric": "metrics.err_cross_event",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893938+00:00"
+    },
+    {
+      "metric": "metrics.err_within_non_adjacent",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893939+00:00"
+    },
+    {
+      "metric": "metrics.err_time_direction",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893946+00:00"
+    },
+    {
+      "metric": "metrics.err_recovers_direction",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893949+00:00"
+    },
+    {
+      "metric": "metrics.err_degrades_warning",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893951+00:00"
+    },
+    {
+      "metric": "metrics.err_transits_same_rank",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893953+00:00"
+    },
+    {
+      "metric": "metrics.err_mismatch_predicate",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893955+00:00"
+    },
+    {
+      "metric": "metrics.err_mismatch_predicate2",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893958+00:00"
+    },
+    {
+      "metric": "metrics.err_missing_recovers_on_downgrade",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893960+00:00"
+    },
+    {
+      "metric": "metrics.err_missing_degrades_on_warning_dangerous",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893962+00:00"
+    },
+    {
+      "metric": "metrics.err_direction_field_inconsistent",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893964+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[0].days_before_tca",
+      "value": 7.0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893970+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[0].sample_events",
+      "value": 7297,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893972+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[0].agreement_with_final_cdm",
+      "value": 0.7863505550226121,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893974+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[0].selection_tolerance_days",
+      "value": 0.5,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893977+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[1].days_before_tca",
+      "value": 5.0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893980+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[1].sample_events",
+      "value": 8775,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893982+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[1].agreement_with_final_cdm",
+      "value": 0.8423931623931624,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893984+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[1].selection_tolerance_days",
+      "value": 0.5,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893987+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[2].days_before_tca",
+      "value": 3.0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893989+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[2].sample_events",
+      "value": 8932,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893991+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[2].agreement_with_final_cdm",
+      "value": 0.9199507389162561,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893993+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[2].selection_tolerance_days",
+      "value": 0.5,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893995+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[3].days_before_tca",
+      "value": 2.0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893997+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[3].sample_events",
+      "value": 9105,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.893999+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[3].agreement_with_final_cdm",
+      "value": 0.9527732015376167,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.894001+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[3].selection_tolerance_days",
+      "value": 0.5,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.894003+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[4].days_before_tca",
+      "value": 1.0,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.894006+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[4].sample_events",
+      "value": 9299,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.894008+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[4].agreement_with_final_cdm",
+      "value": 0.9787073878911711,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.894010+00:00"
+    },
+    {
+      "metric": "temporal_state_agreement[4].selection_tolerance_days",
+      "value": 0.5,
+      "source_file": "experiments/esa_cdm/results/state_evolution.json",
+      "script": "07_state_evolution_eval.py",
+      "timestamp": "2026-10-22T06:07:43.894012+00:00"
+    },
+    {
+      "metric": "passed",
+      "value": 11,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894187+00:00"
+    },
+    {
+      "metric": "total",
+      "value": 11,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894192+00:00"
+    },
+    {
+      "metric": "fault_detection_rate",
+      "value": 1.0,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894194+00:00"
+    },
+    {
+      "metric": "matrix[0].expected",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894199+00:00"
+    },
+    {
+      "metric": "matrix[0].actual",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894201+00:00"
+    },
+    {
+      "metric": "matrix[0].pass",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894204+00:00"
+    },
+    {
+      "metric": "matrix[1].expected",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894207+00:00"
+    },
+    {
+      "metric": "matrix[1].actual",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894209+00:00"
+    },
+    {
+      "metric": "matrix[1].pass",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894211+00:00"
+    },
+    {
+      "metric": "matrix[2].expected",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894214+00:00"
+    },
+    {
+      "metric": "matrix[2].actual",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894216+00:00"
+    },
+    {
+      "metric": "matrix[2].pass",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894219+00:00"
+    },
+    {
+      "metric": "matrix[3].expected",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894222+00:00"
+    },
+    {
+      "metric": "matrix[3].actual",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894227+00:00"
+    },
+    {
+      "metric": "matrix[3].pass",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894229+00:00"
+    },
+    {
+      "metric": "matrix[4].expected",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894232+00:00"
+    },
+    {
+      "metric": "matrix[4].actual",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894234+00:00"
+    },
+    {
+      "metric": "matrix[4].pass",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894237+00:00"
+    },
+    {
+      "metric": "matrix[5].expected",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894240+00:00"
+    },
+    {
+      "metric": "matrix[5].actual",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894242+00:00"
+    },
+    {
+      "metric": "matrix[5].pass",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894244+00:00"
+    },
+    {
+      "metric": "matrix[6].expected",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894247+00:00"
+    },
+    {
+      "metric": "matrix[6].actual",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894249+00:00"
+    },
+    {
+      "metric": "matrix[6].pass",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894251+00:00"
+    },
+    {
+      "metric": "matrix[7].expected",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894256+00:00"
+    },
+    {
+      "metric": "matrix[7].actual",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894258+00:00"
+    },
+    {
+      "metric": "matrix[7].pass",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894260+00:00"
+    },
+    {
+      "metric": "matrix[8].expected",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894264+00:00"
+    },
+    {
+      "metric": "matrix[8].actual",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894266+00:00"
+    },
+    {
+      "metric": "matrix[8].pass",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894268+00:00"
+    },
+    {
+      "metric": "matrix[9].expected",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894271+00:00"
+    },
+    {
+      "metric": "matrix[9].actual",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894273+00:00"
+    },
+    {
+      "metric": "matrix[9].pass",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894275+00:00"
+    },
+    {
+      "metric": "matrix[10].expected",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894278+00:00"
+    },
+    {
+      "metric": "matrix[10].actual",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894280+00:00"
+    },
+    {
+      "metric": "matrix[10].pass",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/fault_injection.json",
+      "script": "08_fault_injection.py",
+      "timestamp": "2026-10-22T06:07:43.894282+00:00"
+    },
+    {
+      "metric": "repeats_per_scale",
+      "value": 3,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894564+00:00"
+    },
+    {
+      "metric": "sizes[0].event_count",
+      "value": 100,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894570+00:00"
+    },
+    {
+      "metric": "sizes[0].cdm_count",
+      "value": 1167,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894572+00:00"
+    },
+    {
+      "metric": "sizes[0].estimated_input_triples_from_mapping_template",
+      "value": 32009,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894575+00:00"
+    },
+    {
+      "metric": "sizes[0].estimated_output_triples_from_mapping_template",
+      "value": 35517,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894577+00:00"
+    },
+    {
+      "metric": "sizes[0].input_contract_s.mean",
+      "value": 0.0017460333341053531,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894579+00:00"
+    },
+    {
+      "metric": "sizes[0].input_contract_s.median",
+      "value": 0.001832099998864578,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894581+00:00"
+    },
+    {
+      "metric": "sizes[0].input_contract_s.std",
+      "value": 0.00019537646504851422,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894582+00:00"
+    },
+    {
+      "metric": "sizes[0].input_contract_s.p95",
+      "value": 0.0018784500014589866,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894584+00:00"
+    },
+    {
+      "metric": "sizes[0].event_partitioned_temporal_sort_s.mean",
+      "value": 0.0011994999998326723,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894586+00:00"
+    },
+    {
+      "metric": "sizes[0].event_partitioned_temporal_sort_s.median",
+      "value": 0.001160100000561215,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894588+00:00"
+    },
+    {
+      "metric": "sizes[0].event_partitioned_temporal_sort_s.std",
+      "value": 0.00014740362989909423,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894590+00:00"
+    },
+    {
+      "metric": "sizes[0].event_partitioned_temporal_sort_s.p95",
+      "value": 0.0013423500000499188,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894592+00:00"
+    },
+    {
+      "metric": "sizes[0].r5_r8_execution_layer_s.mean",
+      "value": 0.00031816666766341467,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894594+00:00"
+    },
+    {
+      "metric": "sizes[0].r5_r8_execution_layer_s.median",
+      "value": 0.0003116000007139519,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894596+00:00"
+    },
+    {
+      "metric": "sizes[0].r5_r8_execution_layer_s.std",
+      "value": 5.2657984801414097e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894598+00:00"
+    },
+    {
+      "metric": "sizes[0].r5_r8_execution_layer_s.p95",
+      "value": 0.00036758000132977033,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894600+00:00"
+    },
+    {
+      "metric": "sizes[0].b3_execution_layer_s.mean",
+      "value": 0.1757531999986289,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894602+00:00"
+    },
+    {
+      "metric": "sizes[0].b3_execution_layer_s.median",
+      "value": 0.17452349999803118,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894604+00:00"
+    },
+    {
+      "metric": "sizes[0].b3_execution_layer_s.std",
+      "value": 0.0032255255686207463,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894606+00:00"
+    },
+    {
+      "metric": "sizes[0].b3_execution_layer_s.p95",
+      "value": 0.17892377999924064,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894608+00:00"
+    },
+    {
+      "metric": "sizes[0].empty_causal_invariant_check_s.mean",
+      "value": 3.3333223351898294e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894610+00:00"
+    },
+    {
+      "metric": "sizes[0].empty_causal_invariant_check_s.median",
+      "value": 3.9999940781854093e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894612+00:00"
+    },
+    {
+      "metric": "sizes[0].empty_causal_invariant_check_s.std",
+      "value": 1.1547093308388454e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894614+00:00"
+    },
+    {
+      "metric": "sizes[0].empty_causal_invariant_check_s.p95",
+      "value": 3.9999940781854093e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894619+00:00"
+    },
+    {
+      "metric": "sizes[0].other_validation_s.mean",
+      "value": 4.100000054071037e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894622+00:00"
+    },
+    {
+      "metric": "sizes[0].other_validation_s.median",
+      "value": 4.13999987358693e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894625+00:00"
+    },
+    {
+      "metric": "sizes[0].other_validation_s.std",
+      "value": 1.3453610213811502e-06,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894627+00:00"
+    },
+    {
+      "metric": "sizes[0].other_validation_s.p95",
+      "value": 4.20300002588192e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894629+00:00"
+    },
+    {
+      "metric": "sizes[0].total_s.mean",
+      "value": 0.18019806666658647,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894631+00:00"
+    },
+    {
+      "metric": "sizes[0].total_s.median",
+      "value": 0.17898029999923892,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894633+00:00"
+    },
+    {
+      "metric": "sizes[0].total_s.std",
+      "value": 0.0027916212682015766,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894635+00:00"
+    },
+    {
+      "metric": "sizes[0].total_s.p95",
+      "value": 0.18295056000024487,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894637+00:00"
+    },
+    {
+      "metric": "sizes[1].event_count",
+      "value": 500,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894640+00:00"
+    },
+    {
+      "metric": "sizes[1].cdm_count",
+      "value": 6399,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894642+00:00"
+    },
+    {
+      "metric": "sizes[1].estimated_input_triples_from_mapping_template",
+      "value": 175263,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894644+00:00"
+    },
+    {
+      "metric": "sizes[1].estimated_output_triples_from_mapping_template",
+      "value": 194517,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894646+00:00"
+    },
+    {
+      "metric": "sizes[1].input_contract_s.mean",
+      "value": 0.0027552666664026524,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894648+00:00"
+    },
+    {
+      "metric": "sizes[1].input_contract_s.median",
+      "value": 0.0026930999993055593,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894650+00:00"
+    },
+    {
+      "metric": "sizes[1].input_contract_s.std",
+      "value": 0.00012089906135864559,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894652+00:00"
+    },
+    {
+      "metric": "sizes[1].input_contract_s.p95",
+      "value": 0.0028744499984895812,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894654+00:00"
+    },
+    {
+      "metric": "sizes[1].event_partitioned_temporal_sort_s.mean",
+      "value": 0.0019554666675200374,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894657+00:00"
+    },
+    {
+      "metric": "sizes[1].event_partitioned_temporal_sort_s.median",
+      "value": 0.0019130000000586733,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894659+00:00"
+    },
+    {
+      "metric": "sizes[1].event_partitioned_temporal_sort_s.std",
+      "value": 0.00017207606803847065,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894661+00:00"
+    },
+    {
+      "metric": "sizes[1].event_partitioned_temporal_sort_s.p95",
+      "value": 0.002121620000616531,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894663+00:00"
+    },
+    {
+      "metric": "sizes[1].r5_r8_execution_layer_s.mean",
+      "value": 0.00031970000054570846,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894665+00:00"
+    },
+    {
+      "metric": "sizes[1].r5_r8_execution_layer_s.median",
+      "value": 0.0003187000002071727,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894667+00:00"
+    },
+    {
+      "metric": "sizes[1].r5_r8_execution_layer_s.std",
+      "value": 9.738584181871108e-06,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894669+00:00"
+    },
+    {
+      "metric": "sizes[1].r5_r8_execution_layer_s.p95",
+      "value": 0.0003287800016551046,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894671+00:00"
+    },
+    {
+      "metric": "sizes[1].b3_execution_layer_s.mean",
+      "value": 0.8721221666649702,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894673+00:00"
+    },
+    {
+      "metric": "sizes[1].b3_execution_layer_s.median",
+      "value": 0.8677223999984562,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894675+00:00"
+    },
+    {
+      "metric": "sizes[1].b3_execution_layer_s.std",
+      "value": 0.012219792606463215,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894676+00:00"
+    },
+    {
+      "metric": "sizes[1].b3_execution_layer_s.p95",
+      "value": 0.8841115799983527,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894678+00:00"
+    },
+    {
+      "metric": "sizes[1].empty_causal_invariant_check_s.mean",
+      "value": 2.3333389738885066e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894681+00:00"
+    },
+    {
+      "metric": "sizes[1].empty_causal_invariant_check_s.median",
+      "value": 2.00001522898674e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894683+00:00"
+    },
+    {
+      "metric": "sizes[1].empty_causal_invariant_check_s.std",
+      "value": 5.7736516764617694e-08,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894687+00:00"
+    },
+    {
+      "metric": "sizes[1].empty_causal_invariant_check_s.p95",
+      "value": 2.900022082030773e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894691+00:00"
+    },
+    {
+      "metric": "sizes[1].other_validation_s.mean",
+      "value": 4.7433334354233615e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894693+00:00"
+    },
+    {
+      "metric": "sizes[1].other_validation_s.median",
+      "value": 4.830000034417026e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894695+00:00"
+    },
+    {
+      "metric": "sizes[1].other_validation_s.std",
+      "value": 1.9502126572780653e-06,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894699+00:00"
+    },
+    {
+      "metric": "sizes[1].other_validation_s.p95",
+      "value": 4.8750000496511346e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894701+00:00"
+    },
+    {
+      "metric": "sizes[1].total_s.mean",
+      "value": 0.8784459333328414,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894703+00:00"
+    },
+    {
+      "metric": "sizes[1].total_s.median",
+      "value": 0.873814599999605,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894705+00:00"
+    },
+    {
+      "metric": "sizes[1].total_s.std",
+      "value": 0.012491146400509138,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894707+00:00"
+    },
+    {
+      "metric": "sizes[1].total_s.p95",
+      "value": 0.8907136299985723,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894988+00:00"
+    },
+    {
+      "metric": "sizes[2].event_count",
+      "value": 1000,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894991+00:00"
+    },
+    {
+      "metric": "sizes[2].cdm_count",
+      "value": 12903,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894994+00:00"
+    },
+    {
+      "metric": "sizes[2].estimated_input_triples_from_mapping_template",
+      "value": 353371,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894996+00:00"
+    },
+    {
+      "metric": "sizes[2].estimated_output_triples_from_mapping_template",
+      "value": 392206,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.894998+00:00"
+    },
+    {
+      "metric": "sizes[2].input_contract_s.mean",
+      "value": 0.004279533333222692,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895001+00:00"
+    },
+    {
+      "metric": "sizes[2].input_contract_s.median",
+      "value": 0.004163200002949452,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895002+00:00"
+    },
+    {
+      "metric": "sizes[2].input_contract_s.std",
+      "value": 0.0002253722298939882,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895004+00:00"
+    },
+    {
+      "metric": "sizes[2].input_contract_s.p95",
+      "value": 0.004501689997050562,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895006+00:00"
+    },
+    {
+      "metric": "sizes[2].event_partitioned_temporal_sort_s.mean",
+      "value": 0.0030512333311586795,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895008+00:00"
+    },
+    {
+      "metric": "sizes[2].event_partitioned_temporal_sort_s.median",
+      "value": 0.002974699997139396,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895010+00:00"
+    },
+    {
+      "metric": "sizes[2].event_partitioned_temporal_sort_s.std",
+      "value": 0.00013420843353730705,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895012+00:00"
+    },
+    {
+      "metric": "sizes[2].event_partitioned_temporal_sort_s.p95",
+      "value": 0.0031830499989155213,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895014+00:00"
+    },
+    {
+      "metric": "sizes[2].r5_r8_execution_layer_s.mean",
+      "value": 0.00035846666651195846,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895017+00:00"
+    },
+    {
+      "metric": "sizes[2].r5_r8_execution_layer_s.median",
+      "value": 0.0003556000010576099,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895019+00:00"
+    },
+    {
+      "metric": "sizes[2].r5_r8_execution_layer_s.std",
+      "value": 2.5222476774519123e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895021+00:00"
+    },
+    {
+      "metric": "sizes[2].r5_r8_execution_layer_s.p95",
+      "value": 0.00038205999953788705,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895023+00:00"
+    },
+    {
+      "metric": "sizes[2].b3_execution_layer_s.mean",
+      "value": 1.737951433332152,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895025+00:00"
+    },
+    {
+      "metric": "sizes[2].b3_execution_layer_s.median",
+      "value": 1.7330733999988297,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895027+00:00"
+    },
+    {
+      "metric": "sizes[2].b3_execution_layer_s.std",
+      "value": 0.01359059740771266,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895028+00:00"
+    },
+    {
+      "metric": "sizes[2].b3_execution_layer_s.p95",
+      "value": 1.7512843599979533,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895030+00:00"
+    },
+    {
+      "metric": "sizes[2].empty_causal_invariant_check_s.mean",
+      "value": 6.333345178669939e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895032+00:00"
+    },
+    {
+      "metric": "sizes[2].empty_causal_invariant_check_s.median",
+      "value": 7.00001692166552e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895034+00:00"
+    },
+    {
+      "metric": "sizes[2].empty_causal_invariant_check_s.std",
+      "value": 3.0550380017304274e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895036+00:00"
+    },
+    {
+      "metric": "sizes[2].empty_causal_invariant_check_s.p95",
+      "value": 8.799997885944322e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895040+00:00"
+    },
+    {
+      "metric": "sizes[2].other_validation_s.mean",
+      "value": 6.779999966965988e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895042+00:00"
+    },
+    {
+      "metric": "sizes[2].other_validation_s.median",
+      "value": 6.769999890821055e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895044+00:00"
+    },
+    {
+      "metric": "sizes[2].other_validation_s.std",
+      "value": 1.705021880316946e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895046+00:00"
+    },
+    {
+      "metric": "sizes[2].other_validation_s.p95",
+      "value": 8.317999891005456e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895049+00:00"
+    },
+    {
+      "metric": "sizes[2].total_s.mean",
+      "value": 1.7471544666671737,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895051+00:00"
+    },
+    {
+      "metric": "sizes[2].total_s.median",
+      "value": 1.7420455000028596,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895053+00:00"
+    },
+    {
+      "metric": "sizes[2].total_s.std",
+      "value": 0.013492143858687597,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895055+00:00"
+    },
+    {
+      "metric": "sizes[2].total_s.p95",
+      "value": 1.760414050000327,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895057+00:00"
+    },
+    {
+      "metric": "sizes[3].event_count",
+      "value": 2000,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895059+00:00"
+    },
+    {
+      "metric": "sizes[3].cdm_count",
+      "value": 24578,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895061+00:00"
+    },
+    {
+      "metric": "sizes[3].estimated_input_triples_from_mapping_template",
+      "value": 673596,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895063+00:00"
+    },
+    {
+      "metric": "sizes[3].estimated_output_triples_from_mapping_template",
+      "value": 747571,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895065+00:00"
+    },
+    {
+      "metric": "sizes[3].input_contract_s.mean",
+      "value": 0.007200066667185941,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895067+00:00"
+    },
+    {
+      "metric": "sizes[3].input_contract_s.median",
+      "value": 0.007311900000786409,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895069+00:00"
+    },
+    {
+      "metric": "sizes[3].input_contract_s.std",
+      "value": 0.0004867820098228171,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895071+00:00"
+    },
+    {
+      "metric": "sizes[3].input_contract_s.p95",
+      "value": 0.007590270002037869,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895073+00:00"
+    },
+    {
+      "metric": "sizes[3].event_partitioned_temporal_sort_s.mean",
+      "value": 0.005439566666609608,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895075+00:00"
+    },
+    {
+      "metric": "sizes[3].event_partitioned_temporal_sort_s.median",
+      "value": 0.0050658000000112224,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895077+00:00"
+    },
+    {
+      "metric": "sizes[3].event_partitioned_temporal_sort_s.std",
+      "value": 0.0007000762117308785,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895079+00:00"
+    },
+    {
+      "metric": "sizes[3].event_partitioned_temporal_sort_s.p95",
+      "value": 0.006129059999148012,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895081+00:00"
+    },
+    {
+      "metric": "sizes[3].r5_r8_execution_layer_s.mean",
+      "value": 0.0004748000016358371,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895083+00:00"
+    },
+    {
+      "metric": "sizes[3].r5_r8_execution_layer_s.median",
+      "value": 0.0004408000022522174,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895086+00:00"
+    },
+    {
+      "metric": "sizes[3].r5_r8_execution_layer_s.std",
+      "value": 6.827561745014793e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895088+00:00"
+    },
+    {
+      "metric": "sizes[3].r5_r8_execution_layer_s.p95",
+      "value": 0.0005421400011982769,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895090+00:00"
+    },
+    {
+      "metric": "sizes[3].b3_execution_layer_s.mean",
+      "value": 3.6640020000013465,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895092+00:00"
+    },
+    {
+      "metric": "sizes[3].b3_execution_layer_s.median",
+      "value": 3.7159194000014395,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895094+00:00"
+    },
+    {
+      "metric": "sizes[3].b3_execution_layer_s.std",
+      "value": 0.13056792328143613,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895096+00:00"
+    },
+    {
+      "metric": "sizes[3].b3_execution_layer_s.p95",
+      "value": 3.7561549800000646,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895098+00:00"
+    },
+    {
+      "metric": "sizes[3].empty_causal_invariant_check_s.mean",
+      "value": 3.666658206687619e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895100+00:00"
+    },
+    {
+      "metric": "sizes[3].empty_causal_invariant_check_s.median",
+      "value": 3.9999940781854093e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895102+00:00"
+    },
+    {
+      "metric": "sizes[3].empty_causal_invariant_check_s.std",
+      "value": 5.773546654194227e-08,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895104+00:00"
+    },
+    {
+      "metric": "sizes[3].empty_causal_invariant_check_s.p95",
+      "value": 3.9999940781854093e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895107+00:00"
+    },
+    {
+      "metric": "sizes[3].other_validation_s.mean",
+      "value": 8.180000077118166e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895110+00:00"
+    },
+    {
+      "metric": "sizes[3].other_validation_s.median",
+      "value": 8.610000077169389e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895111+00:00"
+    },
+    {
+      "metric": "sizes[3].other_validation_s.std",
+      "value": 1.579525467309191e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895113+00:00"
+    },
+    {
+      "metric": "sizes[3].other_validation_s.p95",
+      "value": 9.411000282852911e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895115+00:00"
+    },
+    {
+      "metric": "sizes[3].total_s.mean",
+      "value": 3.678979566666385,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895117+00:00"
+    },
+    {
+      "metric": "sizes[3].total_s.median",
+      "value": 3.729993699998886,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895119+00:00"
+    },
+    {
+      "metric": "sizes[3].total_s.std",
+      "value": 0.12942628058472222,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895122+00:00"
+    },
+    {
+      "metric": "sizes[3].total_s.p95",
+      "value": 3.7706118699999935,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895126+00:00"
+    },
+    {
+      "metric": "sizes[4].event_count",
+      "value": 5000,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895128+00:00"
+    },
+    {
+      "metric": "sizes[4].cdm_count",
+      "value": 61741,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895130+00:00"
+    },
+    {
+      "metric": "sizes[4].estimated_input_triples_from_mapping_template",
+      "value": 1691987,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895132+00:00"
+    },
+    {
+      "metric": "sizes[4].estimated_output_triples_from_mapping_template",
+      "value": 1877818,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895134+00:00"
+    },
+    {
+      "metric": "sizes[4].input_contract_s.mean",
+      "value": 0.015517499998774534,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895136+00:00"
+    },
+    {
+      "metric": "sizes[4].input_contract_s.median",
+      "value": 0.015161499999521766,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895138+00:00"
+    },
+    {
+      "metric": "sizes[4].input_contract_s.std",
+      "value": 0.0007323568062201657,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895140+00:00"
+    },
+    {
+      "metric": "sizes[4].input_contract_s.p95",
+      "value": 0.016239969999878666,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895142+00:00"
+    },
+    {
+      "metric": "sizes[4].event_partitioned_temporal_sort_s.mean",
+      "value": 0.019831766667872824,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895144+00:00"
+    },
+    {
+      "metric": "sizes[4].event_partitioned_temporal_sort_s.median",
+      "value": 0.02068449999933364,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895146+00:00"
+    },
+    {
+      "metric": "sizes[4].event_partitioned_temporal_sort_s.std",
+      "value": 0.0015361557877811344,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895148+00:00"
+    },
+    {
+      "metric": "sizes[4].event_partitioned_temporal_sort_s.p95",
+      "value": 0.020745610002995817,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895150+00:00"
+    },
+    {
+      "metric": "sizes[4].r5_r8_execution_layer_s.mean",
+      "value": 0.0006993000000268997,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895152+00:00"
+    },
+    {
+      "metric": "sizes[4].r5_r8_execution_layer_s.median",
+      "value": 0.0006610000018554274,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895154+00:00"
+    },
+    {
+      "metric": "sizes[4].r5_r8_execution_layer_s.std",
+      "value": 0.00012734547226200837,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895155+00:00"
+    },
+    {
+      "metric": "sizes[4].r5_r8_execution_layer_s.p95",
+      "value": 0.0008233599972299998,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895157+00:00"
+    },
+    {
+      "metric": "sizes[4].b3_execution_layer_s.mean",
+      "value": 8.804202633333867,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895159+00:00"
+    },
+    {
+      "metric": "sizes[4].b3_execution_layer_s.median",
+      "value": 8.805325900000753,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895161+00:00"
+    },
+    {
+      "metric": "sizes[4].b3_execution_layer_s.std",
+      "value": 0.04830059689683488,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895163+00:00"
+    },
+    {
+      "metric": "sizes[4].b3_execution_layer_s.p95",
+      "value": 8.847271209999963,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895165+00:00"
+    },
+    {
+      "metric": "sizes[4].empty_causal_invariant_check_s.mean",
+      "value": 3.0000107168840867e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895167+00:00"
+    },
+    {
+      "metric": "sizes[4].empty_causal_invariant_check_s.median",
+      "value": 3.00002284348011e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895169+00:00"
+    },
+    {
+      "metric": "sizes[4].empty_causal_invariant_check_s.std",
+      "value": 2.1003880435805544e-12,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895173+00:00"
+    },
+    {
+      "metric": "sizes[4].empty_causal_invariant_check_s.p95",
+      "value": 3.00002284348011e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895175+00:00"
+    },
+    {
+      "metric": "sizes[4].other_validation_s.mean",
+      "value": 0.00012653333396883681,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895177+00:00"
+    },
+    {
+      "metric": "sizes[4].other_validation_s.median",
+      "value": 0.00012740000238409266,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895180+00:00"
+    },
+    {
+      "metric": "sizes[4].other_validation_s.std",
+      "value": 1.6217377244928598e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895182+00:00"
+    },
+    {
+      "metric": "sizes[4].other_validation_s.p95",
+      "value": 0.0001408099997206591,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895184+00:00"
+    },
+    {
+      "metric": "sizes[4].total_s.mean",
+      "value": 8.843149433333261,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895186+00:00"
+    },
+    {
+      "metric": "sizes[4].total_s.median",
+      "value": 8.842247099997621,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895188+00:00"
+    },
+    {
+      "metric": "sizes[4].total_s.std",
+      "value": 0.04899583209047458,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895190+00:00"
+    },
+    {
+      "metric": "sizes[4].total_s.p95",
+      "value": 8.887555890000659,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895192+00:00"
+    },
+    {
+      "metric": "sizes[5].event_count",
+      "value": 10000,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895194+00:00"
+    },
+    {
+      "metric": "sizes[5].cdm_count",
+      "value": 123433,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895196+00:00"
+    },
+    {
+      "metric": "sizes[5].estimated_input_triples_from_mapping_template",
+      "value": 3382636,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895198+00:00"
+    },
+    {
+      "metric": "sizes[5].estimated_output_triples_from_mapping_template",
+      "value": 3754160,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895200+00:00"
+    },
+    {
+      "metric": "sizes[5].input_contract_s.mean",
+      "value": 0.03196423333550532,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895204+00:00"
+    },
+    {
+      "metric": "sizes[5].input_contract_s.median",
+      "value": 0.03281740000238642,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895206+00:00"
+    },
+    {
+      "metric": "sizes[5].input_contract_s.std",
+      "value": 0.002925297800103484,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895208+00:00"
+    },
+    {
+      "metric": "sizes[5].input_contract_s.p95",
+      "value": 0.034213030001410516,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895210+00:00"
+    },
+    {
+      "metric": "sizes[5].event_partitioned_temporal_sort_s.mean",
+      "value": 0.0393165333334764,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895212+00:00"
+    },
+    {
+      "metric": "sizes[5].event_partitioned_temporal_sort_s.median",
+      "value": 0.03827449999880628,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895214+00:00"
+    },
+    {
+      "metric": "sizes[5].event_partitioned_temporal_sort_s.std",
+      "value": 0.002276459116970373,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895216+00:00"
+    },
+    {
+      "metric": "sizes[5].event_partitioned_temporal_sort_s.p95",
+      "value": 0.04156220000186295,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895218+00:00"
+    },
+    {
+      "metric": "sizes[5].r5_r8_execution_layer_s.mean",
+      "value": 0.0012555333341879304,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895220+00:00"
+    },
+    {
+      "metric": "sizes[5].r5_r8_execution_layer_s.median",
+      "value": 0.0012705000008281786,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895221+00:00"
+    },
+    {
+      "metric": "sizes[5].r5_r8_execution_layer_s.std",
+      "value": 7.921756806137228e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895223+00:00"
+    },
+    {
+      "metric": "sizes[5].r5_r8_execution_layer_s.p95",
+      "value": 0.001320629999463563,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895225+00:00"
+    },
+    {
+      "metric": "sizes[5].b3_execution_layer_s.mean",
+      "value": 17.636146066666697,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895227+00:00"
+    },
+    {
+      "metric": "sizes[5].b3_execution_layer_s.median",
+      "value": 17.581685799999832,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895229+00:00"
+    },
+    {
+      "metric": "sizes[5].b3_execution_layer_s.std",
+      "value": 0.14226824738089228,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895231+00:00"
+    },
+    {
+      "metric": "sizes[5].b3_execution_layer_s.p95",
+      "value": 17.7760078599993,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895233+00:00"
+    },
+    {
+      "metric": "sizes[5].empty_causal_invariant_check_s.mean",
+      "value": 3.333334461785853e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895235+00:00"
+    },
+    {
+      "metric": "sizes[5].empty_causal_invariant_check_s.median",
+      "value": 3.00002284348011e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895237+00:00"
+    },
+    {
+      "metric": "sizes[5].empty_causal_invariant_check_s.std",
+      "value": 5.773441637657516e-08,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895240+00:00"
+    },
+    {
+      "metric": "sizes[5].empty_causal_invariant_check_s.p95",
+      "value": 3.8999969547148795e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895242+00:00"
+    },
+    {
+      "metric": "sizes[5].other_validation_s.mean",
+      "value": 0.00029159999879387516,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895244+00:00"
+    },
+    {
+      "metric": "sizes[5].other_validation_s.median",
+      "value": 0.00022329999774228781,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895246+00:00"
+    },
+    {
+      "metric": "sizes[5].other_validation_s.std",
+      "value": 0.00012414664905151783,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895248+00:00"
+    },
+    {
+      "metric": "sizes[5].other_validation_s.p95",
+      "value": 0.0004137400006584357,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895250+00:00"
+    },
+    {
+      "metric": "sizes[5].total_s.mean",
+      "value": 17.713885799998632,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895252+00:00"
+    },
+    {
+      "metric": "sizes[5].total_s.median",
+      "value": 17.659787999997206,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895254+00:00"
+    },
+    {
+      "metric": "sizes[5].total_s.std",
+      "value": 0.13746683651727398,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895255+00:00"
+    },
+    {
+      "metric": "sizes[5].total_s.p95",
+      "value": 17.849133329996768,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895257+00:00"
+    },
+    {
+      "metric": "sizes[6].event_count",
+      "value": 13154,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895259+00:00"
+    },
+    {
+      "metric": "sizes[6].cdm_count",
+      "value": 162634,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895261+00:00"
+    },
+    {
+      "metric": "sizes[6].estimated_input_triples_from_mapping_template",
+      "value": 4456833,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895265+00:00"
+    },
+    {
+      "metric": "sizes[6].estimated_output_triples_from_mapping_template",
+      "value": 4946340,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895266+00:00"
+    },
+    {
+      "metric": "sizes[6].input_contract_s.mean",
+      "value": 0.038354166665764446,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895270+00:00"
+    },
+    {
+      "metric": "sizes[6].input_contract_s.median",
+      "value": 0.03728140000021085,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895272+00:00"
+    },
+    {
+      "metric": "sizes[6].input_contract_s.std",
+      "value": 0.0019918807811105657,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895274+00:00"
+    },
+    {
+      "metric": "sizes[6].input_contract_s.p95",
+      "value": 0.04031538999988697,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895276+00:00"
+    },
+    {
+      "metric": "sizes[6].event_partitioned_temporal_sort_s.mean",
+      "value": 0.05423486666647174,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895278+00:00"
+    },
+    {
+      "metric": "sizes[6].event_partitioned_temporal_sort_s.median",
+      "value": 0.04961639999964973,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895280+00:00"
+    },
+    {
+      "metric": "sizes[6].event_partitioned_temporal_sort_s.std",
+      "value": 0.009418551383076977,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895282+00:00"
+    },
+    {
+      "metric": "sizes[6].event_partitioned_temporal_sort_s.p95",
+      "value": 0.06352571999887005,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895285+00:00"
+    },
+    {
+      "metric": "sizes[6].r5_r8_execution_layer_s.mean",
+      "value": 0.0014190666673433345,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895287+00:00"
+    },
+    {
+      "metric": "sizes[6].r5_r8_execution_layer_s.median",
+      "value": 0.0012442000006558374,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895290+00:00"
+    },
+    {
+      "metric": "sizes[6].r5_r8_execution_layer_s.std",
+      "value": 0.000394153488436577,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895293+00:00"
+    },
+    {
+      "metric": "sizes[6].r5_r8_execution_layer_s.p95",
+      "value": 0.0018077799995808164,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895295+00:00"
+    },
+    {
+      "metric": "sizes[6].b3_execution_layer_s.mean",
+      "value": 21.605524466667703,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895297+00:00"
+    },
+    {
+      "metric": "sizes[6].b3_execution_layer_s.median",
+      "value": 21.34487530000115,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895299+00:00"
+    },
+    {
+      "metric": "sizes[6].b3_execution_layer_s.std",
+      "value": 0.4514890367038643,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895301+00:00"
+    },
+    {
+      "metric": "sizes[6].b3_execution_layer_s.p95",
+      "value": 22.048660720000772,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895302+00:00"
+    },
+    {
+      "metric": "sizes[6].empty_causal_invariant_check_s.mean",
+      "value": 2.666662718790273e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895305+00:00"
+    },
+    {
+      "metric": "sizes[6].empty_causal_invariant_check_s.median",
+      "value": 2.999986463692039e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895306+00:00"
+    },
+    {
+      "metric": "sizes[6].empty_causal_invariant_check_s.std",
+      "value": 5.773336615389869e-08,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895310+00:00"
+    },
+    {
+      "metric": "sizes[6].empty_causal_invariant_check_s.p95",
+      "value": 2.999986463692039e-07,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895312+00:00"
+    },
+    {
+      "metric": "sizes[6].other_validation_s.mean",
+      "value": 0.0002507666661889137,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895314+00:00"
+    },
+    {
+      "metric": "sizes[6].other_validation_s.median",
+      "value": 0.00024309999935212545,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895316+00:00"
+    },
+    {
+      "metric": "sizes[6].other_validation_s.std",
+      "value": 1.8530336254552198e-05,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895318+00:00"
+    },
+    {
+      "metric": "sizes[6].other_validation_s.p95",
+      "value": 0.000269020000268938,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895320+00:00"
+    },
+    {
+      "metric": "sizes[6].total_s.mean",
+      "value": 21.704349833333254,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895322+00:00"
+    },
+    {
+      "metric": "sizes[6].total_s.median",
+      "value": 21.43754160000026,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895324+00:00"
+    },
+    {
+      "metric": "sizes[6].total_s.std",
+      "value": 0.4630944897740139,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895326+00:00"
+    },
+    {
+      "metric": "sizes[6].total_s.p95",
+      "value": 22.1589305700003,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895328+00:00"
+    },
+    {
+      "metric": "process_peak_working_set_mb_with_full_dataset_loaded",
+      "value": 248.30078125,
+      "source_file": "experiments/esa_cdm/results/scalability.json",
+      "script": "09_scalability.py",
+      "timestamp": "2026-10-22T06:07:43.895331+00:00"
+    },
+    {
+      "metric": "events_replayed",
+      "value": 100,
+      "source_file": "experiments/esa_cdm/results/streaming_replay.json",
+      "script": "10_streaming_replay.py",
+      "timestamp": "2026-10-22T06:07:43.895484+00:00"
+    },
+    {
+      "metric": "in_order_derived_fact_sets_equal",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/streaming_replay.json",
+      "script": "10_streaming_replay.py",
+      "timestamp": "2026-10-22T06:07:43.895489+00:00"
+    },
+    {
+      "metric": "delayed_recompute_derived_fact_sets_equal",
+      "value": true,
+      "source_file": "experiments/esa_cdm/results/streaming_replay.json",
+      "script": "10_streaming_replay.py",
+      "timestamp": "2026-10-22T06:07:43.895491+00:00"
+    },
+    {
+      "metric": "stale_adjacency_edges_removed",
+      "value": 17,
+      "source_file": "experiments/esa_cdm/results/streaming_replay.json",
+      "script": "10_streaming_replay.py",
+      "timestamp": "2026-10-22T06:07:43.895493+00:00"
+    },
+    {
+      "metric": "truth_maintenance_claim",
+      "value": false,
+      "source_file": "experiments/esa_cdm/results/streaming_replay.json",
+      "script": "10_streaming_replay.py",
+      "timestamp": "2026-10-22T06:07:43.895495+00:00"
+    },
+    {
+      "metric": "esa_real_data[0].states",
+      "value": 162634,
+      "source_file": "experiments/esa_cdm/results/esa_ablation.json",
+      "script": "11_ablation.py",
+      "timestamp": "2026-10-22T06:07:43.895646+00:00"
+    },
+    {
+      "metric": "esa_real_data[0].b3_transitions",
+      "value": 1605,
+      "source_file": "experiments/esa_cdm/results/esa_ablation.json",
+      "script": "11_ablation.py",
+      "timestamp": "2026-10-22T06:07:43.895651+00:00"
+    },
+    {
+      "metric": "esa_real_data[0].invalid_rows_admitted",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/esa_ablation.json",
+      "script": "11_ablation.py",
+      "timestamp": "2026-10-22T06:07:43.895653+00:00"
+    },
+    {
+      "metric": "esa_real_data[1].states",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/esa_ablation.json",
+      "script": "11_ablation.py",
+      "timestamp": "2026-10-22T06:07:43.895656+00:00"
+    },
+    {
+      "metric": "esa_real_data[1].b3_transitions",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/esa_ablation.json",
+      "script": "11_ablation.py",
+      "timestamp": "2026-10-22T06:07:43.895658+00:00"
+    },
+    {
+      "metric": "esa_real_data[1].invalid_rows_admitted",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/esa_ablation.json",
+      "script": "11_ablation.py",
+      "timestamp": "2026-10-22T06:07:43.895660+00:00"
+    },
+    {
+      "metric": "esa_real_data[2].states",
+      "value": 162634,
+      "source_file": "experiments/esa_cdm/results/esa_ablation.json",
+      "script": "11_ablation.py",
+      "timestamp": "2026-10-22T06:07:43.895663+00:00"
+    },
+    {
+      "metric": "esa_real_data[2].b3_transitions",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/esa_ablation.json",
+      "script": "11_ablation.py",
+      "timestamp": "2026-10-22T06:07:43.895665+00:00"
+    },
+    {
+      "metric": "esa_real_data[2].invalid_rows_admitted",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/esa_ablation.json",
+      "script": "11_ablation.py",
+      "timestamp": "2026-10-22T06:07:43.895667+00:00"
+    },
+    {
+      "metric": "esa_real_data[3].states",
+      "value": 162634,
+      "source_file": "experiments/esa_cdm/results/esa_ablation.json",
+      "script": "11_ablation.py",
+      "timestamp": "2026-10-22T06:07:43.895669+00:00"
+    },
+    {
+      "metric": "esa_real_data[3].b3_transitions",
+      "value": 1605,
+      "source_file": "experiments/esa_cdm/results/esa_ablation.json",
+      "script": "11_ablation.py",
+      "timestamp": "2026-10-22T06:07:43.895671+00:00"
+    },
+    {
+      "metric": "esa_real_data[3].invalid_rows_admitted",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/esa_ablation.json",
+      "script": "11_ablation.py",
+      "timestamp": "2026-10-22T06:07:43.895673+00:00"
+    },
+    {
+      "metric": "controlled_contract_stress.injected_records",
+      "value": 4,
+      "source_file": "experiments/esa_cdm/results/esa_ablation.json",
+      "script": "11_ablation.py",
+      "timestamp": "2026-10-22T06:07:43.895675+00:00"
+    },
+    {
+      "metric": "controlled_contract_stress.full_invalid_rows_admitted",
+      "value": 0,
+      "source_file": "experiments/esa_cdm/results/esa_ablation.json",
+      "script": "11_ablation.py",
+      "timestamp": "2026-10-22T06:07:43.895679+00:00"
+    },
+    {
+      "metric": "controlled_contract_stress.without_execution_layer_input_contract_invalid_rows_admitted",
+      "value": 4,
+      "source_file": "experiments/esa_cdm/results/esa_ablation.json",
+      "script": "11_ablation.py",
+      "timestamp": "2026-10-22T06:07:43.895681+00:00"
+    },
+    {
+      "metric": "cdms",
+      "value": 21,
+      "source_file": "experiments/esa_cdm/results/figure_example_event.json",
+      "script": "13_generate_figures.py",
+      "timestamp": "2026-10-22T06:07:43.895837+00:00"
+    }
+  ]
+}

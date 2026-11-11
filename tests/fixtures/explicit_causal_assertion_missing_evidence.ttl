@@ -1,0 +1,41 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix onto:  <https://w3id.org/tc-sssao#> .
+
+# CausalAssertion Dual Representation Test:
+# Explicit CausalAssertion with missing hasCausalEvidence
+# Should FAIL - CausalAssertionIntegrityShape requires hasCausalEvidence
+onto:Config a onto:RuleDeploymentConfiguration ;
+    onto:attentionPcThreshold "1.0E-7"^^xsd:float ;
+    onto:mitigationPcThreshold "1.0E-4"^^xsd:float .
+
+onto:SatA a onto:Spacecraft .
+onto:SatB a onto:Spacecraft .
+
+onto:Obs1 a onto:RadarObservationData .
+
+# ApproachEvent at 10:00
+onto:Approach a onto:ApproachEvent ;
+    onto:hasEventID "APP"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-01T10:00:00Z"^^xsd:dateTime ;
+    onto:hasPrimaryObject onto:SatA ;
+    onto:hasSecondaryObject onto:SatB ;
+    onto:hasStartTime "2026-08-01T10:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-01T10:30:00Z"^^xsd:dateTime ;
+    onto:detectedFromData onto:Obs1 .
+
+# CollisionRiskEvent at 11:00
+onto:Risk a onto:CollisionRiskEvent ;
+    onto:hasEventID "RISK"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-01T11:00:00Z"^^xsd:dateTime ;
+    onto:hasPrimaryObject onto:SatA ;
+    onto:hasSecondaryObject onto:SatB ;
+    onto:hasStartTime "2026-08-01T11:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-01T11:30:00Z"^^xsd:dateTime ;
+    onto:supportedByData onto:Obs1 .
+
+# Explicit CausalAssertion missing hasCausalEvidence
+onto:CausalAss a onto:CausalAssertion ;
+    onto:hasCause onto:Approach ;
+    onto:hasEffect onto:Risk .

@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "events_replayed": 100,
+  "comparison_level": "derived state and B3 fact tuples; no RDF graph isomorphism test",
+  "in_order_derived_fact_sets_equal": true,
+  "delayed_recompute_derived_fact_sets_equal": true,
+  "stale_adjacency_edges_removed": 17,
+  "stable_iri_policy": "SHA-256 of event-scoped snapshot identity and state",
+  "late_snapshot_policy": "delete and recompute B3-derived edges only for the affected event_id",
+  "truth_maintenance_claim": false
+}

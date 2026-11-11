@@ -1,0 +1,25 @@
+group	group_name	property	owl_domain	owl_range	visual_path	line_style	basis	declared_object_property
+1	Object-Orbit	hasOrbit	SpaceObject	Orbit	SpaceObject → Orbit	solid	OWL模式层	True
+2	Observation-Data	generatesData	ObservationSystem	ObservationData	ObservationSystem → ObservationData	solid	OWL模式层/CQ1	True
+3	Event-Context	involvesObject	SpaceEvent	SpaceObject	SpaceEvent → SpaceObject / Orbit	solid	OWL模式层/CQ3	True
+3	Event-Context	occursInOrbit	SpaceEvent	Orbit	SpaceEvent → SpaceObject / Orbit	solid	OWL模式层/CQ3	True
+4	Event-Evidence	detectedFromData	SpaceEvent	SSAData	SpaceEvent → SSAData	solid	OWL模式层/CQ1	True
+5	Temporal-Order	precedesEvent	SpaceEvent	SpaceEvent	SpaceEvent → SpaceEvent	dashed	R1可生成实例关系	True
+5	Temporal-Order	followsEvent	SpaceEvent	SpaceEvent	SpaceEvent → SpaceEvent	dashed	R1可生成实例关系	True
+6	Temporal-Overlap	overlapsWithEvent	SpaceEvent	SpaceEvent	SpaceEvent → SpaceEvent	dashed	R2可生成实例关系	True
+7	Assertion-Events	hasCause	CausalAssertion	SpaceEvent	CausalAssertion → SpaceEvent	solid	OWL模式层/CQ4	True
+7	Assertion-Events	hasEffect	CausalAssertion	SpaceEvent	CausalAssertion → SpaceEvent	solid	OWL模式层/CQ4	True
+8	Assertion-Evidence	hasCausalEvidence	CausalAssertion	SSAData	CausalAssertion → SSAData	solid	OWL模式层/CQ4	True
+9	Direct-Causal	causesEvent	SpaceEvent	SpaceEvent	SpaceEvent → SpaceEvent	dashed	B1/R3/R4可生成实例关系	True
+10	Event-State	leadsToState	SpaceEvent	SituationState	SpaceEvent → SituationState	dashed	R5—R8可生成实例关系	True
+11	Transition-States	hasSourceState	StateTransition	SituationState	StateTransition → SituationState	solid	OWL模式层/B2前件	True
+11	Transition-States	hasTargetState	StateTransition	SituationState	StateTransition → SituationState	solid	OWL模式层/B2前件	True
+12	Transition-Trigger	triggeredByEvent	StateTransition	SpaceEvent	StateTransition → SpaceEvent	solid	OWL模式层/CQ6	True
+13	State-Relations	transitsTo	SituationState	SituationState	SituationState → SituationState	dashed	transitsTo由B2/B3可生成；degradesTo仅由B3生成	True
+13	State-Relations	degradesTo	SituationState	SituationState	SituationState → SituationState	dashed	transitsTo由B2/B3可生成；degradesTo仅由B3生成	True
+14	Event-Threat	indicatesThreat	SpaceEvent	SecurityThreat	SpaceEvent → SecurityThreat	solid	OWL模式层/CQ7	True
+15	Threat-Risk-State	producesRisk	SecurityThreat	SecurityRisk	SecurityThreat → SecurityRisk → SituationState	solid	OWL模式层/CQ7	True
+15	Threat-Risk-State	riskLeadsToState	SecurityRisk	SituationState	SecurityThreat → SecurityRisk → SituationState	solid	OWL模式层/CQ7	True
+16	Threat-Response	requiresResponseMeasure	SecurityThreat	ResponseMeasure	SecurityThreat → ResponseMeasure	solid	OWL模式层/CQ7	True
+17	Response-Links	mitigatesRisk	ResponseMeasure	SecurityRisk	ResponseMeasure → SecurityRisk / SpaceEvent	solid	OWL模式层/CQ7	True
+17	Response-Links	respondsToEvent	ResponseMeasure	SpaceEvent	ResponseMeasure → SecurityRisk / SpaceEvent	solid	OWL模式层/CQ7	True

@@ -1,0 +1,19 @@
+@prefix onto: <https://w3id.org/tc-sssao#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+
+# T2 SOSA/SSN 对齐测试数据（合成测试实例，非案例事实）
+# 验证：Sensor⊑sosa:Sensor、ObservationActivity⊑sosa:Observation、
+#       madeBySensor⊑sosa:madeBySensor、ObservationData⊑sosa:Result。
+
+onto:InteropRadar a onto:GroundRadarSensor .
+
+onto:InteropObsAct a onto:ObservationActivity ;
+    onto:madeBySensor onto:InteropRadar .
+
+onto:InteropObsData a onto:RadarObservationData .
+
+# T2 负向检查用实例：本地属性不得再触发错误的 SOSA 推断
+# （映射已删除，闭包中不得出现 sosa:hasResult / sosa:hasFeatureOfInterest）
+onto:InteropObsData onto:hasObservationResult onto:InteropSatTarget .
+onto:InteropObsData onto:hasFeatureOfInterest onto:InteropSatTarget .
+onto:InteropSatTarget a onto:Satellite .

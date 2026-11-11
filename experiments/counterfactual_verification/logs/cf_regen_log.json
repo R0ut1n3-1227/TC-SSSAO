@@ -1,0 +1,47 @@
+{
+  "regen_at": "2026-10-12T15:25:27.084909",
+  "purpose": "Regenerate CF-1 and CF-2 from current scenario_facts.ttl to fix independent main FAIL",
+  "orig_scenario_facts": {
+    "path": "experiments\\rule_logic_verification\\data\\scenario_facts.ttl",
+    "triples": 120
+  },
+  "cf1_new": {
+    "path": "experiments\\counterfactual_verification\\data\\cf1_evidence_removed_facts.ttl",
+    "triples": 119,
+    "gate1_exact_removed": [
+      "(rdflib.term.URIRef('https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver'), rdflib.term.URIRef('https://w3id.org/tc-sssao#detectedFromData'), rdflib.term.URIRef('https://w3id.org/tc-sssao/data/rule-scenario#TestObsData'))"
+    ]
+  },
+  "cf2_new": {
+    "path": "experiments\\counterfactual_verification\\data\\cf2_time_reversed_facts.ttl",
+    "triples": 120,
+    "gate1_exact_removed": [
+      "(rdflib.term.URIRef('https://w3id.org/tc-sssao/data/rule-scenario#Evt_Approach'), rdflib.term.URIRef('https://w3id.org/tc-sssao#hasEndTime'), rdflib.term.Literal('2026-08-01T10:20:00+00:00', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#dateTime')))",
+      "(rdflib.term.URIRef('https://w3id.org/tc-sssao/data/rule-scenario#Evt_Approach'), rdflib.term.URIRef('https://w3id.org/tc-sssao#hasOccurrenceTime'), rdflib.term.Literal('2026-08-01T10:00:00+00:00', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#dateTime')))",
+      "(rdflib.term.URIRef('https://w3id.org/tc-sssao/data/rule-scenario#Evt_Approach'), rdflib.term.URIRef('https://w3id.org/tc-sssao#hasStartTime'), rdflib.term.Literal('2026-08-01T10:00:00+00:00', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#dateTime')))",
+      "(rdflib.term.URIRef('https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver'), rdflib.term.URIRef('https://w3id.org/tc-sssao#hasEndTime'), rdflib.term.Literal('2026-08-01T09:10:00+00:00', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#dateTime')))",
+      "(rdflib.term.URIRef('https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver'), rdflib.term.URIRef('https://w3id.org/tc-sssao#hasOccurrenceTime'), rdflib.term.Literal('2026-08-01T09:00:00+00:00', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#dateTime')))",
+      "(rdflib.term.URIRef('https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver'), rdflib.term.URIRef('https://w3id.org/tc-sssao#hasStartTime'), rdflib.term.Literal('2026-08-01T09:00:00+00:00', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#dateTime')))"
+    ],
+    "gate1_exact_added": [
+      "(rdflib.term.URIRef('https://w3id.org/tc-sssao/data/rule-scenario#Evt_Approach'), rdflib.term.URIRef('https://w3id.org/tc-sssao#hasEndTime'), rdflib.term.Literal('2026-08-01T09:20:00+00:00', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#dateTime')))",
+      "(rdflib.term.URIRef('https://w3id.org/tc-sssao/data/rule-scenario#Evt_Approach'), rdflib.term.URIRef('https://w3id.org/tc-sssao#hasOccurrenceTime'), rdflib.term.Literal('2026-08-01T09:00:00+00:00', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#dateTime')))",
+      "(rdflib.term.URIRef('https://w3id.org/tc-sssao/data/rule-scenario#Evt_Approach'), rdflib.term.URIRef('https://w3id.org/tc-sssao#hasStartTime'), rdflib.term.Literal('2026-08-01T09:00:00+00:00', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#dateTime')))",
+      "(rdflib.term.URIRef('https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver'), rdflib.term.URIRef('https://w3id.org/tc-sssao#hasEndTime'), rdflib.term.Literal('2026-08-01T10:10:00+00:00', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#dateTime')))",
+      "(rdflib.term.URIRef('https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver'), rdflib.term.URIRef('https://w3id.org/tc-sssao#hasOccurrenceTime'), rdflib.term.Literal('2026-08-01T10:00:00+00:00', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#dateTime')))",
+      "(rdflib.term.URIRef('https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver'), rdflib.term.URIRef('https://w3id.org/tc-sssao#hasStartTime'), rdflib.term.Literal('2026-08-01T10:00:00+00:00', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#dateTime')))"
+    ]
+  },
+  "stale_backups": [
+    {
+      "orig": "experiments\\counterfactual_verification\\data\\cf1_evidence_removed_facts.ttl",
+      "backup": "experiments\\counterfactual_verification\\logs\\stale_cf1_evidence_removed_facts.ttl",
+      "size": 7589
+    },
+    {
+      "orig": "experiments\\counterfactual_verification\\data\\cf2_time_reversed_facts.ttl",
+      "backup": "experiments\\counterfactual_verification\\logs\\stale_cf2_time_reversed_facts.ttl",
+      "size": 7944
+    }
+  ]
+}

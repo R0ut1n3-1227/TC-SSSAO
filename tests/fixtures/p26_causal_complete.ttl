@@ -1,0 +1,26 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix onto:  <https://w3id.org/tc-sssao#> .
+
+# P26: Complete CausalAssertion (hasCause, hasEffect, hasCausalEvidence) -> should PASS
+onto:Config a onto:RuleDeploymentConfiguration ;
+    onto:attentionPcThreshold "1.0E-7"^^xsd:float ;
+    onto:mitigationPcThreshold "1.0E-4"^^xsd:float .
+
+onto:CauseEvent a onto:SpaceEvent ;
+    onto:hasEventID "P26-Cause"^^xsd:string ;
+    onto:hasStartTime "2026-08-01T09:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-01T09:30:00Z"^^xsd:dateTime .
+
+onto:EffectEvent a onto:SpaceEvent ;
+    onto:hasEventID "P26-Effect"^^xsd:string ;
+    onto:hasStartTime "2026-08-01T10:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-01T10:30:00Z"^^xsd:dateTime .
+
+onto:Obs a onto:RadarObservationData .
+
+onto:Assertion a onto:CausalAssertion ;
+    onto:hasCause onto:CauseEvent ;
+    onto:hasEffect onto:EffectEvent ;
+    onto:hasCausalEvidence onto:Obs .

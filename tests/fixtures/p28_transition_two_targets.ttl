@@ -1,0 +1,31 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix onto:  <https://w3id.org/tc-sssao#> .
+
+# P28: StateTransition with two target states (hasTargetState maxCount=1) -> should FAIL
+onto:Config a onto:RuleDeploymentConfiguration ;
+    onto:attentionPcThreshold "1.0E-7"^^xsd:float ;
+    onto:mitigationPcThreshold "1.0E-4"^^xsd:float .
+
+onto:SourceState a onto:NormalSituationState ;
+    onto:hasStateID "P28-Source"^^xsd:string ;
+    onto:hasSeverityRank "0"^^xsd:integer .
+
+onto:TargetState1 a onto:WarningSituationState ;
+    onto:hasStateID "P28-Target1"^^xsd:string ;
+    onto:hasSeverityRank "2"^^xsd:integer .
+
+onto:TargetState2 a onto:AttentionSituationState ;
+    onto:hasStateID "P28-Target2"^^xsd:string ;
+    onto:hasSeverityRank "1"^^xsd:integer .
+
+onto:TriggerEvent a onto:SpaceEvent ;
+    onto:hasEventID "P28-Trigger"^^xsd:string ;
+    onto:hasStartTime "2026-08-01T10:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-01T10:30:00Z"^^xsd:dateTime .
+
+onto:Transition a onto:StateTransition ;
+    onto:hasSourceState onto:SourceState ;
+    onto:hasTargetState onto:TargetState1 , onto:TargetState2 ;
+    onto:triggeredByEvent onto:TriggerEvent .

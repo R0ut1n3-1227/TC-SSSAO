@@ -1,0 +1,1003 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix onto:    <https://w3id.org/tc-sssao#> .
+@prefix time:    <http://www.w3.org/2006/time#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+#####################################################################
+# TC-SSSAO SHACL 规则文件
+# 规则分类：
+#   - StructuralRestriction：对应 OWL restriction / domain / range
+#   - ValidationRule：sh:SPARQLConstraint，仅报错不生成三元组
+#   - InferenceRule：sh:SPARQLRule，生成新三元组
+# 模块标签（M3 第二阶段新增，onto:ruleModule，仅作元数据，不改变规则语义）：
+#   Temporal(R1,R2) / Causal(R3,R4,B1) / Situation(R5-R8,B2,B3)
+#   / Consistency(R9-R11) / SemanticProjection(B4,B5)
+#   / DataValidation(R12-R18 及补充数据约束)
+#####################################################################
+
+# 规则集版本元数据（M4 第一阶段；纯文档级元数据，不参与任何规则求值）
+<https://w3id.org/tc-sssao/rules> a owl:Ontology ;
+    owl:versionInfo "1.0.0" ;
+    owl:versionIRI <https://w3id.org/tc-sssao/rules/1.0.0> ;
+    dcterms:title "TC-SSSAO SHACL-SPARQL rule set"@en ;
+    dcterms:title "TC-SSSAO SHACL-SPARQL 规则集"@zh ;
+    dcterms:modified "2026-10-11"^^xsd:date ;
+    dcterms:license <https://opensource.org/license/mit> .
+
+onto:ruleModule a owl:AnnotationProperty ;
+    rdfs:label "规则模块"@zh ;
+    rdfs:comment "规则 Shape 所属功能模块标签，用于模块消融实验构造变体规则图；不参与规则求值。"@zh .
+
+# ============================================================
+# 0. 规则部署配置（deployment-specific configuration）——指针说明
+#
+# M2 第二阶段（2026-09-04）：旧五参数（warningRiskScoreThreshold /
+# attentionDistanceParameter / attentionToWarningRiskScoreThreshold /
+# dangerCollisionProbabilityThreshold / dangerMissDistanceParameter，
+# 示例值 0.7 / 5.0 / 0.6 / 0.8 / 1.0）已删除。R5—R8 改用两个碰撞概率
+# （Pc）判据参数：attentionPcThreshold（θ_A，实验参考值 1E-7，NASA CARA
+# 运行关注水平）与 mitigationPcThreshold（θ_M，实验参考值 1E-4，
+# NASA CARA / NPR 8079.1 高风险减缓判据）；组合硬体半径 h(e) 为事件级
+# 输入（hasCombinedHardBodyRadius），不是全局部署常数。这些参数属于
+# 规则部署配置，由任务运行方在部署规则时设定，不构成本体模式层中的
+# 领域常数或不可变领域事实。
+#
+# 配置实例定义在 owl/tc_sssao_rule_config.ttl，且必须被运行脚本合并进
+# **数据图**（pySHACL 的 SPARQL 规则只对数据图求值，本规则图中的节点对
+# 规则执行不可见）；部署时应保证数据图中恰好存在一个
+# RuleDeploymentConfiguration 实例。
+# ============================================================
+
+# ============================================================
+# 1. StructuralRestriction
+# ============================================================
+
+onto:SpaceObjectOrbitShape a sh:NodeShape ;
+    sh:targetClass onto:SpaceObject ;
+    rdfs:comment "R16：每个空间目标至少具有一个轨道"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "SpaceObject" ;
+    onto:inputProperties "hasOrbit" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "每个空间目标至少具有一个轨道" ;
+    sh:property [
+        sh:path onto:hasOrbit ;
+        sh:minCount 1 ;
+        sh:class onto:Orbit ;
+        sh:message "空间目标缺少轨道（hasOrbit）"@zh ;
+    ] .
+
+onto:ObservationSystemDataShape a sh:NodeShape ;
+    sh:targetClass onto:ObservationSystem ;
+    rdfs:comment "R17：每个观测系统至少生成一条观测数据（Sensor 作为 ObservationSystem 子类同样适用）"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "ObservationSystem" ;
+    onto:inputProperties "generatesData" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "每个观测系统至少生成一条观测数据" ;
+    onto:formalExpression "ObservationSystem(sys) → ∃d ∈ ObservationData: generatesData(sys,d)" ;
+    sh:sparql [
+        sh:select """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            SELECT $this
+            WHERE {
+                $this a onto:ObservationSystem .
+                FILTER NOT EXISTS {
+                    $this onto:generatesData ?d .
+                    ?d a onto:ObservationData .
+                }
+            }
+        """ ;
+        sh:message "观测系统未生成任何观测数据（generatesData）"@zh ;
+    ] .
+
+onto:SecurityThreatResponseShape a sh:NodeShape ;
+    sh:targetClass onto:SecurityThreat ;
+    rdfs:comment "R12：安全威胁至少匹配一个响应措施"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "SecurityThreat" ;
+    onto:inputProperties "requiresResponseMeasure" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "每个安全威胁至少需要一个响应措施" ;
+    sh:property [
+        sh:path onto:requiresResponseMeasure ;
+        sh:minCount 1 ;
+        sh:class onto:ResponseMeasure ;
+        sh:message "安全威胁缺少响应措施（requiresResponseMeasure）"@zh ;
+    ] .
+
+onto:ResponseMeasureEventShape a sh:NodeShape ;
+    sh:targetClass onto:ResponseMeasure ;
+    rdfs:comment "R15：响应措施至少响应一个空间事件"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "ResponseMeasure" ;
+    onto:inputProperties "respondsToEvent" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "每个响应措施至少响应一个空间事件" ;
+    sh:property [
+        sh:path onto:respondsToEvent ;
+        sh:minCount 1 ;
+        sh:class onto:SpaceEvent ;
+        sh:message "响应措施未响应任何空间事件（respondsToEvent）"@zh ;
+    ] .
+
+onto:EventDataEvidenceShape a sh:NodeShape ;
+    sh:targetClass onto:SpaceEvent ;
+    rdfs:comment "R13：空间事件应由观测数据发现或支撑"@zh ;
+    onto:ruleCategory "ValidationRule" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "SpaceEvent" ;
+    onto:inputProperties "detectedFromData, supportedByData" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "每个空间事件至少由一条观测数据发现或支撑" ;
+    onto:formalExpression "SpaceEvent(e) → ∃d ∈ ObservationData: detectedFromData(e,d) ∨ supportedByData(e,d)" ;
+    sh:sparql [
+        sh:select """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            SELECT $this
+            WHERE {
+                $this a onto:SpaceEvent .
+                FILTER NOT EXISTS {
+                    $this onto:detectedFromData ?d .
+                    ?d a onto:ObservationData .
+                }
+                FILTER NOT EXISTS {
+                    $this onto:supportedByData ?d .
+                    ?d a onto:ObservationData .
+                }
+            }
+        """ ;
+        sh:message "空间事件缺少数据证据（detectedFromData 或 supportedByData）"@zh ;
+    ] .
+
+onto:CausalConfidenceRangeShape a sh:NodeShape ;
+    sh:targetClass onto:CausalAssertion ;
+    rdfs:comment "M3 第一阶段（2026-09-04）：因果置信度改为可选元数据；存在时必须在 [0,1] 范围内且至多一个值"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "CausalAssertion" ;
+    onto:inputProperties "hasCausalConfidence" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "因果置信度是可选的因果断言上下文元数据；当数据来源、专家评估或外部模型提供定量置信信息时可记录该值，来源未给出时不强制赋值；若记录，则必须为 xsd:float 且在 0 到 1 之间，且至多一个值" ;
+    sh:property [
+        sh:path onto:hasCausalConfidence ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:float ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 1 ;
+        sh:message "因果置信度至多为一个 [0,1] 范围内的 xsd:float 值"@zh ;
+    ] .
+
+onto:StateConfidenceRangeShape a sh:NodeShape ;
+    sh:targetClass onto:SituationState ;
+    rdfs:comment "状态置信度必须在 [0,1] 范围内"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "SituationState" ;
+    onto:inputProperties "hasStateConfidence" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "态势状态置信度必须在 0 到 1 之间" ;
+    sh:property [
+        sh:path onto:hasStateConfidence ;
+        sh:datatype xsd:float ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 1 ;
+        sh:message "状态置信度必须在 [0,1] 范围内"@zh ;
+    ] .
+
+onto:MultiCauseMinShape a sh:NodeShape ;
+    sh:targetClass onto:MultiCauseAssertion ;
+    rdfs:comment "MultiCauseAssertion 至少有两个原因事件"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "MultiCauseAssertion" ;
+    onto:inputProperties "hasCause" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "多因因果断言至少包含两个原因事件" ;
+    sh:property [
+        sh:path onto:hasCause ;
+        sh:minCount 2 ;
+        sh:class onto:SpaceEvent ;
+        sh:message "MultiCauseAssertion 至少需要两个 hasCause"@zh ;
+    ] .
+
+# ============================================================
+# 2. ValidationRule（SHACL-SPARQL）
+# ============================================================
+
+onto:EventStartEndTimeShape a sh:NodeShape ;
+    sh:targetClass onto:SpaceEvent ;
+    rdfs:comment "事件开始时间不得晚于结束时间"@zh ;
+    onto:ruleCategory "ValidationRule" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "SpaceEvent" ;
+    onto:inputProperties "hasStartTime, hasEndTime" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "事件开始时间不得晚于结束时间" ;
+    onto:formalExpression "hasStartTime(e) ≤ hasEndTime(e)" ;
+    sh:sparql [
+        sh:select """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            SELECT $this
+            WHERE {
+                $this a onto:SpaceEvent ;
+                        onto:hasStartTime ?st ;
+                        onto:hasEndTime ?et .
+                FILTER (xsd:dateTime(?st) > xsd:dateTime(?et))
+            }
+        """ ;
+        sh:message "事件开始时间晚于结束时间"@zh ;
+    ] .
+
+onto:StateStartEndTimeShape a sh:NodeShape ;
+    sh:targetClass onto:SituationState ;
+    rdfs:comment "R14：状态开始时间不得晚于结束时间"@zh ;
+    onto:ruleCategory "ValidationRule" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "SituationState" ;
+    onto:inputProperties "hasStateStartTime, hasStateEndTime" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "状态开始时间不得晚于结束时间" ;
+    onto:formalExpression "hasStateStartTime(s) ≤ hasStateEndTime(s)" ;
+    sh:sparql [
+        sh:select """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            SELECT $this
+            WHERE {
+                $this a onto:SituationState ;
+                        onto:hasStateStartTime ?st ;
+                        onto:hasStateEndTime ?et .
+                FILTER (xsd:dateTime(?st) > xsd:dateTime(?et))
+            }
+        """ ;
+        sh:message "状态开始时间晚于结束时间"@zh ;
+    ] .
+
+onto:CauseBeforeEffectShape a sh:NodeShape ;
+    sh:targetClass onto:SpaceEvent ;
+    rdfs:comment "R9：原因事件不得晚于结果事件"@zh ;
+    onto:ruleCategory "ValidationRule" ;
+    onto:ruleModule "Consistency" ;
+    onto:targetClass "SpaceEvent" ;
+    onto:inputProperties "causesEvent, hasOccurrenceTime" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "若事件 e1 导致 e2，则 e1 的发生时间不得晚于 e2" ;
+    onto:formalExpression "causesEvent(e1,e2) → hasOccurrenceTime(e1) ≤ hasOccurrenceTime(e2)" ;
+    sh:sparql [
+        sh:select """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            SELECT $this
+            WHERE {
+                $this a onto:SpaceEvent ;
+                        onto:causesEvent ?effect ;
+                        onto:hasOccurrenceTime ?t1 .
+                ?effect a onto:SpaceEvent ;
+                        onto:hasOccurrenceTime ?t2 .
+                FILTER (xsd:dateTime(?t1) > xsd:dateTime(?t2))
+            }
+        """ ;
+        sh:message "原因事件的发生时间晚于结果事件"@zh ;
+    ] .
+
+onto:CausalDirectionShape a sh:NodeShape ;
+    sh:targetClass onto:SpaceEvent ;
+    rdfs:comment "R10：因果关系不能同时双向成立"@zh ;
+    onto:ruleCategory "ValidationRule" ;
+    onto:ruleModule "Consistency" ;
+    onto:targetClass "SpaceEvent" ;
+    onto:inputProperties "causesEvent" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "因果关系不能同时双向成立" ;
+    onto:formalExpression "causesEvent(e1,e2) → ¬causesEvent(e2,e1)" ;
+    sh:sparql [
+        sh:select """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            SELECT $this
+            WHERE {
+                $this a onto:SpaceEvent .
+                $this onto:causesEvent ?other .
+                ?other a onto:SpaceEvent .
+                ?other onto:causesEvent $this .
+                FILTER ($this != ?other)
+            }
+        """ ;
+        sh:message "R10：因果关系不能同时双向成立（causesEvent 双向）"@zh ;
+    ] .
+
+onto:CausalCycleShape a sh:NodeShape ;
+    sh:targetClass onto:SpaceEvent ;
+    rdfs:comment "R11：因果链不能形成闭环"@zh ;
+    onto:ruleCategory "ValidationRule" ;
+    onto:ruleModule "Consistency" ;
+    onto:targetClass "SpaceEvent" ;
+    onto:inputProperties "causesEvent" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "事件之间的因果关系不能形成闭环" ;
+    onto:formalExpression "¬∃e: causesEvent⁺(e,e)" ;
+    sh:sparql [
+        sh:select """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            SELECT $this
+            WHERE {
+                $this a onto:SpaceEvent .
+                $this (onto:causesEvent)+ $this .
+            }
+        """ ;
+        sh:message "因果链形成闭环"@zh ;
+    ] .
+
+onto:StateTransitionNoSelfLoopShape a sh:NodeShape ;
+    sh:targetClass onto:StateTransition ;
+    rdfs:comment "StateTransition 的源状态与目标状态不能相同"@zh ;
+    onto:ruleCategory "ValidationRule" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "StateTransition" ;
+    onto:inputProperties "hasSourceState, hasTargetState" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "状态转移的源状态与目标状态必须不同" ;
+    onto:formalExpression "hasSourceState(t) ≠ hasTargetState(t)" ;
+    sh:sparql [
+        sh:select """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            SELECT $this
+            WHERE {
+                $this a onto:StateTransition ;
+                        onto:hasSourceState ?s ;
+                        onto:hasTargetState ?s .
+            }
+        """ ;
+        sh:message "状态转移的源状态等于目标状态"@zh ;
+    ] .
+
+onto:SensorDisjointShape a sh:NodeShape ;
+    sh:targetClass onto:Sensor ;
+    rdfs:comment "一个传感器不能同时属于两种感知机理类型"@zh ;
+    onto:ruleCategory "ValidationRule" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "Sensor" ;
+    onto:inputProperties "rdf:type" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "一个传感器不能同时声明为 RadarSensor 和 OpticalSensor（或红外）" ;
+    sh:sparql [
+        sh:select """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            SELECT $this
+            WHERE {
+                $this a onto:Sensor .
+                {
+                    $this a onto:RadarSensor ; a onto:OpticalSensor .
+                } UNION {
+                    $this a onto:RadarSensor ; a onto:InfraredSensor .
+                } UNION {
+                    $this a onto:OpticalSensor ; a onto:InfraredSensor .
+                }
+            }
+        """ ;
+        sh:message "传感器同时被声明为互斥的感知机理类型"@zh ;
+    ] .
+
+onto:ThreatRiskRelationMisuseShape a sh:NodeShape ;
+    sh:targetClass onto:SecurityThreat ;
+    rdfs:comment "SecurityThreat 不得错误使用风险专属关系 mitigatedBy"@zh ;
+    onto:ruleCategory "ValidationRule" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "SecurityThreat" ;
+    onto:inputProperties "mitigatedBy" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "安全威胁应使用 threatMitigatedBy，而非风险专属的 mitigatedBy" ;
+    sh:sparql [
+        sh:select """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            SELECT $this
+            WHERE {
+                $this a onto:SecurityThreat ;
+                        onto:mitigatedBy ?m .
+            }
+        """ ;
+        sh:message "SecurityThreat 错误使用风险专属关系 mitigatedBy"@zh ;
+    ] .
+
+onto:ObservationEventDataPropertyMisuseShape a sh:NodeShape ;
+    sh:targetClass onto:ObservationEvent ;
+    rdfs:comment "ObservationEvent 不得错误使用数据专属属性 hasFeatureOfInterest"@zh ;
+    onto:ruleCategory "ValidationRule" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "ObservationEvent" ;
+    onto:inputProperties "hasFeatureOfInterest" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "观测事件应使用 involvesObject，而非数据专属的 hasFeatureOfInterest" ;
+    sh:sparql [
+        sh:select """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            SELECT $this
+            WHERE {
+                $this a onto:ObservationEvent ;
+                        onto:hasFeatureOfInterest ?o .
+            }
+        """ ;
+        sh:message "ObservationEvent 错误使用数据专属属性 hasFeatureOfInterest"@zh ;
+    ] .
+
+onto:EnvironmentLevelShape a sh:NodeShape ;
+    sh:targetClass onto:SpaceEnvironment ;
+    rdfs:comment "R18：空间环境等级取值限于正常、异常、严重"@zh ;
+    onto:ruleCategory "ValidationRule" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "SpaceEnvironment" ;
+    onto:inputProperties "hasEnvironmentLevel" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "空间环境等级取值限于正常、异常、严重" ;
+    onto:formalExpression "hasEnvironmentLevel(env) ∈ {正常, 异常, 严重}" ;
+    sh:property [
+        sh:path onto:hasEnvironmentLevel ;
+        sh:in ("正常" "异常" "严重") ;
+        sh:message "空间环境等级必须是 正常/异常/严重 之一"@zh ;
+    ] .
+
+# ============================================================
+# 3. InferenceRule（SHACL-SPARQLRule）
+# ============================================================
+
+onto:EventPrecedenceRuleShape a sh:NodeShape ;
+    sh:targetClass onto:SpaceEvent ;
+    rdfs:comment "R1：依据发生时间推断事件先后关系"@zh ;
+    onto:ruleCategory "InferenceRule" ;
+    onto:ruleModule "Temporal" ;
+    onto:targetClass "SpaceEvent" ;
+    onto:inputProperties "hasOccurrenceTime" ;
+    onto:outputRelation "precedesEvent, followsEvent" ;
+    onto:naturalLanguageRule "若事件 e1 的发生时间早于事件 e2，则推断 e1 应先于 e2。" ;
+    onto:formalExpression "hasOccurrenceTime(e1) < hasOccurrenceTime(e2) → precedesEvent(e1, e2)" ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            CONSTRUCT {
+                ?e1 onto:precedesEvent ?e2 .
+                ?e2 onto:followsEvent ?e1 .
+            }
+            WHERE {
+                ?e1 a onto:SpaceEvent .
+                ?e2 a onto:SpaceEvent .
+                ?e1 onto:hasOccurrenceTime ?t1 .
+                ?e2 onto:hasOccurrenceTime ?t2 .
+                FILTER (?e1 != ?e2)
+                FILTER (xsd:dateTime(?t1) < xsd:dateTime(?t2))
+            }
+        """ ;
+    ] .
+
+onto:EventOverlapRuleShape a sh:NodeShape ;
+    sh:targetClass onto:SpaceEvent ;
+    rdfs:comment "R2：依据开始/结束时间推断事件重叠关系"@zh ;
+    onto:ruleCategory "InferenceRule" ;
+    onto:ruleModule "Temporal" ;
+    onto:targetClass "SpaceEvent" ;
+    onto:inputProperties "hasStartTime, hasEndTime" ;
+    onto:outputRelation "overlapsWithEvent" ;
+    onto:naturalLanguageRule "两个事件的开始结束时间互相重叠时，推断它们存在时间重叠关系。" ;
+    onto:formalExpression "start1 < end2 ∧ start2 < end1 → overlapsWithEvent(e1, e2)" ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            CONSTRUCT {
+                ?e1 onto:overlapsWithEvent ?e2 .
+                ?e2 onto:overlapsWithEvent ?e1 .
+            }
+            WHERE {
+                ?e1 a onto:SpaceEvent .
+                ?e2 a onto:SpaceEvent .
+                ?e1 onto:hasStartTime ?s1 ;
+                      onto:hasEndTime ?e1_end .
+                ?e2 onto:hasStartTime ?s2 ;
+                      onto:hasEndTime ?e2_end .
+                FILTER (?e1 != ?e2)
+                FILTER (xsd:dateTime(?s1) < xsd:dateTime(?e2_end))
+                FILTER (xsd:dateTime(?s2) < xsd:dateTime(?e1_end))
+            }
+        """ ;
+    ] .
+
+onto:OrbitManeuverCausesApproachRuleShape a sh:NodeShape ;
+    sh:targetClass onto:OrbitManeuverEvent ;
+    rdfs:comment "R3：轨道机动事件作用的目标随后作为接近事件主要目标，两事件均具有观测数据证据且机动先于接近时，推断机动事件导致接近事件"@zh ;
+    onto:ruleCategory "InferenceRule" ;
+    onto:ruleModule "Causal" ;
+    onto:targetClass "OrbitManeuverEvent" ;
+    onto:inputProperties "affectsObject, hasPrimaryObject, hasSecondaryObject, precedesEvent, detectedFromData, supportedByData" ;
+    onto:outputRelation "causesEvent" ;
+    onto:naturalLanguageRule "当轨道机动事件作用于空间目标 o1，o1 随后作为接近事件的主要目标与另一目标 o2 形成接近，机动事件先于接近事件发生，且两个事件均具有 ObservationData 类型的数据支撑时，推断机动事件导致接近事件（知识级因果关联）。" ;
+    onto:formalExpression "OrbitManeuverEvent(e1) ∧ ApproachEvent(e2) ∧ affectsObject(e1,o1) ∧ hasPrimaryObject(e2,o1) ∧ hasSecondaryObject(e2,o2) ∧ o1≠o2 ∧ precedesEvent(e1,e2) ∧ evidence(e1) ∧ evidence(e2) → causesEvent(e1,e2)" ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            CONSTRUCT {
+                ?e1 onto:causesEvent ?e2 .
+            }
+            WHERE {
+                ?e1 a onto:OrbitManeuverEvent .
+                ?e2 a onto:ApproachEvent .
+                ?o1 a onto:SpaceObject .
+                ?o2 a onto:SpaceObject .
+                ?e1 onto:affectsObject ?o1 .
+                ?e2 onto:hasPrimaryObject ?o1 ;
+                     onto:hasSecondaryObject ?o2 .
+                FILTER (?o1 != ?o2)
+                ?e1 onto:precedesEvent ?e2 .
+                { ?e1 onto:supportedByData ?d1 . } UNION { ?e1 onto:detectedFromData ?d1 . }
+                ?d1 a onto:ObservationData .
+                { ?e2 onto:supportedByData ?d2 . } UNION { ?e2 onto:detectedFromData ?d2 . }
+                ?d2 a onto:ObservationData .
+            }
+        """ ;
+    ] .
+
+onto:ApproachCausesCollisionRiskRuleShape a sh:NodeShape ;
+    sh:targetClass onto:ApproachEvent ;
+    rdfs:comment "R4：接近事件与碰撞风险事件属于同一交会目标对、时间先后正确且均具有观测数据证据时，推断接近事件导致碰撞风险事件"@zh ;
+    onto:ruleCategory "InferenceRule" ;
+    onto:ruleModule "Causal" ;
+    onto:targetClass "ApproachEvent" ;
+    onto:inputProperties "hasPrimaryObject, hasSecondaryObject, precedesEvent, detectedFromData, supportedByData" ;
+    onto:outputRelation "causesEvent" ;
+    onto:naturalLanguageRule "当接近事件与碰撞风险事件具有相同的主要目标和次要目标（同一交会目标对），接近事件先于碰撞风险事件发生，且两个事件均具有 ObservationData 类型的数据支撑时，推断接近事件导致碰撞风险事件（知识级因果关联）。" ;
+    onto:formalExpression "ApproachEvent(e1) ∧ CollisionRiskEvent(e2) ∧ hasPrimaryObject(e1,o1) ∧ hasSecondaryObject(e1,o2) ∧ hasPrimaryObject(e2,o1) ∧ hasSecondaryObject(e2,o2) ∧ o1≠o2 ∧ precedesEvent(e1,e2) ∧ evidence(e1) ∧ evidence(e2) → causesEvent(e1,e2)" ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            CONSTRUCT {
+                ?e1 onto:causesEvent ?e2 .
+            }
+            WHERE {
+                ?e1 a onto:ApproachEvent .
+                ?e2 a onto:CollisionRiskEvent .
+                ?o1 a onto:SpaceObject .
+                ?o2 a onto:SpaceObject .
+                ?e1 onto:hasPrimaryObject ?o1 ;
+                     onto:hasSecondaryObject ?o2 .
+                ?e2 onto:hasPrimaryObject ?o1 ;
+                     onto:hasSecondaryObject ?o2 .
+                FILTER (?o1 != ?o2)
+                ?e1 onto:precedesEvent ?e2 .
+                { ?e1 onto:supportedByData ?d1 . } UNION { ?e1 onto:detectedFromData ?d1 . }
+                ?d1 a onto:ObservationData .
+                { ?e2 onto:supportedByData ?d2 . } UNION { ?e2 onto:detectedFromData ?d2 . }
+                ?d2 a onto:ObservationData .
+            }
+        """ ;
+    ] .
+
+onto:CollisionRiskLeadsToNormalRuleShape a sh:NodeShape ;
+    sh:targetClass onto:CollisionRiskEvent ;
+    rdfs:comment "R5：具有评估或预测数据证据的碰撞风险事件，其碰撞概率不高于部署参数 θ_A 且预测最近交会距离不低于组合硬体半径时，以该风险事件为场景键推断其导致正常态势状态（严重度级别 0）"@zh ;
+    onto:ruleCategory "InferenceRule" ;
+    onto:ruleModule "Situation" ;
+    onto:targetClass "CollisionRiskEvent" ;
+    onto:inputProperties "hasCollisionProbability, hasPredictedMissDistance, hasCombinedHardBodyRadius, detectedFromData, supportedByData" ;
+    onto:outputRelation "leadsToState" ;
+    onto:naturalLanguageRule "碰撞风险事件具有 AssessmentData 或 PredictionData 类型的可追溯数据支撑，且其碰撞概率不超过部署参数 θ_A、预测最近交会距离不低于该事件的组合硬体半径时，以该风险事件 IRI 的 LCASE(SHA256) 哈希为场景键，派生对应的正常态势状态并标注严重度级别 0。θ_A 为规则部署配置，非领域常数。" ;
+    onto:formalExpression "CollisionRiskEvent(e) ∧ Ev_assess(e) ∧ hasCollisionProbability(e) ≤ θ_A ∧ hasPredictedMissDistance(e) ≥ hasCombinedHardBodyRadius(e) → leadsToState(e, derived_normal_state_SHA256(e)) ∧ hasSeverityRank(derived_normal_state_SHA256(e), 0)" ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            CONSTRUCT {
+                ?e onto:leadsToState ?s .
+                ?s a onto:NormalSituationState .
+                ?s onto:hasSeverityRank 0 .
+            }
+            WHERE {
+                ?e a onto:CollisionRiskEvent .
+                ?e onto:hasCollisionProbability ?p .
+                ?e onto:hasPredictedMissDistance ?d .
+                ?e onto:hasCombinedHardBodyRadius ?h .
+                { ?e onto:supportedByData ?ev . } UNION { ?e onto:detectedFromData ?ev . }
+                ?ev a ?evType .
+                FILTER (?evType IN (onto:AssessmentData, onto:PredictionData))
+                ?config a onto:RuleDeploymentConfiguration ;
+                        onto:attentionPcThreshold ?thetaA .
+                FILTER (xsd:float(?p) <= xsd:float(?thetaA))
+                FILTER (xsd:float(?d) >= xsd:float(?h))
+                BIND (IRI(CONCAT("https://w3id.org/tc-sssao#derived_normal_state_", LCASE(SHA256(STR(?e))))) AS ?s)
+            }
+        """ ;
+    ] .
+
+onto:CollisionRiskLeadsToAttentionRuleShape a sh:NodeShape ;
+    sh:targetClass onto:CollisionRiskEvent ;
+    rdfs:comment "R6：具有评估或预测数据证据的碰撞风险事件，其碰撞概率高于 θ_A 且不高于 θ_M、预测最近交会距离不低于组合硬体半径时，以该风险事件为场景键推断其导致关注态势状态（严重度级别 1）"@zh ;
+    onto:ruleCategory "InferenceRule" ;
+    onto:ruleModule "Situation" ;
+    onto:targetClass "CollisionRiskEvent" ;
+    onto:inputProperties "hasCollisionProbability, hasPredictedMissDistance, hasCombinedHardBodyRadius, detectedFromData, supportedByData" ;
+    onto:outputRelation "leadsToState" ;
+    onto:naturalLanguageRule "碰撞风险事件具有 AssessmentData 或 PredictionData 类型的可追溯数据支撑，且其碰撞概率高于部署参数 θ_A 但不超过部署参数 θ_M、预测最近交会距离不低于该事件的组合硬体半径时，以该风险事件 IRI 的 LCASE(SHA256) 哈希为场景键，派生对应的关注态势状态并标注严重度级别 1。θ_A 与 θ_M 为规则部署配置，非领域常数。" ;
+    onto:formalExpression "CollisionRiskEvent(e) ∧ Ev_assess(e) ∧ θ_A < hasCollisionProbability(e) ≤ θ_M ∧ hasPredictedMissDistance(e) ≥ hasCombinedHardBodyRadius(e) → leadsToState(e, derived_attention_state_SHA256(e)) ∧ hasSeverityRank(derived_attention_state_SHA256(e), 1)" ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            CONSTRUCT {
+                ?e onto:leadsToState ?s .
+                ?s a onto:AttentionSituationState .
+                ?s onto:hasSeverityRank 1 .
+            }
+            WHERE {
+                ?e a onto:CollisionRiskEvent .
+                ?e onto:hasCollisionProbability ?p .
+                ?e onto:hasPredictedMissDistance ?d .
+                ?e onto:hasCombinedHardBodyRadius ?h .
+                { ?e onto:supportedByData ?ev . } UNION { ?e onto:detectedFromData ?ev . }
+                ?ev a ?evType .
+                FILTER (?evType IN (onto:AssessmentData, onto:PredictionData))
+                ?config a onto:RuleDeploymentConfiguration ;
+                        onto:attentionPcThreshold ?thetaA ;
+                        onto:mitigationPcThreshold ?thetaM .
+                FILTER (xsd:float(?p) > xsd:float(?thetaA))
+                FILTER (xsd:float(?p) <= xsd:float(?thetaM))
+                FILTER (xsd:float(?d) >= xsd:float(?h))
+                BIND (IRI(CONCAT("https://w3id.org/tc-sssao#derived_attention_state_", LCASE(SHA256(STR(?e))))) AS ?s)
+            }
+        """ ;
+    ] .
+
+onto:CollisionRiskLeadsToWarningRuleShape a sh:NodeShape ;
+    sh:targetClass onto:CollisionRiskEvent ;
+    rdfs:comment "R7：具有评估或预测数据证据的碰撞风险事件，其碰撞概率高于 θ_M 而预测最近交会距离不低于组合硬体半径，或碰撞概率不高于 θ_M 而预测最近交会距离低于组合硬体半径时，以该风险事件为场景键推断其导致预警态势状态（严重度级别 2）"@zh ;
+    onto:ruleCategory "InferenceRule" ;
+    onto:ruleModule "Situation" ;
+    onto:targetClass "CollisionRiskEvent" ;
+    onto:inputProperties "hasCollisionProbability, hasPredictedMissDistance, hasCombinedHardBodyRadius, detectedFromData, supportedByData" ;
+    onto:outputRelation "leadsToState" ;
+    onto:naturalLanguageRule "碰撞风险事件具有 AssessmentData 或 PredictionData 类型的可追溯数据支撑，且其碰撞概率超过部署参数 θ_M 而预测最近交会距离不低于组合硬体半径，或其碰撞概率不超过 θ_M 而预测最近交会距离低于组合硬体半径时，以该风险事件 IRI 的 LCASE(SHA256) 哈希为场景键，派生对应的预警态势状态并标注严重度级别 2。θ_M 为规则部署配置，非领域常数。" ;
+    onto:formalExpression "CollisionRiskEvent(e) ∧ Ev_assess(e) ∧ [(hasCollisionProbability(e) > θ_M ∧ hasPredictedMissDistance(e) ≥ hasCombinedHardBodyRadius(e)) ∨ (hasCollisionProbability(e) ≤ θ_M ∧ hasPredictedMissDistance(e) < hasCombinedHardBodyRadius(e))] → leadsToState(e, derived_warning_state_SHA256(e)) ∧ hasSeverityRank(derived_warning_state_SHA256(e), 2)" ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            CONSTRUCT {
+                ?e onto:leadsToState ?s .
+                ?s a onto:WarningSituationState .
+                ?s onto:hasSeverityRank 2 .
+            }
+            WHERE {
+                ?e a onto:CollisionRiskEvent .
+                ?e onto:hasCollisionProbability ?p .
+                ?e onto:hasPredictedMissDistance ?d .
+                ?e onto:hasCombinedHardBodyRadius ?h .
+                { ?e onto:supportedByData ?ev . } UNION { ?e onto:detectedFromData ?ev . }
+                ?ev a ?evType .
+                FILTER (?evType IN (onto:AssessmentData, onto:PredictionData))
+                ?config a onto:RuleDeploymentConfiguration ;
+                        onto:mitigationPcThreshold ?thetaM .
+                FILTER (
+                    (xsd:float(?p) > xsd:float(?thetaM) && xsd:float(?d) >= xsd:float(?h))
+                    ||
+                    (xsd:float(?p) <= xsd:float(?thetaM) && xsd:float(?d) < xsd:float(?h))
+                )
+                BIND (IRI(CONCAT("https://w3id.org/tc-sssao#derived_warning_state_", LCASE(SHA256(STR(?e))))) AS ?s)
+            }
+        """ ;
+    ] .
+
+onto:CollisionRiskLeadsToDangerousRuleShape a sh:NodeShape ;
+    sh:targetClass onto:CollisionRiskEvent ;
+    rdfs:comment "R8：具有评估或预测数据证据的碰撞风险事件，其碰撞概率高于 θ_M 且预测最近交会距离低于组合硬体半径时，以该风险事件为场景键推断其导致危险态势状态（严重度级别 3）"@zh ;
+    onto:ruleCategory "InferenceRule" ;
+    onto:ruleModule "Situation" ;
+    onto:targetClass "CollisionRiskEvent" ;
+    onto:inputProperties "hasCollisionProbability, hasPredictedMissDistance, hasCombinedHardBodyRadius, detectedFromData, supportedByData" ;
+    onto:outputRelation "leadsToState" ;
+    onto:naturalLanguageRule "碰撞风险事件具有 AssessmentData 或 PredictionData 类型的可追溯数据支撑，且其碰撞概率超过部署参数 θ_M 且预测最近交会距离低于组合硬体半径时，以该风险事件 IRI 的 LCASE(SHA256) 哈希为场景键，派生对应的危险态势状态并标注严重度级别 3。θ_M 为规则部署配置，非领域常数。" ;
+    onto:formalExpression "CollisionRiskEvent(e) ∧ Ev_assess(e) ∧ hasCollisionProbability(e) > θ_M ∧ hasPredictedMissDistance(e) < hasCombinedHardBodyRadius(e) → leadsToState(e, derived_dangerous_state_SHA256(e)) ∧ hasSeverityRank(derived_dangerous_state_SHA256(e), 3)" ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            CONSTRUCT {
+                ?e onto:leadsToState ?s .
+                ?s a onto:DangerousSituationState .
+                ?s onto:hasSeverityRank 3 .
+            }
+            WHERE {
+                ?e a onto:CollisionRiskEvent .
+                ?e onto:hasCollisionProbability ?p .
+                ?e onto:hasPredictedMissDistance ?d .
+                ?e onto:hasCombinedHardBodyRadius ?h .
+                { ?e onto:supportedByData ?ev . } UNION { ?e onto:detectedFromData ?ev . }
+                ?ev a ?evType .
+                FILTER (?evType IN (onto:AssessmentData, onto:PredictionData))
+                ?config a onto:RuleDeploymentConfiguration ;
+                        onto:mitigationPcThreshold ?thetaM .
+                FILTER (xsd:float(?p) > xsd:float(?thetaM))
+                FILTER (xsd:float(?d) < xsd:float(?h))
+                BIND (IRI(CONCAT("https://w3id.org/tc-sssao#derived_dangerous_state_", LCASE(SHA256(STR(?e))))) AS ?s)
+            }
+        """ ;
+    ] .
+
+onto:RiskSituationEvolutionBridgeRuleShape a sh:NodeShape ;
+    sh:targetClass onto:CollisionRiskEvent ;
+    rdfs:comment "B3：同一交会的相邻两次风险评估快照（相同 hasEncounterID + hasPrimaryObject + hasSecondaryObject + hasOccurrenceTime 严格递增），若后一次评估派生态势的严重度级别高于前一次，则直接建立 transitsTo；当级别由 2（预警）升至 3（危险）时同时建立 degradesTo；严重度下降时同时建立 transitsTo 和 recoversTo。B3 不创建 StateTransition。"@zh ;
+    onto:ruleCategory "InferenceRule" ;
+    onto:ruleModule "Situation" ;
+    onto:targetClass "CollisionRiskEvent" ;
+    onto:inputProperties "hasPrimaryObject, hasSecondaryObject, hasEncounterID, leadsToState, hasSeverityRank, hasOccurrenceTime" ;
+    onto:outputRelation "transitsTo, degradesTo, recoversTo" ;
+    onto:naturalLanguageRule "若两个碰撞风险事件 e1、e2 具有相同的交会编号（hasEncounterID）、主要目标和次要目标（同一交会目标对），e1 的发生时间严格早于 e2（hasOccurrenceTime t1 < t2），二者分别经 leadsToState 关联态势状态 s1、s2，severityRank(s1) 小于 severityRank(s2)，且该目标对在 e1、e2 之间不存在其他风险评估快照（相邻快照），则直接建立 transitsTo(s1,s2)；若 severityRank(s1)=2 且 severityRank(s2)=3，同时建立 degradesTo(s1,s2)；若 severityRank(s1) 大于 severityRank(s2)，则同时建立 transitsTo(s1,s2) 和 recoversTo(s1,s2)。" ;
+    onto:formalExpression "CollisionRiskEvent(e1) ∧ CollisionRiskEvent(e2) ∧ enc(e1)=enc(e2) ∧ o1(o2 相同) ∧ t1<t2 ∧ adjacent(e1,e2) → transitsTo(s1,s2)；r1=2∧r2=3 时另有 degradesTo(s1,s2)；r1>r2 时另有 transitsTo(s1,s2)∧recoversTo(s1,s2)" ;
+    # ------------------------------------------------------------------
+    # B3 上升分支（2026-10-11 P1-1+P1-2 修复）：
+    # 新增：hasEncounterID 约束（跨交会隔离）+ 显式 t1<t2（严格时间方向）
+    # ------------------------------------------------------------------
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            CONSTRUCT {
+                ?s1 onto:transitsTo ?s2 .
+            }
+            WHERE {
+                $this a onto:CollisionRiskEvent ;
+                      onto:hasPrimaryObject ?o1 ;
+                      onto:hasSecondaryObject ?o2 ;
+                      onto:hasEncounterID ?enc ;
+                      onto:hasOccurrenceTime ?t1 ;
+                      onto:leadsToState ?s1 .
+                ?s1 onto:hasSeverityRank ?r1 .
+                ?e2 a onto:CollisionRiskEvent ;
+                    onto:hasPrimaryObject ?o1 ;
+                    onto:hasSecondaryObject ?o2 ;
+                    onto:hasEncounterID ?enc ;
+                    onto:hasOccurrenceTime ?t2 ;
+                    onto:leadsToState ?s2 .
+                ?s2 onto:hasSeverityRank ?r2 .
+                FILTER ($this != ?e2)
+                FILTER (xsd:dateTime(?t1) < xsd:dateTime(?t2))
+                FILTER (xsd:integer(?r1) < xsd:integer(?r2))
+                FILTER NOT EXISTS {
+                    ?mid a onto:CollisionRiskEvent ;
+                         onto:hasPrimaryObject ?o1 ;
+                         onto:hasSecondaryObject ?o2 ;
+                         onto:hasEncounterID ?enc ;
+                         onto:hasOccurrenceTime ?tm .
+                    FILTER (xsd:dateTime(?tm) > xsd:dateTime(?t1) && xsd:dateTime(?tm) < xsd:dateTime(?t2))
+                }
+            }
+        """ ;
+    ] ;
+    # ------------------------------------------------------------------
+    # B3 恶化分支（Warning→Dangerous，r1=2 ∧ r2=3）
+    # 新增：hasEncounterID 约束 + 显式 t1<t2
+    # ------------------------------------------------------------------
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            CONSTRUCT {
+                ?s1 onto:degradesTo ?s2 .
+            }
+            WHERE {
+                $this a onto:CollisionRiskEvent ;
+                      onto:hasPrimaryObject ?o1 ;
+                      onto:hasSecondaryObject ?o2 ;
+                      onto:hasEncounterID ?enc ;
+                      onto:hasOccurrenceTime ?t1 ;
+                      onto:leadsToState ?s1 .
+                ?s1 onto:hasSeverityRank ?r1 .
+                ?e2 a onto:CollisionRiskEvent ;
+                    onto:hasPrimaryObject ?o1 ;
+                    onto:hasSecondaryObject ?o2 ;
+                    onto:hasEncounterID ?enc ;
+                    onto:hasOccurrenceTime ?t2 ;
+                    onto:leadsToState ?s2 .
+                ?s2 onto:hasSeverityRank ?r2 .
+                FILTER ($this != ?e2)
+                FILTER (xsd:dateTime(?t1) < xsd:dateTime(?t2))
+                FILTER (xsd:integer(?r1) = 2 && xsd:integer(?r2) = 3)
+                FILTER NOT EXISTS {
+                    ?mid a onto:CollisionRiskEvent ;
+                         onto:hasPrimaryObject ?o1 ;
+                         onto:hasSecondaryObject ?o2 ;
+                         onto:hasEncounterID ?enc ;
+                         onto:hasOccurrenceTime ?tm .
+                    FILTER (xsd:dateTime(?tm) > xsd:dateTime(?t1) && xsd:dateTime(?tm) < xsd:dateTime(?t2))
+                }
+            }
+        """ ;
+    ] ;
+    # ------------------------------------------------------------------
+    # B3 恢复推理分支（2026-10-10 新增，2026-10-11 P1-1+P1-2 修复）：
+    # 相邻快照严重程度下降（r1 > r2）时，同时生成 transitsTo 和 recoversTo。
+    # 修复：新增 hasEncounterID 约束（跨交会隔离）+ 显式 t1<t2（严格时间方向）
+    # ------------------------------------------------------------------
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            CONSTRUCT {
+                ?s1 onto:transitsTo ?s2 .
+                ?s1 onto:recoversTo ?s2 .
+            }
+            WHERE {
+                $this a onto:CollisionRiskEvent ;
+                      onto:hasPrimaryObject ?o1 ;
+                      onto:hasSecondaryObject ?o2 ;
+                      onto:hasEncounterID ?enc ;
+                      onto:hasOccurrenceTime ?t1 ;
+                      onto:leadsToState ?s1 .
+                ?s1 onto:hasSeverityRank ?r1 .
+                ?e2 a onto:CollisionRiskEvent ;
+                    onto:hasPrimaryObject ?o1 ;
+                    onto:hasSecondaryObject ?o2 ;
+                    onto:hasEncounterID ?enc ;
+                    onto:hasOccurrenceTime ?t2 ;
+                    onto:leadsToState ?s2 .
+                ?s2 onto:hasSeverityRank ?r2 .
+                FILTER ($this != ?e2)
+                FILTER (xsd:dateTime(?t1) < xsd:dateTime(?t2))
+                FILTER (xsd:integer(?r1) > xsd:integer(?r2))
+                FILTER NOT EXISTS {
+                    ?mid a onto:CollisionRiskEvent ;
+                         onto:hasPrimaryObject ?o1 ;
+                         onto:hasSecondaryObject ?o2 ;
+                         onto:hasEncounterID ?enc ;
+                         onto:hasOccurrenceTime ?tm .
+                    FILTER (xsd:dateTime(?tm) > xsd:dateTime(?t1) && xsd:dateTime(?tm) < xsd:dateTime(?t2))
+                }
+            }
+        """ ;
+    ] .
+
+onto:CausalAssertionBridgeRule a sh:NodeShape ;
+    sh:targetClass onto:CausalAssertion ;
+    rdfs:comment "B1：因果断言桥接，由 hasCause/hasEffect 推导出 causesEvent"@zh ;
+    onto:ruleCategory "InferenceRule" ;
+    onto:ruleModule "Causal" ;
+    onto:targetClass "CausalAssertion" ;
+    onto:inputProperties "hasCause, hasEffect" ;
+    onto:outputRelation "causesEvent" ;
+    onto:naturalLanguageRule "若因果断言具有原因事件和结果事件，则在原因事件与结果事件之间建立 causesEvent" ;
+    onto:formalExpression "CausalAssertion(a) ∧ hasCause(a,c) ∧ hasEffect(a,e) → causesEvent(c,e)" ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            CONSTRUCT {
+                ?cause onto:causesEvent ?effect .
+            }
+            WHERE {
+                $this a onto:CausalAssertion ;
+                        onto:hasCause ?cause ;
+                        onto:hasEffect ?effect .
+                ?cause a onto:SpaceEvent .
+                ?effect a onto:SpaceEvent .
+            }
+        """ ;
+    ] .
+
+onto:StateTransitionBridgeRule a sh:NodeShape ;
+    sh:targetClass onto:StateTransition ;
+    rdfs:comment "B2：状态转移桥接，由 hasSourceState/hasTargetState 推导出 transitsTo"@zh ;
+    onto:ruleCategory "InferenceRule" ;
+    onto:ruleModule "Situation" ;
+    onto:targetClass "StateTransition" ;
+    onto:inputProperties "hasSourceState, hasTargetState" ;
+    onto:outputRelation "transitsTo" ;
+    onto:naturalLanguageRule "若状态转移具有源状态和目标状态，则在源状态与目标状态之间建立 transitsTo" ;
+    onto:formalExpression "StateTransition(t) ∧ hasSourceState(t,s1) ∧ hasTargetState(t,s2) → transitsTo(s1,s2)" ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            CONSTRUCT {
+                ?source onto:transitsTo ?target .
+            }
+            WHERE {
+                $this a onto:StateTransition ;
+                        onto:hasSourceState ?source ;
+                        onto:hasTargetState ?target .
+                ?source a onto:SituationState .
+                ?target a onto:SituationState .
+            }
+        """ ;
+    ] .
+
+# ============================================================
+# 4. 安全语义投影规则（M3 第一阶段，2026-09-04 新增）
+#
+# B4、B5 为通用规则：不引用任何案例命名空间、特定目标编号、
+# 碎片数量或轨道高度。B4 将已获得外部风险评估数据（RiskAssessmentData）
+# 支撑的碎片风险事件映射为安全语义层的物理威胁与碎片风险；B5 将显式
+# 给出的响应措施与派生的威胁/风险建立结构关系。二者均不负责判断
+# “是否存在长期碎片风险”——该科学判断由外部评估数据给出。
+# 派生实例 IRI 使用风险事件 IRI 的 LCASE(SHA256) 哈希构造，与 R5—R8
+# 的场景键机制一致，保证同一输入重复执行得到同一 IRI（幂等收敛）。
+# ============================================================
+
+onto:DebrisRiskSemanticProjectionRuleShape a sh:NodeShape ;
+    sh:targetClass onto:DebrisRiskEvent ;
+    rdfs:comment "B4：已获得外部风险评估数据支撑的碎片风险事件，在安全语义层映射为物理威胁与碎片风险（派生实例 IRI 由事件 IRI 的 SHA256 构造）"@zh ;
+    onto:ruleCategory "InferenceRule" ;
+    onto:ruleModule "SemanticProjection" ;
+    onto:targetClass "DebrisRiskEvent" ;
+    onto:inputProperties "supportedByData" ;
+    onto:outputRelation "indicatesThreat, mayManifestAsEvent, producesRisk" ;
+    onto:naturalLanguageRule "若碎片风险事件 e 经 supportedByData 关联一条 RiskAssessmentData 类型的外部风险评估数据，则以 e 的 IRI 的 LCASE(SHA256) 哈希构造派生 IRI，生成物理威胁 T(e) 与碎片风险 R(e)，并建立 indicatesThreat(e,T(e))、mayManifestAsEvent(T(e),e) 与 producesRisk(T(e),R(e))。B4 只进行语义投影，不生成威胁等级、置信度或风险值等来源未支持的数值。" ;
+    onto:formalExpression "DebrisRiskEvent(e) ∧ supportedByData(e,d) ∧ RiskAssessmentData(d) → PhysicalThreat(T(e)) ∧ DebrisRisk(R(e)) ∧ indicatesThreat(e,T(e)) ∧ mayManifestAsEvent(T(e),e) ∧ producesRisk(T(e),R(e))" ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:order 40 ;
+        sh:construct """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            CONSTRUCT {
+                $this onto:indicatesThreat ?t .
+                ?t a onto:PhysicalThreat .
+                ?t onto:mayManifestAsEvent $this .
+                ?t onto:producesRisk ?r .
+                ?r a onto:DebrisRisk .
+            }
+            WHERE {
+                $this a onto:DebrisRiskEvent ;
+                      onto:supportedByData ?d .
+                ?d a onto:RiskAssessmentData .
+                BIND (IRI(CONCAT("https://w3id.org/tc-sssao#derived_physical_threat_", LCASE(SHA256(STR($this))))) AS ?t)
+                BIND (IRI(CONCAT("https://w3id.org/tc-sssao#derived_debris_risk_", LCASE(SHA256(STR($this))))) AS ?r)
+            }
+        """ ;
+    ] .
+
+onto:RiskResponseProjectionRuleShape a sh:NodeShape ;
+    sh:targetClass onto:ResponseMeasure ;
+    rdfs:comment "B5：将显式给出的响应措施与 B4 派生的威胁、风险建立响应结构关系；规则不自动发明或选择具体响应措施"@zh ;
+    onto:ruleCategory "InferenceRule" ;
+    onto:ruleModule "SemanticProjection" ;
+    onto:targetClass "ResponseMeasure" ;
+    onto:inputProperties "respondsToEvent" ;
+    onto:outputRelation "requiresResponseMeasure, respondsToThreat, threatMitigatedBy, mitigatesRisk, mitigatedBy" ;
+    onto:naturalLanguageRule "若响应措施 m 经 respondsToEvent 显式关联碎片风险事件 e，且 e 经 indicatesThreat 关联威胁 t、t 经 producesRisk 关联风险 r（均由 B4 派生），则建立 requiresResponseMeasure(t,m)、respondsToThreat(m,t)、threatMitigatedBy(t,m)、mitigatesRisk(m,r) 与 mitigatedBy(r,m)。B5 只把已有响应知识与派生的威胁/风险结构连接，不决定具体运营措施。" ;
+    onto:formalExpression "DebrisRiskEvent(e) ∧ indicatesThreat(e,t) ∧ producesRisk(t,r) ∧ ResponseMeasure(m) ∧ respondsToEvent(m,e) → requiresResponseMeasure(t,m) ∧ respondsToThreat(m,t) ∧ threatMitigatedBy(t,m) ∧ mitigatesRisk(m,r) ∧ mitigatedBy(r,m)" ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:order 50 ;
+        sh:construct """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            CONSTRUCT {
+                ?t onto:requiresResponseMeasure $this .
+                $this onto:respondsToThreat ?t .
+                ?t onto:threatMitigatedBy $this .
+                $this onto:mitigatesRisk ?r .
+                ?r onto:mitigatedBy $this .
+            }
+            WHERE {
+                $this a onto:ResponseMeasure ;
+                      onto:respondsToEvent ?e .
+                ?e a onto:DebrisRiskEvent ;
+                      onto:indicatesThreat ?t .
+                ?t onto:producesRisk ?r .
+            }
+        """ ;
+    ] .

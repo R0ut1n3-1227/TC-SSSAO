@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\caption{ESA真实CDM映射、态势与演化结果}
+\label{tab:esa-main-results}
+\small
+\begin{tabular}{lrrl}
+\toprule
+指标 & 数量 & 比例 & 说明\\
+\midrule
+CDM / event\_id & 162634 & 13154个事件 & Zenodo v1训练集\\
+R5--R8完整输入 & 162634 & 100.00\% & 执行层输入契约通过\\
+Normal & 141471 & 86.99\% & $P_c\leq\theta_A, d\geq h$\\
+Attention & 20447 & 12.57\% & $\theta_A<P_c\leq\theta_M, d\geq h$\\
+Warning & 716 & 0.44\% & NASA OR判据异或分支\\
+Dangerous & 0 & 0.00\% & 两个减缓条件同时满足\\
+B3 transitsTo & 1605 & 1294个事件 & 仅相邻快照严重度升高\\
+错误跨event/跨未评级/下降边 & 0/0/0 & --- & 约束满足\\
+故障注入 & 11/11 & 100.00\% & 受控执行层检查\\
+流式重放 & 100 & --- & 派生事实集合一致\\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "theta_A": 1e-07,
+  "theta_M": 0.0001,
+  "classified_cdms": 162634,
+  "states": {
+    "Normal": {
+      "count": 141471,
+      "ratio": 0.8698734581944735
+    },
+    "Attention": {
+      "count": 20447,
+      "ratio": 0.12572401834794691
+    },
+    "Warning": {
+      "count": 716,
+      "ratio": 0.004402523457579596
+    },
+    "Dangerous": {
+      "count": 0,
+      "ratio": 0.0
+    }
+  },
+  "no_state": 0,
+  "multi_state": 0,
+  "unique_state_rate": 1.0,
+  "note": "These are TC-SSSAO knowledge-organization states, not ESA/NASA operational state labels."
+}

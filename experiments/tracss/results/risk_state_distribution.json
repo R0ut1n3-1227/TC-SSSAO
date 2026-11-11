@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "theta_A": 1e-07,
+  "theta_M": 0.0001,
+  "rows_total": 283595,
+  "classified_rows": 283557,
+  "excluded_by_preflight": 38,
+  "states": {
+    "Normal": {
+      "count": 86585,
+      "ratio": 0.3053530683425202
+    },
+    "Attention": {
+      "count": 196666,
+      "ratio": 0.693567783549692
+    },
+    "Warning": {
+      "count": 306,
+      "ratio": 0.0010791481077878523
+    },
+    "Dangerous": {
+      "count": 0,
+      "ratio": 0.0
+    }
+  },
+  "state_sum_equals_n": true,
+  "no_state": 0,
+  "multi_state": 0,
+  "rule_mask_overlap": 0,
+  "rule_mask_gap": 0,
+  "mask_count_mismatch": {},
+  "esa_semantic_cross_check": {
+    "esa_common_found": true,
+    "theta_A_equal": true,
+    "theta_M_equal": true,
+    "states_identical_all_rows": true,
+    "mismatch_rows": 0
+  },
+  "note": "States are TC-SSSAO knowledge-organization states, not TraCSS/CSieve operational labels. Semantics and thresholds are frozen and identical to the ESA experiment."
+}

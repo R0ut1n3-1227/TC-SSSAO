@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "dangerous_count": 0,
+  "theta_M": 0.0001,
+  "cause_analysis": {
+    "rows_d_lt_h": 1,
+    "rows_pc_gt_theta_M": 305,
+    "rows_d_lt_h_and_pc_le_theta_M": 1,
+    "rows_pc_gt_theta_M_and_d_ge_h": 305,
+    "rows_pc_gt_theta_M_and_d_lt_h": 0,
+    "max_pc_among_d_lt_h": 6.593401e-06,
+    "min_d_over_h_among_high_pc": 1.4280206330609369,
+    "min_d_over_h_overall": 0.7881902893630925
+  },
+  "conclusion": "d < h(e) rows exist but all have Pc <= 1e-4 (max Pc among them: 6.593e-06); high-Pc rows exist but all have d >= h(e) (min d/h among them: 1.428e+00)"
+}

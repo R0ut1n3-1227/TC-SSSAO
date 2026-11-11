@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "source_url": "https://zenodo.org/records/4463683/files/Collision%20Avoidance%20Challenge%20-%20Dataset.zip?download=1",
+  "archive": "Collision Avoidance Challenge - Dataset.zip",
+  "archive_bytes": 221128642,
+  "extracted_files": [
+    {
+      "archive_member": "Collision Avoidance Challenge - Dataset/kelvins_competition_data/test_data.csv",
+      "file": "test_data.csv",
+      "bytes": 35303060
+    },
+    {
+      "archive_member": "Collision Avoidance Challenge - Dataset/kelvins_competition_data/test_data_private.csv",
+      "file": "test_data_private.csv",
+      "bytes": 3042300
+    },
+    {
+      "archive_member": "Collision Avoidance Challenge - Dataset/kelvins_competition_data/train_data.zip!/train_data.csv",
+      "file": "train_data.csv",
+      "bytes": 233600296
+    },
+    {
+      "archive_member": "Collision Avoidance Challenge - Dataset/raw_data/raw_data_2015-2019.txt",
+      "file": "raw_data_2015-2019.txt",
+      "bytes": 8020
+    }
+  ]
+}

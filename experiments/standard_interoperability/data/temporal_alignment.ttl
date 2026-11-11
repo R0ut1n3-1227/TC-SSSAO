@@ -1,0 +1,20 @@
+@prefix onto: <https://w3id.org/tc-sssao#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# T1 OWL-Time 对齐测试数据（合成测试实例，非案例事实）
+# 验证：TimeInstant⊑time:Instant、TimeInterval⊑time:Interval、
+#       occursAtTime/occursInTimeInterval⊑time:hasTime 的 RDFS 推断。
+
+onto:InteropEvent_A a onto:SpaceEvent ;
+    onto:occursAtTime onto:InteropInstant_A .
+
+onto:InteropInstant_A a onto:TimeInstant .
+
+onto:InteropEvent_B a onto:SpaceEvent ;
+    onto:occursInTimeInterval onto:InteropInterval_A .
+
+onto:InteropInterval_A a onto:TimeInterval .
+
+# 字面量时间属性并存（双层设计：object 层 + literal 层）
+onto:InteropEvent_A onto:hasOccurrenceTime "2026-09-05T08:00:00Z"^^xsd:dateTime .

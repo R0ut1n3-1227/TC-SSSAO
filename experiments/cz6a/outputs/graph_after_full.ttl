@@ -1,0 +1,3696 @@
+@prefix case: <https://w3id.org/tc-sssao/data/cz6a-case#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix onto: <https://w3id.org/tc-sssao#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dc:creator a rdfs:Resource,
+        owl:AnnotationProperty .
+
+dc:description a rdfs:Resource,
+        owl:AnnotationProperty .
+
+dc:title a rdfs:Resource,
+        owl:AnnotationProperty .
+
+dc:type a rdfs:Resource,
+        owl:AnnotationProperty .
+
+geo:Geometry a rdfs:Resource,
+        owl:Class .
+
+geo:hasGeometry a rdfs:Resource,
+        owl:ObjectProperty .
+
+geo:wktLiteral a rdfs:Datatype,
+        rdfs:Resource ;
+    rdfs:subClassOf rdfs:Literal .
+
+skos:notation a rdfs:Resource,
+        owl:AnnotationProperty .
+
+<https://w3id.org/tc-sssao> a rdfs:Resource,
+        owl:Ontology ;
+    dcterms:created "2026-07" ;
+    dcterms:description "OWL 2 ontology and SHACL-SPARQL rule set for representing and reasoning over space-security situational-awareness knowledge: space objects, orbits, observation systems and data, space events, temporal relations, reified causal assertions, graded situation states, threats, risks, and response measures."@en,
+        "面向太空安全态势感知知识的 OWL 2 本体与 SHACL-SPARQL 规则集，统一组织空间目标、轨道、观测系统与数据、空间事件、时序关系、实体化因果断言、分级态势状态、威胁、风险与响应措施。"@zh ;
+    dcterms:license <https://opensource.org/license/mit> ;
+    dcterms:modified "2026-09-04"^^xsd:date ;
+    dcterms:title "TC-SSSAO: Temporal-Causal Space Security Situational Awareness Ontology",
+        "TC-SSSAO：时序—因果太空安全态势感知本体"@zh ;
+    rdfs:comment "Canonical ontology identifier. The IRI is used as the ontology identifier for this release; resolution will be configured when the public repository is published."@en,
+        "规范本体标识符。当前发布包使用该 IRI 作为本体标识；解析地址将在公开仓库发布后同步配置。"@zh ;
+    rdfs:seeAlso <https://w3id.org/tc-sssao/alignments> ;
+    owl:versionIRI <https://w3id.org/tc-sssao/1.0.0> ;
+    owl:versionInfo "1.0.0" .
+
+onto:ApproachEvent a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "接近事件"@zh ;
+    rdfs:comment "两个空间目标相互接近的事件。"@zh ;
+    rdfs:subClassOf _:cb2a31d7b49735cd3d2554debc0e7274eabf465c400650cf54fc1999175badda9f3,
+        _:cb2bcf1c5a04032105b92f356b52b4316c0d5887cf4b183377e4d2ef6a09c16a3f5,
+        _:cb2f81b46389eeeabe347d0aa76cf951895a2856927e0755c2375b27b4f0a0af0bc,
+        _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5,
+        onto:SpaceEvent,
+        onto:SpatialRelationEvent ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:AvoidanceMeasure a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "规避措施"@zh ;
+    rdfs:comment "通过规避动作降低威胁或风险的措施。"@zh ;
+    rdfs:subClassOf _:cb3b847118774f4459df9bc71aed28c992cc39bdf3f0003d72bf3b8a23e729a3c88,
+        _:cb3e2a33da71b9dfe1bd93f107c8fb9f08aaeacd60984d85f4e9aa87b0c31ea82bd,
+        _:cb45f12938aeaed357c8eedaedc09c540fc537b4569b8e81ae092c3e034c99fa6c9,
+        _:cb472ef2557f60f560562dd76f5bcef168f74076733be10b6be4370226437610aa6,
+        _:cb523fa94fc08f9b734fb79bf5716aea5773cee268e0f256921f1ac42246fe2bf19,
+        _:cb536bb460a812086d12e8b8f1c35bd8acb379033517cd1bc47cb34141a63c2abfc,
+        _:cb54effaa58e2d644e04b7ce7978c1d2b991be0a3869db40344828b525a5e28fc0a,
+        onto:ResponseMeasure ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:CollisionRisk a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "碰撞风险"@zh ;
+    rdfs:comment "空间目标碰撞导致的风险。"@zh ;
+    rdfs:subClassOf _:cb4ffaa74e9daffc3550f7e5569a6afd293410b8b8d9ddcdd1d5a8286dd4ecf1e9d,
+        _:cb5521335c3e6c6806bcea7b74807e8f9550278a2b167a96aca7cdd193c88facdc4,
+        _:cb55d11e4945bbb12971b0f416b608fb5966224bf8e60ae39fea48e4ea50f60fdf1,
+        onto:SecurityRisk ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:CyberSecurityRisk a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "网络安全风险"@zh ;
+    rdfs:comment "网络攻击导致的风险。"@zh ;
+    rdfs:subClassOf _:cb4ffaa74e9daffc3550f7e5569a6afd293410b8b8d9ddcdd1d5a8286dd4ecf1e9d,
+        _:cb5521335c3e6c6806bcea7b74807e8f9550278a2b167a96aca7cdd193c88facdc4,
+        _:cb55d11e4945bbb12971b0f416b608fb5966224bf8e60ae39fea48e4ea50f60fdf1,
+        onto:SecurityRisk ;
+    onto:modelLayer "extension"^^xsd:string .
+
+onto:CyberThreat a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "网络威胁"@zh ;
+    rdfs:comment "通过网络手段对空间系统造成的威胁。"@zh ;
+    rdfs:subClassOf _:cb43d414cb7005dd62bb754afa1a32d4ac65e11513a9a8a86745962686c8d9eb545,
+        _:cb456e334675ff8a323c477331435ecdea130671ea52a6f67e03cfb9d817f23886b,
+        _:cb487c436a18afe6165a33112827caef60784927d5202dacfb542c55055abe06bde,
+        _:cb4cff698d8650518176db6685b61d8f2c32dfd2c73c2a9844128de380cd274c195,
+        _:cb4f70c23c374644fca8f49290d08ec2b1a993392090d4921d980d8e7190f8be936,
+        _:cb4f9db843ab5015915ed2e393b1c83e050e5d2a78c297348d2d1d4e65bc09f6c49,
+        _:cb50f3dd9db06d482682091a9e8facbe5bbe9defad445dce4a8833c4156b2d4ef99,
+        _:cb51b73d50ab6feb1b8747d7722a26d2f9f9975b509a511edfddb0696dd5b7e6144,
+        _:cb5223c185b3fa91c62519d23b8804e5bdc0ba7cbf80a44ce089649d50c8431bd82,
+        _:cb5252906920f97fd6d2ce787de6cd71a43c775f2aec026f8812acdfcf0e1822947,
+        onto:SecurityThreat ;
+    onto:modelLayer "extension"^^xsd:string .
+
+onto:DetectionEvent a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "探测事件"@zh ;
+    rdfs:comment "探测到空间目标的事件。"@zh ;
+    rdfs:subClassOf _:cb3290aa4748d44e3c0c8423b13419c67313360b05c9b8055ce0ab35aad70c6f68f,
+        _:cb32dbd7deb0548f7f86c1150ccff178c39ef953811c670a1b474a1c9e318c55437,
+        _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5,
+        onto:ObservationEvent,
+        onto:SpaceEvent ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:ElectromagneticEnvironment a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "电磁环境"@zh ;
+    rdfs:comment "电磁环境。"@zh ;
+    rdfs:subClassOf _:cb56b9b200eaeb553a4db634b5df70817275d273f18b003aa4a990d23abfd1fd8ed,
+        _:cb63a3d3beffbbf65aaf4f79d39ace259176bdbb5415265ec29e1aa925636f5691a,
+        onto:SpaceEnvironment ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:EnvironmentalThreat a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "环境威胁"@zh ;
+    rdfs:comment "由空间环境异常导致的威胁。"@zh ;
+    rdfs:subClassOf _:cb43d414cb7005dd62bb754afa1a32d4ac65e11513a9a8a86745962686c8d9eb545,
+        _:cb456e334675ff8a323c477331435ecdea130671ea52a6f67e03cfb9d817f23886b,
+        _:cb487c436a18afe6165a33112827caef60784927d5202dacfb542c55055abe06bde,
+        _:cb4cff698d8650518176db6685b61d8f2c32dfd2c73c2a9844128de380cd274c195,
+        _:cb4f70c23c374644fca8f49290d08ec2b1a993392090d4921d980d8e7190f8be936,
+        _:cb4f9db843ab5015915ed2e393b1c83e050e5d2a78c297348d2d1d4e65bc09f6c49,
+        _:cb50f3dd9db06d482682091a9e8facbe5bbe9defad445dce4a8833c4156b2d4ef99,
+        _:cb51b73d50ab6feb1b8747d7722a26d2f9f9975b509a511edfddb0696dd5b7e6144,
+        _:cb5223c185b3fa91c62519d23b8804e5bdc0ba7cbf80a44ce089649d50c8431bd82,
+        _:cb5252906920f97fd6d2ce787de6cd71a43c775f2aec026f8812acdfcf0e1822947,
+        onto:SecurityThreat ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:GroundRadarSensor a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "地基雷达传感器"@zh ;
+    rdfs:comment "部署于地面的雷达传感器。"@zh ;
+    rdfs:subClassOf _:cb45f11da5bd8a1f004e8a1b102719c903eea7417a9b9bdbdc4ee3231f372ccd1ca,
+        _:cb761d2982162e411b7ad168edf703f36b82c0f0203d66094873e29999e52d7b912,
+        sosa:Sensor,
+        onto:GroundBasedSensor,
+        onto:ObservationSystem,
+        onto:RadarSensor,
+        onto:Sensor ;
+    owl:equivalentClass [ a rdfs:Resource,
+                owl:Class ;
+            owl:intersectionOf [ a rdfs:Resource ;
+                    rdf:first onto:GroundBasedSensor ;
+                    rdf:rest [ a rdfs:Resource ;
+                            rdf:first onto:RadarSensor ;
+                            rdf:rest () ] ] ] ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:GroundStation a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "地面站"@zh ;
+    rdfs:comment "用于数据接收、指令发送与任务控制的地面站。"@zh ;
+    rdfs:subClassOf _:cb761d2982162e411b7ad168edf703f36b82c0f0203d66094873e29999e52d7b912,
+        onto:ObservationSystem ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:MicrometeoroidEnvironment a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "微流星体环境"@zh ;
+    rdfs:comment "微流星体环境。"@zh ;
+    rdfs:subClassOf _:cb56b9b200eaeb553a4db634b5df70817275d273f18b003aa4a990d23abfd1fd8ed,
+        _:cb63a3d3beffbbf65aaf4f79d39ace259176bdbb5415265ec29e1aa925636f5691a,
+        onto:SpaceEnvironment ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:MitigationMeasure a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "缓解措施"@zh ;
+    rdfs:comment "减轻威胁或风险后果的措施。"@zh ;
+    rdfs:subClassOf _:cb3b847118774f4459df9bc71aed28c992cc39bdf3f0003d72bf3b8a23e729a3c88,
+        _:cb3e2a33da71b9dfe1bd93f107c8fb9f08aaeacd60984d85f4e9aa87b0c31ea82bd,
+        _:cb45f12938aeaed357c8eedaedc09c540fc537b4569b8e81ae092c3e034c99fa6c9,
+        _:cb472ef2557f60f560562dd76f5bcef168f74076733be10b6be4370226437610aa6,
+        _:cb523fa94fc08f9b734fb79bf5716aea5773cee268e0f256921f1ac42246fe2bf19,
+        _:cb536bb460a812086d12e8b8f1c35bd8acb379033517cd1bc47cb34141a63c2abfc,
+        _:cb54effaa58e2d644e04b7ce7978c1d2b991be0a3869db40344828b525a5e28fc0a,
+        onto:ResponseMeasure ;
+    onto:modelLayer "extension"^^xsd:string .
+
+onto:MultiCauseAssertion a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "多因因果断言"@zh ;
+    rdfs:comment "多个原因事件共同导致结果事件的因果断言。"@zh ;
+    rdfs:subClassOf [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+            owl:onClass onto:SpaceEvent ;
+            owl:onProperty onto:hasCause ],
+        _:cb4978a975468794709fd08870f7526add7547880995e81f44889749ca4a4412c61,
+        _:cb5dfaaa7e44523d8592894003f1c9fa689dbc6d06a8ced1de5ff769d275f2785d1,
+        _:cb60c53cde23291cddd17c531d527ab8aee93891cb5cfba6ed4a6bb5f5b7aeedccb,
+        _:cb61df8fe27058399fea330440da78d5095c2558ddcca49c9d68c9920b6b4cdf8ef,
+        prov:Entity,
+        onto:CausalAssertion ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:Payload a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "有效载荷"@zh ;
+    rdfs:comment "航天器或运载火箭上承载的任务设备或载荷。"@zh ;
+    rdfs:subClassOf _:cb8bd96a5207e4518eb162aa53bd0292a0be761968a43dfec097ec41b2b020ddcc1,
+        _:cb8d95508e6cfe814e3443a983acbc3bc7839a2775b19ca0d779786056e0811930e,
+        _:cb9329de91af1cf7c917f28dc743fbbc98861e9b7a8683ce81517be6004cf8fece0,
+        _:cb940f1fe7a6854070033b3e171d2a4bdc27297803971a154eeb4fd8aeb149dfc49,
+        _:cb9c0b97422dfd588a0b8b0dfae94d04f23a7b20c6f2d67434dbe1ef0b2481500c6,
+        _:cb9e1fb6857b6ecd2e90a4ba625d94b83b2b735bf830a51fcf695ca9dbe4a9350ba,
+        geo:Feature,
+        onto:ArtificialSpaceObject,
+        onto:SpaceObject ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:PredictionData a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "预测数据"@zh ;
+    rdfs:comment "预测数据。"@zh ;
+    rdfs:subClassOf prov:Entity,
+        onto:SSAData ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:RadarObservationData a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "雷达观测数据"@zh ;
+    rdfs:comment "雷达传感器产生的观测数据。"@zh ;
+    rdfs:subClassOf _:cb371e3ef17af3433f5b48fce7c44f13a0a8d60e1baa93a9681aa9efcf00acbaaba,
+        prov:Entity,
+        sosa:Result,
+        onto:ObservationData,
+        onto:SSAData,
+        onto:SensorObservationData ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:RecoveryTransition a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "恢复转移"@zh ;
+    rdfs:comment "态势从异常/危险向正常恢复的转移。"@zh ;
+    rdfs:subClassOf _:cb4e39091673c7e63d1d2d3c5cec0276baef31e6f30db1f57a2ce022d9421843bcb,
+        _:cb50baa0ce21c4bcce7938ff997d2eff959f0dc304e8e75cc4b97f527b1cef90844,
+        _:cb5c67dc97c77b19cefe22886c7bd4f3016ee123a1fc5e8c257d91bfe1c7f3aea23,
+        onto:StateTransition ;
+    onto:modelLayer "extension"^^xsd:string .
+
+onto:RiskEscalationTransition a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "风险升级转移"@zh ;
+    rdfs:comment "风险等级上升的状态转移。"@zh ;
+    rdfs:subClassOf _:cb4e39091673c7e63d1d2d3c5cec0276baef31e6f30db1f57a2ce022d9421843bcb,
+        _:cb50baa0ce21c4bcce7938ff997d2eff959f0dc304e8e75cc4b97f527b1cef90844,
+        _:cb5c67dc97c77b19cefe22886c7bd4f3016ee123a1fc5e8c257d91bfe1c7f3aea23,
+        onto:StateTransition ;
+    onto:modelLayer "extension"^^xsd:string .
+
+onto:RiskReductionTransition a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "风险降级转移"@zh ;
+    rdfs:comment "风险等级下降的状态转移。"@zh ;
+    rdfs:subClassOf _:cb4e39091673c7e63d1d2d3c5cec0276baef31e6f30db1f57a2ce022d9421843bcb,
+        _:cb50baa0ce21c4bcce7938ff997d2eff959f0dc304e8e75cc4b97f527b1cef90844,
+        _:cb5c67dc97c77b19cefe22886c7bd4f3016ee123a1fc5e8c257d91bfe1c7f3aea23,
+        onto:StateTransition ;
+    onto:modelLayer "extension"^^xsd:string .
+
+onto:RiskSituationRuleConfig a rdfs:Resource,
+        onto:RuleDeploymentConfiguration ;
+    rdfs:comment "风险态势规则部署配置（实验示例配置）：数值由任务运行方在部署时配置，非领域常数。"@zh ;
+    onto:attentionPcThreshold "1e-07"^^xsd:float ;
+    onto:mitigationPcThreshold "0.0001"^^xsd:float .
+
+onto:Satellite a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "卫星"@zh ;
+    rdfs:comment "围绕地球或其他天体运行的人造航天器。"@zh ;
+    rdfs:subClassOf _:cb30db020e8cec0037313d098107e7052858c4935b04b1dc7b1f70629b97e6805f8,
+        _:cb8bd96a5207e4518eb162aa53bd0292a0be761968a43dfec097ec41b2b020ddcc1,
+        _:cb8d95508e6cfe814e3443a983acbc3bc7839a2775b19ca0d779786056e0811930e,
+        _:cb9329de91af1cf7c917f28dc743fbbc98861e9b7a8683ce81517be6004cf8fece0,
+        _:cb940f1fe7a6854070033b3e171d2a4bdc27297803971a154eeb4fd8aeb149dfc49,
+        _:cb9c0b97422dfd588a0b8b0dfae94d04f23a7b20c6f2d67434dbe1ef0b2481500c6,
+        _:cb9e1fb6857b6ecd2e90a4ba625d94b83b2b735bf830a51fcf695ca9dbe4a9350ba,
+        geo:Feature,
+        onto:ArtificialSpaceObject,
+        onto:SpaceObject,
+        onto:Spacecraft ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:SensorNetwork a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "传感器网络"@zh ;
+    rdfs:comment "由多个传感器组成的观测网络。"@zh ;
+    rdfs:subClassOf _:cb761d2982162e411b7ad168edf703f36b82c0f0203d66094873e29999e52d7b912,
+        onto:ObservationSystem ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:SpaceWeather a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "空间天气"@zh ;
+    rdfs:comment "空间天气。"@zh ;
+    rdfs:subClassOf _:cb56b9b200eaeb553a4db634b5df70817275d273f18b003aa4a990d23abfd1fd8ed,
+        _:cb63a3d3beffbbf65aaf4f79d39ace259176bdbb5415265ec29e1aa925636f5691a,
+        onto:SpaceEnvironment ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:SurveillanceSystem a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "监视系统"@zh ;
+    rdfs:comment "用于监视空间区域的系统。"@zh ;
+    rdfs:subClassOf _:cb761d2982162e411b7ad168edf703f36b82c0f0203d66094873e29999e52d7b912,
+        onto:ObservationSystem ;
+    onto:modelLayer "extension"^^xsd:string .
+
+onto:ThreatEscalationTransition a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "威胁升级转移"@zh ;
+    rdfs:comment "威胁等级上升的状态转移。"@zh ;
+    rdfs:subClassOf _:cb4e39091673c7e63d1d2d3c5cec0276baef31e6f30db1f57a2ce022d9421843bcb,
+        _:cb50baa0ce21c4bcce7938ff997d2eff959f0dc304e8e75cc4b97f527b1cef90844,
+        _:cb5c67dc97c77b19cefe22886c7bd4f3016ee123a1fc5e8c257d91bfe1c7f3aea23,
+        onto:StateTransition ;
+    onto:modelLayer "extension"^^xsd:string .
+
+onto:TrackingData a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "跟踪数据"@zh ;
+    rdfs:comment "跟踪数据。"@zh ;
+    rdfs:subClassOf prov:Entity,
+        onto:SSAData ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:TrackingSystem a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "跟踪系统"@zh ;
+    rdfs:comment "用于持续跟踪空间目标的系统。"@zh ;
+    rdfs:subClassOf _:cb761d2982162e411b7ad168edf703f36b82c0f0203d66094873e29999e52d7b912,
+        onto:ObservationSystem ;
+    onto:modelLayer "extension"^^xsd:string .
+
+onto:WarningMeasure a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "预警措施"@zh ;
+    rdfs:comment "提前发出预警的响应措施。"@zh ;
+    rdfs:subClassOf _:cb3b847118774f4459df9bc71aed28c992cc39bdf3f0003d72bf3b8a23e729a3c88,
+        _:cb3e2a33da71b9dfe1bd93f107c8fb9f08aaeacd60984d85f4e9aa87b0c31ea82bd,
+        _:cb45f12938aeaed357c8eedaedc09c540fc537b4569b8e81ae092c3e034c99fa6c9,
+        _:cb472ef2557f60f560562dd76f5bcef168f74076733be10b6be4370226437610aa6,
+        _:cb523fa94fc08f9b734fb79bf5716aea5773cee268e0f256921f1ac42246fe2bf19,
+        _:cb536bb460a812086d12e8b8f1c35bd8acb379033517cd1bc47cb34141a63c2abfc,
+        _:cb54effaa58e2d644e04b7ce7978c1d2b991be0a3869db40344828b525a5e28fc0a,
+        onto:ResponseMeasure ;
+    onto:modelLayer "extension"^^xsd:string .
+
+onto:degradesTo a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "恶化为"@zh ;
+    rdfs:comment "态势状态恶化为另一状态。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range onto:SituationState .
+
+onto:formalExpression a rdfs:Resource,
+        owl:AnnotationProperty ;
+    rdfs:label "形式化表达"@zh .
+
+onto:hasCombinedHardBodyRadius a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "组合硬体半径"@zh ;
+    rdfs:comment "当前交会风险评估中两个目标的组合硬体半径（combined hard-body radius），即两目标外接球半径之和；由外部交会评估给出，随评估事件变化，不作为全局部署常数。"@zh ;
+    rdfs:domain onto:CollisionRiskEvent ;
+    rdfs:range xsd:float .
+
+onto:hasFeatureOfInterest a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "具有关注目标"@zh ;
+    rdfs:comment "SSA 数据所关注的空间目标。"@zh ;
+    rdfs:domain onto:SSAData ;
+    rdfs:range onto:SpaceObject ;
+    onto:alignmentRationale "Local domain property (SSAData -> SpaceObject): a data record points to its target of interest, whereas SOSA hasFeatureOfInterest relates an Observation/Actuation/Sampling ACT to its feature. Different semantic level; the former subPropertyOf sosa:hasFeatureOfInterest mapping has been removed."@en .
+
+onto:hasLocation a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "部署位置"@zh ;
+    rdfs:comment "观测系统或传感器的部署位置。"@zh ;
+    rdfs:domain onto:ObservationSystem ;
+    rdfs:range xsd:string .
+
+onto:hasObjectName a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "目标名称"@zh ;
+    rdfs:comment "空间目标的名称。"@zh ;
+    rdfs:domain onto:SpaceObject ;
+    rdfs:range xsd:string .
+
+onto:hasObservationResult a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "具有观测结果"@zh ;
+    rdfs:comment "观测数据具有观测结果目标。"@zh ;
+    rdfs:domain onto:ObservationData ;
+    rdfs:range onto:SpaceObject ;
+    onto:alignmentRationale "Local domain property (ObservationData -> SpaceObject): it links observation data to the observed space object, which is NOT the SOSA hasResult relation (Observation -> Result). The former subPropertyOf sosa:hasResult mapping has been removed; the property remains in use as a local property."@en .
+
+onto:hasOrbitType a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "轨道类型"@zh ;
+    rdfs:comment "轨道类型，如 LEO、MEO、GEO、HEO 等。"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:string .
+
+onto:hasRelativeDistance a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "相对距离"@zh ;
+    rdfs:comment "两目标之间距离。"@zh ;
+    rdfs:domain onto:SpatialRelationEvent ;
+    rdfs:range xsd:float .
+
+onto:hasRiskValue a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "风险值"@zh ;
+    rdfs:comment "由外部风险评估模型、任务系统或应用层给出的可选综合风险评分，其计算方法与取值尺度由外部系统规定，不由本体规定；承载外部评估结果，不等同于碰撞概率 hasCollisionProbability；碰撞风险态势规则（R5—R8）不再以该属性为判定条件。"@zh ;
+    rdfs:domain onto:RiskEvent ;
+    rdfs:range xsd:float .
+
+onto:hasSensorID a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "传感器编号"@zh ;
+    rdfs:comment "传感器唯一标识。"@zh ;
+    rdfs:domain onto:Sensor ;
+    rdfs:range xsd:string .
+
+onto:implementationStatus a rdfs:Resource,
+        owl:AnnotationProperty ;
+    rdfs:label "实现状态"@zh .
+
+onto:inputProperties a rdfs:Resource,
+        owl:AnnotationProperty ;
+    rdfs:label "输入属性"@zh .
+
+onto:madeBySensor a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "由传感器执行"@zh ;
+    rdfs:comment "观测活动由传感器执行。"@zh ;
+    rdfs:domain onto:ObservationActivity ;
+    rdfs:range onto:Sensor ;
+    rdfs:subPropertyOf sosa:madeBySensor ;
+    onto:alignmentRationale "Kept formal mapping: madeBySensor (domain ObservationActivity, range Sensor) is a sub-property of sosa:madeBySensor; with ObservationActivity aligned to sosa:Observation and Sensor to sosa:Sensor, the SOSA Observation->Sensor semantics is preserved."@en .
+
+onto:meetsEvent a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "邻接事件"@zh ;
+    rdfs:comment "一个事件结束时间等于另一个事件开始时间。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SpaceEvent .
+
+onto:naturalLanguageRule a rdfs:Resource,
+        owl:AnnotationProperty ;
+    rdfs:label "自然语言规则"@zh .
+
+onto:occursAtTime a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "发生于时间点"@zh ;
+    rdfs:comment "事件发生在某一时间点。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:TimeInstant ;
+    rdfs:subPropertyOf time:hasTime ;
+    onto:alignmentRationale "occursAtTime links a SpaceEvent to a TimeInstant (which is aligned with time:Instant); time:hasTime is the generic OWL-Time property connecting a resource to a temporal entity."@en .
+
+onto:occursInTimeInterval a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "发生于时间区间"@zh ;
+    rdfs:comment "事件发生在某一时间区间内。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:TimeInterval ;
+    rdfs:subPropertyOf time:hasTime ;
+    onto:alignmentRationale "occursInTimeInterval links a SpaceEvent to a TimeInterval (aligned with time:Interval); it is therefore a specialization of time:hasTime."@en .
+
+onto:outputRelation a rdfs:Resource,
+        owl:AnnotationProperty ;
+    rdfs:label "输出关系"@zh .
+
+onto:recoversTo a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "恢复为"@zh ;
+    rdfs:comment "态势状态恢复为另一状态。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range onto:SituationState .
+
+onto:ruleCategory a rdfs:Resource,
+        owl:AnnotationProperty ;
+    rdfs:label "规则类别"@zh .
+
+onto:targetClass a rdfs:Resource,
+        owl:AnnotationProperty ;
+    rdfs:label "目标类"@zh .
+
+onto:validationSeverity a rdfs:Resource,
+        owl:AnnotationProperty ;
+    rdfs:label "验证严重级别"@zh .
+
+<https://w3id.org/tc-sssao/config> a rdfs:Resource,
+        owl:Ontology ;
+    dcterms:license <https://opensource.org/license/mit> ;
+    dcterms:modified "2026-09-04"^^xsd:date ;
+    dcterms:title "TC-SSSAO rule deployment configuration"@en,
+        "TC-SSSAO 规则部署配置"@zh ;
+    owl:versionIRI <https://w3id.org/tc-sssao/config/1.0.0> ;
+    owl:versionInfo "1.0.0" .
+
+case:CZ6A_Fragment_54263 a _:cb8bd96a5207e4518eb162aa53bd0292a0be761968a43dfec097ec41b2b020ddcc1,
+        _:cb8d95508e6cfe814e3443a983acbc3bc7839a2775b19ca0d779786056e0811930e,
+        _:cb9329de91af1cf7c917f28dc743fbbc98861e9b7a8683ce81517be6004cf8fece0,
+        _:cb940f1fe7a6854070033b3e171d2a4bdc27297803971a154eeb4fd8aeb149dfc49,
+        _:cb9c0b97422dfd588a0b8b0dfae94d04f23a7b20c6f2d67434dbe1ef0b2481500c6,
+        _:cb9e1fb6857b6ecd2e90a4ba625d94b83b2b735bf830a51fcf695ca9dbe4a9350ba,
+        geo:Feature,
+        rdfs:Resource,
+        onto:ArtificialSpaceObject,
+        onto:RocketDebris,
+        onto:SpaceDebris,
+        onto:SpaceObject ;
+    onto:hasObjectID "54263"^^xsd:string ;
+    onto:hasOrbit case:Orbit_54263_Early .
+
+case:CZ6A_Fragment_54334 a _:cb8bd96a5207e4518eb162aa53bd0292a0be761968a43dfec097ec41b2b020ddcc1,
+        _:cb8d95508e6cfe814e3443a983acbc3bc7839a2775b19ca0d779786056e0811930e,
+        _:cb9329de91af1cf7c917f28dc743fbbc98861e9b7a8683ce81517be6004cf8fece0,
+        _:cb940f1fe7a6854070033b3e171d2a4bdc27297803971a154eeb4fd8aeb149dfc49,
+        _:cb9c0b97422dfd588a0b8b0dfae94d04f23a7b20c6f2d67434dbe1ef0b2481500c6,
+        _:cb9e1fb6857b6ecd2e90a4ba625d94b83b2b735bf830a51fcf695ca9dbe4a9350ba,
+        geo:Feature,
+        rdfs:Resource,
+        onto:ArtificialSpaceObject,
+        onto:RocketDebris,
+        onto:SpaceDebris,
+        onto:SpaceObject ;
+    onto:hasObjectID "54334"^^xsd:string ;
+    onto:hasOrbit case:Orbit_54334_Early .
+
+case:CZ6A_Fragment_54344 a _:cb8bd96a5207e4518eb162aa53bd0292a0be761968a43dfec097ec41b2b020ddcc1,
+        _:cb8d95508e6cfe814e3443a983acbc3bc7839a2775b19ca0d779786056e0811930e,
+        _:cb9329de91af1cf7c917f28dc743fbbc98861e9b7a8683ce81517be6004cf8fece0,
+        _:cb940f1fe7a6854070033b3e171d2a4bdc27297803971a154eeb4fd8aeb149dfc49,
+        _:cb9c0b97422dfd588a0b8b0dfae94d04f23a7b20c6f2d67434dbe1ef0b2481500c6,
+        _:cb9e1fb6857b6ecd2e90a4ba625d94b83b2b735bf830a51fcf695ca9dbe4a9350ba,
+        geo:Feature,
+        rdfs:Resource,
+        onto:ArtificialSpaceObject,
+        onto:RocketDebris,
+        onto:SpaceDebris,
+        onto:SpaceObject ;
+    onto:hasObjectID "54344"^^xsd:string ;
+    onto:hasOrbit case:Orbit_54344_Early .
+
+case:CZ6A_FragmentationRiskAssertion a _:cb4978a975468794709fd08870f7526add7547880995e81f44889749ca4a4412c61,
+        _:cb5dfaaa7e44523d8592894003f1c9fa689dbc6d06a8ced1de5ff769d275f2785d1,
+        _:cb60c53cde23291cddd17c531d527ab8aee93891cb5cfba6ed4a6bb5f5b7aeedccb,
+        _:cb61df8fe27058399fea330440da78d5095c2558ddcca49c9d68c9920b6b4cdf8ef,
+        rdfs:Resource,
+        prov:Entity,
+        onto:CausalAssertion,
+        onto:DirectCausalAssertion ;
+    prov:wasDerivedFrom case:CZ6A_DebrisRiskAssessment ;
+    onto:hasCausalEvidence case:CZ6A_DebrisRiskAssessment ;
+    onto:hasCausalMechanism "高轨解体产生大量长寿命在轨碎片，对同轨道区域空间目标构成持续碰撞风险（机制描述对应外部评估结论）"^^xsd:string ;
+    onto:hasCause case:CZ6A_Fragmentation_2022 ;
+    onto:hasEffect case:CZ6A_DebrisRiskEvent .
+
+dcterms:created a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf dcterms:created .
+
+dcterms:description a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf dcterms:description .
+
+dcterms:license a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf dcterms:license .
+
+dcterms:modified a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf dcterms:modified .
+
+dcterms:title a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf dcterms:title .
+
+geo: a rdfs:Resource .
+
+geo:SpatialObject a rdfs:Resource .
+
+rdf:first a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf rdf:first .
+
+rdf:rest a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf rdf:rest .
+
+rdf:type a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf rdf:type .
+
+rdfs:Datatype a rdfs:Resource .
+
+rdfs:Literal a rdfs:Resource .
+
+rdfs:comment a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf rdfs:comment .
+
+rdfs:domain a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf rdfs:domain .
+
+rdfs:label a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf rdfs:label .
+
+rdfs:range a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf rdfs:range .
+
+rdfs:seeAlso a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf rdfs:seeAlso .
+
+rdfs:subClassOf a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf rdfs:subClassOf .
+
+rdfs:subPropertyOf a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf rdfs:subPropertyOf .
+
+owl:SymmetricProperty a rdfs:Resource .
+
+owl:allValuesFrom a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf owl:allValuesFrom .
+
+owl:disjointWith a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf owl:disjointWith .
+
+owl:equivalentClass a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf owl:equivalentClass .
+
+owl:hasValue a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf owl:hasValue .
+
+owl:intersectionOf a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf owl:intersectionOf .
+
+owl:inverseOf a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf owl:inverseOf .
+
+owl:maxCardinality a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf owl:maxCardinality .
+
+owl:members a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf owl:members .
+
+owl:minQualifiedCardinality a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf owl:minQualifiedCardinality .
+
+owl:onClass a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf owl:onClass .
+
+owl:onProperty a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf owl:onProperty .
+
+owl:qualifiedCardinality a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf owl:qualifiedCardinality .
+
+owl:someValuesFrom a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf owl:someValuesFrom .
+
+owl:versionIRI a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf owl:versionIRI .
+
+owl:versionInfo a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf owl:versionInfo .
+
+time:Instant a rdfs:Resource,
+        owl:Class .
+
+time:Interval a rdfs:Resource,
+        owl:Class .
+
+time:before a rdfs:Resource .
+
+time:hasXSDDuration a rdfs:Resource .
+
+time:intervalOverlaps a rdfs:Resource .
+
+sosa:Observation a rdfs:Resource,
+        owl:Class .
+
+sosa:Platform a rdfs:Resource .
+
+sosa:madeBySensor a rdfs:Resource,
+        owl:ObjectProperty .
+
+onto:DebrisRisk a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "碎片风险"@zh ;
+    rdfs:comment "空间碎片导致的风险。"@zh ;
+    rdfs:subClassOf _:cb4ffaa74e9daffc3550f7e5569a6afd293410b8b8d9ddcdd1d5a8286dd4ecf1e9d,
+        _:cb5521335c3e6c6806bcea7b74807e8f9550278a2b167a96aca7cdd193c88facdc4,
+        _:cb55d11e4945bbb12971b0f416b608fb5966224bf8e60ae39fea48e4ea50f60fdf1,
+        onto:SecurityRisk ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:DebrisRiskEvent a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "碎片风险事件"@zh ;
+    rdfs:comment "由空间碎片引发的风险事件。"@zh ;
+    rdfs:subClassOf _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5,
+        onto:RiskEvent,
+        onto:SpaceEvent ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:GeometricConstruct a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "几何构造"@zh ;
+    rdfs:comment "轨道与空间态势中使用的几何构造抽象。"@zh ;
+    rdfs:subClassOf [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:onProperty onto:hasGeometricErrorValue ;
+            owl:someValuesFrom xsd:float ] ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:IndirectCausalAssertion a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "间接因果断言"@zh ;
+    rdfs:comment "原因事件通过中间环节导致结果事件的因果断言。"@zh ;
+    rdfs:subClassOf _:cb4978a975468794709fd08870f7526add7547880995e81f44889749ca4a4412c61,
+        _:cb5dfaaa7e44523d8592894003f1c9fa689dbc6d06a8ced1de5ff769d275f2785d1,
+        _:cb60c53cde23291cddd17c531d527ab8aee93891cb5cfba6ed4a6bb5f5b7aeedccb,
+        _:cb61df8fe27058399fea330440da78d5095c2558ddcca49c9d68c9920b6b4cdf8ef,
+        prov:Entity,
+        onto:CausalAssertion ;
+    onto:modelLayer "extension"^^xsd:string .
+
+onto:InfraredSensor a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "红外传感器"@zh ;
+    rdfs:comment "以红外为主要感知机制的传感器。"@zh ;
+    rdfs:subClassOf _:cb45f11da5bd8a1f004e8a1b102719c903eea7417a9b9bdbdc4ee3231f372ccd1ca,
+        _:cb761d2982162e411b7ad168edf703f36b82c0f0203d66094873e29999e52d7b912,
+        sosa:Sensor,
+        onto:ObservationSystem,
+        onto:Sensor ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:InhibitingCausalAssertion a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "抑制型因果断言"@zh ;
+    rdfs:comment "原因事件抑制或削弱结果事件的因果断言。"@zh ;
+    rdfs:subClassOf _:cb4978a975468794709fd08870f7526add7547880995e81f44889749ca4a4412c61,
+        _:cb5dfaaa7e44523d8592894003f1c9fa689dbc6d06a8ced1de5ff769d275f2785d1,
+        _:cb60c53cde23291cddd17c531d527ab8aee93891cb5cfba6ed4a6bb5f5b7aeedccb,
+        _:cb61df8fe27058399fea330440da78d5095c2558ddcca49c9d68c9920b6b4cdf8ef,
+        prov:Entity,
+        onto:CausalAssertion ;
+    onto:modelLayer "extension"^^xsd:string .
+
+onto:NormalSituationState a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "正常态势状态"@zh ;
+    rdfs:comment "整体态势正常。"@zh ;
+    rdfs:subClassOf [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:hasValue 0 ;
+            owl:onProperty onto:hasSeverityRank ],
+        _:cb396df1868b2101757248f271c1110fa76bc70a2e6babb967d53b6884a86c0cc05,
+        _:cb3a1ee76d90fd807777f76bee4dd499fc9e6121ad8ddffc00f006b3502b4550405,
+        _:cb3bec8159dc74bd37ca0f6da32fd088a3a3774fa11d30d2686ee994b87f45354b0,
+        _:cb3da1377e861a20abf86eddc4be5412b7068dbdeaaf043443275005c71e82f8b8b,
+        _:cb41c0160a2dadbd73b22e7d3b0befe24234fac4fc1f6246cedac33d8176b97a3d9,
+        _:cb433d038d3f6a4371ca94faec2faef23e55cd7d877c21fa4b25f07cd40d517b93d,
+        _:cb45959af9013c1685c2bf5cd4c17f0cf4a6639307e4e3fd250560cae0de9734196,
+        _:cb463411ecb611409fb0b1e84f3898fe007cb97bb8e2fff0edc645923ba982f6194,
+        _:cb47f661f51e3671a00405818397edd01726eba7540c5ca4edba1b80d298ac327f9,
+        _:cb49429e05883e4fa0204ced6e856712fcbc63ab970c72962eaa16a53327b159285,
+        _:cb4b050695bc77167da2e49d9597fc4ada275c81ec56110bf5955c3eaf558b5735e,
+        _:cb4ca65e618e3072c68fa2bc2c9c45a350e624a0e1f907ced7e5e8e5dd6814b14be,
+        _:cb52cd01a73c3a636531c9390748111df81afe10cddb839cabc4431a9c1e4b15762,
+        onto:SituationState ;
+    owl:disjointWith onto:AttentionSituationState,
+        onto:DangerousSituationState,
+        onto:WarningSituationState ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:ObjectBehaviorEvent a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "目标行为事件"@zh ;
+    rdfs:comment "由空间目标自身行为引发的事件。"@zh ;
+    rdfs:subClassOf _:cb3fa79ac456c6c5e9094946b1195ab824ef5245f72826539526d13d6b529754279,
+        _:cb45762b94d67d61a76d60276b41f407bb57943f950a2542bcc7bba6706aa476daf,
+        _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5,
+        onto:SpaceEvent ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:ObservationActivity a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "观测活动"@zh ;
+    rdfs:comment "对空间目标进行观测的活动。"@zh ;
+    rdfs:subClassOf prov:Activity,
+        sosa:Observation,
+        onto:SSAActivity ;
+    onto:alignmentRationale "ObservationActivity is the activity of observing space objects; this corresponds to the observation act in SOSA, so it is specialized from sosa:Observation. This makes madeBySensor (domain ObservationActivity, range Sensor) consistent with its super-property sosa:madeBySensor."@en ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:OpticalSensor a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "光学传感器"@zh ;
+    rdfs:comment "以光学为主要感知机制的传感器。"@zh ;
+    rdfs:subClassOf _:cb45f11da5bd8a1f004e8a1b102719c903eea7417a9b9bdbdc4ee3231f372ccd1ca,
+        _:cb761d2982162e411b7ad168edf703f36b82c0f0203d66094873e29999e52d7b912,
+        sosa:Sensor,
+        onto:ObservationSystem,
+        onto:Sensor ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:OrbitManeuverEvent a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "轨道机动事件"@zh ;
+    rdfs:comment "空间目标改变轨道的机动事件。"@zh ;
+    rdfs:subClassOf [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:onProperty onto:hasManeuverType ;
+            owl:someValuesFrom xsd:string ],
+        [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:onProperty onto:involvesObject ;
+            owl:someValuesFrom onto:ArtificialSpaceObject ],
+        [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:onProperty onto:changesOrbit ;
+            owl:someValuesFrom onto:Orbit ],
+        _:cb3fa79ac456c6c5e9094946b1195ab824ef5245f72826539526d13d6b529754279,
+        _:cb45762b94d67d61a76d60276b41f407bb57943f950a2542bcc7bba6706aa476daf,
+        _:cb53071a5110f1eebacf8737b85dcd56369f581cb42772f724b2880207861037110,
+        _:cb5ca6cab86bf24a18fef1056e8890a0a1948247cec95fa8bc5cbb45fcece3b14a8,
+        _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5,
+        onto:ObjectBehaviorEvent,
+        onto:OrbitalEvent,
+        onto:SpaceEvent ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:OrbitalCongestionEnvironment a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "轨道拥堵环境"@zh ;
+    rdfs:comment "轨道拥堵环境。"@zh ;
+    rdfs:subClassOf [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:onProperty onto:hasCongestionLevel ;
+            owl:someValuesFrom xsd:string ],
+        _:cb56b9b200eaeb553a4db634b5df70817275d273f18b003aa4a990d23abfd1fd8ed,
+        _:cb63a3d3beffbbf65aaf4f79d39ace259176bdbb5415265ec29e1aa925636f5691a,
+        onto:SpaceEnvironment ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:PhysicalThreat a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "物理威胁"@zh ;
+    rdfs:comment "由物理接近或碰撞等物理作用导致的威胁。"@zh ;
+    rdfs:subClassOf _:cb43d414cb7005dd62bb754afa1a32d4ac65e11513a9a8a86745962686c8d9eb545,
+        _:cb456e334675ff8a323c477331435ecdea130671ea52a6f67e03cfb9d817f23886b,
+        _:cb487c436a18afe6165a33112827caef60784927d5202dacfb542c55055abe06bde,
+        _:cb4cff698d8650518176db6685b61d8f2c32dfd2c73c2a9844128de380cd274c195,
+        _:cb4f70c23c374644fca8f49290d08ec2b1a993392090d4921d980d8e7190f8be936,
+        _:cb4f9db843ab5015915ed2e393b1c83e050e5d2a78c297348d2d1d4e65bc09f6c49,
+        _:cb50f3dd9db06d482682091a9e8facbe5bbe9defad445dce4a8833c4156b2d4ef99,
+        _:cb51b73d50ab6feb1b8747d7722a26d2f9f9975b509a511edfddb0696dd5b7e6144,
+        _:cb5223c185b3fa91c62519d23b8804e5bdc0ba7cbf80a44ce089649d50c8431bd82,
+        _:cb5252906920f97fd6d2ce787de6cd71a43c775f2aec026f8812acdfcf0e1822947,
+        onto:SecurityThreat ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:PromotingCausalAssertion a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "促进型因果断言"@zh ;
+    rdfs:comment "原因事件促进但非必然导致结果事件的因果断言。"@zh ;
+    rdfs:subClassOf _:cb4978a975468794709fd08870f7526add7547880995e81f44889749ca4a4412c61,
+        _:cb5dfaaa7e44523d8592894003f1c9fa689dbc6d06a8ced1de5ff769d275f2785d1,
+        _:cb60c53cde23291cddd17c531d527ab8aee93891cb5cfba6ed4a6bb5f5b7aeedccb,
+        _:cb61df8fe27058399fea330440da78d5095c2558ddcca49c9d68c9920b6b4cdf8ef,
+        prov:Entity,
+        onto:CausalAssertion ;
+    onto:modelLayer "extension"^^xsd:string .
+
+onto:RadiationEnvironment a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "辐射环境"@zh ;
+    rdfs:comment "辐射环境。"@zh ;
+    rdfs:subClassOf [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:onProperty onto:hasRadiationLevel ;
+            owl:someValuesFrom xsd:string ],
+        _:cb56b9b200eaeb553a4db634b5df70817275d273f18b003aa4a990d23abfd1fd8ed,
+        _:cb63a3d3beffbbf65aaf4f79d39ace259176bdbb5415265ec29e1aa925636f5691a,
+        onto:SpaceEnvironment ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:RiskAssessmentData a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "风险评估数据"@zh ;
+    rdfs:comment "风险评估数据。"@zh ;
+    rdfs:subClassOf prov:Entity,
+        onto:AssessmentData,
+        onto:SSAData,
+        onto:SituationAssessmentData ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:RocketBody a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "火箭体"@zh ;
+    rdfs:comment "运载火箭的末级、助推器或相关结构体。"@zh ;
+    rdfs:subClassOf _:cb8bd96a5207e4518eb162aa53bd0292a0be761968a43dfec097ec41b2b020ddcc1,
+        _:cb8d95508e6cfe814e3443a983acbc3bc7839a2775b19ca0d779786056e0811930e,
+        _:cb9329de91af1cf7c917f28dc743fbbc98861e9b7a8683ce81517be6004cf8fece0,
+        _:cb940f1fe7a6854070033b3e171d2a4bdc27297803971a154eeb4fd8aeb149dfc49,
+        _:cb9c0b97422dfd588a0b8b0dfae94d04f23a7b20c6f2d67434dbe1ef0b2481500c6,
+        _:cb9e1fb6857b6ecd2e90a4ba625d94b83b2b735bf830a51fcf695ca9dbe4a9350ba,
+        geo:Feature,
+        onto:ArtificialSpaceObject,
+        onto:SpaceObject ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:RuleDeploymentConfiguration a rdfs:Resource,
+        owl:Class ;
+    rdfs:comment "规则部署配置：承载风险态势规则的部署参数，不属于领域知识。"@zh .
+
+onto:SensorObservationData a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "传感器观测数据"@zh ;
+    rdfs:comment "传感器产生的观测数据。"@zh ;
+    rdfs:subClassOf _:cb371e3ef17af3433f5b48fce7c44f13a0a8d60e1baa93a9681aa9efcf00acbaaba,
+        prov:Entity,
+        sosa:Result,
+        onto:ObservationData,
+        onto:SSAData ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:TrackingEvent a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "跟踪事件"@zh ;
+    rdfs:comment "对空间目标进行跟踪的事件。"@zh ;
+    rdfs:subClassOf _:cb3290aa4748d44e3c0c8423b13419c67313360b05c9b8055ce0ab35aad70c6f68f,
+        _:cb32dbd7deb0548f7f86c1150ccff178c39ef953811c670a1b474a1c9e318c55437,
+        _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5,
+        onto:ObservationEvent,
+        onto:SpaceEvent ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:affectsOrbit a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "影响轨道"@zh ;
+    rdfs:comment "空间事件影响轨道。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:Orbit .
+
+onto:affectsState a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "影响状态"@zh ;
+    rdfs:comment "空间事件影响态势状态。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SituationState .
+
+onto:alignmentRationale a rdf:Property,
+        rdfs:Resource,
+        owl:AnnotationProperty ;
+    rdfs:label "对齐理由"@zh ;
+    rdfs:comment "说明 TC-SSSAO 与标准词汇之间采用 subClassOf / subPropertyOf / seeAlso 或不做正式对齐的理由。"@zh ;
+    rdfs:subPropertyOf onto:alignmentRationale .
+
+onto:attentionPcThreshold a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:comment "θ_A：运行关注碰撞概率（Pc）阈值，实验参考值 1E-7（NASA CARA 运行关注水平）"@zh ;
+    rdfs:subPropertyOf onto:attentionPcThreshold .
+
+onto:causedByEvent a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "由事件导致"@zh ;
+    rdfs:comment "某事件由另一事件导致。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SpaceEvent ;
+    owl:inverseOf onto:causesEvent .
+
+onto:changesOrbit a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "改变轨道"@zh ;
+    rdfs:comment "空间事件改变轨道。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:Orbit .
+
+onto:containsEvent a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "包含事件"@zh ;
+    rdfs:comment "某事件包含另一事件。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SpaceEvent ;
+    owl:inverseOf onto:occursDuringEvent .
+
+onto:describesObject a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "描述目标"@zh ;
+    rdfs:comment "SSA 数据描述空间目标。"@zh ;
+    rdfs:domain onto:SSAData ;
+    rdfs:range onto:SpaceObject ;
+    rdfs:subPropertyOf onto:describesObject .
+
+onto:evolvesTo a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "演化为"@zh ;
+    rdfs:comment "态势状态演化为另一状态。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range onto:SituationState .
+
+onto:generatedBy a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "由……生成"@zh ;
+    rdfs:comment "观测数据由观测系统生成。"@zh ;
+    rdfs:domain onto:ObservationData ;
+    rdfs:range onto:ObservationSystem ;
+    rdfs:seeAlso prov:wasGeneratedBy ;
+    owl:inverseOf onto:generatesData ;
+    onto:reusedOntology prov: .
+
+onto:generatedByActivity a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "由活动生成"@zh ;
+    rdfs:comment "SSA 数据由 SSA 活动生成。"@zh ;
+    rdfs:domain onto:SSAData ;
+    rdfs:range onto:SSAActivity ;
+    rdfs:subPropertyOf prov:wasGeneratedBy ;
+    owl:inverseOf onto:producesData ;
+    onto:alignmentRationale "Kept formal mapping: generatedByActivity (domain SSAData, range SSAActivity) is a sub-property of prov:wasGeneratedBy; with SSAData aligned to prov:Entity and SSAActivity to prov:Activity, the PROV generation semantics is preserved."@en .
+
+onto:hasArgumentOfPerigee a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "近地点幅角"@zh ;
+    rdfs:comment "轨道近地点幅角。"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:float .
+
+onto:hasBeginning a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "具有开始"@zh ;
+    rdfs:comment "时间区间的开始时间点。"@zh ;
+    rdfs:domain onto:TimeInterval ;
+    rdfs:range onto:TimeInstant .
+
+onto:hasCausalConfidence a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "因果置信度"@zh ;
+    rdfs:comment "因果断言的可选置信度元数据。当数据来源、专家评估或外部模型提供定量置信信息时记录该值；来源未给出定量置信度时不强制赋值（M3 第一阶段起由 exactly 1 放宽为 max 1）。"@zh ;
+    rdfs:domain onto:CausalAssertion ;
+    rdfs:range xsd:float .
+
+onto:hasCausalMechanism a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "因果机制"@zh ;
+    rdfs:comment "因果断言背后的物理或逻辑机制描述。"@zh ;
+    rdfs:domain onto:CausalAssertion ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf onto:hasCausalMechanism .
+
+onto:hasCollisionProbability a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "碰撞概率"@zh ;
+    rdfs:comment "碰撞风险概率。"@zh ;
+    rdfs:domain onto:CollisionRiskEvent ;
+    rdfs:range xsd:float .
+
+onto:hasCongestionLevel a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "拥堵等级"@zh ;
+    rdfs:comment "轨道拥堵环境等级"@zh ;
+    rdfs:domain onto:OrbitalCongestionEnvironment ;
+    rdfs:range xsd:string .
+
+onto:hasDataConfidence a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "数据置信度"@zh ;
+    rdfs:comment "数据可信程度。"@zh ;
+    rdfs:domain onto:SSAData ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf onto:hasDataConfidence .
+
+onto:hasDataID a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "数据编号"@zh ;
+    rdfs:comment "SSA 数据唯一标识。"@zh ;
+    rdfs:domain onto:SSAData ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf onto:hasDataID .
+
+onto:hasDataSource a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "数据来源"@zh ;
+    rdfs:comment "数据来源说明。"@zh ;
+    rdfs:domain onto:SSAData ;
+    rdfs:range xsd:string ;
+    rdfs:seeAlso prov:wasAttributedTo ;
+    rdfs:subPropertyOf onto:hasDataSource ;
+    onto:reusedOntology prov: .
+
+onto:hasDataType a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "数据类型"@zh ;
+    rdfs:comment "数据类型说明。"@zh ;
+    rdfs:domain onto:SSAData ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf onto:hasDataType .
+
+onto:hasEncounterID a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "交会编号"@zh ;
+    rdfs:comment "交会事件编号，标识同一物理交会事件的所有风险评估快照。ESA数据中对应event_id字段，同一物理交会的所有CDM共享同一event_id。B3规则使用此属性实现跨交会隔离。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range xsd:string .
+
+onto:hasEnd a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "具有结束"@zh ;
+    rdfs:comment "时间区间的结束时间点。"@zh ;
+    rdfs:domain onto:TimeInterval ;
+    rdfs:range onto:TimeInstant .
+
+onto:hasEnvironmentLevel a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "环境等级"@zh ;
+    rdfs:comment "空间环境等级，如正常、异常、严重"@zh ;
+    rdfs:domain onto:SpaceEnvironment ;
+    rdfs:range xsd:string .
+
+onto:hasEnvironmentType a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "环境类型"@zh ;
+    rdfs:comment "空间环境所属类型，如辐射环境、电磁环境、轨道拥堵环境等"@zh ;
+    rdfs:domain onto:SpaceEnvironment ;
+    rdfs:range xsd:string .
+
+onto:hasGeometricErrorValue a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "几何误差值"@zh ;
+    rdfs:comment "几何构造的误差值。"@zh ;
+    rdfs:domain onto:GeometricConstruct ;
+    rdfs:range xsd:float .
+
+onto:hasImpactScope a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "影响范围"@zh ;
+    rdfs:comment "威胁影响范围，如目标、轨道区域、任务系统等。"@zh ;
+    rdfs:domain onto:SecurityThreat ;
+    rdfs:range xsd:string .
+
+onto:hasLaunchCountry a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "发射国家"@zh ;
+    rdfs:comment "空间目标的发射国家或责任机构。"@zh ;
+    rdfs:domain onto:SpaceObject ;
+    rdfs:range xsd:string .
+
+onto:hasLaunchDate a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "发射日期"@zh ;
+    rdfs:comment "空间目标的发射日期与时间。"@zh ;
+    rdfs:domain onto:SpaceObject ;
+    rdfs:range xsd:dateTime .
+
+onto:hasManeuverType a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "机动类型"@zh ;
+    rdfs:comment "轨道机动事件类型"@zh ;
+    rdfs:domain onto:OrbitManeuverEvent ;
+    rdfs:range xsd:string .
+
+onto:hasMass a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "质量"@zh ;
+    rdfs:comment "空间目标的质量，通常以千克为单位。"@zh ;
+    rdfs:domain onto:SpaceObject ;
+    rdfs:range xsd:float .
+
+onto:hasMeanAnomaly a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "平近点角"@zh ;
+    rdfs:comment "轨道平近点角。"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:float .
+
+onto:hasMeasureLevel a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "措施等级"@zh ;
+    rdfs:comment "措施等级，如一般、重要、紧急。"@zh ;
+    rdfs:domain onto:ResponseMeasure ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf onto:hasMeasureLevel .
+
+onto:hasMeasureType a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "措施类型"@zh ;
+    rdfs:comment "措施类型，如规避、应急、缓解、预警等。"@zh ;
+    rdfs:domain onto:ResponseMeasure ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf onto:hasMeasureType .
+
+onto:hasMissionType a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "任务类型"@zh ;
+    rdfs:comment "航天器承担的任务类型。"@zh ;
+    rdfs:domain onto:Spacecraft ;
+    rdfs:range xsd:string .
+
+onto:hasObjectID a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "目标编号"@zh ;
+    rdfs:comment "空间目标的唯一标识编号。"@zh ;
+    rdfs:domain onto:SpaceObject ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf onto:hasObjectID .
+
+onto:hasOperatorName a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "运营方名称"@zh ;
+    rdfs:comment "空间目标当前运营方的名称。"@zh ;
+    rdfs:domain onto:SpaceObject ;
+    rdfs:range xsd:string .
+
+onto:hasOrbitalPeriod a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "轨道周期"@zh ;
+    rdfs:comment "轨道运行周期。"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:float .
+
+onto:hasPredictedMissDistance a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "预测最近交会距离"@zh ;
+    rdfs:comment "碰撞风险事件预测最近交会距离。"@zh ;
+    rdfs:domain onto:CollisionRiskEvent ;
+    rdfs:range xsd:float .
+
+onto:hasPrimaryObject a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "具有主目标"@zh ;
+    rdfs:comment "空间关系事件中交会对象对的主要目标，用于显式表示目标角色。"@zh ;
+    rdfs:domain onto:SpatialRelationEvent ;
+    rdfs:range onto:SpaceObject .
+
+onto:hasRAAN a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "升交点赤经"@zh ;
+    rdfs:comment "升交点赤经（Right Ascension of Ascending Node）。"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:float .
+
+onto:hasRadiationLevel a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "辐射水平"@zh ;
+    rdfs:comment "辐射环境水平等级"@zh ;
+    rdfs:domain onto:RadiationEnvironment ;
+    rdfs:range xsd:string .
+
+onto:hasResolution a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "分辨率"@zh ;
+    rdfs:comment "传感器探测分辨率。"@zh ;
+    rdfs:domain onto:Sensor ;
+    rdfs:range xsd:float .
+
+onto:hasRiskDescription a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "风险描述"@zh ;
+    rdfs:comment "安全风险的文本描述"@zh ;
+    rdfs:domain onto:SecurityRisk ;
+    rdfs:range xsd:string .
+
+onto:hasRiskLevel a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "风险等级"@zh ;
+    rdfs:comment "低、中、高、极高。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range xsd:string .
+
+onto:hasSecondaryObject a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "具有次目标"@zh ;
+    rdfs:comment "空间关系事件中交会对象对的次要目标，用于显式表示目标角色。"@zh ;
+    rdfs:domain onto:SpatialRelationEvent ;
+    rdfs:range onto:SpaceObject .
+
+onto:hasSemiMajorAxis a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "半长轴"@zh ;
+    rdfs:comment "轨道半长轴。"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:float .
+
+onto:hasSize a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "尺寸"@zh ;
+    rdfs:comment "空间目标的特征尺寸。"@zh ;
+    rdfs:domain onto:SpaceObject ;
+    rdfs:range xsd:float .
+
+onto:hasSourceState a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "具有源状态"@zh ;
+    rdfs:comment "状态转移的源状态。"@zh ;
+    rdfs:domain onto:StateTransition ;
+    rdfs:range onto:SituationState .
+
+onto:hasSpatialRelationship a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "空间关系"@zh ;
+    rdfs:comment "空间关系事件中的关系类型"@zh ;
+    rdfs:domain onto:SpatialRelationEvent ;
+    rdfs:range xsd:string .
+
+onto:hasStateConfidence a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "状态置信度"@zh ;
+    rdfs:comment "状态判断的可信程度。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range xsd:float .
+
+onto:hasStateDescription a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "状态描述"@zh ;
+    rdfs:comment "态势状态的文字说明。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range xsd:string .
+
+onto:hasStateDuration a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "状态持续时间"@zh ;
+    rdfs:comment "状态持续时间（ISO 8601 时长字符串，如 PT1H30M）。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range xsd:duration .
+
+onto:hasStateEndTime a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "状态结束时间"@zh ;
+    rdfs:comment "状态结束时间。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range xsd:dateTime ;
+    rdfs:seeAlso time:hasEnd ;
+    onto:reusedOntology time: .
+
+onto:hasStateID a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "状态编号"@zh ;
+    rdfs:comment "态势状态唯一标识。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range xsd:string .
+
+onto:hasStateLevel a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "状态等级"@zh ;
+    rdfs:comment "正常、关注、异常、预警、危险、恢复等。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range xsd:string .
+
+onto:hasStateStartTime a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "状态开始时间"@zh ;
+    rdfs:comment "状态开始时间。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range xsd:dateTime ;
+    rdfs:seeAlso time:hasBeginning ;
+    onto:reusedOntology time: .
+
+onto:hasStateType a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "状态类型"@zh ;
+    rdfs:comment "运行状态、空间安全状态、威胁状态、综合态势状态等。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range xsd:string .
+
+onto:hasStateUpdateTime a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "态势状态更新时间"@zh ;
+    rdfs:comment "态势状态最近一次更新时间。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range xsd:dateTime .
+
+onto:hasTargetState a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "具有目标状态"@zh ;
+    rdfs:comment "状态转移的目标状态。"@zh ;
+    rdfs:domain onto:StateTransition ;
+    rdfs:range onto:SituationState .
+
+onto:hasThreatConfidence a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "威胁置信度"@zh ;
+    rdfs:comment "安全威胁评估的置信度"@zh ;
+    rdfs:domain onto:SecurityThreat ;
+    rdfs:range xsd:float .
+
+onto:hasThreatID a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "威胁编号"@zh ;
+    rdfs:comment "安全威胁唯一标识。"@zh ;
+    rdfs:domain onto:SecurityThreat ;
+    rdfs:range xsd:string .
+
+onto:hasThreatLevel a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "威胁等级"@zh ;
+    rdfs:comment "安全威胁等级"@zh ;
+    rdfs:domain onto:SecurityThreat ;
+    rdfs:range xsd:string .
+
+onto:hasThreatSource a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "威胁来源"@zh ;
+    rdfs:comment "威胁来源，如碎片、目标、环境、网络等。"@zh ;
+    rdfs:domain onto:SecurityThreat ;
+    rdfs:range xsd:string .
+
+onto:hasThreatType a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "威胁类型"@zh ;
+    rdfs:comment "威胁类型，如物理、网络、电磁、环境、运行等。"@zh ;
+    rdfs:domain onto:SecurityThreat ;
+    rdfs:range xsd:string .
+
+onto:implementsMeasure a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "实施措施"@zh ;
+    rdfs:comment "空间事件实施响应措施。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:ResponseMeasure ;
+    owl:inverseOf onto:isImplementedByEvent .
+
+onto:increasesThreat a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "加剧威胁"@zh ;
+    rdfs:comment "空间事件加剧相关安全威胁"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SecurityThreat .
+
+onto:isInvolvedInEvent a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "参与事件"@zh ;
+    rdfs:comment "空间目标参与空间事件。"@zh ;
+    rdfs:domain onto:SpaceObject ;
+    rdfs:range onto:SpaceEvent ;
+    owl:inverseOf onto:involvesObject .
+
+onto:isOrbitOf a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "是某目标的轨道"@zh ;
+    rdfs:comment "轨道属于空间目标。"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range onto:SpaceObject ;
+    owl:inverseOf onto:hasOrbit .
+
+onto:leadsToState a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "导致状态"@zh ;
+    rdfs:comment "事件导致态势状态。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SituationState ;
+    owl:inverseOf onto:stateCausedByEvent .
+
+onto:mappedToExternalTerm a rdf:Property,
+        rdfs:Resource,
+        owl:AnnotationProperty ;
+    rdfs:label "映射到外部术语"@zh ;
+    rdfs:subPropertyOf onto:mappedToExternalTerm .
+
+onto:mitigationPcThreshold a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:comment "θ_M：高风险减缓碰撞概率（Pc）阈值，实验参考值 1E-4（NASA CARA / NPR 8079.1 减缓判据）"@zh ;
+    rdfs:subPropertyOf onto:mitigationPcThreshold .
+
+onto:modelLayer a rdf:Property,
+        rdfs:Resource,
+        owl:AnnotationProperty ;
+    rdfs:label "模型分层"@zh ;
+    rdfs:subPropertyOf onto:modelLayer .
+
+onto:overlapsWithEvent a rdfs:Resource,
+        owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "与事件时间重叠"@zh ;
+    rdfs:comment "两个事件在时间上重叠。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SpaceEvent ;
+    rdfs:seeAlso time:intervalOverlaps ;
+    onto:alignmentRationale "time:intervalOverlaps relates time intervals; TC-SSSAO overlapsWithEvent relates SpaceEvent instances with overlapping time intervals. Different semantic level: seeAlso only."@en .
+
+onto:producesData a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "产生活动数据"@zh ;
+    rdfs:comment "SSA 活动产生 SSA 数据。"@zh ;
+    rdfs:domain onto:SSAActivity ;
+    rdfs:range onto:SSAData ;
+    owl:inverseOf onto:generatedByActivity .
+
+onto:resultedFromEvent a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "由事件产生"@zh ;
+    rdfs:comment "某事件由另一事件产生。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SpaceEvent ;
+    owl:inverseOf onto:resultsInEvent .
+
+onto:reusedOntology a rdf:Property,
+        rdfs:Resource,
+        owl:AnnotationProperty ;
+    rdfs:label "复用本体"@zh ;
+    rdfs:subPropertyOf onto:reusedOntology .
+
+onto:riskLeadsToState a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "风险导致状态"@zh ;
+    rdfs:comment "安全风险导致态势状态。"@zh ;
+    rdfs:domain onto:SecurityRisk ;
+    rdfs:range onto:SituationState .
+
+onto:supportedByData a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "由数据支撑"@zh ;
+    rdfs:comment "空间事件由 SSA 数据支撑。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SSAData ;
+    rdfs:subPropertyOf onto:supportedByData .
+
+onto:transitsFrom a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "转移自"@zh ;
+    rdfs:comment "态势状态转移自另一状态。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range onto:SituationState ;
+    owl:inverseOf onto:transitsTo .
+
+onto:transitsTo a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "转移到"@zh ;
+    rdfs:comment "态势状态转移到另一状态。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range onto:SituationState ;
+    owl:inverseOf onto:transitsFrom .
+
+onto:triggeredByEvent a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "由事件触发"@zh ;
+    rdfs:comment "触发状态转移的空间事件。"@zh ;
+    rdfs:domain onto:StateTransition ;
+    rdfs:range onto:SpaceEvent .
+
+onto:triggersEvent a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "触发事件"@zh ;
+    rdfs:comment "某事件触发另一事件发生。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SpaceEvent .
+
+onto:triggersState a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "触发状态"@zh ;
+    rdfs:comment "空间事件触发态势状态。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SituationState .
+
+onto:updatesState a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "更新状态"@zh ;
+    rdfs:comment "空间事件更新态势状态。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SituationState .
+
+<https://w3id.org/tc-sssao/1.0.0> a rdfs:Resource .
+
+<https://w3id.org/tc-sssao/alignments> a rdfs:Resource .
+
+<https://w3id.org/tc-sssao/config/1.0.0> a rdfs:Resource .
+
+case:GroundRadar_01 a _:cb45f11da5bd8a1f004e8a1b102719c903eea7417a9b9bdbdc4ee3231f372ccd1ca,
+        _:cb761d2982162e411b7ad168edf703f36b82c0f0203d66094873e29999e52d7b912,
+        rdfs:Resource,
+        sosa:Sensor,
+        onto:ObservationSystem,
+        onto:RadarSensor,
+        onto:Sensor ;
+    onto:generatesData case:BaselineTrackingReport .
+
+case:NASA_ODQN_Provider a rdfs:Resource,
+        prov:Agent,
+        onto:DataProvider,
+        onto:SpaceOrganization ;
+    rdfs:label "NASA Orbital Debris Quarterly News (Vol. 27, Issue 1)"@en .
+
+case:Orbit_54263_Early a _:cb47e7a0df12203fad36137b477caf04b686b3f15dafe09cacdc3d3712d9b563321,
+        _:cb4b9840d2b6a7552f6a44f35146f24d833c7e0de34381644f430ec1bf58998e13d,
+        _:cb5022f88a671d528a673c1376c5a157e4268a1be888346edbed23a5e52cd5879f5,
+        _:cb508e78b58b236966dc12fd25fc53d80519bd42726201579273cbee0c811c6e4cb,
+        _:cb5490cb27ff98fd6f9ef08b19dbd5458cabf881d383936ebfea2e8f213077738e8,
+        geo:Feature,
+        rdfs:Resource,
+        onto:EarthOrbit,
+        onto:LowEarthOrbit,
+        onto:Orbit ;
+    case:apogeeKm "1282.0035"^^xsd:float ;
+    case:perigeeKm "825.832"^^xsd:float .
+
+case:Orbit_54334_Early a _:cb47e7a0df12203fad36137b477caf04b686b3f15dafe09cacdc3d3712d9b563321,
+        _:cb4b9840d2b6a7552f6a44f35146f24d833c7e0de34381644f430ec1bf58998e13d,
+        _:cb5022f88a671d528a673c1376c5a157e4268a1be888346edbed23a5e52cd5879f5,
+        _:cb508e78b58b236966dc12fd25fc53d80519bd42726201579273cbee0c811c6e4cb,
+        _:cb5490cb27ff98fd6f9ef08b19dbd5458cabf881d383936ebfea2e8f213077738e8,
+        geo:Feature,
+        rdfs:Resource,
+        onto:EarthOrbit,
+        onto:LowEarthOrbit,
+        onto:Orbit ;
+    case:apogeeKm "856.4783"^^xsd:float ;
+    case:perigeeKm "661.3593"^^xsd:float .
+
+case:Orbit_54344_Early a _:cb47e7a0df12203fad36137b477caf04b686b3f15dafe09cacdc3d3712d9b563321,
+        _:cb4b9840d2b6a7552f6a44f35146f24d833c7e0de34381644f430ec1bf58998e13d,
+        _:cb5022f88a671d528a673c1376c5a157e4268a1be888346edbed23a5e52cd5879f5,
+        _:cb508e78b58b236966dc12fd25fc53d80519bd42726201579273cbee0c811c6e4cb,
+        _:cb5490cb27ff98fd6f9ef08b19dbd5458cabf881d383936ebfea2e8f213077738e8,
+        geo:Feature,
+        rdfs:Resource,
+        onto:EarthOrbit,
+        onto:LowEarthOrbit,
+        onto:Orbit ;
+    case:apogeeKm "911.7746"^^xsd:float ;
+    case:perigeeKm "829.8579"^^xsd:float .
+
+case:Wacker2025_Provider a rdfs:Resource,
+        prov:Agent,
+        onto:DataProvider,
+        onto:SpaceOrganization ;
+    rdfs:label "Wacker et al. (2025), 9th European Conference on Space Debris"@en .
+
+case:apogeeKm a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "远地点高度（km）"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf case:apogeeKm .
+
+case:assessedCause a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "评估原因"@zh ;
+    rdfs:domain onto:FragmentationEvent ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf case:assessedCause .
+
+case:catalogedFragmentCount a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "编目碎片数量"@zh ;
+    rdfs:domain onto:FragmentationEvent ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf case:catalogedFragmentCount .
+
+case:eccentricity a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "轨道偏心率"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf case:eccentricity .
+
+case:fragmentsInOrbitCount a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "在轨碎片数量"@zh ;
+    rdfs:domain onto:FragmentationEvent ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf case:fragmentsInOrbitCount .
+
+case:inclinationDeg a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "轨道倾角（deg）"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf case:inclinationDeg .
+
+case:perigeeKm a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "近地点高度（km）"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf case:perigeeKm .
+
+case:reportTime a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "观测报告时间"@zh ;
+    rdfs:domain onto:ObservationData ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf case:reportTime .
+
+case:semiMajorAxisKm a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "半长轴（km）"@zh ;
+    rdfs:domain onto:Orbit ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf case:semiMajorAxisKm .
+
+owl:Ontology a rdfs:Resource .
+
+owl:TransitiveProperty a rdfs:Resource .
+
+time:hasBeginning a rdfs:Resource .
+
+time:hasEnd a rdfs:Resource .
+
+prov:Activity a rdfs:Resource,
+        owl:Class .
+
+prov:wasAttributedTo a rdf:Property,
+        rdfs:Resource ;
+    rdfs:subPropertyOf prov:wasAttributedTo .
+
+prov:wasDerivedFrom a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:wasDerivedFrom .
+
+prov:wasGeneratedBy a rdfs:Resource,
+        owl:ObjectProperty .
+
+sosa: a rdfs:Resource .
+
+sosa:FeatureOfInterest a rdfs:Resource .
+
+<https://opensource.org/license/mit> a rdfs:Resource .
+
+onto:AttentionSituationState a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "关注态势状态"@zh ;
+    rdfs:comment "整体态势需要关注。"@zh ;
+    rdfs:subClassOf [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:hasValue 1 ;
+            owl:onProperty onto:hasSeverityRank ],
+        _:cb396df1868b2101757248f271c1110fa76bc70a2e6babb967d53b6884a86c0cc05,
+        _:cb3a1ee76d90fd807777f76bee4dd499fc9e6121ad8ddffc00f006b3502b4550405,
+        _:cb3bec8159dc74bd37ca0f6da32fd088a3a3774fa11d30d2686ee994b87f45354b0,
+        _:cb3da1377e861a20abf86eddc4be5412b7068dbdeaaf043443275005c71e82f8b8b,
+        _:cb41c0160a2dadbd73b22e7d3b0befe24234fac4fc1f6246cedac33d8176b97a3d9,
+        _:cb433d038d3f6a4371ca94faec2faef23e55cd7d877c21fa4b25f07cd40d517b93d,
+        _:cb45959af9013c1685c2bf5cd4c17f0cf4a6639307e4e3fd250560cae0de9734196,
+        _:cb463411ecb611409fb0b1e84f3898fe007cb97bb8e2fff0edc645923ba982f6194,
+        _:cb47f661f51e3671a00405818397edd01726eba7540c5ca4edba1b80d298ac327f9,
+        _:cb49429e05883e4fa0204ced6e856712fcbc63ab970c72962eaa16a53327b159285,
+        _:cb4b050695bc77167da2e49d9597fc4ada275c81ec56110bf5955c3eaf558b5735e,
+        _:cb4ca65e618e3072c68fa2bc2c9c45a350e624a0e1f907ced7e5e8e5dd6814b14be,
+        _:cb52cd01a73c3a636531c9390748111df81afe10cddb839cabc4431a9c1e4b15762,
+        onto:SituationState ;
+    owl:disjointWith onto:DangerousSituationState,
+        onto:WarningSituationState ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:DataProvider a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "数据提供方"@zh ;
+    rdfs:comment "提供空间观测或态势数据的组织。"@zh ;
+    rdfs:subClassOf prov:Agent,
+        onto:SpaceOrganization ;
+    onto:alignmentRationale "DataProvider is the agent that provides SSA data; it is a domain specialization of prov:Agent."@en ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:DirectCausalAssertion a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "直接因果断言"@zh ;
+    rdfs:comment "原因事件直接导致结果事件的因果断言。"@zh ;
+    rdfs:subClassOf _:cb4978a975468794709fd08870f7526add7547880995e81f44889749ca4a4412c61,
+        _:cb5dfaaa7e44523d8592894003f1c9fa689dbc6d06a8ced1de5ff769d275f2785d1,
+        _:cb60c53cde23291cddd17c531d527ab8aee93891cb5cfba6ed4a6bb5f5b7aeedccb,
+        _:cb61df8fe27058399fea330440da78d5095c2558ddcca49c9d68c9920b6b4cdf8ef,
+        prov:Entity,
+        onto:CausalAssertion ;
+    onto:modelLayer "extension"^^xsd:string .
+
+onto:GroundBasedSensor a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "地基传感器"@zh ;
+    rdfs:comment "部署于地面的传感器。"@zh ;
+    rdfs:subClassOf _:cb45f11da5bd8a1f004e8a1b102719c903eea7417a9b9bdbdc4ee3231f372ccd1ca,
+        _:cb761d2982162e411b7ad168edf703f36b82c0f0203d66094873e29999e52d7b912,
+        sosa:Sensor,
+        onto:ObservationSystem,
+        onto:Sensor ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:SituationAssessmentData a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "态势评估数据"@zh ;
+    rdfs:comment "态势评估数据。"@zh ;
+    rdfs:subClassOf prov:Entity,
+        onto:AssessmentData,
+        onto:SSAData ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:Spacecraft a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "航天器"@zh ;
+    rdfs:comment "具备特定任务功能、可在轨运行或深空飞行的人造空间飞行器。"@zh ;
+    rdfs:subClassOf _:cb30db020e8cec0037313d098107e7052858c4935b04b1dc7b1f70629b97e6805f8,
+        _:cb8bd96a5207e4518eb162aa53bd0292a0be761968a43dfec097ec41b2b020ddcc1,
+        _:cb8d95508e6cfe814e3443a983acbc3bc7839a2775b19ca0d779786056e0811930e,
+        _:cb9329de91af1cf7c917f28dc743fbbc98861e9b7a8683ce81517be6004cf8fece0,
+        _:cb940f1fe7a6854070033b3e171d2a4bdc27297803971a154eeb4fd8aeb149dfc49,
+        _:cb9c0b97422dfd588a0b8b0dfae94d04f23a7b20c6f2d67434dbe1ef0b2481500c6,
+        _:cb9e1fb6857b6ecd2e90a4ba625d94b83b2b735bf830a51fcf695ca9dbe4a9350ba,
+        geo:Feature,
+        onto:ArtificialSpaceObject,
+        onto:SpaceObject ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:TemporalEntity a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "时序实体"@zh ;
+    rdfs:comment "时间维度的顶层抽象。"@zh ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:affectsObject a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "影响目标"@zh ;
+    rdfs:comment "空间事件影响空间目标。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SpaceObject ;
+    rdfs:subPropertyOf onto:affectsObject .
+
+onto:causesEvent a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "导致事件"@zh ;
+    rdfs:comment "某事件导致另一事件发生。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SpaceEvent ;
+    rdfs:subPropertyOf onto:causesEvent ;
+    owl:inverseOf onto:causedByEvent .
+
+onto:derived_debris_risk_f5da89a6cd738b34bfda1e1682c73bcbf2b73d0db44de0e95a6da168c1c98aa6 a _:cb4ffaa74e9daffc3550f7e5569a6afd293410b8b8d9ddcdd1d5a8286dd4ecf1e9d,
+        _:cb5521335c3e6c6806bcea7b74807e8f9550278a2b167a96aca7cdd193c88facdc4,
+        _:cb55d11e4945bbb12971b0f416b608fb5966224bf8e60ae39fea48e4ea50f60fdf1,
+        rdfs:Resource,
+        onto:DebrisRisk,
+        onto:SecurityRisk ;
+    onto:mitigatedBy case:ContinuousTrackingMeasure .
+
+onto:derived_physical_threat_f5da89a6cd738b34bfda1e1682c73bcbf2b73d0db44de0e95a6da168c1c98aa6 a _:cb43d414cb7005dd62bb754afa1a32d4ac65e11513a9a8a86745962686c8d9eb545,
+        _:cb456e334675ff8a323c477331435ecdea130671ea52a6f67e03cfb9d817f23886b,
+        _:cb487c436a18afe6165a33112827caef60784927d5202dacfb542c55055abe06bde,
+        _:cb4cff698d8650518176db6685b61d8f2c32dfd2c73c2a9844128de380cd274c195,
+        _:cb4f70c23c374644fca8f49290d08ec2b1a993392090d4921d980d8e7190f8be936,
+        _:cb4f9db843ab5015915ed2e393b1c83e050e5d2a78c297348d2d1d4e65bc09f6c49,
+        _:cb50f3dd9db06d482682091a9e8facbe5bbe9defad445dce4a8833c4156b2d4ef99,
+        _:cb51b73d50ab6feb1b8747d7722a26d2f9f9975b509a511edfddb0696dd5b7e6144,
+        _:cb5223c185b3fa91c62519d23b8804e5bdc0ba7cbf80a44ce089649d50c8431bd82,
+        _:cb5252906920f97fd6d2ce787de6cd71a43c775f2aec026f8812acdfcf0e1822947,
+        rdfs:Resource,
+        onto:PhysicalThreat,
+        onto:SecurityThreat ;
+    onto:mayManifestAsEvent case:CZ6A_DebrisRiskEvent ;
+    onto:producesRisk onto:derived_debris_risk_f5da89a6cd738b34bfda1e1682c73bcbf2b73d0db44de0e95a6da168c1c98aa6 ;
+    onto:requiresResponseMeasure case:ContinuousTrackingMeasure ;
+    onto:threatMitigatedBy case:ContinuousTrackingMeasure .
+
+onto:detectedFromData a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "由数据发现"@zh ;
+    rdfs:comment "空间事件由 SSA 数据发现。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SSAData ;
+    rdfs:subPropertyOf onto:detectedFromData .
+
+onto:followsEvent a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "后于事件"@zh ;
+    rdfs:comment "某事件在时间上后于另一事件。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SpaceEvent ;
+    rdfs:subPropertyOf onto:followsEvent ;
+    owl:inverseOf onto:precedesEvent .
+
+onto:hasCausalEvidence a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "具有因果证据"@zh ;
+    rdfs:comment "支撑因果断言的 SSA 数据。"@zh ;
+    rdfs:domain onto:CausalAssertion ;
+    rdfs:range onto:SSAData ;
+    rdfs:subPropertyOf prov:wasDerivedFrom,
+        onto:hasCausalEvidence ;
+    onto:alignmentRationale "hasCausalEvidence (domain CausalAssertion, range SSAData) states that the assertion is supported by evidence data; with CausalAssertion and SSAData both aligned to prov:Entity, this is a provenance derivation relation. It does NOT express event-level causation (causesEvent): provenance and causal relation are distinct."@en .
+
+onto:hasDuration a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "持续时间"@zh ;
+    rdfs:comment "事件持续时间（ISO 8601 时长字符串,如 PT1H30M）。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range xsd:duration ;
+    rdfs:seeAlso time:hasXSDDuration ;
+    rdfs:subPropertyOf onto:hasDuration ;
+    onto:reusedOntology time: .
+
+onto:hasEffect a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "具有结果"@zh ;
+    rdfs:comment "因果断言中的结果事件。"@zh ;
+    rdfs:domain onto:CausalAssertion ;
+    rdfs:range onto:SpaceEvent ;
+    rdfs:subPropertyOf onto:hasEffect .
+
+onto:hasEndTime a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "结束时间"@zh ;
+    rdfs:comment "事件结束时间。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range xsd:dateTime ;
+    rdfs:seeAlso time:hasEnd ;
+    rdfs:subPropertyOf onto:hasEndTime ;
+    onto:reusedOntology time: .
+
+onto:hasErrorValue a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "误差值"@zh ;
+    rdfs:comment "观测或计算误差。"@zh ;
+    rdfs:domain onto:SSAData ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf onto:hasErrorValue .
+
+onto:hasEventConfidence a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "事件置信度"@zh ;
+    rdfs:comment "事件判断可信程度。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf onto:hasEventConfidence .
+
+onto:hasEventDescription a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "事件描述"@zh ;
+    rdfs:comment "事件文字说明。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf onto:hasEventDescription .
+
+onto:hasEventID a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "事件编号"@zh ;
+    rdfs:comment "事件唯一标识。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf onto:hasEventID .
+
+onto:hasEventLevel a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "事件等级"@zh ;
+    rdfs:comment "一般、重要、严重等。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf onto:hasEventLevel .
+
+onto:hasEventType a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "事件类型"@zh ;
+    rdfs:comment "轨道机动、接近、碰撞风险等。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf onto:hasEventType .
+
+onto:hasMeasureDescription a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "措施描述"@zh ;
+    rdfs:comment "响应措施描述。"@zh ;
+    rdfs:domain onto:ResponseMeasure ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf onto:hasMeasureDescription .
+
+onto:hasMeasureID a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "措施编号"@zh ;
+    rdfs:comment "响应措施唯一标识。"@zh ;
+    rdfs:domain onto:ResponseMeasure ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf onto:hasMeasureID .
+
+onto:hasOccurrenceTime a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "发生时间"@zh ;
+    rdfs:comment "事件发生时间。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range xsd:dateTime ;
+    rdfs:seeAlso time:hasTime ;
+    rdfs:subPropertyOf onto:hasOccurrenceTime ;
+    onto:reusedOntology time: .
+
+onto:hasStartTime a rdf:Property,
+        rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "开始时间"@zh ;
+    rdfs:comment "事件开始时间。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range xsd:dateTime ;
+    rdfs:seeAlso time:hasBeginning ;
+    rdfs:subPropertyOf onto:hasStartTime ;
+    onto:reusedOntology time: .
+
+onto:indicatesThreat a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "指示威胁"@zh ;
+    rdfs:comment "空间事件指示相关安全威胁"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SecurityThreat ;
+    rdfs:subPropertyOf onto:indicatesThreat .
+
+onto:mayManifestAsEvent a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "可能表现为事件"@zh ;
+    rdfs:comment "安全威胁可能表现为空间事件。"@zh ;
+    rdfs:domain onto:SecurityThreat ;
+    rdfs:range onto:SpaceEvent ;
+    rdfs:subPropertyOf onto:mayManifestAsEvent .
+
+onto:observedBySensor a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "由传感器观测"@zh ;
+    rdfs:comment "观测事件由传感器观测。"@zh ;
+    rdfs:domain onto:ObservationEvent ;
+    rdfs:range onto:Sensor ;
+    rdfs:subPropertyOf onto:observedBySensor .
+
+onto:occursDuringEvent a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "发生于另一事件期间"@zh ;
+    rdfs:comment "某事件发生于另一事件期间。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SpaceEvent ;
+    owl:inverseOf onto:containsEvent .
+
+onto:precedesEvent a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "先于事件"@zh ;
+    rdfs:comment "某事件在时间上先于另一事件。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SpaceEvent ;
+    rdfs:seeAlso time:before ;
+    rdfs:subPropertyOf onto:precedesEvent ;
+    owl:inverseOf onto:followsEvent ;
+    onto:alignmentRationale "OWL-Time time:before relates temporal entities; TC-SSSAO precedesEvent relates SpaceEvent instances (domain events, not temporal entities). The two are at different semantic levels, so only a seeAlso reference is kept."@en .
+
+onto:producesRisk a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "产生风险"@zh ;
+    rdfs:comment "安全威胁产生安全风险。"@zh ;
+    rdfs:domain onto:SecurityThreat ;
+    rdfs:range onto:SecurityRisk ;
+    rdfs:subPropertyOf onto:producesRisk .
+
+onto:resultsInEvent a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "产生事件"@zh ;
+    rdfs:comment "某事件产生另一事件。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SpaceEvent ;
+    owl:inverseOf onto:resultedFromEvent .
+
+onto:stateCausedByEvent a rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "状态由事件导致"@zh ;
+    rdfs:comment "态势状态由事件导致。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range onto:SpaceEvent ;
+    owl:inverseOf onto:leadsToState .
+
+onto:threatMitigatedBy a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "威胁被缓解"@zh ;
+    rdfs:comment "安全威胁被响应措施缓解。"@zh ;
+    rdfs:domain onto:SecurityThreat ;
+    rdfs:range onto:ResponseMeasure ;
+    rdfs:subPropertyOf onto:threatMitigatedBy .
+
+case:CZ6A_Fragmentation_2022 a _:cb3dc6e4a72e76e32d0f8b5ac20688326c73d042da5ea515275d52dab3c945fbb47,
+        _:cb53071a5110f1eebacf8737b85dcd56369f581cb42772f724b2880207861037110,
+        _:cb5ca6cab86bf24a18fef1056e8890a0a1948247cec95fa8bc5cbb45fcece3b14a8,
+        _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5,
+        rdfs:Resource,
+        onto:FragmentationEvent,
+        onto:OrbitalEvent,
+        onto:SpaceEvent ;
+    onto:affectsObject case:CZ6A_2022_151B ;
+    onto:causesEvent case:CZ6A_DebrisRiskEvent ;
+    onto:detectedFromData case:BaselineTrackingReport ;
+    onto:hasDuration "PT1M"^^xsd:duration ;
+    onto:hasEndTime "2022-11-12T05:20:00+00:00"^^xsd:dateTime ;
+    onto:hasEventConfidence "0.9"^^xsd:float ;
+    onto:hasEventDescription "CZ-6A 2022-151B 上面级发生解体并形成大量编目碎片"^^xsd:string ;
+    onto:hasEventID "EV-CZ6A-FRAG-2022"^^xsd:string ;
+    onto:hasEventLevel "major"^^xsd:string ;
+    onto:hasEventType "fragmentation"^^xsd:string ;
+    onto:hasOccurrenceTime "2022-11-12T05:19:00+00:00"^^xsd:dateTime ;
+    onto:hasStartTime "2022-11-12T05:19:00+00:00"^^xsd:dateTime ;
+    onto:involvesObject case:CZ6A_2022_151B ;
+    onto:occursInOrbit case:CZ6A_Orbit_2022 ;
+    onto:precedesEvent case:CZ6A_TrackingEvent_2023 ;
+    case:assessedCause "accidental_explosion"^^xsd:string ;
+    case:catalogedFragmentCount 533 ;
+    case:fragmentsInOrbitCount 529 .
+
+case:CZ6A_TrackingEvent_2023 a _:cb3290aa4748d44e3c0c8423b13419c67313360b05c9b8055ce0ab35aad70c6f68f,
+        _:cb32dbd7deb0548f7f86c1150ccff178c39ef953811c670a1b474a1c9e318c55437,
+        _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5,
+        rdfs:Resource,
+        onto:ObservationEvent,
+        onto:SpaceEvent,
+        onto:TrackingEvent ;
+    onto:affectsObject case:CZ6A_2022_151B ;
+    onto:detectedFromData case:BaselineTrackingReport ;
+    onto:followsEvent case:CZ6A_Fragmentation_2022 ;
+    onto:hasDuration "PT1H"^^xsd:duration ;
+    onto:hasEndTime "2023-01-31T01:00:00+00:00"^^xsd:dateTime ;
+    onto:hasEventConfidence "0.9"^^xsd:float ;
+    onto:hasEventDescription "对CZ-6A解体碎片群进行后续编目和轨道跟踪"^^xsd:string ;
+    onto:hasEventID "EV-CZ6A-TRACK-2023"^^xsd:string ;
+    onto:hasEventLevel "routine"^^xsd:string ;
+    onto:hasEventType "tracking"^^xsd:string ;
+    onto:hasOccurrenceTime "2023-01-31T00:00:00+00:00"^^xsd:dateTime ;
+    onto:hasStartTime "2023-01-31T00:00:00+00:00"^^xsd:dateTime ;
+    onto:involvesObject case:CZ6A_2022_151B ;
+    onto:observedBySensor case:GroundRadar_01 ;
+    onto:occursInOrbit case:CZ6A_Orbit_2022 .
+
+xsd:integer a rdfs:Resource .
+
+time:hasTime a rdfs:Resource,
+        owl:ObjectProperty .
+
+prov: a rdfs:Resource .
+
+prov:Agent a rdfs:Resource,
+        owl:Class .
+
+onto:AssessmentData a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "评估数据"@zh ;
+    rdfs:comment "评估数据。"@zh ;
+    rdfs:subClassOf prov:Entity,
+        onto:SSAData ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:CollisionRiskEvent a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "碰撞风险事件"@zh ;
+    rdfs:comment "空间目标之间存在碰撞风险的事件。作为空间关系事件，通过 hasPrimaryObject/hasSecondaryObject 显式表示交会目标角色。"@zh ;
+    rdfs:subClassOf [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:onProperty onto:hasEncounterID ;
+            owl:someValuesFrom xsd:string ],
+        [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:onProperty onto:hasPredictedMissDistance ;
+            owl:someValuesFrom xsd:float ],
+        [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:onProperty onto:hasCollisionProbability ;
+            owl:someValuesFrom xsd:float ],
+        _:cb2a31d7b49735cd3d2554debc0e7274eabf465c400650cf54fc1999175badda9f3,
+        _:cb2bcf1c5a04032105b92f356b52b4316c0d5887cf4b183377e4d2ef6a09c16a3f5,
+        _:cb2f81b46389eeeabe347d0aa76cf951895a2856927e0755c2375b27b4f0a0af0bc,
+        _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5,
+        onto:RiskEvent,
+        onto:SpaceEvent,
+        onto:SpatialRelationEvent ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:OrbitalEvent a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "轨道事件"@zh ;
+    rdfs:comment "发生在轨道环境中、由轨道运动直接引发的轨道事件。"@zh ;
+    rdfs:subClassOf _:cb53071a5110f1eebacf8737b85dcd56369f581cb42772f724b2880207861037110,
+        _:cb5ca6cab86bf24a18fef1056e8890a0a1948247cec95fa8bc5cbb45fcece3b14a8,
+        _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5,
+        onto:SpaceEvent ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:RocketDebris a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "火箭碎片"@zh ;
+    rdfs:comment "由火箭体产生的空间碎片。"@zh ;
+    rdfs:subClassOf _:cb8bd96a5207e4518eb162aa53bd0292a0be761968a43dfec097ec41b2b020ddcc1,
+        _:cb8d95508e6cfe814e3443a983acbc3bc7839a2775b19ca0d779786056e0811930e,
+        _:cb9329de91af1cf7c917f28dc743fbbc98861e9b7a8683ce81517be6004cf8fece0,
+        _:cb940f1fe7a6854070033b3e171d2a4bdc27297803971a154eeb4fd8aeb149dfc49,
+        _:cb9c0b97422dfd588a0b8b0dfae94d04f23a7b20c6f2d67434dbe1ef0b2481500c6,
+        _:cb9e1fb6857b6ecd2e90a4ba625d94b83b2b735bf830a51fcf695ca9dbe4a9350ba,
+        geo:Feature,
+        onto:ArtificialSpaceObject,
+        onto:SpaceDebris,
+        onto:SpaceObject ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:SSAActivity a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "空间态势感知活动"@zh ;
+    rdfs:comment "支撑空间态势感知的各类活动。"@zh ;
+    rdfs:subClassOf prov:Activity ;
+    onto:alignmentRationale "SSAActivity covers data/knowledge processing activities (observation, tracking, prediction, conjunction assessment); it is a domain specialization of prov:Activity."@en ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:SpaceOrganization a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "空间组织"@zh ;
+    rdfs:comment "描述空间相关组织的顶层抽象类。"@zh ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:TimeInterval a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "时间区间"@zh ;
+    rdfs:comment "具有开始与结束两个端点的时间区间。"@zh ;
+    rdfs:subClassOf [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:onProperty onto:hasEnd ;
+            owl:someValuesFrom onto:TimeInstant ],
+        [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:onProperty onto:hasBeginning ;
+            owl:someValuesFrom onto:TimeInstant ],
+        time:Interval,
+        onto:TemporalEntity ;
+    onto:alignmentRationale "TC-SSSAO TimeInterval is the application-domain time-interval representation, specialized from time:Interval."@en ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:WarningSituationState a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "预警态势状态"@zh ;
+    rdfs:comment "整体态势达到预警级别。"@zh ;
+    rdfs:subClassOf [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:hasValue 2 ;
+            owl:onProperty onto:hasSeverityRank ],
+        _:cb396df1868b2101757248f271c1110fa76bc70a2e6babb967d53b6884a86c0cc05,
+        _:cb3a1ee76d90fd807777f76bee4dd499fc9e6121ad8ddffc00f006b3502b4550405,
+        _:cb3bec8159dc74bd37ca0f6da32fd088a3a3774fa11d30d2686ee994b87f45354b0,
+        _:cb3da1377e861a20abf86eddc4be5412b7068dbdeaaf043443275005c71e82f8b8b,
+        _:cb41c0160a2dadbd73b22e7d3b0befe24234fac4fc1f6246cedac33d8176b97a3d9,
+        _:cb433d038d3f6a4371ca94faec2faef23e55cd7d877c21fa4b25f07cd40d517b93d,
+        _:cb45959af9013c1685c2bf5cd4c17f0cf4a6639307e4e3fd250560cae0de9734196,
+        _:cb463411ecb611409fb0b1e84f3898fe007cb97bb8e2fff0edc645923ba982f6194,
+        _:cb47f661f51e3671a00405818397edd01726eba7540c5ca4edba1b80d298ac327f9,
+        _:cb49429e05883e4fa0204ced6e856712fcbc63ab970c72962eaa16a53327b159285,
+        _:cb4b050695bc77167da2e49d9597fc4ada275c81ec56110bf5955c3eaf558b5735e,
+        _:cb4ca65e618e3072c68fa2bc2c9c45a350e624a0e1f907ced7e5e8e5dd6814b14be,
+        _:cb52cd01a73c3a636531c9390748111df81afe10cddb839cabc4431a9c1e4b15762,
+        onto:SituationState ;
+    owl:disjointWith onto:DangerousSituationState ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:generatesData a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "生成数据"@zh ;
+    rdfs:comment "观测系统生成观测数据。"@zh ;
+    rdfs:domain onto:ObservationSystem ;
+    rdfs:range onto:ObservationData ;
+    rdfs:subPropertyOf onto:generatesData ;
+    owl:inverseOf onto:generatedBy .
+
+onto:hasCause a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "具有原因"@zh ;
+    rdfs:comment "因果断言中的原因事件。"@zh ;
+    rdfs:domain onto:CausalAssertion ;
+    rdfs:range onto:SpaceEvent ;
+    rdfs:subPropertyOf onto:hasCause .
+
+onto:hasOrbit a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "具有轨道"@zh ;
+    rdfs:comment "空间目标具有轨道。"@zh ;
+    rdfs:domain onto:SpaceObject ;
+    rdfs:range onto:Orbit ;
+    rdfs:subPropertyOf onto:hasOrbit ;
+    owl:inverseOf onto:isOrbitOf .
+
+onto:isImplementedByEvent a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "由事件实施"@zh ;
+    rdfs:comment "响应措施由空间事件实施。"@zh ;
+    rdfs:domain onto:ResponseMeasure ;
+    rdfs:range onto:SpaceEvent ;
+    rdfs:subPropertyOf onto:isImplementedByEvent ;
+    owl:inverseOf onto:implementsMeasure .
+
+onto:mitigatedBy a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "被缓解"@zh ;
+    rdfs:comment "安全风险被响应措施缓解。"@zh ;
+    rdfs:domain onto:SecurityRisk ;
+    rdfs:range onto:ResponseMeasure ;
+    rdfs:subPropertyOf onto:mitigatedBy ;
+    owl:inverseOf onto:mitigatesRisk .
+
+onto:mitigatesRisk a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "缓解风险"@zh ;
+    rdfs:comment "响应措施缓解安全风险。"@zh ;
+    rdfs:domain onto:ResponseMeasure ;
+    rdfs:range onto:SecurityRisk ;
+    rdfs:subPropertyOf onto:mitigatesRisk ;
+    owl:inverseOf onto:mitigatedBy .
+
+onto:occursInOrbit a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "发生于轨道"@zh ;
+    rdfs:comment "空间事件发生于某轨道。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:Orbit ;
+    rdfs:subPropertyOf onto:occursInOrbit .
+
+onto:requiresResponseMeasure a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "需要响应措施"@zh ;
+    rdfs:comment "安全威胁需要响应措施。"@zh ;
+    rdfs:domain onto:SecurityThreat ;
+    rdfs:range onto:ResponseMeasure ;
+    rdfs:subPropertyOf onto:requiresResponseMeasure ;
+    owl:inverseOf onto:respondsToThreat .
+
+onto:respondsToEvent a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "响应事件"@zh ;
+    rdfs:comment "响应措施响应空间事件。"@zh ;
+    rdfs:domain onto:ResponseMeasure ;
+    rdfs:range onto:SpaceEvent ;
+    rdfs:subPropertyOf onto:respondsToEvent .
+
+onto:respondsToThreat a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "响应威胁"@zh ;
+    rdfs:comment "响应措施响应安全威胁。"@zh ;
+    rdfs:domain onto:ResponseMeasure ;
+    rdfs:range onto:SecurityThreat ;
+    rdfs:subPropertyOf onto:respondsToThreat ;
+    owl:inverseOf onto:requiresResponseMeasure .
+
+case:CZ6A_DebrisRiskAssessment a rdfs:Resource,
+        prov:Entity,
+        onto:AssessmentData,
+        onto:RiskAssessmentData,
+        onto:SSAData,
+        onto:SituationAssessmentData ;
+    prov:wasAttributedTo case:Wacker2025_Provider ;
+    onto:describesObject case:CZ6A_2022_151B ;
+    onto:hasDataID "WACKER-2025-SDC9-220-CZ6A"^^xsd:string ;
+    onto:hasDataSource "Wacker D R, Klinner-Teo T, Ly J, et al. Analysis of recent CZ-6A rocket upper stage fragmentations. Proc. 9th European Conference on Space Debris, Bonn: ESA Space Debris Office, 2025."^^xsd:string ;
+    onto:hasDataType "orbital_debris_environment_assessment"^^xsd:string .
+
+case:ContinuousTrackingMeasure a _:cb3b847118774f4459df9bc71aed28c992cc39bdf3f0003d72bf3b8a23e729a3c88,
+        _:cb3e2a33da71b9dfe1bd93f107c8fb9f08aaeacd60984d85f4e9aa87b0c31ea82bd,
+        _:cb45f12938aeaed357c8eedaedc09c540fc537b4569b8e81ae092c3e034c99fa6c9,
+        _:cb472ef2557f60f560562dd76f5bcef168f74076733be10b6be4370226437610aa6,
+        _:cb523fa94fc08f9b734fb79bf5716aea5773cee268e0f256921f1ac42246fe2bf19,
+        _:cb536bb460a812086d12e8b8f1c35bd8acb379033517cd1bc47cb34141a63c2abfc,
+        _:cb54effaa58e2d644e04b7ce7978c1d2b991be0a3869db40344828b525a5e28fc0a,
+        rdfs:Resource,
+        onto:ResponseMeasure ;
+    onto:hasMeasureDescription "持续更新碎片轨道并监测其与运营航天器的潜在交会风险"^^xsd:string ;
+    onto:hasMeasureID "RM-CZ6A-01"^^xsd:string ;
+    onto:hasMeasureLevel "important"^^xsd:string ;
+    onto:hasMeasureType "持续跟踪与交会监测"^^xsd:string ;
+    onto:isImplementedByEvent case:CZ6A_TrackingEvent_2023 ;
+    onto:mitigatesRisk onto:derived_debris_risk_f5da89a6cd738b34bfda1e1682c73bcbf2b73d0db44de0e95a6da168c1c98aa6 ;
+    onto:respondsToEvent case:CZ6A_DebrisRiskEvent ;
+    onto:respondsToThreat onto:derived_physical_threat_f5da89a6cd738b34bfda1e1682c73bcbf2b73d0db44de0e95a6da168c1c98aa6 .
+
+xsd:duration a rdfs:Resource .
+
+owl:AllDisjointClasses a rdfs:Resource .
+
+sosa:Result a rdfs:Resource,
+        owl:Class .
+
+onto:DangerousSituationState a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "危险态势状态"@zh ;
+    rdfs:comment "整体态势处于危险级别。"@zh ;
+    rdfs:subClassOf [ a rdfs:Resource,
+                owl:Restriction ;
+            owl:hasValue 3 ;
+            owl:onProperty onto:hasSeverityRank ],
+        _:cb396df1868b2101757248f271c1110fa76bc70a2e6babb967d53b6884a86c0cc05,
+        _:cb3a1ee76d90fd807777f76bee4dd499fc9e6121ad8ddffc00f006b3502b4550405,
+        _:cb3bec8159dc74bd37ca0f6da32fd088a3a3774fa11d30d2686ee994b87f45354b0,
+        _:cb3da1377e861a20abf86eddc4be5412b7068dbdeaaf043443275005c71e82f8b8b,
+        _:cb41c0160a2dadbd73b22e7d3b0befe24234fac4fc1f6246cedac33d8176b97a3d9,
+        _:cb433d038d3f6a4371ca94faec2faef23e55cd7d877c21fa4b25f07cd40d517b93d,
+        _:cb45959af9013c1685c2bf5cd4c17f0cf4a6639307e4e3fd250560cae0de9734196,
+        _:cb463411ecb611409fb0b1e84f3898fe007cb97bb8e2fff0edc645923ba982f6194,
+        _:cb47f661f51e3671a00405818397edd01726eba7540c5ca4edba1b80d298ac327f9,
+        _:cb49429e05883e4fa0204ced6e856712fcbc63ab970c72962eaa16a53327b159285,
+        _:cb4b050695bc77167da2e49d9597fc4ada275c81ec56110bf5955c3eaf558b5735e,
+        _:cb4ca65e618e3072c68fa2bc2c9c45a350e624a0e1f907ced7e5e8e5dd6814b14be,
+        _:cb52cd01a73c3a636531c9390748111df81afe10cddb839cabc4431a9c1e4b15762,
+        onto:SituationState ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:FragmentationEvent a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "解体事件"@zh ;
+    rdfs:comment "空间目标发生碎裂或解体的事件。"@zh ;
+    rdfs:subClassOf _:cb3dc6e4a72e76e32d0f8b5ac20688326c73d042da5ea515275d52dab3c945fbb47,
+        _:cb53071a5110f1eebacf8737b85dcd56369f581cb42772f724b2880207861037110,
+        _:cb5ca6cab86bf24a18fef1056e8890a0a1948247cec95fa8bc5cbb45fcece3b14a8,
+        _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5,
+        onto:OrbitalEvent,
+        onto:SpaceEvent ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:LowEarthOrbit a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "低地球轨道"@zh ;
+    rdfs:comment "低地球轨道（LEO）。"@zh ;
+    rdfs:subClassOf _:cb47e7a0df12203fad36137b477caf04b686b3f15dafe09cacdc3d3712d9b563321,
+        _:cb4b9840d2b6a7552f6a44f35146f24d833c7e0de34381644f430ec1bf58998e13d,
+        _:cb5022f88a671d528a673c1376c5a157e4268a1be888346edbed23a5e52cd5879f5,
+        _:cb508e78b58b236966dc12fd25fc53d80519bd42726201579273cbee0c811c6e4cb,
+        _:cb5490cb27ff98fd6f9ef08b19dbd5458cabf881d383936ebfea2e8f213077738e8,
+        geo:Feature,
+        onto:EarthOrbit,
+        onto:Orbit ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:ObservationEvent a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "观测事件"@zh ;
+    rdfs:comment "由观测活动产生的事件。"@zh ;
+    rdfs:subClassOf _:cb3290aa4748d44e3c0c8423b13419c67313360b05c9b8055ce0ab35aad70c6f68f,
+        _:cb32dbd7deb0548f7f86c1150ccff178c39ef953811c670a1b474a1c9e318c55437,
+        _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5,
+        onto:SpaceEvent ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:RadarSensor a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "雷达传感器"@zh ;
+    rdfs:comment "以雷达为主要感知机制的传感器。"@zh ;
+    rdfs:subClassOf _:cb45f11da5bd8a1f004e8a1b102719c903eea7417a9b9bdbdc4ee3231f372ccd1ca,
+        _:cb761d2982162e411b7ad168edf703f36b82c0f0203d66094873e29999e52d7b912,
+        sosa:Sensor,
+        onto:ObservationSystem,
+        onto:Sensor ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:RiskEvent a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "风险事件"@zh ;
+    rdfs:comment "描述空间安全风险的事件。"@zh ;
+    rdfs:subClassOf _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5,
+        onto:SpaceEvent ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:SpaceDebris a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "空间碎片"@zh ;
+    rdfs:comment "在地球轨道或深空运行、无实际功能的人造物体。"@zh ;
+    rdfs:subClassOf _:cb8bd96a5207e4518eb162aa53bd0292a0be761968a43dfec097ec41b2b020ddcc1,
+        _:cb8d95508e6cfe814e3443a983acbc3bc7839a2775b19ca0d779786056e0811930e,
+        _:cb9329de91af1cf7c917f28dc743fbbc98861e9b7a8683ce81517be6004cf8fece0,
+        _:cb940f1fe7a6854070033b3e171d2a4bdc27297803971a154eeb4fd8aeb149dfc49,
+        _:cb9c0b97422dfd588a0b8b0dfae94d04f23a7b20c6f2d67434dbe1ef0b2481500c6,
+        _:cb9e1fb6857b6ecd2e90a4ba625d94b83b2b735bf830a51fcf695ca9dbe4a9350ba,
+        geo:Feature,
+        onto:ArtificialSpaceObject,
+        onto:SpaceObject ;
+    onto:modelLayer "core"^^xsd:string .
+
+case:BaselineTrackingReport a _:cb371e3ef17af3433f5b48fce7c44f13a0a8d60e1baa93a9681aa9efcf00acbaaba,
+        rdfs:Resource,
+        prov:Entity,
+        sosa:Result,
+        onto:ObservationData,
+        onto:SSAData ;
+    prov:wasAttributedTo case:NASA_ODQN_Provider ;
+    onto:describesObject case:CZ6A_2022_151B ;
+    onto:hasDataConfidence "0.9"^^xsd:float ;
+    onto:hasDataID "NASA-ODQN-27-1-CZ6A-2022-151B"^^xsd:string ;
+    onto:hasDataSource "NASA Orbital Debris Quarterly News, Vol. 27, Issue 1"^^xsd:string ;
+    onto:hasErrorValue "0.05"^^xsd:float ;
+    case:reportTime "2023-01-31T00:00:00+00:00"^^xsd:dateTime .
+
+case:CZ6A_DebrisRiskEvent a _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5,
+        rdfs:Resource,
+        onto:DebrisRiskEvent,
+        onto:RiskEvent,
+        onto:SpaceEvent ;
+    onto:affectsObject case:CZ6A_2022_151B ;
+    onto:hasEventDescription "Wacker et al. (2025) 对 CZ-6A 2022-151B 上面级解体碎片的轨道寿命、空间密度和碰撞通量进行了长期评估。结果表明，该次解体形成的碎片具有长期在轨特征，并对约 800 km 轨道区域的空间密度和碰撞风险产生持续影响。本文据此将该碎片风险作为具有外部评估来源的显式事件知识。"^^xsd:string ;
+    onto:hasEventID "EV-CZ6A-DEBRIS-RISK"^^xsd:string ;
+    onto:hasEventType "debris_risk"^^xsd:string ;
+    onto:indicatesThreat onto:derived_physical_threat_f5da89a6cd738b34bfda1e1682c73bcbf2b73d0db44de0e95a6da168c1c98aa6 ;
+    onto:involvesObject case:CZ6A_2022_151B ;
+    onto:occursInOrbit case:CZ6A_Orbit_2022 ;
+    onto:supportedByData case:BaselineTrackingReport,
+        case:CZ6A_DebrisRiskAssessment .
+
+case:CZ6A_Orbit_2022 a _:cb47e7a0df12203fad36137b477caf04b686b3f15dafe09cacdc3d3712d9b563321,
+        _:cb4b9840d2b6a7552f6a44f35146f24d833c7e0de34381644f430ec1bf58998e13d,
+        _:cb5022f88a671d528a673c1376c5a157e4268a1be888346edbed23a5e52cd5879f5,
+        _:cb508e78b58b236966dc12fd25fc53d80519bd42726201579273cbee0c811c6e4cb,
+        _:cb5490cb27ff98fd6f9ef08b19dbd5458cabf881d383936ebfea2e8f213077738e8,
+        geo:Feature,
+        rdfs:Resource,
+        onto:EarthOrbit,
+        onto:LowEarthOrbit,
+        onto:Orbit ;
+    case:apogeeKm "847.0"^^xsd:float ;
+    case:eccentricity "0.002327"^^xsd:float ;
+    case:inclinationDeg "98.8"^^xsd:float ;
+    case:perigeeKm "813.0"^^xsd:float ;
+    case:semiMajorAxisKm "7208.15"^^xsd:float .
+
+() a rdfs:Resource .
+
+onto:EarthOrbit a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "地球轨道"@zh ;
+    rdfs:comment "以地球为中心天体的轨道。"@zh ;
+    rdfs:subClassOf _:cb47e7a0df12203fad36137b477caf04b686b3f15dafe09cacdc3d3712d9b563321,
+        _:cb4b9840d2b6a7552f6a44f35146f24d833c7e0de34381644f430ec1bf58998e13d,
+        _:cb5022f88a671d528a673c1376c5a157e4268a1be888346edbed23a5e52cd5879f5,
+        _:cb508e78b58b236966dc12fd25fc53d80519bd42726201579273cbee0c811c6e4cb,
+        _:cb5490cb27ff98fd6f9ef08b19dbd5458cabf881d383936ebfea2e8f213077738e8,
+        geo:Feature,
+        onto:Orbit ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:TimeInstant a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "时间点"@zh ;
+    rdfs:comment "零长度的时间点。"@zh ;
+    rdfs:subClassOf time:Instant,
+        onto:TemporalEntity ;
+    onto:alignmentRationale "TC-SSSAO TimeInstant is the application-domain time-point representation; it is specialized from time:Instant rather than redefining OWL-Time."@en ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:hasSeverityRank a rdfs:Resource,
+        owl:DatatypeProperty ;
+    rdfs:label "严重度级别"@zh ;
+    rdfs:comment "分级风险态势的严重度排序值：正常=0、关注=1、预警=2、危险=3；仅用于支持分级态势之间的排序及跨时间演化规则。"@zh ;
+    rdfs:domain onto:SituationState ;
+    rdfs:range xsd:integer .
+
+time: a rdfs:Resource .
+
+onto:SpatialRelationEvent a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "空间关系事件"@zh ;
+    rdfs:comment "描述多个空间目标之间空间关系的事件。"@zh ;
+    rdfs:subClassOf _:cb2a31d7b49735cd3d2554debc0e7274eabf465c400650cf54fc1999175badda9f3,
+        _:cb2bcf1c5a04032105b92f356b52b4316c0d5887cf4b183377e4d2ef6a09c16a3f5,
+        _:cb2f81b46389eeeabe347d0aa76cf951895a2856927e0755c2375b27b4f0a0af0bc,
+        _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5,
+        onto:SpaceEvent ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:SpaceEnvironment a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "空间环境"@zh ;
+    rdfs:comment "描述空间环境条件。"@zh ;
+    rdfs:subClassOf _:cb56b9b200eaeb553a4db634b5df70817275d273f18b003aa4a990d23abfd1fd8ed,
+        _:cb63a3d3beffbbf65aaf4f79d39ace259176bdbb5415265ec29e1aa925636f5691a ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:StateTransition a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "状态转移"@zh ;
+    rdfs:comment "态势状态之间的转移。"@zh ;
+    rdfs:subClassOf _:cb4e39091673c7e63d1d2d3c5cec0276baef31e6f30db1f57a2ce022d9421843bcb,
+        _:cb50baa0ce21c4bcce7938ff997d2eff959f0dc304e8e75cc4b97f527b1cef90844,
+        _:cb5c67dc97c77b19cefe22886c7bd4f3016ee123a1fc5e8c257d91bfe1c7f3aea23 ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:involvesObject a rdf:Property,
+        rdfs:Resource,
+        owl:ObjectProperty ;
+    rdfs:label "涉及目标"@zh ;
+    rdfs:comment "空间事件涉及空间目标。"@zh ;
+    rdfs:domain onto:SpaceEvent ;
+    rdfs:range onto:SpaceObject ;
+    rdfs:subPropertyOf onto:involvesObject ;
+    owl:inverseOf onto:isInvolvedInEvent .
+
+case:CZ6A_2022_151B a _:cb8bd96a5207e4518eb162aa53bd0292a0be761968a43dfec097ec41b2b020ddcc1,
+        _:cb8d95508e6cfe814e3443a983acbc3bc7839a2775b19ca0d779786056e0811930e,
+        _:cb9329de91af1cf7c917f28dc743fbbc98861e9b7a8683ce81517be6004cf8fece0,
+        _:cb940f1fe7a6854070033b3e171d2a4bdc27297803971a154eeb4fd8aeb149dfc49,
+        _:cb9c0b97422dfd588a0b8b0dfae94d04f23a7b20c6f2d67434dbe1ef0b2481500c6,
+        _:cb9e1fb6857b6ecd2e90a4ba625d94b83b2b735bf830a51fcf695ca9dbe4a9350ba,
+        geo:Feature,
+        rdfs:Resource,
+        onto:ArtificialSpaceObject,
+        onto:RocketBody,
+        onto:SpaceObject ;
+    onto:hasObjectID "54236"^^xsd:string ;
+    onto:hasOrbit case:CZ6A_Orbit_2022 .
+
+sosa:Sensor a rdfs:Resource,
+        owl:Class .
+
+onto:ObservationData a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "观测数据"@zh ;
+    rdfs:comment "通过观测系统获取的数据。"@zh ;
+    rdfs:subClassOf _:cb371e3ef17af3433f5b48fce7c44f13a0a8d60e1baa93a9681aa9efcf00acbaaba,
+        prov:Entity,
+        sosa:Result,
+        onto:SSAData ;
+    onto:alignmentRationale "ObservationData is the data produced by an observation activity, i.e. the result of the act, not the act itself. It is therefore aligned with sosa:Result. The previous seeAlso link to sosa:Observation was conceptually inaccurate and has been removed."@en ;
+    onto:modelLayer "core"^^xsd:string ;
+    onto:reusedOntology sosa: .
+
+onto:ArtificialSpaceObject a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "人造空间目标"@zh ;
+    rdfs:comment "由人类制造并发射至外层空间的目标。"@zh ;
+    rdfs:subClassOf _:cb8bd96a5207e4518eb162aa53bd0292a0be761968a43dfec097ec41b2b020ddcc1,
+        _:cb8d95508e6cfe814e3443a983acbc3bc7839a2775b19ca0d779786056e0811930e,
+        _:cb9329de91af1cf7c917f28dc743fbbc98861e9b7a8683ce81517be6004cf8fece0,
+        _:cb940f1fe7a6854070033b3e171d2a4bdc27297803971a154eeb4fd8aeb149dfc49,
+        _:cb9c0b97422dfd588a0b8b0dfae94d04f23a7b20c6f2d67434dbe1ef0b2481500c6,
+        _:cb9e1fb6857b6ecd2e90a4ba625d94b83b2b735bf830a51fcf695ca9dbe4a9350ba,
+        geo:Feature,
+        onto:SpaceObject ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:CausalAssertion a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "因果断言"@zh ;
+    rdfs:comment "描述事件之间因果关系的断言。"@zh ;
+    rdfs:subClassOf _:cb4978a975468794709fd08870f7526add7547880995e81f44889749ca4a4412c61,
+        _:cb5dfaaa7e44523d8592894003f1c9fa689dbc6d06a8ced1de5ff769d275f2785d1,
+        _:cb60c53cde23291cddd17c531d527ab8aee93891cb5cfba6ed4a6bb5f5b7aeedccb,
+        _:cb61df8fe27058399fea330440da78d5095c2558ddcca49c9d68c9920b6b4cdf8ef,
+        prov:Entity ;
+    onto:alignmentRationale "A CausalAssertion is a reified knowledge record (with cause, effect and evidence); as a piece of traceable information it is a prov:Entity."@en ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:SecurityRisk a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "安全风险"@zh ;
+    rdfs:comment "空间系统或任务面临损失的潜在可能性。"@zh ;
+    rdfs:subClassOf _:cb4ffaa74e9daffc3550f7e5569a6afd293410b8b8d9ddcdd1d5a8286dd4ecf1e9d,
+        _:cb5521335c3e6c6806bcea7b74807e8f9550278a2b167a96aca7cdd193c88facdc4,
+        _:cb55d11e4945bbb12971b0f416b608fb5966224bf8e60ae39fea48e4ea50f60fdf1 ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:Sensor a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "传感器"@zh ;
+    rdfs:comment "能够探测空间目标的传感器。"@zh ;
+    rdfs:seeAlso sosa:Sensor ;
+    rdfs:subClassOf _:cb45f11da5bd8a1f004e8a1b102719c903eea7417a9b9bdbdc4ee3231f372ccd1ca,
+        _:cb761d2982162e411b7ad168edf703f36b82c0f0203d66094873e29999e52d7b912,
+        sosa:Sensor,
+        onto:ObservationSystem ;
+    onto:alignmentRationale "TC-SSSAO Sensor represents sensing systems used for SSA and is modeled as a domain-specific specialization of sosa:Sensor."@en ;
+    onto:mappedToExternalTerm sosa:Sensor ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:ObservationSystem a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "观测系统"@zh ;
+    rdfs:comment "用于探测、监视、跟踪空间目标的观测系统。"@zh ;
+    rdfs:seeAlso sosa:Platform ;
+    rdfs:subClassOf _:cb761d2982162e411b7ad168edf703f36b82c0f0203d66094873e29999e52d7b912 ;
+    onto:alignmentRationale "TC-SSSAO ObservationSystem is an SSA-oriented aggregate covering sensors, sensor networks, ground stations, tracking and surveillance systems; since Sensor itself is a subclass, ObservationSystem is not strictly synonymous with sosa:Platform, so no formal subclass/equivalent mapping is made."@en ;
+    onto:modelLayer "core"^^xsd:string ;
+    onto:reusedOntology sosa: .
+
+xsd:dateTime a rdfs:Resource .
+
+owl:AnnotationProperty a rdfs:Resource .
+
+geo:Feature a rdfs:Resource,
+        owl:Class .
+
+prov:Entity a rdfs:Resource,
+        owl:Class .
+
+onto:ResponseMeasure a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "响应措施"@zh ;
+    rdfs:comment "为应对安全威胁或安全风险采取的措施。"@zh ;
+    rdfs:subClassOf _:cb3b847118774f4459df9bc71aed28c992cc39bdf3f0003d72bf3b8a23e729a3c88,
+        _:cb3e2a33da71b9dfe1bd93f107c8fb9f08aaeacd60984d85f4e9aa87b0c31ea82bd,
+        _:cb45f12938aeaed357c8eedaedc09c540fc537b4569b8e81ae092c3e034c99fa6c9,
+        _:cb472ef2557f60f560562dd76f5bcef168f74076733be10b6be4370226437610aa6,
+        _:cb523fa94fc08f9b734fb79bf5716aea5773cee268e0f256921f1ac42246fe2bf19,
+        _:cb536bb460a812086d12e8b8f1c35bd8acb379033517cd1bc47cb34141a63c2abfc,
+        _:cb54effaa58e2d644e04b7ce7978c1d2b991be0a3869db40344828b525a5e28fc0a ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:SecurityThreat a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "安全威胁"@zh ;
+    rdfs:comment "可能对太空资产、轨道环境或任务系统造成危害的威胁类型。"@zh ;
+    rdfs:subClassOf _:cb43d414cb7005dd62bb754afa1a32d4ac65e11513a9a8a86745962686c8d9eb545,
+        _:cb456e334675ff8a323c477331435ecdea130671ea52a6f67e03cfb9d817f23886b,
+        _:cb487c436a18afe6165a33112827caef60784927d5202dacfb542c55055abe06bde,
+        _:cb4cff698d8650518176db6685b61d8f2c32dfd2c73c2a9844128de380cd274c195,
+        _:cb4f70c23c374644fca8f49290d08ec2b1a993392090d4921d980d8e7190f8be936,
+        _:cb4f9db843ab5015915ed2e393b1c83e050e5d2a78c297348d2d1d4e65bc09f6c49,
+        _:cb50f3dd9db06d482682091a9e8facbe5bbe9defad445dce4a8833c4156b2d4ef99,
+        _:cb51b73d50ab6feb1b8747d7722a26d2f9f9975b509a511edfddb0696dd5b7e6144,
+        _:cb5223c185b3fa91c62519d23b8804e5bdc0ba7cbf80a44ce089649d50c8431bd82,
+        _:cb5252906920f97fd6d2ce787de6cd71a43c775f2aec026f8812acdfcf0e1822947 ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:SSAData a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "太空态势感知数据"@zh ;
+    rdfs:comment "支撑因果断言与事件判断的太空态势感知数据。"@zh ;
+    rdfs:subClassOf prov:Entity ;
+    onto:alignmentRationale "SSAData is information that is produced, used, cited and traced; all data subclasses (ObservationData, AssessmentData, PredictionData, RiskAssessmentData, TrackingData, ...) thereby become prov:Entity."@en ;
+    onto:modelLayer "core"^^xsd:string .
+
+onto:Orbit a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "轨道"@zh ;
+    rdfs:comment "描述空间目标运行轨道。"@zh ;
+    rdfs:seeAlso geo:SpatialObject ;
+    rdfs:subClassOf _:cb47e7a0df12203fad36137b477caf04b686b3f15dafe09cacdc3d3712d9b563321,
+        _:cb4b9840d2b6a7552f6a44f35146f24d833c7e0de34381644f430ec1bf58998e13d,
+        _:cb5022f88a671d528a673c1376c5a157e4268a1be888346edbed23a5e52cd5879f5,
+        _:cb508e78b58b236966dc12fd25fc53d80519bd42726201579273cbee0c811c6e4cb,
+        _:cb5490cb27ff98fd6f9ef08b19dbd5458cabf881d383936ebfea2e8f213077738e8,
+        geo:Feature ;
+    onto:alignmentRationale "Orbit is modeled as a domain object carrying orbital parameters, orbit type and trajectory geometry, not as a pure geometry node; it is therefore a geo:Feature whose actual path geometry can be linked via geo:hasGeometry. Orbit is not equivalent to geo:Geometry."@en ;
+    onto:modelLayer "core"^^xsd:string ;
+    onto:reusedOntology geo: .
+
+onto:SpaceObject a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "空间目标"@zh ;
+    rdfs:comment "太空安全态势感知中的顶层空间目标概念，涵盖自然空间目标与人造空间目标。"@zh ;
+    rdfs:seeAlso sosa:FeatureOfInterest ;
+    rdfs:subClassOf _:cb8d95508e6cfe814e3443a983acbc3bc7839a2775b19ca0d779786056e0811930e,
+        _:cb940f1fe7a6854070033b3e171d2a4bdc27297803971a154eeb4fd8aeb149dfc49,
+        _:cb9e1fb6857b6ecd2e90a4ba625d94b83b2b735bf830a51fcf695ca9dbe4a9350ba,
+        geo:Feature ;
+    onto:alignmentRationale "A SpaceObject can play the SOSA FeatureOfInterest role in concrete observation contexts, but it is a domain entity type; TC-SSSAO does not globally define every space object as a FeatureOfInterest."@en,
+        "SpaceObject is a domain entity with spatial location/geometry representation; as a Feature it may be linked to a geo:Geometry via geo:hasGeometry. The previous direct subPropertyOf geo:asWKT shortcut (SpaceObject -> wktLiteral) conflated Feature and Geometry and has been removed."@en ;
+    onto:mappedToExternalTerm sosa:FeatureOfInterest ;
+    onto:modelLayer "core"^^xsd:string .
+
+xsd:float a rdfs:Resource .
+
+onto:SituationState a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "态势状态"@zh ;
+    rdfs:comment "描述某一阶段的安全态势。"@zh ;
+    rdfs:seeAlso prov:Entity ;
+    rdfs:subClassOf _:cb396df1868b2101757248f271c1110fa76bc70a2e6babb967d53b6884a86c0cc05,
+        _:cb3a1ee76d90fd807777f76bee4dd499fc9e6121ad8ddffc00f006b3502b4550405,
+        _:cb3bec8159dc74bd37ca0f6da32fd088a3a3774fa11d30d2686ee994b87f45354b0,
+        _:cb3da1377e861a20abf86eddc4be5412b7068dbdeaaf043443275005c71e82f8b8b,
+        _:cb41c0160a2dadbd73b22e7d3b0befe24234fac4fc1f6246cedac33d8176b97a3d9,
+        _:cb433d038d3f6a4371ca94faec2faef23e55cd7d877c21fa4b25f07cd40d517b93d,
+        _:cb45959af9013c1685c2bf5cd4c17f0cf4a6639307e4e3fd250560cae0de9734196,
+        _:cb463411ecb611409fb0b1e84f3898fe007cb97bb8e2fff0edc645923ba982f6194,
+        _:cb47f661f51e3671a00405818397edd01726eba7540c5ca4edba1b80d298ac327f9,
+        _:cb49429e05883e4fa0204ced6e856712fcbc63ab970c72962eaa16a53327b159285,
+        _:cb4b050695bc77167da2e49d9597fc4ada275c81ec56110bf5955c3eaf558b5735e,
+        _:cb4ca65e618e3072c68fa2bc2c9c45a350e624a0e1f907ced7e5e8e5dd6814b14be,
+        _:cb52cd01a73c3a636531c9390748111df81afe10cddb839cabc4431a9c1e4b15762 ;
+    onto:modelLayer "core"^^xsd:string ;
+    onto:reusedOntology prov: .
+
+xsd:string a rdfs:Resource .
+
+owl:ObjectProperty a rdfs:Resource .
+
+owl:DatatypeProperty a rdfs:Resource .
+
+onto:SpaceEvent a rdfs:Resource,
+        owl:Class ;
+    rdfs:label "空间事件"@zh ;
+    rdfs:comment "描述引起态势变化的空间事件。"@zh ;
+    rdfs:subClassOf _:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128,
+        _:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5,
+        _:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77,
+        _:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783,
+        _:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f,
+        _:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae,
+        _:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a,
+        _:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d,
+        _:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7,
+        _:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7,
+        _:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0,
+        _:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669,
+        _:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02,
+        _:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973,
+        _:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8,
+        _:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45,
+        _:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d,
+        _:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c,
+        _:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10,
+        _:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec,
+        _:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5 ;
+    onto:modelLayer "core"^^xsd:string .
+
+rdf:Property a rdfs:Resource .
+
+owl:Class a rdfs:Resource .
+
+owl:Restriction a rdfs:Resource .
+
+rdfs:Resource a rdfs:Resource .
+
+[] a rdfs:Resource,
+        owl:AllDisjointClasses ;
+    owl:members [ a rdfs:Resource ;
+            rdf:first onto:RadarSensor ;
+            rdf:rest [ a rdfs:Resource ;
+                    rdf:first onto:OpticalSensor ;
+                    rdf:rest [ a rdfs:Resource ;
+                            rdf:first onto:InfraredSensor ;
+                            rdf:rest () ] ] ] .
+
+[] a rdfs:Resource,
+        owl:AllDisjointClasses ;
+    owl:members [ a rdfs:Resource ;
+            rdf:first onto:PromotingCausalAssertion ;
+            rdf:rest [ a rdfs:Resource ;
+                    rdf:first onto:InhibitingCausalAssertion ;
+                    rdf:rest () ] ] .
+
+[] a rdfs:Resource,
+        owl:AllDisjointClasses ;
+    owl:members [ a rdfs:Resource ;
+            rdf:first onto:NormalSituationState ;
+            rdf:rest [ a rdfs:Resource ;
+                    rdf:first onto:AttentionSituationState ;
+                    rdf:rest [ a rdfs:Resource ;
+                            rdf:first onto:WarningSituationState ;
+                            rdf:rest [ a rdfs:Resource ;
+                                    rdf:first onto:DangerousSituationState ;
+                                    rdf:rest () ] ] ] ] .
+
+[] a rdfs:Resource,
+        owl:AllDisjointClasses ;
+    owl:members [ a rdfs:Resource ;
+            rdf:first onto:DirectCausalAssertion ;
+            rdf:rest [ a rdfs:Resource ;
+                    rdf:first onto:IndirectCausalAssertion ;
+                    rdf:rest () ] ] .
+
+_:cb30db020e8cec0037313d098107e7052858c4935b04b1dc7b1f70629b97e6805f8 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasMissionType ;
+    owl:someValuesFrom xsd:string .
+
+_:cb3dc6e4a72e76e32d0f8b5ac20688326c73d042da5ea515275d52dab3c945fbb47 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:involvesObject ;
+    owl:someValuesFrom onto:SpaceObject .
+
+_:cb3fa79ac456c6c5e9094946b1195ab824ef5245f72826539526d13d6b529754279 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:involvesObject ;
+    owl:someValuesFrom onto:SpaceObject .
+
+_:cb45762b94d67d61a76d60276b41f407bb57943f950a2542bcc7bba6706aa476daf a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:affectsOrbit ;
+    owl:someValuesFrom onto:Orbit .
+
+_:cb2a31d7b49735cd3d2554debc0e7274eabf465c400650cf54fc1999175badda9f3 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasPrimaryObject ;
+    owl:someValuesFrom onto:SpaceObject .
+
+_:cb2bcf1c5a04032105b92f356b52b4316c0d5887cf4b183377e4d2ef6a09c16a3f5 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasSpatialRelationship ;
+    owl:someValuesFrom xsd:string .
+
+_:cb2f81b46389eeeabe347d0aa76cf951895a2856927e0755c2375b27b4f0a0af0bc a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasSecondaryObject ;
+    owl:someValuesFrom onto:SpaceObject .
+
+_:cb3290aa4748d44e3c0c8423b13419c67313360b05c9b8055ce0ab35aad70c6f68f a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:observedBySensor ;
+    owl:someValuesFrom onto:Sensor .
+
+_:cb32dbd7deb0548f7f86c1150ccff178c39ef953811c670a1b474a1c9e318c55437 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:detectedFromData ;
+    owl:someValuesFrom onto:ObservationData .
+
+_:cb371e3ef17af3433f5b48fce7c44f13a0a8d60e1baa93a9681aa9efcf00acbaaba a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasErrorValue ;
+    owl:someValuesFrom xsd:float .
+
+_:cb53071a5110f1eebacf8737b85dcd56369f581cb42772f724b2880207861037110 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:involvesObject ;
+    owl:someValuesFrom onto:SpaceObject .
+
+_:cb5ca6cab86bf24a18fef1056e8890a0a1948247cec95fa8bc5cbb45fcece3b14a8 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:occursInOrbit ;
+    owl:someValuesFrom onto:Orbit .
+
+_:cb396df1868b2101757248f271c1110fa76bc70a2e6babb967d53b6884a86c0cc05 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasStateLevel ;
+    owl:someValuesFrom xsd:string .
+
+_:cb3a1ee76d90fd807777f76bee4dd499fc9e6121ad8ddffc00f006b3502b4550405 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasStateType ;
+    owl:someValuesFrom xsd:string .
+
+_:cb3b847118774f4459df9bc71aed28c992cc39bdf3f0003d72bf3b8a23e729a3c88 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasMeasureDescription ;
+    owl:someValuesFrom xsd:string .
+
+_:cb3bec8159dc74bd37ca0f6da32fd088a3a3774fa11d30d2686ee994b87f45354b0 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasStateID ;
+    owl:someValuesFrom xsd:string .
+
+_:cb3da1377e861a20abf86eddc4be5412b7068dbdeaaf043443275005c71e82f8b8b a rdfs:Resource,
+        owl:Restriction ;
+    owl:allValuesFrom onto:SituationState ;
+    owl:onProperty onto:evolvesTo .
+
+_:cb3e2a33da71b9dfe1bd93f107c8fb9f08aaeacd60984d85f4e9aa87b0c31ea82bd a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:mitigatesRisk ;
+    owl:someValuesFrom onto:SecurityRisk .
+
+_:cb41c0160a2dadbd73b22e7d3b0befe24234fac4fc1f6246cedac33d8176b97a3d9 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasRiskLevel ;
+    owl:someValuesFrom xsd:string .
+
+_:cb433d038d3f6a4371ca94faec2faef23e55cd7d877c21fa4b25f07cd40d517b93d a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasStateDescription ;
+    owl:someValuesFrom xsd:string .
+
+_:cb43d414cb7005dd62bb754afa1a32d4ac65e11513a9a8a86745962686c8d9eb545 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:producesRisk ;
+    owl:someValuesFrom onto:SecurityRisk .
+
+_:cb456e334675ff8a323c477331435ecdea130671ea52a6f67e03cfb9d817f23886b a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasImpactScope ;
+    owl:someValuesFrom xsd:string .
+
+_:cb45959af9013c1685c2bf5cd4c17f0cf4a6639307e4e3fd250560cae0de9734196 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasStateUpdateTime ;
+    owl:someValuesFrom xsd:dateTime .
+
+_:cb45f12938aeaed357c8eedaedc09c540fc537b4569b8e81ae092c3e034c99fa6c9 a rdfs:Resource,
+        owl:Restriction ;
+    owl:allValuesFrom onto:SecurityThreat ;
+    owl:onProperty onto:respondsToThreat .
+
+_:cb463411ecb611409fb0b1e84f3898fe007cb97bb8e2fff0edc645923ba982f6194 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasStateConfidence ;
+    owl:someValuesFrom xsd:float .
+
+_:cb472ef2557f60f560562dd76f5bcef168f74076733be10b6be4370226437610aa6 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasMeasureID ;
+    owl:someValuesFrom xsd:string .
+
+_:cb47f661f51e3671a00405818397edd01726eba7540c5ca4edba1b80d298ac327f9 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasStateEndTime ;
+    owl:someValuesFrom xsd:dateTime .
+
+_:cb487c436a18afe6165a33112827caef60784927d5202dacfb542c55055abe06bde a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasThreatConfidence ;
+    owl:someValuesFrom xsd:float .
+
+_:cb49429e05883e4fa0204ced6e856712fcbc63ab970c72962eaa16a53327b159285 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasStateDuration ;
+    owl:someValuesFrom xsd:duration .
+
+_:cb4b050695bc77167da2e49d9597fc4ada275c81ec56110bf5955c3eaf558b5735e a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasStateStartTime ;
+    owl:someValuesFrom xsd:dateTime .
+
+_:cb4ca65e618e3072c68fa2bc2c9c45a350e624a0e1f907ced7e5e8e5dd6814b14be a rdfs:Resource,
+        owl:Restriction ;
+    owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onProperty onto:hasSeverityRank .
+
+_:cb4cff698d8650518176db6685b61d8f2c32dfd2c73c2a9844128de380cd274c195 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:requiresResponseMeasure ;
+    owl:someValuesFrom onto:ResponseMeasure .
+
+_:cb4e39091673c7e63d1d2d3c5cec0276baef31e6f30db1f57a2ce022d9421843bcb a rdfs:Resource,
+        owl:Restriction ;
+    owl:onClass onto:SituationState ;
+    owl:onProperty onto:hasSourceState ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:cb4f70c23c374644fca8f49290d08ec2b1a993392090d4921d980d8e7190f8be936 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:mayManifestAsEvent ;
+    owl:someValuesFrom onto:SpaceEvent .
+
+_:cb4f9db843ab5015915ed2e393b1c83e050e5d2a78c297348d2d1d4e65bc09f6c49 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasThreatType ;
+    owl:someValuesFrom xsd:string .
+
+_:cb4ffaa74e9daffc3550f7e5569a6afd293410b8b8d9ddcdd1d5a8286dd4ecf1e9d a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasRiskDescription ;
+    owl:someValuesFrom xsd:string .
+
+_:cb50baa0ce21c4bcce7938ff997d2eff959f0dc304e8e75cc4b97f527b1cef90844 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onClass onto:SituationState ;
+    owl:onProperty onto:hasTargetState ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:cb50f3dd9db06d482682091a9e8facbe5bbe9defad445dce4a8833c4156b2d4ef99 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasThreatLevel ;
+    owl:someValuesFrom xsd:string .
+
+_:cb51b73d50ab6feb1b8747d7722a26d2f9f9975b509a511edfddb0696dd5b7e6144 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:threatMitigatedBy ;
+    owl:someValuesFrom onto:ResponseMeasure .
+
+_:cb5223c185b3fa91c62519d23b8804e5bdc0ba7cbf80a44ce089649d50c8431bd82 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasThreatID ;
+    owl:someValuesFrom xsd:string .
+
+_:cb523fa94fc08f9b734fb79bf5716aea5773cee268e0f256921f1ac42246fe2bf19 a rdfs:Resource,
+        owl:Restriction ;
+    owl:allValuesFrom onto:SpaceEvent ;
+    owl:onProperty onto:respondsToEvent .
+
+_:cb5252906920f97fd6d2ce787de6cd71a43c775f2aec026f8812acdfcf0e1822947 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasThreatSource ;
+    owl:someValuesFrom xsd:string .
+
+_:cb52cd01a73c3a636531c9390748111df81afe10cddb839cabc4431a9c1e4b15762 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:stateCausedByEvent ;
+    owl:someValuesFrom onto:SpaceEvent .
+
+_:cb536bb460a812086d12e8b8f1c35bd8acb379033517cd1bc47cb34141a63c2abfc a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:respondsToEvent ;
+    owl:someValuesFrom onto:SpaceEvent .
+
+_:cb54effaa58e2d644e04b7ce7978c1d2b991be0a3869db40344828b525a5e28fc0a a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:isImplementedByEvent ;
+    owl:someValuesFrom onto:SpaceEvent .
+
+_:cb5521335c3e6c6806bcea7b74807e8f9550278a2b167a96aca7cdd193c88facdc4 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:mitigatedBy ;
+    owl:someValuesFrom onto:ResponseMeasure .
+
+_:cb55d11e4945bbb12971b0f416b608fb5966224bf8e60ae39fea48e4ea50f60fdf1 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:riskLeadsToState ;
+    owl:someValuesFrom onto:SituationState .
+
+_:cb5c67dc97c77b19cefe22886c7bd4f3016ee123a1fc5e8c257d91bfe1c7f3aea23 a rdfs:Resource,
+        owl:Restriction ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass onto:SpaceEvent ;
+    owl:onProperty onto:triggeredByEvent .
+
+_:cb56b9b200eaeb553a4db634b5df70817275d273f18b003aa4a990d23abfd1fd8ed a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasEnvironmentType ;
+    owl:someValuesFrom xsd:string .
+
+_:cb63a3d3beffbbf65aaf4f79d39ace259176bdbb5415265ec29e1aa925636f5691a a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasEnvironmentLevel ;
+    owl:someValuesFrom xsd:string .
+
+_:cb45f11da5bd8a1f004e8a1b102719c903eea7417a9b9bdbdc4ee3231f372ccd1ca a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasResolution ;
+    owl:someValuesFrom xsd:float .
+
+_:cb47e7a0df12203fad36137b477caf04b686b3f15dafe09cacdc3d3712d9b563321 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasMeanAnomaly ;
+    owl:someValuesFrom xsd:float .
+
+_:cb4978a975468794709fd08870f7526add7547880995e81f44889749ca4a4412c61 a rdfs:Resource,
+        owl:Restriction ;
+    owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onProperty onto:hasCausalConfidence .
+
+_:cb4b9840d2b6a7552f6a44f35146f24d833c7e0de34381644f430ec1bf58998e13d a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasOrbitalPeriod ;
+    owl:someValuesFrom xsd:float .
+
+_:cb5022f88a671d528a673c1376c5a157e4268a1be888346edbed23a5e52cd5879f5 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasSemiMajorAxis ;
+    owl:someValuesFrom xsd:float .
+
+_:cb508e78b58b236966dc12fd25fc53d80519bd42726201579273cbee0c811c6e4cb a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasArgumentOfPerigee ;
+    owl:someValuesFrom xsd:float .
+
+_:cb5490cb27ff98fd6f9ef08b19dbd5458cabf881d383936ebfea2e8f213077738e8 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasRAAN ;
+    owl:someValuesFrom xsd:float .
+
+_:cb5dfaaa7e44523d8592894003f1c9fa689dbc6d06a8ced1de5ff769d275f2785d1 a rdfs:Resource,
+        owl:Restriction ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass onto:SSAData ;
+    owl:onProperty onto:hasCausalEvidence .
+
+_:cb60c53cde23291cddd17c531d527ab8aee93891cb5cfba6ed4a6bb5f5b7aeedccb a rdfs:Resource,
+        owl:Restriction ;
+    owl:onClass onto:SpaceEvent ;
+    owl:onProperty onto:hasEffect ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:cb61df8fe27058399fea330440da78d5095c2558ddcca49c9d68c9920b6b4cdf8ef a rdfs:Resource,
+        owl:Restriction ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass onto:SpaceEvent ;
+    owl:onProperty onto:hasCause .
+
+_:cb8bd96a5207e4518eb162aa53bd0292a0be761968a43dfec097ec41b2b020ddcc1 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasOperatorName ;
+    owl:someValuesFrom xsd:string .
+
+_:cb9329de91af1cf7c917f28dc743fbbc98861e9b7a8683ce81517be6004cf8fece0 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasLaunchCountry ;
+    owl:someValuesFrom xsd:string .
+
+_:cb9c0b97422dfd588a0b8b0dfae94d04f23a7b20c6f2d67434dbe1ef0b2481500c6 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasLaunchDate ;
+    owl:someValuesFrom xsd:dateTime .
+
+_:cb761d2982162e411b7ad168edf703f36b82c0f0203d66094873e29999e52d7b912 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:generatesData ;
+    owl:someValuesFrom onto:ObservationData .
+
+_:cb8d95508e6cfe814e3443a983acbc3bc7839a2775b19ca0d779786056e0811930e a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasSize ;
+    owl:someValuesFrom xsd:float .
+
+_:cb940f1fe7a6854070033b3e171d2a4bdc27297803971a154eeb4fd8aeb149dfc49 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasMass ;
+    owl:someValuesFrom xsd:float .
+
+_:cb9e1fb6857b6ecd2e90a4ba625d94b83b2b735bf830a51fcf695ca9dbe4a9350ba a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasOrbit ;
+    owl:someValuesFrom onto:Orbit .
+
+_:cb92135a7ae7d55aeb1b02e79802518d2b1e22f398e0d5a0f046a3a3889780cd128 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasEventType ;
+    owl:someValuesFrom xsd:string .
+
+_:cb93403169f3536bd7c6a8c1a6a1f821f30d88d874d4648d36b118329f48c149de5 a rdfs:Resource,
+        owl:Restriction ;
+    owl:allValuesFrom onto:SituationState ;
+    owl:onProperty onto:affectsState .
+
+_:cb94a5d370bbfd3ad8111fd87a50f8bcd2511f3651af98b350a659974702dcecd77 a rdfs:Resource,
+        owl:Restriction ;
+    owl:allValuesFrom onto:SituationState ;
+    owl:onProperty onto:updatesState .
+
+_:cb9550d2750382a34f487e6b3eb6f471437b3509c49590344893b57930af1885783 a rdfs:Resource,
+        owl:Restriction ;
+    owl:allValuesFrom onto:SecurityThreat ;
+    owl:onProperty onto:increasesThreat .
+
+_:cb9592d76df072936b1f49fc451ca2e730460a8d646d19ab5122515645933be8a5f a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasEventDescription ;
+    owl:someValuesFrom xsd:string .
+
+_:cb961b4b1903cdac76c3fce606e56f741f2db66c1250175eff4869af9328b70f2ae a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:affectsObject ;
+    owl:someValuesFrom onto:SpaceObject .
+
+_:cb985deac57cb4cb3bdc429684e02e3bd2fd9d65bbd69ac53e9f1e6b992c40ed81a a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasEventLevel ;
+    owl:someValuesFrom xsd:string .
+
+_:cb98ab49051dd5309644c65eead843df19d6976ff56f020e465f76ed0e70f5eb38d a rdfs:Resource,
+        owl:Restriction ;
+    owl:allValuesFrom onto:SituationState ;
+    owl:onProperty onto:triggersState .
+
+_:cb9ac6d66197d356123b111ef9f1336e74829eef45975904c7323d8bc2ef666a9e7 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasOccurrenceTime ;
+    owl:someValuesFrom xsd:dateTime .
+
+_:cb9acb66f77aa8961a94f2aaa5f552463c28743ce41bc39e5ecb9f3a065926160d7 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasEndTime ;
+    owl:someValuesFrom xsd:dateTime .
+
+_:cb9bc27d65e7879b8d79fb0149d5eedce34e3872dce06e55958f3624c2ab4eacca0 a rdfs:Resource,
+        owl:Restriction ;
+    owl:allValuesFrom onto:SecurityThreat ;
+    owl:onProperty onto:indicatesThreat .
+
+_:cb9d108140797e3cf9202e1aa6bd81ff73fac02964b4be861109add50d9647f9669 a rdfs:Resource,
+        owl:Restriction ;
+    owl:allValuesFrom onto:SpaceEvent ;
+    owl:onProperty onto:triggersEvent .
+
+_:cb9d6511cfafe2094e654e5d978c87d0d3ad9283662b270c765603f3ee63c50dc02 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasEventID ;
+    owl:someValuesFrom xsd:string .
+
+_:cb9e904e2c253bf814ed25e36aaf6fd7290dc95c7a2ea6c54d6131a7518c4b09973 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasEventConfidence ;
+    owl:someValuesFrom xsd:float .
+
+_:cb9eee6a4ea08f665db36e1ac50c911eb1cc0294364e3f32b07a54a9339438dd9c8 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasStartTime ;
+    owl:someValuesFrom xsd:dateTime .
+
+_:cba20908ae80254d2f16d7b08924f6609e9688e9cc6ded74b1bc975bc4961854d45 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:hasDuration ;
+    owl:someValuesFrom xsd:duration .
+
+_:cba283e8daee3ec7be696ecd569a05d2ed303e830029508bda2419823318861a30d a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:involvesObject ;
+    owl:someValuesFrom onto:SpaceObject .
+
+_:cba494cec413dd9dce467179bf19b9b34f76e5634b239f7151f7c2b35ff05351c5c a rdfs:Resource,
+        owl:Restriction ;
+    owl:allValuesFrom onto:SpaceEvent ;
+    owl:onProperty onto:resultsInEvent .
+
+_:cba4e84199e4941f846666283874749ab479cd3a87e79603ee94272e80b4a54ac10 a rdfs:Resource,
+        owl:Restriction ;
+    owl:allValuesFrom onto:SpaceEvent ;
+    owl:onProperty onto:occursDuringEvent .
+
+_:cba97f51f06500bf4334a8554b8f7b12c7daa78d45988ded81e521e897ad08e21ec a rdfs:Resource,
+        owl:Restriction ;
+    owl:allValuesFrom onto:SpaceEvent ;
+    owl:onProperty onto:overlapsWithEvent .
+
+_:cbac239942493f231c98d89b0cc4c91d582568ae1acb3d3d71ce4cc6287f59946a5 a rdfs:Resource,
+        owl:Restriction ;
+    owl:onProperty onto:occursInOrbit ;
+    owl:someValuesFrom onto:Orbit .
+

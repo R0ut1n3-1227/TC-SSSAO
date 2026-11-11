@@ -1,0 +1,97 @@
+{
+  "status": "PASS",
+  "passed": 11,
+  "total": 11,
+  "fault_detection_rate": 1.0,
+  "scope_note": "Controlled Python checks mapped to the named contract/constraint responsibilities; this matrix is not an assertion that all 11 faults were executed through a full SHACL engine.",
+  "matrix": [
+    {
+      "fault": "Pc > 1",
+      "detector": "execution-layer input contract (P9 analogue)",
+      "expected": true,
+      "actual": true,
+      "detail": "injected Pc=1.01",
+      "pass": true
+    },
+    {
+      "fault": "Pc < 0",
+      "detector": "execution-layer input contract (P9 analogue)",
+      "expected": true,
+      "actual": true,
+      "detail": "injected Pc=-0.01",
+      "pass": true
+    },
+    {
+      "fault": "negative miss distance",
+      "detector": "execution-layer input contract (P12 analogue)",
+      "expected": true,
+      "actual": true,
+      "detail": "injected d=-1 km",
+      "pass": true
+    },
+    {
+      "fault": "duplicate Pc values",
+      "detector": "execution-layer input contract (P8 analogue)",
+      "expected": true,
+      "actual": true,
+      "detail": "two distinct Pc literals on one risk-event IRI",
+      "pass": true
+    },
+    {
+      "fault": "primary == secondary",
+      "detector": "execution-layer input contract (P18 analogue)",
+      "expected": true,
+      "actual": true,
+      "detail": "same event-scoped IRI",
+      "pass": true
+    },
+    {
+      "fault": "missing AssessmentData",
+      "detector": "execution-layer evidence contract",
+      "expected": true,
+      "actual": true,
+      "detail": "risk snapshot has no AssessmentData/PredictionData evidence",
+      "pass": true
+    },
+    {
+      "fault": "invalid HBR",
+      "detector": "execution-layer input contract (P14 analogue)",
+      "expected": true,
+      "actual": true,
+      "detail": "injected HBR=0",
+      "pass": true
+    },
+    {
+      "fault": "time-order corruption",
+      "detector": "execution-layer relative-time check (R9 analogue)",
+      "expected": true,
+      "actual": true,
+      "detail": "arrival order must have strictly decreasing time_to_tca",
+      "pass": true
+    },
+    {
+      "fault": "bidirectional causesEvent",
+      "detector": "R10",
+      "expected": true,
+      "actual": true,
+      "detail": "two opposite directed edges",
+      "pass": true
+    },
+    {
+      "fault": "3-node causal cycle",
+      "detector": "R11",
+      "expected": true,
+      "actual": true,
+      "detail": "directed 3-cycle",
+      "pass": true
+    },
+    {
+      "fault": "State start > end",
+      "detector": "R14",
+      "expected": true,
+      "actual": true,
+      "detail": "state interval reversed",
+      "pass": true
+    }
+  ]
+}

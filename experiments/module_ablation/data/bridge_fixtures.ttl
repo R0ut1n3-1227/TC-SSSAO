@@ -1,0 +1,88 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix onto: <https://w3id.org/tc-sssao#> .
+@prefix abl:  <https://w3id.org/tc-sssao/data/module-ablation#> .
+
+#####################################################################
+# M3 第二阶段：模块消融实验——桥接与时序补充夹具（合成、通用命名空间）
+#
+# 本文件为全部消融 variant 共享的固定输入（禁止按 variant 修改），
+# 提供 M2 四快照场景之外的三类最小夹具：
+#   1) B1 独立桥接夹具：CausalAssertion(hasCause/hasEffect) → causesEvent
+#      （B1 主断言在 CZ-6A 案例中；此处为 case-agnostic 独立验证数据）；
+#   2) B2 独立桥接夹具：StateTransition → transitsTo
+#      （与 rule_logic_verification 的 B2 测试同构）；
+#   3) 时序重叠夹具：CQ2 的 overlap 子项（M2 场景事件互不重叠，
+#      R2 在该场景无输出，CQ2 的 overlap 判定由此夹具承担）。
+#
+# 设计约束：
+#   - 桥接事件使用 onto:SpaceEvent 直接实例（非机动/接近/风险子类），
+#     避免 R3/R4/R5—R8 对夹具节点附带触发，保证 B1/B2 输出可隔离判定；
+#   - 所有事件携带 detectedFromData 观测证据，避免 R13 附带违规；
+#   - 所有时间条件自洽（start ≤ occurrence ≤ end），避免附带违规。
+#####################################################################
+
+# ---------- 共享观测证据 ----------
+abl:ObsBridge a onto:RadarObservationData ;
+    onto:hasDataID "ABL-OBS-01"^^xsd:string .
+
+abl:AssessBridge a onto:AssessmentData ;
+    onto:hasDataID "ABL-ASSess-01"^^xsd:string ;
+    onto:hasDataSource "合成外部评估（消融实验夹具）"^^xsd:string .
+
+# ---------- B1 独立桥接夹具 ----------
+abl:EvtCauseA a onto:SpaceEvent ;
+    onto:hasEventID "ABL-EVT-CAUSE"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-05T09:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-08-05T09:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-05T09:10:00Z"^^xsd:dateTime ;
+    onto:detectedFromData abl:ObsBridge .
+
+abl:EvtEffectB a onto:SpaceEvent ;
+    onto:hasEventID "ABL-EVT-EFFECT"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-05T10:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-08-05T10:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-05T10:10:00Z"^^xsd:dateTime ;
+    onto:detectedFromData abl:ObsBridge .
+
+# 注意：B1 的 WHERE 只要求 $this a onto:CausalAssertion 且具有
+# hasCause/hasEffect（两端均为 SpaceEvent）；hasCausalEvidence 是可选
+# 元数据（不受 B1 强制），此处记录以表明断言来源。
+abl:BridgeAssertion a onto:CausalAssertion ;
+    onto:hasCause abl:EvtCauseA ;
+    onto:hasEffect abl:EvtEffectB ;
+    onto:hasCausalEvidence abl:AssessBridge .
+
+# ---------- B2 独立桥接夹具 ----------
+abl:EvtTrackB2 a onto:TrackingEvent ;
+    onto:hasEventID "ABL-EVT-TRACK"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-05T11:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-08-05T11:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-05T11:05:00Z"^^xsd:dateTime ;
+    onto:detectedFromData abl:ObsBridge .
+
+abl:StateX2 a onto:NormalSituationState ;
+    onto:hasStateID "ABL-ST-X"^^xsd:string .
+
+abl:StateY2 a onto:WarningSituationState ;
+    onto:hasStateID "ABL-ST-Y"^^xsd:string .
+
+abl:TransB2 a onto:StateTransition ;
+    onto:hasSourceState abl:StateX2 ;
+    onto:hasTargetState abl:StateY2 ;
+    onto:triggeredByEvent abl:EvtTrackB2 .
+
+# ---------- 时序重叠夹具（CQ2 overlap 子项）----------
+abl:EvtOverlapA a onto:SpaceEvent ;
+    onto:hasEventID "ABL-EVT-OVA"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-05T16:05:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-08-05T16:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-05T16:30:00Z"^^xsd:dateTime ;
+    onto:detectedFromData abl:ObsBridge .
+
+abl:EvtOverlapB a onto:SpaceEvent ;
+    onto:hasEventID "ABL-EVT-OVB"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-05T16:20:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-08-05T16:15:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-05T16:45:00Z"^^xsd:dateTime ;
+    onto:detectedFromData abl:ObsBridge .

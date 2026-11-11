@@ -1,0 +1,199 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix onto:  <https://w3id.org/tc-sssao#> .
+
+#####################################################################
+# TC-SSSAO 正例测试数据
+#####################################################################
+
+# -------------------------------------------------
+# 1. GroundRadarSensor 自动归类测试
+# -------------------------------------------------
+onto:pos_sensor_ground_radar a onto:GroundBasedSensor , onto:RadarSensor ;
+    onto:hasSensorID "S-GR-01"^^xsd:string ;
+    onto:hasLocation "新疆喀什"^^xsd:string ;
+    onto:generatesData onto:pos_radar_obs .
+
+# -------------------------------------------------
+# 2. ArtificialSpaceObject 不自动归类为 Spacecraft
+# -------------------------------------------------
+onto:pos_payload a onto:Payload ;
+    onto:hasObjectID "P-001"^^xsd:string ;
+    onto:hasObjectName "TestPayload"^^xsd:string .
+
+# -------------------------------------------------
+# 3. ObservationData 不归类为 GeometricConstruct
+# -------------------------------------------------
+onto:pos_radar_obs a onto:RadarObservationData ;
+    onto:hasDataID "D-RAD-001"^^xsd:string ;
+    onto:hasErrorValue "0.5"^^xsd:float .
+
+# -------------------------------------------------
+# 4. ObservationEvent 不归类为 ObservationActivity 或 SSAData
+# -------------------------------------------------
+onto:pos_detection_event a onto:DetectionEvent ;
+    onto:hasEventID "E-DET-001"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-07-10T08:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-07-10T08:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T08:30:00Z"^^xsd:dateTime ;
+    onto:observedBySensor onto:pos_sensor_ground_radar ;
+    onto:involvesObject onto:pos_payload ;
+    onto:detectedFromData onto:pos_radar_obs .
+
+# -------------------------------------------------
+# 5. SecurityRisk 不归类为 SpaceEvent
+# -------------------------------------------------
+onto:pos_collision_risk a onto:CollisionRisk ;
+    onto:hasRiskDescription "碰撞风险（风险实体，非事件）：由外部评估给出的定性描述"^^xsd:string ;
+    onto:riskLeadsToState onto:pos_warning_state .
+
+# -------------------------------------------------
+# 6. SecurityThreat 不归类为 SecurityRisk
+# -------------------------------------------------
+onto:pos_physical_threat a onto:PhysicalThreat ;
+    onto:hasThreatID "T-PHY-001"^^xsd:string ;
+    onto:requiresResponseMeasure onto:pos_avoidance_measure ;
+    onto:threatMitigatedBy onto:pos_avoidance_measure ;
+    onto:producesRisk onto:pos_collision_risk .
+
+# -------------------------------------------------
+# 7. 正确的事件先后关系
+# -------------------------------------------------
+onto:pos_event_maneuver a onto:OrbitManeuverEvent ;
+    onto:hasEventID "E-MAN-001"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-07-10T09:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-07-10T09:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T09:15:00Z"^^xsd:dateTime ;
+    onto:involvesObject onto:pos_payload ;
+    onto:detectedFromData onto:pos_radar_obs .
+
+onto:pos_event_approach a onto:ApproachEvent ;
+    onto:hasEventID "E-APP-001"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-07-10T10:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-07-10T10:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T10:30:00Z"^^xsd:dateTime ;
+    onto:hasRelativeDistance "0.5"^^xsd:float ;
+    onto:precedesEvent onto:pos_event_collision_risk ;
+    onto:involvesObject onto:pos_payload ;
+    onto:detectedFromData onto:pos_radar_obs .
+
+onto:pos_event_collision_risk a onto:CollisionRiskEvent ;
+    onto:hasEventID "E-CR-001"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-07-10T11:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-07-10T11:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T11:30:00Z"^^xsd:dateTime ;
+    onto:hasRiskValue "0.85"^^xsd:float ;
+    onto:hasCollisionProbability "0.85"^^xsd:float ;
+    onto:hasPredictedMissDistance "0.2"^^xsd:float ;
+    onto:detectedFromData onto:pos_radar_obs .
+
+
+# -------------------------------------------------
+# 7b. R2 真实区间重叠正例（14:00--15:00 与 14:30--15:30）
+# -------------------------------------------------
+onto:pos_r2_overlap_a a onto:SpaceEvent ;
+    onto:hasEventID "E-R2-OVERLAP-A"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-07-10T14:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-07-10T14:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T15:00:00Z"^^xsd:dateTime ;
+    onto:detectedFromData onto:pos_radar_obs .
+
+onto:pos_r2_overlap_b a onto:SpaceEvent ;
+    onto:hasEventID "E-R2-OVERLAP-B"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-07-10T14:30:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-07-10T14:30:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T15:30:00Z"^^xsd:dateTime ;
+    onto:detectedFromData onto:pos_radar_obs .
+
+# -------------------------------------------------
+# 8. 正确的 CausalAssertion
+# -------------------------------------------------
+onto:pos_causal_assertion a onto:CausalAssertion ;
+    onto:hasCause onto:pos_event_maneuver ;
+    onto:hasEffect onto:pos_event_approach ;
+    onto:hasCausalEvidence onto:pos_radar_obs ;
+    onto:hasCausalConfidence "0.9"^^xsd:float .
+
+# -------------------------------------------------
+# 9. MultiCauseAssertion 至少两个原因
+# -------------------------------------------------
+onto:pos_multicause_assertion a onto:MultiCauseAssertion ;
+    onto:hasCause onto:pos_event_maneuver ;
+    onto:hasCause onto:pos_event_approach ;
+    onto:hasEffect onto:pos_event_collision_risk ;
+    onto:hasCausalEvidence onto:pos_radar_obs ;
+    onto:hasCausalConfidence "0.8"^^xsd:float .
+
+# -------------------------------------------------
+# 10. 正确的 StateTransition
+# -------------------------------------------------
+onto:pos_normal_state a onto:NormalSituationState ;
+    onto:hasStateID "S-NOR-001"^^xsd:string ;
+    onto:hasStateConfidence "0.95"^^xsd:float .
+
+onto:pos_warning_state a onto:WarningSituationState ;
+    onto:hasStateID "S-WAR-001"^^xsd:string ;
+    onto:hasStateConfidence "0.8"^^xsd:float .
+
+onto:pos_state_transition a onto:StateTransition ;
+    onto:hasSourceState onto:pos_normal_state ;
+    onto:hasTargetState onto:pos_warning_state ;
+    onto:triggeredByEvent onto:pos_event_collision_risk .
+
+# -------------------------------------------------
+# 11. R13 仅 detectedFromData 正例
+# -------------------------------------------------
+onto:pos_detected_only_event a onto:SpaceEvent ;
+    onto:hasEventID "E-R13-DET"^^xsd:string ;
+    onto:hasStartTime "2026-07-10T12:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T12:30:00Z"^^xsd:dateTime ;
+    onto:detectedFromData onto:pos_radar_obs .
+
+# -------------------------------------------------
+# 12. R13 仅 supportedByData 正例
+# -------------------------------------------------
+onto:pos_supported_only_event a onto:SpaceEvent ;
+    onto:hasEventID "E-R13-SUP"^^xsd:string ;
+    onto:hasStartTime "2026-07-10T13:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T13:30:00Z"^^xsd:dateTime ;
+    onto:supportedByData onto:pos_radar_obs .
+
+# -------------------------------------------------
+# 13. 正确的风险—威胁—响应链
+# -------------------------------------------------
+onto:pos_avoidance_measure a onto:AvoidanceMeasure ;
+    onto:hasMeasureID "M-AVD-001"^^xsd:string ;
+    onto:respondsToThreat onto:pos_physical_threat ;
+    onto:respondsToEvent onto:pos_event_collision_risk .
+
+# -------------------------------------------------
+# 14. 正确的事件观测证据
+# -------------------------------------------------
+onto:pos_orbit a onto:LowEarthOrbit ;
+    onto:hasOrbitType "LEO"^^xsd:string ;
+    onto:hasSemiMajorAxis "6800.0"^^xsd:float .
+
+onto:pos_payload onto:hasOrbit onto:pos_orbit .
+
+onto:pos_obs_system a onto:ObservationSystem ;
+    onto:hasLocation "地面站 A"^^xsd:string ;
+    onto:generatesData onto:pos_radar_obs .
+
+# -------------------------------------------------
+# 15. R18 合法环境等级正例
+# -------------------------------------------------
+onto:pos_environment_normal a onto:SpaceEnvironment ;
+    onto:hasEnvironmentLevel "正常" .
+
+onto:pos_environment_abnormal a onto:SpaceEnvironment ;
+    onto:hasEnvironmentLevel "异常" .
+
+# -------------------------------------------------
+# 16. M3 第一阶段：无 hasCausalConfidence 的合法 CausalAssertion
+#     （因果置信度为可选元数据，来源未给出定量置信度时不强制赋值）
+# -------------------------------------------------
+onto:pos_causal_assertion_no_conf a onto:CausalAssertion ;
+    onto:hasCause onto:pos_event_maneuver ;
+    onto:hasEffect onto:pos_event_collision_risk ;
+    onto:hasCausalEvidence onto:pos_radar_obs .

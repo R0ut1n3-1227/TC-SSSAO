@@ -1,0 +1,64 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix onto:    <https://w3id.org/tc-sssao#> .
+
+#####################################################################
+# TC-SSSAO StateTransition Integrity Shape
+#
+# 验证目标：StateTransition 实例的结构完整性
+#   - hasSourceState  minCount 1, maxCount 1
+#   - hasTargetState  minCount 1, maxCount 1
+#   - triggeredByEvent minCount 1
+#
+# 与 OWL 公理对应（Manchester Syntax）：
+#   StateTransition subClassOf (hasSourceState exactly 1 SituationState)
+#   StateTransition subClassOf (hasTargetState exactly 1 SituationState)
+#   StateTransition subClassOf (triggeredByEvent min 1 SpaceEvent)
+#
+# 说明：
+#   - 源状态和目标状态均唯一确定（exactly 1）
+#   - 触发事件至少一个（可能由多个事件联合触发状态变化）
+#####################################################################
+
+<https://w3id.org/tc-sssao/shapes/StateTransitionIntegrity>
+    a owl:Ontology ;
+    owl:versionInfo "1.0.0" ;
+    rdfs:comment "StateTransition 完整性约束：hasSourceState =1、hasTargetState =1、triggeredByEvent ≥1"@zh .
+
+onto:StateTransitionIntegrityShape a sh:NodeShape ;
+    sh:targetClass onto:StateTransition ;
+    rdfs:comment "状态转移必须恰好有一个源状态、一个目标状态、至少一个触发事件"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "StateTransition" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "每个状态转移恰好包含一个源状态、一个目标状态、至少一个触发事件" ;
+
+    # hasSourceState: 恰好 1 个源状态
+    sh:property [
+        sh:path onto:hasSourceState ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class onto:SituationState ;
+        sh:message "状态转移缺少源状态（hasSourceState）或源状态不唯一"@zh
+    ] ;
+
+    # hasTargetState: 恰好 1 个目标状态
+    sh:property [
+        sh:path onto:hasTargetState ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class onto:SituationState ;
+        sh:message "状态转移缺少目标状态（hasTargetState）或目标状态不唯一"@zh
+    ] ;
+
+    # triggeredByEvent: 至少 1 个触发事件
+    sh:property [
+        sh:path onto:triggeredByEvent ;
+        sh:minCount 1 ;
+        sh:class onto:SpaceEvent ;
+        sh:message "状态转移缺少触发事件（triggeredByEvent）"@zh
+    ] .

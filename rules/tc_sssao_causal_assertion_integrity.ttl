@@ -1,0 +1,64 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix onto:    <https://w3id.org/tc-sssao#> .
+
+#####################################################################
+# TC-SSSAO CausalAssertion Integrity Shape
+#
+# 验证目标：CausalAssertion 实例的结构完整性
+#   - hasCause       minCount 1（联合因果允许多原因，min 1 即可）
+#   - hasEffect      minCount 1, maxCount 1
+#   - hasCausalEvidence minCount 1
+#
+# 与 OWL 公理对应（Manchester Syntax）：
+#   CausalAssertion subClassOf (hasCause min 1 SpaceEvent)
+#   CausalAssertion subClassOf (hasEffect exactly 1 SpaceEvent)
+#   CausalAssertion subClassOf (hasCausalEvidence min 1 SSAData)
+#
+# 补充说明：
+#   - hasCause 无 maxCount 限制，因为 MultiCauseAssertion 可关联多个原因
+#   - hasEffect 有 maxCount 1 限制，每个因果断言的结果事件唯一
+#   - hasCausalEvidence 无 maxCount 限制，允许同一因果断言引用多条证据
+#####################################################################
+
+<https://w3id.org/tc-sssao/shapes/CausalAssertionIntegrity>
+    a owl:Ontology ;
+    owl:versionInfo "1.0.0" ;
+    rdfs:comment "CausalAssertion 完整性约束：hasCause ≥1、hasEffect =1、hasCausalEvidence ≥1"@zh .
+
+onto:CausalAssertionIntegrityShape a sh:NodeShape ;
+    sh:targetClass onto:CausalAssertion ;
+    rdfs:comment "CausalAssertion 必须至少有一个原因事件、恰好一个结果事件、至少一条因果证据"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "CausalAssertion" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "每个因果断言至少包含一个原因事件、恰好一个结果事件、至少一条因果证据" ;
+
+    # hasCause: 至少 1 个原因事件（联合因果允许多原因，无上限）
+    sh:property [
+        sh:path onto:hasCause ;
+        sh:minCount 1 ;
+        sh:class onto:SpaceEvent ;
+        sh:message "因果断言缺少原因事件（hasCause）"@zh
+    ] ;
+
+    # hasEffect: 恰好 1 个结果事件
+    sh:property [
+        sh:path onto:hasEffect ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class onto:SpaceEvent ;
+        sh:message "因果断言的结果事件（hasEffect）必须恰好一个"@zh
+    ] ;
+
+    # hasCausalEvidence: 至少 1 条因果证据
+    sh:property [
+        sh:path onto:hasCausalEvidence ;
+        sh:minCount 1 ;
+        sh:class onto:SSAData ;
+        sh:message "因果断言缺少因果证据（hasCausalEvidence）"@zh
+    ] .

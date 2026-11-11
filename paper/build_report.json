@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "source": "TC-SSSAO.tex",
+  "pdf": "TC-SSSAO.pdf",
+  "pages": 29,
+  "pdflatex_passes": 3,
+  "undefined_citations": 0,
+  "undefined_references": 0,
+  "overfull_hbox": 0,
+  "underfull_vbox": 0,
+  "missing_figures": 0
+}

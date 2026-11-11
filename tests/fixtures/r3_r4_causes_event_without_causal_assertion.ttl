@@ -1,0 +1,47 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix onto:  <https://w3id.org/tc-sssao#> .
+
+# CausalAssertion Dual Representation Test:
+# R3/R4 direct causesEvent without CausalAssertion
+# Should PASS - causesEvent is directly asserted
+onto:Config a onto:RuleDeploymentConfiguration ;
+    onto:attentionPcThreshold "1.0E-7"^^xsd:float ;
+    onto:mitigationPcThreshold "1.0E-4"^^xsd:float .
+
+onto:SatA a onto:Spacecraft .
+onto:SatB a onto:Spacecraft .
+
+onto:Obs1 a onto:RadarObservationData .
+onto:Obs2 a onto:RadarObservationData .
+
+# ApproachEvent at 10:00
+onto:Approach a onto:ApproachEvent ;
+    onto:hasEventID "APP"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-01T10:00:00Z"^^xsd:dateTime ;
+    onto:hasRelativeDistance "0.8"^^xsd:float ;
+    onto:hasPrimaryObject onto:SatA ;
+    onto:hasSecondaryObject onto:SatB ;
+    onto:hasStartTime "2026-08-01T10:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-01T10:30:00Z"^^xsd:dateTime ;
+    onto:detectedFromData onto:Obs1 ;
+    onto:involvesObject onto:SatA , onto:SatB .
+
+# CollisionRiskEvent at 11:00 - directly causesEvent without CausalAssertion
+onto:Risk a onto:CollisionRiskEvent ;
+    onto:hasEventID "RISK"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-01T11:00:00Z"^^xsd:dateTime ;
+    onto:hasCollisionProbability "5.0E-6"^^xsd:float ;
+    onto:hasPredictedMissDistance "0.5"^^xsd:float ;
+    onto:hasCombinedHardBodyRadius "0.01"^^xsd:float ;
+    onto:hasPrimaryObject onto:SatA ;
+    onto:hasSecondaryObject onto:SatB ;
+    onto:hasStartTime "2026-08-01T11:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-01T11:30:00Z"^^xsd:dateTime ;
+    onto:causesEvent onto:Risk ;
+    onto:supportedByData onto:Obs2 ;
+    onto:involvesObject onto:SatA , onto:SatB .
+
+# R4 inference: Approach causes Risk (same pair, precedes, both have evidence)
+onto:Approach onto:precedesEvent onto:Risk .

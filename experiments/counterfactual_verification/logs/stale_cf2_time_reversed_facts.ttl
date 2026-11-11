@@ -1,0 +1,168 @@
+@prefix onto: <https://w3id.org/tc-sssao#> .
+@prefix rs:   <https://w3id.org/tc-sssao/data/rule-scenario#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# ============================================================
+# CF-2 反事实副本：时间方向反转（独立反事实测试图）
+#
+# 来源：experiments/rule_logic_verification/data/scenario_facts.ttl 的完整副本。
+# 唯一干预（单变量）：互换 rs:Evt_Maneuver 与 rs:Evt_Approach 的时间区间，
+# 使事件顺序由 Evt_Maneuver < Evt_Approach 反转为 Evt_Approach < Evt_Maneuver：
+#     Evt_Maneuver：09:00–09:10 → 10:00–10:10（发生时间 10:00，持续 10 分钟不变）
+#     Evt_Approach：10:00–10:20 → 09:00–09:20（发生时间 09:00，持续 20 分钟不变）
+# 共修改 6 个时间三元组（每事件 hasOccurrenceTime/hasStartTime/hasEndTime 各 1）。
+# 修改后每事件仍满足 start ≤ end，无非法日期；两事件持续时间均未改变。
+#
+# 未修改：事件实例、事件类型、对象、对象角色、观测/评估证据链接、
+# 四个风险快照及全部其他事实（与原场景逐三元组一致，
+# 由 run_counterfactual_experiments.py 在运行时校验差异集合）。
+#
+# 本文件不是正式实验数据，仅为反事实验证副本；正式场景文件未改动。
+# 推理前不含 precedesEvent / causesEvent / leadsToState / transitsTo /
+# degradesTo / overlapsWithEvent 等任何派生三元组（未推理干净状态）。
+# ============================================================
+
+# ---------- 空间目标与轨道 ----------
+rs:TestSat_A
+    a onto:Spacecraft ;
+    onto:hasObjectID "RS-SAT-A"^^xsd:string ;
+    onto:hasObjectName "RuleScenarioSatA"^^xsd:string ;
+    onto:hasOrbit rs:Orbit_A .
+
+rs:Orbit_A
+    a onto:LowEarthOrbit ;
+    onto:hasOrbitType "LEO"^^xsd:string ;
+    onto:hasSemiMajorAxis "6900.0"^^xsd:float .
+
+rs:TestSat_B
+    a onto:Spacecraft ;
+    onto:hasObjectID "RS-SAT-B"^^xsd:string ;
+    onto:hasObjectName "RuleScenarioSatB"^^xsd:string ;
+    onto:hasOrbit rs:Orbit_B .
+
+rs:Orbit_B
+    a onto:LowEarthOrbit ;
+    onto:hasOrbitType "LEO"^^xsd:string ;
+    onto:hasSemiMajorAxis "6920.0"^^xsd:float .
+
+# ---------- 观测系统与观测数据 ----------
+rs:TestRadar
+    a onto:RadarSensor ;
+    onto:hasSensorID "RS-GR-01"^^xsd:string ;
+    onto:generatesData rs:TestObsData .
+
+rs:TestObsData
+    a onto:RadarObservationData ;
+    onto:hasDataID "RS-DATA-01"^^xsd:string ;
+    onto:hasErrorValue "0.1"^^xsd:float .
+
+# 评估数据：外部交会风险评估给出的评估证据（R5—R8 的 Ev_assess 证据条件）
+rs:TestAssessmentData
+    a onto:AssessmentData ;
+    onto:hasDataID "RS-DATA-02"^^xsd:string ;
+    onto:hasDataSource "外部风险评估（人工构造示例）"^^xsd:string .
+
+# 预测数据：外部交会预测给出的预测证据（R5—R8 的 Ev_assess 证据条件）
+rs:TestPredictionData
+    a onto:PredictionData ;
+    onto:hasDataID "RS-DATA-03"^^xsd:string ;
+    onto:hasDataSource "外部交会预测（人工构造示例）"^^xsd:string .
+
+# ---------- 空间事件 ----------
+# 轨道机动事件：作用于目标A（affectsObject）
+# 【CF-2 干预点】时间区间由原 09:00–09:10 移至 10:00–10:10（持续 10 分钟不变），
+# 其余属性与原场景一致。
+rs:Evt_Maneuver
+    a onto:OrbitManeuverEvent ;
+    onto:hasEventID "RS-EVT-MAN"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-01T10:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-08-01T10:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-01T10:10:00Z"^^xsd:dateTime ;
+    onto:affectsObject rs:TestSat_A ;
+    onto:involvesObject rs:TestSat_A ;
+    onto:detectedFromData rs:TestObsData .
+
+# 接近事件：主要目标A、次要目标B（交会目标对），相对距离0.8 km
+# 【CF-2 干预点】时间区间由原 10:00–10:20 移至 09:00–09:20（持续 20 分钟不变），
+# 其余属性与原场景一致。
+rs:Evt_Approach
+    a onto:ApproachEvent ;
+    onto:hasEventID "RS-EVT-APP"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-01T09:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-08-01T09:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-01T09:20:00Z"^^xsd:dateTime ;
+    onto:hasPrimaryObject rs:TestSat_A ;
+    onto:hasSecondaryObject rs:TestSat_B ;
+    onto:involvesObject rs:TestSat_A , rs:TestSat_B ;
+    onto:hasRelativeDistance "0.8"^^xsd:float ;
+    onto:detectedFromData rs:TestObsData .
+
+# ---------- 同一交会目标对的四个连续风险评估快照 ----------
+# 均为 CollisionRiskEvent，主要目标A、次要目标B（与接近事件同一交会目标对）；
+# 均同时具备观测数据（detectedFromData，供 R4 证据条件）与评估/预测数据
+# （supportedByData，供 R5—R8 的 Ev_assess 证据条件）；
+# Pc / missDistance / combinedHBR 数值只是人工测试输入。
+
+# Risk_T0：11:00，Pc=5E-8 ≤ θ_A，miss=0.500 km ≥ HBR → Normal（严重度 0）
+rs:Risk_T0
+    a onto:CollisionRiskEvent ;
+    onto:hasEventID "RS-EVT-CRK-T0"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-01T11:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-08-01T11:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-01T11:30:00Z"^^xsd:dateTime ;
+    onto:involvesObject rs:TestSat_A , rs:TestSat_B ;
+    onto:hasPrimaryObject rs:TestSat_A ;
+    onto:hasSecondaryObject rs:TestSat_B ;
+    onto:hasCollisionProbability "5.0E-8"^^xsd:float ;
+    onto:hasPredictedMissDistance "0.500"^^xsd:float ;
+    onto:hasCombinedHardBodyRadius "0.010"^^xsd:float ;
+    onto:detectedFromData rs:TestObsData ;
+    onto:supportedByData rs:TestAssessmentData .
+
+# Risk_T1：12:00，θ_A < Pc=5E-6 ≤ θ_M，miss=0.300 km ≥ HBR → Attention（严重度 1）
+rs:Risk_T1
+    a onto:CollisionRiskEvent ;
+    onto:hasEventID "RS-EVT-CRK-T1"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-01T12:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-08-01T12:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-01T12:30:00Z"^^xsd:dateTime ;
+    onto:involvesObject rs:TestSat_A , rs:TestSat_B ;
+    onto:hasPrimaryObject rs:TestSat_A ;
+    onto:hasSecondaryObject rs:TestSat_B ;
+    onto:hasCollisionProbability "5.0E-6"^^xsd:float ;
+    onto:hasPredictedMissDistance "0.300"^^xsd:float ;
+    onto:hasCombinedHardBodyRadius "0.010"^^xsd:float ;
+    onto:detectedFromData rs:TestObsData ;
+    onto:supportedByData rs:TestAssessmentData .
+
+# Risk_T2：13:00，Pc=2E-4 > θ_M，miss=0.050 km ≥ HBR → Warning（严重度 2）
+rs:Risk_T2
+    a onto:CollisionRiskEvent ;
+    onto:hasEventID "RS-EVT-CRK-T2"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-01T13:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-08-01T13:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-01T13:30:00Z"^^xsd:dateTime ;
+    onto:involvesObject rs:TestSat_A , rs:TestSat_B ;
+    onto:hasPrimaryObject rs:TestSat_A ;
+    onto:hasSecondaryObject rs:TestSat_B ;
+    onto:hasCollisionProbability "2.0E-4"^^xsd:float ;
+    onto:hasPredictedMissDistance "0.050"^^xsd:float ;
+    onto:hasCombinedHardBodyRadius "0.010"^^xsd:float ;
+    onto:detectedFromData rs:TestObsData ;
+    onto:supportedByData rs:TestPredictionData .
+
+# Risk_T3：14:00，Pc=2E-4 > θ_M，miss=0.005 km < HBR → Dangerous（严重度 3）
+rs:Risk_T3
+    a onto:CollisionRiskEvent ;
+    onto:hasEventID "RS-EVT-CRK-T3"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-01T14:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-08-01T14:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-01T14:30:00Z"^^xsd:dateTime ;
+    onto:involvesObject rs:TestSat_A , rs:TestSat_B ;
+    onto:hasPrimaryObject rs:TestSat_A ;
+    onto:hasSecondaryObject rs:TestSat_B ;
+    onto:hasCollisionProbability "2.0E-4"^^xsd:float ;
+    onto:hasPredictedMissDistance "0.005"^^xsd:float ;
+    onto:hasCombinedHardBodyRadius "0.010"^^xsd:float ;
+    onto:detectedFromData rs:TestObsData ;
+    onto:supportedByData rs:TestPredictionData .

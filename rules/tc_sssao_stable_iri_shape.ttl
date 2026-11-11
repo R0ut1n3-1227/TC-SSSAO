@@ -1,0 +1,67 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix onto:    <https://w3id.org/tc-sssao#> .
+
+#####################################################################
+# TC-SSSAO Stable IRI Shape
+#
+# 验证目标：CollisionRiskEvent 和 DebrisRiskEvent
+#   - 节点必须为 IRI（禁止空白节点）
+#
+# 背景说明（论文第 3.4.3 节 B3 / 第 3.5.3 节 R5—R8）：
+#   - R5—R8 使用碰撞风险事件 IRI 的 LCASE(SHA256) 哈希构造派生态势 IRI：
+#       derived_{level}_state_{LCASE(SHA256(STR(e)))}
+#   - B4 使用碎片风险事件 IRI 的 LCASE(SHA256) 哈希构造派生威胁/风险 IRI：
+#       derived_physical_threat_{LCASE(SHA256(STR(e)))}
+#       derived_debris_risk_{LCASE(SHA256(STR(e)))}
+#   - 派生实例 IRI 的确定性构造依赖输入事件 IRI 的字符串表示；
+#     若输入事件为空白节点，则无法构造稳定可复现的派生 IRI，
+#     导致规则重复执行时无法保证幂等收敛。
+#   - 本约束确保 R5—R8 和 B4 的输入实例具有稳定可复现的 IRI。
+#####################################################################
+
+<https://w3id.org/tc-sssao/shapes/StableIRIShape>
+    a owl:Ontology ;
+    owl:versionInfo "1.0.0" ;
+    rdfs:comment "CollisionRiskEvent 和 DebrisRiskEvent 必须使用 IRI，不允许空白节点"@zh .
+
+# ============================================================
+# CollisionRiskEvent IRI 约束
+# ============================================================
+
+onto:CollisionRiskEventStableIRIShape a sh:NodeShape ;
+    sh:targetClass onto:CollisionRiskEvent ;
+    sh:nodeKind sh:IRI ;
+    rdfs:comment "碰撞风险事件必须使用 IRI 标识，不允许空白节点（确保 R5—R8 派生态势 IRI 的确定性构造）"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "CollisionRiskEvent" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "碰撞风险事件必须使用 IRI，不允许空白节点" ;
+    sh:property [
+        sh:path rdf:type ;
+        sh:minCount 1 ;
+        sh:message "碰撞风险事件不允许使用空白节点（必须具有 IRI）"@zh
+    ] .
+
+# ============================================================
+# DebrisRiskEvent IRI 约束
+# ============================================================
+
+onto:DebrisRiskEventStableIRIShape a sh:NodeShape ;
+    sh:targetClass onto:DebrisRiskEvent ;
+    sh:nodeKind sh:IRI ;
+    rdfs:comment "碎片风险事件必须使用 IRI 标识，不允许空白节点（确保 B4 派生威胁/风险 IRI 的确定性构造）"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "DebrisRiskEvent" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "碎片风险事件必须使用 IRI，不允许空白节点" ;
+    sh:property [
+        sh:path rdf:type ;
+        sh:minCount 1 ;
+        sh:message "碎片风险事件不允许使用空白节点（必须具有 IRI）"@zh
+    ] .

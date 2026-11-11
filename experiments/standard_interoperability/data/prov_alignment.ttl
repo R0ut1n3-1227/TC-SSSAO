@@ -1,0 +1,21 @@
+@prefix onto: <https://w3id.org/tc-sssao#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+# T3 PROV-O 对齐测试数据（合成测试实例，非案例事实）
+# 验证：SSAData⊑prov:Entity、SSAActivity⊑prov:Activity、DataProvider⊑prov:Agent、
+#       generatedByActivity⊑prov:wasGeneratedBy、CausalAssertion⊑prov:Entity、
+#       hasCausalEvidence⊑prov:wasDerivedFrom。
+# 同时展示实例级标准溯源模式：数据 — prov:wasAttributedTo → DataProvider
+# （替代把字面量属性 hasDataSource 错误映射到 prov:wasAttributedTo 的做法）。
+
+onto:InteropProvider a onto:DataProvider .
+
+onto:InteropActivity a onto:ObservationActivity .
+
+onto:InteropData a onto:TrackingData ;
+    onto:generatedByActivity onto:InteropActivity ;
+    prov:wasAttributedTo onto:InteropProvider ;
+    onto:hasDataSource "Synthetic test provider (human-readable label)" .
+
+onto:InteropAssertion a onto:DirectCausalAssertion ;
+    onto:hasCausalEvidence onto:InteropData .

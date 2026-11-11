@@ -1,0 +1,122 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix onto:    <https://w3id.org/tc-sssao#> .
+
+#####################################################################
+# TC-SSSAO Spatial Pair Shape
+#
+# 验证目标：ApproachEvent 和 CollisionRiskEvent
+#   - hasPrimaryObject   minCount 1, maxCount 1, nodeKind IRI
+#   - hasSecondaryObject minCount 1, maxCount 1, nodeKind IRI
+#   - SPARQL 约束：primary != secondary（主次目标不能相同）
+#
+# 背景说明（论文第 3.3.2 节）：
+#   - hasPrimaryObject 表示交会对象对中的主要目标
+#   - hasSecondaryObject 表示交会对象对中的次要目标
+#   - R3/R4/B3 依赖主次目标角色匹配进行规则判断
+#   - 主次目标必须互异（同一目标不能同时担任两个角色）
+#####################################################################
+
+<https://w3id.org/tc-sssao/shapes/SpatialPairShape>
+    a owl:Ontology ;
+    owl:versionInfo "1.0.0" ;
+    rdfs:comment "ApproachEvent 与 CollisionRiskEvent 的主次对象完整性约束及互异约束"@zh .
+
+# ============================================================
+# ApproachEvent 主次对象约束
+# ============================================================
+
+onto:ApproachEventSpatialPairShape a sh:NodeShape ;
+    sh:targetClass onto:ApproachEvent ;
+    rdfs:comment "接近事件必须恰好有一个主要目标和一个次要目标，且二者不能相同"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "ApproachEvent" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "接近事件的主次对象必须存在且互异" ;
+
+    # hasPrimaryObject: 恰好 1 个，必须为 IRI（不能是空白节点）
+    sh:property [
+        sh:path onto:hasPrimaryObject ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class onto:SpaceObject ;
+        sh:message "接近事件的主要目标（hasPrimaryObject）必须恰好一个且为 IRI"@zh
+    ] ;
+
+    # hasSecondaryObject: 恰好 1 个，必须为 IRI
+    sh:property [
+        sh:path onto:hasSecondaryObject ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class onto:SpaceObject ;
+        sh:message "接近事件的次要目标（hasSecondaryObject）必须恰好一个且为 IRI"@zh
+    ] ;
+
+    # SPARQL 约束：主次目标不能相同
+    sh:sparql [
+        sh:select """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            SELECT $this
+            WHERE {
+                $this a onto:ApproachEvent ;
+                        onto:hasPrimaryObject ?po ;
+                        onto:hasSecondaryObject ?so .
+                FILTER (?po = ?so)
+            }
+        """ ;
+        sh:message "接近事件的主要目标与次要目标不能相同"@zh
+    ] .
+
+# ============================================================
+# CollisionRiskEvent 主次对象约束
+# ============================================================
+
+onto:CollisionRiskEventSpatialPairShape a sh:NodeShape ;
+    sh:targetClass onto:CollisionRiskEvent ;
+    rdfs:comment "碰撞风险事件必须恰好有一个主要目标和一个次要目标，且二者不能相同"@zh ;
+    onto:ruleCategory "StructuralRestriction" ;
+    onto:ruleModule "DataValidation" ;
+    onto:targetClass "CollisionRiskEvent" ;
+    onto:validationSeverity "violation" ;
+    onto:naturalLanguageRule "碰撞风险事件的主次对象必须存在且互异" ;
+
+    # hasPrimaryObject: 恰好 1 个，必须为 IRI
+    sh:property [
+        sh:path onto:hasPrimaryObject ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class onto:SpaceObject ;
+        sh:message "碰撞风险事件的主要目标（hasPrimaryObject）必须恰好一个且为 IRI"@zh
+    ] ;
+
+    # hasSecondaryObject: 恰好 1 个，必须为 IRI
+    sh:property [
+        sh:path onto:hasSecondaryObject ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class onto:SpaceObject ;
+        sh:message "碰撞风险事件的次要目标（hasSecondaryObject）必须恰好一个且为 IRI"@zh
+    ] ;
+
+    # SPARQL 约束：主次目标不能相同
+    sh:sparql [
+        sh:select """
+            PREFIX onto: <https://w3id.org/tc-sssao#>
+            SELECT $this
+            WHERE {
+                $this a onto:CollisionRiskEvent ;
+                        onto:hasPrimaryObject ?po ;
+                        onto:hasSecondaryObject ?so .
+                FILTER (?po = ?so)
+            }
+        """ ;
+        sh:message "碰撞风险事件的主要目标与次要目标不能相同"@zh
+    ] .

@@ -1,0 +1,189 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix onto:  <https://w3id.org/tc-sssao#> .
+
+#####################################################################
+# TC-SSSAO 负例测试数据：每个实例专门触发一个预期 Shape
+#####################################################################
+
+# 通用证据数据
+onto:neg_data_evidence a onto:RadarObservationData ;
+    onto:hasDataID "D-NEG-001"^^xsd:string ;
+    onto:hasErrorValue "0.3"^^xsd:float .
+
+# R15 独立负例：响应措施缺少 respondsToEvent
+onto:neg_measure_no_event a onto:AvoidanceMeasure ;
+    onto:hasMeasureID "M-NEG-R15"^^xsd:string .
+
+# 供其他负例引用的合法响应措施，避免与R15混淆
+onto:neg_measure_valid a onto:AvoidanceMeasure ;
+    onto:hasMeasureID "M-NEG-VALID"^^xsd:string ;
+    onto:respondsToEvent onto:neg_event_bad_time .
+
+# 1. 事件开始时间晚于结束时间 —> EventStartEndTimeShape
+onto:neg_event_bad_time a onto:SpaceEvent ;
+    onto:hasEventID "E-BAD-TIME"^^xsd:string ;
+    onto:hasStartTime "2026-07-10T12:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T11:00:00Z"^^xsd:dateTime ;
+    onto:detectedFromData onto:neg_data_evidence .
+
+# 2. 状态开始时间晚于结束时间 —> StateStartEndTimeShape
+onto:neg_state_bad_time a onto:SituationState ;
+    onto:hasStateID "S-BAD-TIME"^^xsd:string ;
+    onto:hasStateStartTime "2026-07-10T14:00:00Z"^^xsd:dateTime ;
+    onto:hasStateEndTime "2026-07-10T13:00:00Z"^^xsd:dateTime ;
+    onto:hasStateConfidence "0.5"^^xsd:float .
+
+# 3. 原因事件时间晚于结果事件 —> CauseBeforeEffectShape
+onto:neg_event_late_cause a onto:SpaceEvent ;
+    onto:hasEventID "E-LATE-CAUSE"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-07-10T15:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-07-10T15:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T15:30:00Z"^^xsd:dateTime ;
+    onto:detectedFromData onto:neg_data_evidence .
+
+onto:neg_event_early_effect a onto:SpaceEvent ;
+    onto:hasEventID "E-EARLY-EFFECT"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-07-10T14:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-07-10T14:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T14:30:00Z"^^xsd:dateTime ;
+    onto:detectedFromData onto:neg_data_evidence .
+
+onto:neg_causal_bad_time a onto:CausalAssertion ;
+    onto:hasCause onto:neg_event_late_cause ;
+    onto:hasEffect onto:neg_event_early_effect ;
+    onto:hasCausalEvidence onto:neg_data_evidence ;
+    onto:hasCausalConfidence "0.7"^^xsd:float .
+
+# 4. 因果链形成闭环 —> CausalCycleShape（同时触发 R10 CausalDirectionShape）
+onto:neg_cycle_a a onto:SpaceEvent ;
+    onto:hasEventID "E-CYCLE-A"^^xsd:string ;
+    onto:hasStartTime "2026-07-10T16:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T16:30:00Z"^^xsd:dateTime ;
+    onto:causesEvent onto:neg_cycle_b ;
+    onto:detectedFromData onto:neg_data_evidence .
+
+onto:neg_cycle_b a onto:SpaceEvent ;
+    onto:hasEventID "E-CYCLE-B"^^xsd:string ;
+    onto:hasStartTime "2026-07-10T17:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T17:30:00Z"^^xsd:dateTime ;
+    onto:causesEvent onto:neg_cycle_a ;
+    onto:detectedFromData onto:neg_data_evidence .
+
+# 5. 空间目标缺少轨道 —> SpaceObjectOrbitShape
+onto:neg_sat_no_orbit a onto:Satellite ;
+    onto:hasObjectID "SAT-NO-ORBIT"^^xsd:string .
+
+# 6. 空间事件没有数据证据 —> EventDataEvidenceShape
+onto:neg_event_no_evidence a onto:SpaceEvent ;
+    onto:hasEventID "E-NO-EVIDENCE"^^xsd:string ;
+    onto:hasStartTime "2026-07-10T18:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T18:30:00Z"^^xsd:dateTime .
+
+# 6b. R13 固定负例：两者均缺失 —> EventDataEvidenceShape
+onto:neg_event_without_evidence a onto:SpaceEvent ;
+    onto:hasEventID "E-R13-NEG"^^xsd:string ;
+    onto:hasStartTime "2026-07-10T19:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T19:30:00Z"^^xsd:dateTime .
+
+# 7. 因果置信度大于 1 —> CausalConfidenceRangeShape
+onto:neg_assertion_high_conf a onto:CausalAssertion ;
+    onto:hasCause onto:neg_event_late_cause ;
+    onto:hasEffect onto:neg_event_early_effect ;
+    onto:hasCausalEvidence onto:neg_data_evidence ;
+    onto:hasCausalConfidence "1.5"^^xsd:float .
+
+# 8. 状态置信度小于 0 —> StateConfidenceRangeShape
+onto:neg_state_low_conf a onto:SituationState ;
+    onto:hasStateID "S-LOW-CONF"^^xsd:string ;
+    onto:hasStateStartTime "2026-07-10T19:00:00Z"^^xsd:dateTime ;
+    onto:hasStateEndTime "2026-07-10T20:00:00Z"^^xsd:dateTime ;
+    onto:hasStateConfidence "-0.1"^^xsd:float .
+
+# 9. StateTransition 源状态等于目标状态 —> StateTransitionNoSelfLoopShape
+onto:neg_transition_loop a onto:StateTransition ;
+    onto:hasSourceState onto:neg_state_low_conf ;
+    onto:hasTargetState onto:neg_state_low_conf ;
+    onto:triggeredByEvent onto:neg_event_bad_time .
+
+# 10. 一个 Sensor 同时被声明为 RadarSensor 和 OpticalSensor —> SensorDisjointShape
+# 添加 generatesData 避免同时命中 R17
+onto:neg_sensor_conflict a onto:RadarSensor , onto:OpticalSensor ;
+    onto:hasSensorID "S-CONFLICT"^^xsd:string ;
+    onto:generatesData onto:neg_data_evidence .
+
+# 10b. R17 独立负例：Sensor 未生成 ObservationData
+onto:neg_sensor_without_data a onto:RadarSensor ;
+    onto:hasSensorID "S-NO-DATA"^^xsd:string .
+
+# 11. MultiCauseAssertion 只有一个原因 —> MultiCauseMinShape
+onto:neg_multicause_one a onto:MultiCauseAssertion ;
+    onto:hasCause onto:neg_event_late_cause ;
+    onto:hasEffect onto:neg_event_early_effect ;
+    onto:hasCausalEvidence onto:neg_data_evidence ;
+    onto:hasCausalConfidence "0.6"^^xsd:float .
+
+# 12. 观测系统缺少必要观测数据 —> ObservationSystemDataShape
+onto:neg_obs_system_no_data a onto:ObservationSystem ;
+    onto:hasLocation "无数据站"^^xsd:string .
+
+# 13. SecurityThreat 错误使用风险专属关系 —> ThreatRiskRelationMisuseShape
+onto:neg_threat_mitigated a onto:PhysicalThreat ;
+    onto:hasThreatID "T-MISUSE"^^xsd:string ;
+    onto:requiresResponseMeasure onto:neg_measure_valid ;
+    onto:mitigatedBy onto:neg_measure_valid .
+
+# 14. ObservationEvent 错误使用数据专属属性 —> ObservationEventDataPropertyMisuseShape
+onto:neg_event_foi a onto:ObservationEvent ;
+    onto:hasEventID "E-FOI-MISUSE"^^xsd:string ;
+    onto:hasStartTime "2026-07-10T21:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T21:30:00Z"^^xsd:dateTime ;
+    onto:hasFeatureOfInterest onto:neg_sat_no_orbit ;
+    onto:detectedFromData onto:neg_data_evidence .
+
+# 15. R10 独立负例：双向直接因果冲突 —> CausalDirectionShape（同时触发 CausalCycleShape）
+onto:neg_r10_a a onto:SpaceEvent ;
+    onto:hasEventID "E-R10-A"^^xsd:string ;
+    onto:hasStartTime "2026-07-10T22:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T22:30:00Z"^^xsd:dateTime ;
+    onto:causesEvent onto:neg_r10_b ;
+    onto:detectedFromData onto:neg_data_evidence .
+
+onto:neg_r10_b a onto:SpaceEvent ;
+    onto:hasEventID "E-R10-B"^^xsd:string ;
+    onto:hasStartTime "2026-07-10T23:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-10T23:30:00Z"^^xsd:dateTime ;
+    onto:causesEvent onto:neg_r10_a ;
+    onto:detectedFromData onto:neg_data_evidence .
+
+# 16. R18 环境等级非法取值 —> EnvironmentLevelShape
+onto:neg_environment_invalid a onto:SpaceEnvironment ;
+    onto:hasEnvironmentLevel "未知" .
+
+# 17. R12 独立负例：安全威胁缺少 requiresResponseMeasure —> SecurityThreatResponseShape
+onto:neg_threat_no_response a onto:PhysicalThreat ;
+    onto:hasThreatID "T-NEG-R12"^^xsd:string ;
+    onto:hasThreatType "test_threat"^^xsd:string .
+
+# 18. M3 第一阶段：同一断言记录两个因果置信度值 —> CausalConfidenceRangeShape（maxCount 1）
+# 使用专用事件，保证原因早于结果，避免叠加 R9/R10/R11 违规噪声
+onto:neg_event_two_conf_cause a onto:SpaceEvent ;
+    onto:hasEventID "E-TWO-CONF-CAUSE"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-07-11T10:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-07-11T10:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-11T10:30:00Z"^^xsd:dateTime ;
+    onto:detectedFromData onto:neg_data_evidence .
+
+onto:neg_event_two_conf_effect a onto:SpaceEvent ;
+    onto:hasEventID "E-TWO-CONF-EFFECT"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-07-11T11:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-07-11T11:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-07-11T11:30:00Z"^^xsd:dateTime ;
+    onto:detectedFromData onto:neg_data_evidence .
+
+onto:neg_assertion_two_conf a onto:CausalAssertion ;
+    onto:hasCause onto:neg_event_two_conf_cause ;
+    onto:hasEffect onto:neg_event_two_conf_effect ;
+    onto:hasCausalEvidence onto:neg_data_evidence ;
+    onto:hasCausalConfidence "0.3"^^xsd:float, "0.4"^^xsd:float .

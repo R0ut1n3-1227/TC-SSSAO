@@ -1,0 +1,40 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix onto: <https://w3id.org/tc-sssao#> .
+@prefix flt:  <https://w3id.org/tc-sssao/data/causal-fault-test#> .
+
+#####################################################################
+# M3 第二阶段：因果一致性故障注入 F2——双向直接因果冲突（合成）
+#
+# 同一对事件互指 causesEvent 且发生时间相同 → 主检测器 R10
+# （CausalDirectionShape）。
+#
+# 已确认的语义事实：双向互指同时构成 R11 属性路径 (causesEvent)+
+# 意义下长度为 2 的因果闭环，因此 R11 会一并标记两个节点——这是
+# 传递闭包语义的正确行为，R11 为本故障的附加检测器。
+#
+# 隔离设计：
+#   - 事件为 onto:SpaceEvent 直接实例，不触发 R3/R4/R5—R8/B3；
+#   - 两事件使用相同 hasOccurrenceTime，避免 R9 附带触发；
+#   - 事件携带 detectedFromData 证据，避免 R13 附带违规。
+# 本文件独立成图运行，不与 F1/F3 混入同一次检出结果。
+#####################################################################
+
+flt:FaultObsF2 a onto:RadarObservationData ;
+    onto:hasDataID "FLT-OBS-F2"^^xsd:string .
+
+flt:EvtPairA a onto:SpaceEvent ;
+    onto:hasEventID "FLT-EVT-PA"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-06T16:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-08-06T16:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-06T16:10:00Z"^^xsd:dateTime ;
+    onto:detectedFromData flt:FaultObsF2 ;
+    onto:causesEvent flt:EvtPairB .
+
+flt:EvtPairB a onto:SpaceEvent ;
+    onto:hasEventID "FLT-EVT-PB"^^xsd:string ;
+    onto:hasOccurrenceTime "2026-08-06T16:00:00Z"^^xsd:dateTime ;
+    onto:hasStartTime "2026-08-06T16:00:00Z"^^xsd:dateTime ;
+    onto:hasEndTime "2026-08-06T16:10:00Z"^^xsd:dateTime ;
+    onto:detectedFromData flt:FaultObsF2 ;
+    onto:causesEvent flt:EvtPairA .

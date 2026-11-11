@@ -1,0 +1,25 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix onto:  <https://w3id.org/tc-sssao#> .
+
+# P23: Valid severity ranks (0,1,2,3) -> should PASS
+onto:Config a onto:RuleDeploymentConfiguration ;
+    onto:attentionPcThreshold "1.0E-7"^^xsd:float ;
+    onto:mitigationPcThreshold "1.0E-4"^^xsd:float .
+
+onto:Normal a onto:NormalSituationState ;
+    onto:hasStateID "P23-Normal"^^xsd:string ;
+    onto:hasSeverityRank "0"^^xsd:integer .
+
+onto:Attention a onto:AttentionSituationState ;
+    onto:hasStateID "P23-Attention"^^xsd:string ;
+    onto:hasSeverityRank "1"^^xsd:integer .
+
+onto:Warning a onto:WarningSituationState ;
+    onto:hasStateID "P23-Warning"^^xsd:string ;
+    onto:hasSeverityRank "2"^^xsd:integer .
+
+onto:Dangerous a onto:DangerousSituationState ;
+    onto:hasStateID "P23-Dangerous"^^xsd:string ;
+    onto:hasSeverityRank "3"^^xsd:integer .

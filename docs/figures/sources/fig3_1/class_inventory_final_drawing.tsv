@@ -1,0 +1,41 @@
+module	class	direct_named_parent	display	hierarchy_handling	declared_in_main_owl
+Space Object / Orbit	SpaceObject	-	yes	top-level named class	True
+Space Object / Orbit	ArtificialSpaceObject	SpaceObject	yes	direct parent shown	True
+Space Object / Orbit	Spacecraft	ArtificialSpaceObject	yes	direct parent shown	True
+Space Object / Orbit	Satellite	Spacecraft	yes	direct parent shown	True
+Space Object / Orbit	RocketBody	ArtificialSpaceObject	yes	direct parent shown	True
+Space Object / Orbit	SpaceDebris	ArtificialSpaceObject	yes	direct parent shown	True
+Space Object / Orbit	Orbit	-	yes	top-level named class	True
+Space Object / Orbit	EarthOrbit	Orbit	yes	direct parent shown	True
+Observation System / Data	ObservationSystem	-	yes	top-level named class	True
+Observation System / Data	Sensor	ObservationSystem	yes	direct parent shown	True
+Observation System / Data	RadarSensor	Sensor	yes	direct parent shown	True
+Observation System / Data	OpticalSensor	Sensor	yes	direct parent shown	True
+Observation System / Data	InfraredSensor	Sensor	yes	direct parent shown	True
+Observation System / Data	SensorNetwork	ObservationSystem	yes	direct parent shown	True
+Observation System / Data	SSAData	-	yes	top-level named class	True
+Observation System / Data	ObservationData	SSAData	yes	direct parent shown	True
+Space Event / Temporal Relation	SpaceEvent	-	yes	top-level named class	True
+Space Event / Temporal Relation	ObjectBehaviorEvent	SpaceEvent	yes	direct parent shown	True
+Space Event / Temporal Relation	OrbitalEvent	SpaceEvent	yes	direct parent shown	True
+Space Event / Temporal Relation	SpatialRelationEvent	SpaceEvent	yes	direct parent shown	True
+Space Event / Temporal Relation	RiskEvent	SpaceEvent	yes	direct parent shown	True
+Space Event / Temporal Relation	OrbitManeuverEvent	ObjectBehaviorEvent, OrbitalEvent	yes	direct parent shown	True
+Space Event / Temporal Relation	ApproachEvent	SpatialRelationEvent	yes	direct parent shown	True
+Space Event / Temporal Relation	CollisionRiskEvent	RiskEvent, SpatialRelationEvent	yes	direct parent shown	True
+Causal Assertion / Event Relation	CausalAssertion	-	yes	top-level named class	True
+Causal Assertion / Event Relation	MultiCauseAssertion	CausalAssertion	yes	direct parent shown	True
+Situation State / State Transition	SituationState	-	yes	top-level named class	True
+Situation State / State Transition	NormalSituationState	SituationState	yes	direct parent shown	True
+Situation State / State Transition	AttentionSituationState	SituationState	yes	direct parent shown	True
+Situation State / State Transition	WarningSituationState	SituationState	yes	direct parent shown	True
+Situation State / State Transition	DangerousSituationState	SituationState	yes	direct parent shown	True
+Situation State / State Transition	StateTransition	-	yes	top-level named class	True
+Threat / Risk / Response	SecurityThreat	-	yes	top-level named class	True
+Threat / Risk / Response	PhysicalThreat	SecurityThreat	yes	direct parent shown	True
+Threat / Risk / Response	EnvironmentalThreat	SecurityThreat	yes	direct parent shown	True
+Threat / Risk / Response	SecurityRisk	-	yes	top-level named class	True
+Threat / Risk / Response	CollisionRisk	SecurityRisk	yes	direct parent shown	True
+Threat / Risk / Response	DebrisRisk	SecurityRisk	yes	direct parent shown	True
+Threat / Risk / Response	ResponseMeasure	-	yes	top-level named class	True
+Threat / Risk / Response	AvoidanceMeasure	ResponseMeasure	yes	direct parent shown	True

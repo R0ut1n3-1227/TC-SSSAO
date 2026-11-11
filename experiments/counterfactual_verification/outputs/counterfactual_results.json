@@ -1,0 +1,205 @@
+{
+  "experiment": "CF-1/CF-2 counterfactual capability verification (evidence removal / temporal reversal)",
+  "purpose": "回应'能力问题验证存在自证循环、缺少负例验证'：单变量干预 F∧C→R，仅移除或改变关键条件 C，检查派生关系 R 是否相应消失或改变。",
+  "target_pair_source": "experiments/rule_logic_verification（正式规则逻辑验证场景）",
+  "authenticity": {
+    "cause_event": "https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver",
+    "cause_event_type": "OrbitManeuverEvent",
+    "effect_event": "https://w3id.org/tc-sssao/data/rule-scenario#Evt_Approach",
+    "effect_event_type": "ApproachEvent",
+    "cause_occurrence_time": "2026-08-01T09:00:00+00:00",
+    "cause_interval": [
+      "2026-08-01T09:00:00+00:00",
+      "2026-08-01T09:10:00+00:00"
+    ],
+    "effect_occurrence_time": "2026-08-01T10:00:00+00:00",
+    "effect_interval": [
+      "2026-08-01T10:00:00+00:00",
+      "2026-08-01T10:20:00+00:00"
+    ],
+    "objects": {
+      "affectsObject(cause)": "https://w3id.org/tc-sssao/data/rule-scenario#TestSat_A",
+      "hasPrimaryObject(effect)": "https://w3id.org/tc-sssao/data/rule-scenario#TestSat_A",
+      "hasSecondaryObject(effect)": "https://w3id.org/tc-sssao/data/rule-scenario#TestSat_B"
+    },
+    "evidence_links": {
+      "cause": [
+        "detectedFromData -> https://w3id.org/tc-sssao/data/rule-scenario#TestObsData (RadarObservationData ⊂ ObservationData)"
+      ],
+      "effect": [
+        "detectedFromData -> https://w3id.org/tc-sssao/data/rule-scenario#TestObsData (RadarObservationData ⊂ ObservationData)"
+      ]
+    },
+    "causal_assertion_iri": null,
+    "causal_assertion_note": "当前冻结规则集中 R3/R4 直接生成事件级 causesEvent，不实例化 CausalAssertion；hasCausalEvidence 是 CausalAssertion 的溯源属性（range SSAData），仅被完整性 Shape 检查，不被任何生成规则作为前提。CZ-6A 案例的 causesEvent 由 B1 从显式 DirectCausalAssertion（case:CZ6A_FragmentationRiskAssertion）桥接，B1 不含证据前提。故 CF-1 的删除对象以 R3 真实检查的事件级 detectedFromData/supportedByData 为准。",
+    "original_causesEvent_explicit": false,
+    "generating_rule": "R3 OrbitManeuverCausesApproachRuleShape（直接生成）；其 precedesEvent 前提由 R1 EventPrecedenceRuleShape 生成"
+  },
+  "authenticity_gates": {
+    "gate1_intervention_diff_exact": true,
+    "gate2_no_stale_derived_triples_in_inputs": true,
+    "gate3_baseline_regenerates_target": true,
+    "formal_cross_check": {
+      "formal_summary_found": true,
+      "formal_graph_additions": [
+        2013,
+        133,
+        0
+      ],
+      "formal_conforms": true,
+      "formal_R3_check": true,
+      "baseline_reproduces_formal": true
+    }
+  },
+  "interventions": {
+    "cf1_removed": [
+      "<https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver> <https://w3id.org/tc-sssao#detectedFromData> <https://w3id.org/tc-sssao/data/rule-scenario#TestObsData>"
+    ],
+    "cf2_removed": [
+      "<https://w3id.org/tc-sssao/data/rule-scenario#Evt_Approach> <https://w3id.org/tc-sssao#hasEndTime> <2026-08-01T10:20:00+00:00>",
+      "<https://w3id.org/tc-sssao/data/rule-scenario#Evt_Approach> <https://w3id.org/tc-sssao#hasOccurrenceTime> <2026-08-01T10:00:00+00:00>",
+      "<https://w3id.org/tc-sssao/data/rule-scenario#Evt_Approach> <https://w3id.org/tc-sssao#hasStartTime> <2026-08-01T10:00:00+00:00>",
+      "<https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver> <https://w3id.org/tc-sssao#hasEndTime> <2026-08-01T09:10:00+00:00>",
+      "<https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver> <https://w3id.org/tc-sssao#hasOccurrenceTime> <2026-08-01T09:00:00+00:00>",
+      "<https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver> <https://w3id.org/tc-sssao#hasStartTime> <2026-08-01T09:00:00+00:00>"
+    ],
+    "cf2_added": [
+      "<https://w3id.org/tc-sssao/data/rule-scenario#Evt_Approach> <https://w3id.org/tc-sssao#hasEndTime> <2026-08-01T09:20:00+00:00>",
+      "<https://w3id.org/tc-sssao/data/rule-scenario#Evt_Approach> <https://w3id.org/tc-sssao#hasOccurrenceTime> <2026-08-01T09:00:00+00:00>",
+      "<https://w3id.org/tc-sssao/data/rule-scenario#Evt_Approach> <https://w3id.org/tc-sssao#hasStartTime> <2026-08-01T09:00:00+00:00>",
+      "<https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver> <https://w3id.org/tc-sssao#hasEndTime> <2026-08-01T10:10:00+00:00>",
+      "<https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver> <https://w3id.org/tc-sssao#hasOccurrenceTime> <2026-08-01T10:00:00+00:00>",
+      "<https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver> <https://w3id.org/tc-sssao#hasStartTime> <2026-08-01T10:00:00+00:00>"
+    ]
+  },
+  "runs": {
+    "baseline": {
+      "name": "baseline",
+      "fixed_point_iterations": 3,
+      "graph_triples_added_per_round": [
+        2013,
+        133,
+        0
+      ],
+      "shacl_conforms": true,
+      "violations": [],
+      "elapsed_seconds": 18.717,
+      "conditions": {
+        "temporal_precedes_MAN_APP": true,
+        "reverse_precedes_APP_MAN": false,
+        "follows_APP_MAN": true,
+        "follows_MAN_APP": false,
+        "object_role": true,
+        "evidence_MAN": true,
+        "evidence_APP": true
+      },
+      "results": {
+        "causesEvent_MAN_APP": true,
+        "causesEvent_APP_MAN": false,
+        "r4_edges_APP_RiskT0_T3": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "consistency": {
+        "bidirectional_causal_pairs": [],
+        "causal_cycle": false,
+        "precedence_conflicts": []
+      }
+    },
+    "cf1": {
+      "name": "cf1",
+      "fixed_point_iterations": 3,
+      "graph_triples_added_per_round": [
+        2012,
+        133,
+        0
+      ],
+      "shacl_conforms": false,
+      "violations": [
+        {
+          "focus_node": "https://w3id.org/tc-sssao/data/rule-scenario#Evt_Maneuver",
+          "rule_id": "R13",
+          "message": "空间事件缺少数据证据（detectedFromData 或 supportedByData）"
+        }
+      ],
+      "elapsed_seconds": 19.367,
+      "conditions": {
+        "temporal_precedes_MAN_APP": true,
+        "reverse_precedes_APP_MAN": false,
+        "follows_APP_MAN": true,
+        "follows_MAN_APP": false,
+        "object_role": true,
+        "evidence_MAN": false,
+        "evidence_APP": true
+      },
+      "results": {
+        "causesEvent_MAN_APP": false,
+        "causesEvent_APP_MAN": false,
+        "r4_edges_APP_RiskT0_T3": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "consistency": {
+        "bidirectional_causal_pairs": [],
+        "causal_cycle": false,
+        "precedence_conflicts": []
+      }
+    },
+    "cf2": {
+      "name": "cf2",
+      "fixed_point_iterations": 3,
+      "graph_triples_added_per_round": [
+        2012,
+        133,
+        0
+      ],
+      "shacl_conforms": true,
+      "violations": [],
+      "elapsed_seconds": 18.992,
+      "conditions": {
+        "temporal_precedes_MAN_APP": false,
+        "reverse_precedes_APP_MAN": true,
+        "follows_APP_MAN": false,
+        "follows_MAN_APP": true,
+        "object_role": true,
+        "evidence_MAN": true,
+        "evidence_APP": true
+      },
+      "results": {
+        "causesEvent_MAN_APP": false,
+        "causesEvent_APP_MAN": false,
+        "r4_edges_APP_RiskT0_T3": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "consistency": {
+        "bidirectional_causal_pairs": [],
+        "causal_cycle": false,
+        "precedence_conflicts": []
+      }
+    }
+  },
+  "verdicts": {
+    "CF-1": {
+      "verdict": "PASS",
+      "reason": "T 与 O 条件保持不变、E_obs 在原因事件侧被移除后，目标 causesEvent 未重新产生；其余 R4 因果边照常生成，无双向因果/因果环/时间方向冲突。"
+    },
+    "CF-2": {
+      "verdict": "PASS",
+      "reason": "原向 precedesEvent 消失、反向 precedesEvent/followsEvent 按 R1 生成；原向 causesEvent 随其时间前提失效而消失；R4 因果边不受影响；无 R9/R10/R11 违规、无双向因果、无因果环。"
+    },
+    "CF-3": {
+      "verdict": "PASS",
+      "reason": "引用已完成的 TraCSS 风险状态边界反事实（experiments/tracss_threshold_sensitivity 报告第5节），本实验不重复运行。"
+    }
+  }
+}

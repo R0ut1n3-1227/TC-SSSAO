@@ -1,0 +1,16 @@
+PREFIX onto: <https://w3id.org/tc-sssao#>
+
+# CQ6：相邻状态转移关系端到端查询
+# 从 B2/B3 规则推理后的图中检索状态之间的转移/恶化/恢复关系。
+# 推理前图（graph_before.ttl）不声明任何 transitsTo/degradesTo/recoversTo，
+# 因此同一查询在推理前应返回 0 行。
+SELECT ?sourceState ?relation ?targetState
+WHERE {
+  ?sourceState ?relation ?targetState .
+  VALUES ?relation {
+    onto:transitsTo
+    onto:degradesTo
+    onto:recoversTo
+  }
+}
+ORDER BY ?sourceState ?relation ?targetState

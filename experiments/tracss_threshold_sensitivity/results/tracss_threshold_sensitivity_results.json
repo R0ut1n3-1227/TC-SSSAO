@@ -1,0 +1,1377 @@
+{
+  "status": "PASS",
+  "experiment": "R5-R8 threshold sensitivity on the audited TraCSS normalized adapter output",
+  "frozen_baseline": {
+    "theta_A": 1e-07,
+    "theta_M": 0.0001
+  },
+  "data_identity": {
+    "normalized_csv": "experiments/tracss/data/tracss_sfsh_normalized.csv.gz",
+    "rows_total": 283595,
+    "rows_valid": 283557
+  },
+  "baseline_reproduction": {
+    "expected": {
+      "Normal": 86585,
+      "Attention": 196666,
+      "Warning": 306,
+      "Dangerous": 0
+    },
+    "actual": {
+      "Normal": 86585,
+      "Attention": 196666,
+      "Warning": 306,
+      "Dangerous": 0
+    },
+    "matches": true,
+    "engine_lock_mismatch_rows_vs_tracss_classify": 0
+  },
+  "experiment_A_theta_A_sweep": [
+    {
+      "theta_A": 1e-09,
+      "theta_M": 0.0001,
+      "counts": {
+        "Normal": 54768,
+        "Attention": 228483,
+        "Warning": 306,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": -31817,
+        "Attention": 31817,
+        "Warning": 0,
+        "Dangerous": 0
+      },
+      "changed_samples": 31817,
+      "changed_pct": 11.220671681531403,
+      "transitions": {
+        "Normal->Normal": 54768,
+        "Normal->Attention": 31817,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 0,
+        "Attention->Attention": 196666,
+        "Attention->Warning": 0,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 0,
+        "Warning->Warning": 306,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-08,
+      "theta_M": 0.0001,
+      "counts": {
+        "Normal": 71390,
+        "Attention": 211861,
+        "Warning": 306,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": -15195,
+        "Attention": 15195,
+        "Warning": 0,
+        "Dangerous": 0
+      },
+      "changed_samples": 15195,
+      "changed_pct": 5.358710947005364,
+      "transitions": {
+        "Normal->Normal": 71390,
+        "Normal->Attention": 15195,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 0,
+        "Attention->Attention": 196666,
+        "Attention->Warning": 0,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 0,
+        "Warning->Warning": 306,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-07,
+      "theta_M": 0.0001,
+      "counts": {
+        "Normal": 86585,
+        "Attention": 196666,
+        "Warning": 306,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": 0,
+        "Attention": 0,
+        "Warning": 0,
+        "Dangerous": 0
+      },
+      "changed_samples": 0,
+      "changed_pct": 0.0,
+      "transitions": {
+        "Normal->Normal": 86585,
+        "Normal->Attention": 0,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 0,
+        "Attention->Attention": 196666,
+        "Attention->Warning": 0,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 0,
+        "Warning->Warning": 306,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-06,
+      "theta_M": 0.0001,
+      "counts": {
+        "Normal": 119071,
+        "Attention": 164180,
+        "Warning": 306,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": 32486,
+        "Attention": -32486,
+        "Warning": 0,
+        "Dangerous": 0
+      },
+      "changed_samples": 32486,
+      "changed_pct": 11.456603081567375,
+      "transitions": {
+        "Normal->Normal": 86585,
+        "Normal->Attention": 0,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 32486,
+        "Attention->Attention": 164180,
+        "Attention->Warning": 0,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 0,
+        "Warning->Warning": 306,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-05,
+      "theta_M": 0.0001,
+      "counts": {
+        "Normal": 242791,
+        "Attention": 40460,
+        "Warning": 306,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": 156206,
+        "Attention": -156206,
+        "Warning": 0,
+        "Dangerous": 0
+      },
+      "changed_samples": 156206,
+      "changed_pct": 55.088042263107596,
+      "transitions": {
+        "Normal->Normal": 86585,
+        "Normal->Attention": 0,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 156206,
+        "Attention->Attention": 40460,
+        "Attention->Warning": 0,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 0,
+        "Warning->Warning": 306,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    }
+  ],
+  "experiment_B_theta_M_sweep": [
+    {
+      "theta_A": 1e-07,
+      "theta_M": 1e-06,
+      "counts": {
+        "Normal": 86585,
+        "Attention": 32486,
+        "Warning": 164485,
+        "Dangerous": 1
+      },
+      "delta_vs_baseline": {
+        "Normal": 0,
+        "Attention": -164180,
+        "Warning": 164179,
+        "Dangerous": 1
+      },
+      "changed_samples": 164181,
+      "changed_pct": 57.900527936182144,
+      "transitions": {
+        "Normal->Normal": 86585,
+        "Normal->Attention": 0,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 0,
+        "Attention->Attention": 32486,
+        "Attention->Warning": 164180,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 0,
+        "Warning->Warning": 305,
+        "Warning->Dangerous": 1,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-07,
+      "theta_M": 1e-05,
+      "counts": {
+        "Normal": 86585,
+        "Attention": 156206,
+        "Warning": 40766,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": 0,
+        "Attention": -40460,
+        "Warning": 40460,
+        "Dangerous": 0
+      },
+      "changed_samples": 40460,
+      "changed_pct": 14.2687360918616,
+      "transitions": {
+        "Normal->Normal": 86585,
+        "Normal->Attention": 0,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 0,
+        "Attention->Attention": 156206,
+        "Attention->Warning": 40460,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 0,
+        "Warning->Warning": 306,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-07,
+      "theta_M": 0.0001,
+      "counts": {
+        "Normal": 86585,
+        "Attention": 196666,
+        "Warning": 306,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": 0,
+        "Attention": 0,
+        "Warning": 0,
+        "Dangerous": 0
+      },
+      "changed_samples": 0,
+      "changed_pct": 0.0,
+      "transitions": {
+        "Normal->Normal": 86585,
+        "Normal->Attention": 0,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 0,
+        "Attention->Attention": 196666,
+        "Attention->Warning": 0,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 0,
+        "Warning->Warning": 306,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-07,
+      "theta_M": 0.001,
+      "counts": {
+        "Normal": 86585,
+        "Attention": 196971,
+        "Warning": 1,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": 0,
+        "Attention": 305,
+        "Warning": -305,
+        "Dangerous": 0
+      },
+      "changed_samples": 305,
+      "changed_pct": 0.1075621479984624,
+      "transitions": {
+        "Normal->Normal": 86585,
+        "Normal->Attention": 0,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 0,
+        "Attention->Attention": 196666,
+        "Attention->Warning": 0,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 305,
+        "Warning->Warning": 1,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-07,
+      "theta_M": 0.01,
+      "counts": {
+        "Normal": 86585,
+        "Attention": 196971,
+        "Warning": 1,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": 0,
+        "Attention": 305,
+        "Warning": -305,
+        "Dangerous": 0
+      },
+      "changed_samples": 305,
+      "changed_pct": 0.1075621479984624,
+      "transitions": {
+        "Normal->Normal": 86585,
+        "Normal->Attention": 0,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 0,
+        "Attention->Attention": 196666,
+        "Attention->Warning": 0,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 305,
+        "Warning->Warning": 1,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    }
+  ],
+  "experiment_C_joint_grid": [
+    {
+      "theta_A": 1e-08,
+      "theta_M": 1e-05,
+      "counts": {
+        "Normal": 71390,
+        "Attention": 171401,
+        "Warning": 40766,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": -15195,
+        "Attention": -25265,
+        "Warning": 40460,
+        "Dangerous": 0
+      },
+      "changed_samples": 55655,
+      "changed_pct": 19.627447038866965,
+      "transitions": {
+        "Normal->Normal": 71390,
+        "Normal->Attention": 15195,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 0,
+        "Attention->Attention": 156206,
+        "Attention->Warning": 40460,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 0,
+        "Warning->Warning": 306,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-08,
+      "theta_M": 0.0001,
+      "counts": {
+        "Normal": 71390,
+        "Attention": 211861,
+        "Warning": 306,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": -15195,
+        "Attention": 15195,
+        "Warning": 0,
+        "Dangerous": 0
+      },
+      "changed_samples": 15195,
+      "changed_pct": 5.358710947005364,
+      "transitions": {
+        "Normal->Normal": 71390,
+        "Normal->Attention": 15195,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 0,
+        "Attention->Attention": 196666,
+        "Attention->Warning": 0,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 0,
+        "Warning->Warning": 306,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-08,
+      "theta_M": 0.001,
+      "counts": {
+        "Normal": 71390,
+        "Attention": 212166,
+        "Warning": 1,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": -15195,
+        "Attention": 15500,
+        "Warning": -305,
+        "Dangerous": 0
+      },
+      "changed_samples": 15500,
+      "changed_pct": 5.466273095003826,
+      "transitions": {
+        "Normal->Normal": 71390,
+        "Normal->Attention": 15195,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 0,
+        "Attention->Attention": 196666,
+        "Attention->Warning": 0,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 305,
+        "Warning->Warning": 1,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-07,
+      "theta_M": 1e-05,
+      "counts": {
+        "Normal": 86585,
+        "Attention": 156206,
+        "Warning": 40766,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": 0,
+        "Attention": -40460,
+        "Warning": 40460,
+        "Dangerous": 0
+      },
+      "changed_samples": 40460,
+      "changed_pct": 14.2687360918616,
+      "transitions": {
+        "Normal->Normal": 86585,
+        "Normal->Attention": 0,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 0,
+        "Attention->Attention": 156206,
+        "Attention->Warning": 40460,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 0,
+        "Warning->Warning": 306,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-07,
+      "theta_M": 0.0001,
+      "counts": {
+        "Normal": 86585,
+        "Attention": 196666,
+        "Warning": 306,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": 0,
+        "Attention": 0,
+        "Warning": 0,
+        "Dangerous": 0
+      },
+      "changed_samples": 0,
+      "changed_pct": 0.0,
+      "transitions": {
+        "Normal->Normal": 86585,
+        "Normal->Attention": 0,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 0,
+        "Attention->Attention": 196666,
+        "Attention->Warning": 0,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 0,
+        "Warning->Warning": 306,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-07,
+      "theta_M": 0.001,
+      "counts": {
+        "Normal": 86585,
+        "Attention": 196971,
+        "Warning": 1,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": 0,
+        "Attention": 305,
+        "Warning": -305,
+        "Dangerous": 0
+      },
+      "changed_samples": 305,
+      "changed_pct": 0.1075621479984624,
+      "transitions": {
+        "Normal->Normal": 86585,
+        "Normal->Attention": 0,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 0,
+        "Attention->Attention": 196666,
+        "Attention->Warning": 0,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 305,
+        "Warning->Warning": 1,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-06,
+      "theta_M": 1e-05,
+      "counts": {
+        "Normal": 119071,
+        "Attention": 123720,
+        "Warning": 40766,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": 32486,
+        "Attention": -72946,
+        "Warning": 40460,
+        "Dangerous": 0
+      },
+      "changed_samples": 72946,
+      "changed_pct": 25.725339173428974,
+      "transitions": {
+        "Normal->Normal": 86585,
+        "Normal->Attention": 0,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 32486,
+        "Attention->Attention": 123720,
+        "Attention->Warning": 40460,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 0,
+        "Warning->Warning": 306,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-06,
+      "theta_M": 0.0001,
+      "counts": {
+        "Normal": 119071,
+        "Attention": 164180,
+        "Warning": 306,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": 32486,
+        "Attention": -32486,
+        "Warning": 0,
+        "Dangerous": 0
+      },
+      "changed_samples": 32486,
+      "changed_pct": 11.456603081567375,
+      "transitions": {
+        "Normal->Normal": 86585,
+        "Normal->Attention": 0,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 32486,
+        "Attention->Attention": 164180,
+        "Attention->Warning": 0,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 0,
+        "Warning->Warning": 306,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    },
+    {
+      "theta_A": 1e-06,
+      "theta_M": 0.001,
+      "counts": {
+        "Normal": 119071,
+        "Attention": 164485,
+        "Warning": 1,
+        "Dangerous": 0
+      },
+      "delta_vs_baseline": {
+        "Normal": 32486,
+        "Attention": -32181,
+        "Warning": -305,
+        "Dangerous": 0
+      },
+      "changed_samples": 32791,
+      "changed_pct": 11.564165229565837,
+      "transitions": {
+        "Normal->Normal": 86585,
+        "Normal->Attention": 0,
+        "Normal->Warning": 0,
+        "Normal->Dangerous": 0,
+        "Attention->Normal": 32486,
+        "Attention->Attention": 164180,
+        "Attention->Warning": 0,
+        "Attention->Dangerous": 0,
+        "Warning->Normal": 0,
+        "Warning->Attention": 305,
+        "Warning->Warning": 1,
+        "Warning->Dangerous": 0,
+        "Dangerous->Normal": 0,
+        "Dangerous->Attention": 0,
+        "Dangerous->Warning": 0,
+        "Dangerous->Dangerous": 0
+      },
+      "audit": {
+        "no_state": 0,
+        "multi_state": 0,
+        "overlap": 0,
+        "gap": 0,
+        "state_sum": 283557,
+        "n_valid": 283557,
+        "sum_equals_n": true,
+        "theta_A_lt_theta_M": true,
+        "engine_counts_equal_mask_counts": true
+      }
+    }
+  ],
+  "dangerous_special": {
+    "close_samples_d_lt_h": [
+      {
+        "event_id": 1723730887,
+        "pc": 6.593401e-06,
+        "d_km": 0.008683728875,
+        "h_km": 0.0110173,
+        "d_over_h": 0.7881902893630925
+      }
+    ],
+    "scan": [
+      {
+        "theta_M": 1e-07,
+        "theta_A": 1e-07,
+        "pc_gt_theta_M_and_d_lt_h_count": 1,
+        "dangerous_count": 1,
+        "close_sample_states": {
+          "1723730887": "Dangerous"
+        },
+        "theta_A_lt_theta_M": false,
+        "audit": {
+          "no_state": 0,
+          "multi_state": 0,
+          "overlap": 0,
+          "gap": 0,
+          "sum_equals_n": true,
+          "engine_counts_equal_mask_counts": true,
+          "counts": {
+            "Normal": 86585,
+            "Attention": 0,
+            "Warning": 196971,
+            "Dangerous": 1
+          }
+        }
+      },
+      {
+        "theta_M": 1e-06,
+        "theta_A": 1e-07,
+        "pc_gt_theta_M_and_d_lt_h_count": 1,
+        "dangerous_count": 1,
+        "close_sample_states": {
+          "1723730887": "Dangerous"
+        },
+        "theta_A_lt_theta_M": true,
+        "audit": {
+          "no_state": 0,
+          "multi_state": 0,
+          "overlap": 0,
+          "gap": 0,
+          "sum_equals_n": true,
+          "engine_counts_equal_mask_counts": true,
+          "counts": {
+            "Normal": 86585,
+            "Attention": 32486,
+            "Warning": 164485,
+            "Dangerous": 1
+          }
+        }
+      },
+      {
+        "theta_M": 1e-05,
+        "theta_A": 1e-07,
+        "pc_gt_theta_M_and_d_lt_h_count": 0,
+        "dangerous_count": 0,
+        "close_sample_states": {
+          "1723730887": "Warning"
+        },
+        "theta_A_lt_theta_M": true,
+        "audit": {
+          "no_state": 0,
+          "multi_state": 0,
+          "overlap": 0,
+          "gap": 0,
+          "sum_equals_n": true,
+          "engine_counts_equal_mask_counts": true,
+          "counts": {
+            "Normal": 86585,
+            "Attention": 156206,
+            "Warning": 40766,
+            "Dangerous": 0
+          }
+        }
+      },
+      {
+        "theta_M": 0.0001,
+        "theta_A": 1e-07,
+        "pc_gt_theta_M_and_d_lt_h_count": 0,
+        "dangerous_count": 0,
+        "close_sample_states": {
+          "1723730887": "Warning"
+        },
+        "theta_A_lt_theta_M": true,
+        "audit": {
+          "no_state": 0,
+          "multi_state": 0,
+          "overlap": 0,
+          "gap": 0,
+          "sum_equals_n": true,
+          "engine_counts_equal_mask_counts": true,
+          "counts": {
+            "Normal": 86585,
+            "Attention": 196666,
+            "Warning": 306,
+            "Dangerous": 0
+          }
+        }
+      },
+      {
+        "theta_M": 0.001,
+        "theta_A": 1e-07,
+        "pc_gt_theta_M_and_d_lt_h_count": 0,
+        "dangerous_count": 0,
+        "close_sample_states": {
+          "1723730887": "Warning"
+        },
+        "theta_A_lt_theta_M": true,
+        "audit": {
+          "no_state": 0,
+          "multi_state": 0,
+          "overlap": 0,
+          "gap": 0,
+          "sum_equals_n": true,
+          "engine_counts_equal_mask_counts": true,
+          "counts": {
+            "Normal": 86585,
+            "Attention": 196971,
+            "Warning": 1,
+            "Dangerous": 0
+          }
+        }
+      },
+      {
+        "theta_M": 0.01,
+        "theta_A": 1e-07,
+        "pc_gt_theta_M_and_d_lt_h_count": 0,
+        "dangerous_count": 0,
+        "close_sample_states": {
+          "1723730887": "Warning"
+        },
+        "theta_A_lt_theta_M": true,
+        "audit": {
+          "no_state": 0,
+          "multi_state": 0,
+          "overlap": 0,
+          "gap": 0,
+          "sum_equals_n": true,
+          "engine_counts_equal_mask_counts": true,
+          "counts": {
+            "Normal": 86585,
+            "Attention": 196971,
+            "Warning": 1,
+            "Dangerous": 0
+          }
+        }
+      }
+    ],
+    "dangerous_triggered_at_theta_M": [
+      1e-07,
+      1e-06
+    ],
+    "first_trigger_in_grid_descending": 1e-06,
+    "exact_boundary": 6.593401e-06,
+    "boundary_rule": "Dangerous for the close sample iff theta_M < its Pc (strict inequality); theta_M equal to Pc keeps it Warning"
+  },
+  "structural_analysis": {
+    "A_normal_monotonic_nondecreasing": true,
+    "A_warning_constant": true,
+    "A_dangerous_constant": true,
+    "A_max_changed_pct": 55.088042263107596,
+    "A_max_adjacent_normal_jump": 123720,
+    "B_warning_monotonic_nonincreasing": true,
+    "B_normal_constant": true,
+    "B_max_changed_pct": 57.900527936182144,
+    "B_warning_range": [
+      1,
+      164485
+    ],
+    "C_normal_depends_only_on_theta_A": true,
+    "C_warning_depends_only_on_theta_M": true,
+    "C_dangerous_values": [
+      0
+    ]
+  },
+  "rule_coverage_summary": {
+    "combos_checked": 19,
+    "all_no_state_zero": true,
+    "all_multi_state_zero": true,
+    "all_overlap_zero": true,
+    "all_gap_zero": true,
+    "all_sum_equals_n": true,
+    "all_engine_eq_mask": true,
+    "combos_with_theta_A_not_lt_theta_M": [],
+    "dangerous_scan_count_equals_classifier": true,
+    "dangerous_scan_coverage_all_ok": true,
+    "dangerous_scan_theta_boundary_points": [
+      1e-07
+    ]
+  },
+  "rule_coverage_per_combo": [
+    {
+      "experiment": "A",
+      "theta_A": 1e-09,
+      "theta_M": 0.0001,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "A",
+      "theta_A": 1e-08,
+      "theta_M": 0.0001,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "A",
+      "theta_A": 1e-07,
+      "theta_M": 0.0001,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "A",
+      "theta_A": 1e-06,
+      "theta_M": 0.0001,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "A",
+      "theta_A": 1e-05,
+      "theta_M": 0.0001,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "B",
+      "theta_A": 1e-07,
+      "theta_M": 1e-06,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "B",
+      "theta_A": 1e-07,
+      "theta_M": 1e-05,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "B",
+      "theta_A": 1e-07,
+      "theta_M": 0.0001,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "B",
+      "theta_A": 1e-07,
+      "theta_M": 0.001,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "B",
+      "theta_A": 1e-07,
+      "theta_M": 0.01,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "C",
+      "theta_A": 1e-08,
+      "theta_M": 1e-05,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "C",
+      "theta_A": 1e-08,
+      "theta_M": 0.0001,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "C",
+      "theta_A": 1e-08,
+      "theta_M": 0.001,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "C",
+      "theta_A": 1e-07,
+      "theta_M": 1e-05,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "C",
+      "theta_A": 1e-07,
+      "theta_M": 0.0001,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "C",
+      "theta_A": 1e-07,
+      "theta_M": 0.001,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "C",
+      "theta_A": 1e-06,
+      "theta_M": 1e-05,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "C",
+      "theta_A": 1e-06,
+      "theta_M": 0.0001,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    },
+    {
+      "experiment": "C",
+      "theta_A": 1e-06,
+      "theta_M": 0.001,
+      "no_state": 0,
+      "multi_state": 0,
+      "overlap": 0,
+      "gap": 0,
+      "sum_equals_n": true,
+      "theta_A_lt_theta_M": true,
+      "engine_counts_equal_mask_counts": true
+    }
+  ],
+  "esa_reference": {
+    "available": true,
+    "valid_samples": 162634,
+    "baseline_counts": {
+      "Normal": 141471,
+      "Attention": 20447,
+      "Warning": 716,
+      "Dangerous": 0
+    },
+    "A_max_changed_ratio": 0.11295915983127759,
+    "B_warning_counts": {
+      "1e-06": 10182,
+      "1e-05": 3381,
+      "0.0001": 716,
+      "0.001": 52,
+      "0.01": 8
+    },
+    "dangerous_always_zero_in_grid": true,
+    "close_d_lt_h_count": 0,
+    "note": "ESA reference extracted from the earlier experiment's outputs; numeric fields only; ESA experiment untouched"
+  }
+}

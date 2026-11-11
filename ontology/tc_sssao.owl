@@ -1,0 +1,2462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:onto="https://w3id.org/tc-sssao#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasImpactScope">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">影响范围</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+    <rdfs:comment xml:lang="zh">威胁影响范围，如目标、轨道区域、任务系统等。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nebac7b07aab647009e617ae6d641a30c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasThreatID"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasCongestionLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#OrbitalCongestionEnvironment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="zh">拥堵等级</rdfs:label>
+    <rdfs:comment xml:lang="zh">轨道拥堵环境等级</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasPrimaryObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">具有主目标</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间关系事件中交会对象对的主要目标，用于显式表示目标角色。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpatialRelationEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#evolvesTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">演化为</rdfs:label>
+    <rdfs:comment xml:lang="zh">态势状态演化为另一状态。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#requiresResponseMeasure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">需要响应措施</rdfs:label>
+    <rdfs:comment xml:lang="zh">安全威胁需要响应措施。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#respondsToThreat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasStateID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">状态编号</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:comment xml:lang="zh">态势状态唯一标识。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#CollisionRiskEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">碰撞风险事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间目标之间存在碰撞风险的事件。作为空间关系事件，通过 hasPrimaryObject/hasSecondaryObject 显式表示交会目标角色。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#RiskEvent"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SpatialRelationEvent"/>
+    <rdfs:subClassOf rdf:nodeID="Nc87be26ad07b4c769c23bfc90293d3f1"/>
+    <rdfs:subClassOf rdf:nodeID="Na5aab7cf7e1345afab597db5f5d1b6ff"/>
+    <rdfs:subClassOf rdf:nodeID="N64035a8fc82d40758871c4771bb19ee5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#AvoidanceMeasure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">规避措施</rdfs:label>
+    <rdfs:comment xml:lang="zh">通过规避动作降低威胁或风险的措施。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#Spacecraft">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">航天器</rdfs:label>
+    <rdfs:comment xml:lang="zh">具备特定任务功能、可在轨运行或深空飞行的人造空间飞行器。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ArtificialSpaceObject"/>
+    <rdfs:subClassOf rdf:nodeID="Ndec8ac58bf7c4429982cb45446154703"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2e9743f71fc649d88b53de09daee6101">
+    <rdf:first rdf:resource="https://w3id.org/tc-sssao#RadarSensor"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#GroundRadarSensor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">地基雷达传感器</rdfs:label>
+    <rdfs:comment xml:lang="zh">部署于地面的雷达传感器。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#GroundBasedSensor"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#RadarSensor"/>
+    <owl:equivalentClass rdf:nodeID="N1d173ece8bea4be5bf3ed62d6d29833d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#WarningSituationState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">预警态势状态</rdfs:label>
+    <rdfs:comment xml:lang="zh">整体态势达到预警级别。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:subClassOf rdf:nodeID="N4c0a990101e043c8bc0bb3cc26f6d723"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/tc-sssao#DangerousSituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasDataSource">
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
+    <onto:reusedOntology rdf:resource="http://www.w3.org/ns/prov#"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">数据来源</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+    <rdfs:comment xml:lang="zh">数据来源说明。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#naturalLanguageRule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="zh">自然语言规则</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasEffect">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">具有结果</rdfs:label>
+    <rdfs:comment xml:lang="zh">因果断言中的结果事件。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#CausalAssertion"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasDataID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">数据编号</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+    <rdfs:comment xml:lang="zh">SSA 数据唯一标识。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#AttentionSituationState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">关注态势状态</rdfs:label>
+    <rdfs:comment xml:lang="zh">整体态势需要关注。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:subClassOf rdf:nodeID="N40c2047549ad4b89b7e34822dfb9a938"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/tc-sssao#WarningSituationState"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/tc-sssao#DangerousSituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasStateEndTime">
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/2006/time#hasEnd"/>
+    <onto:reusedOntology rdf:resource="http://www.w3.org/2006/time#"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">状态结束时间</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:comment xml:lang="zh">状态结束时间。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasEnvironmentType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEnvironment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="zh">环境类型</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间环境所属类型，如辐射环境、电磁环境、轨道拥堵环境等</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SpatialRelationEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">空间关系事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">描述多个空间目标之间空间关系的事件。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:subClassOf rdf:nodeID="Nc7a116ab6a0e4d699ba5885088b1a879"/>
+    <rdfs:subClassOf rdf:nodeID="N65af3e52ba14409faa8a57f03ce166b0"/>
+    <rdfs:subClassOf rdf:nodeID="N6c426fc8ecae45d68f2343e05b39eb13"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasMeasureID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">措施编号</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+    <rdfs:comment xml:lang="zh">响应措施唯一标识。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#MultiCauseAssertion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">多因因果断言</rdfs:label>
+    <rdfs:comment xml:lang="zh">多个原因事件共同导致结果事件的因果断言。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#CausalAssertion"/>
+    <rdfs:subClassOf rdf:nodeID="Nbc4609f50bcf49f89cf7ff334d5a4773"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#ArtificialSpaceObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">人造空间目标</rdfs:label>
+    <rdfs:comment xml:lang="zh">由人类制造并发射至外层空间的目标。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+    <rdfs:subClassOf rdf:nodeID="N598f8d154ba34822a2a6436f4cbe8d2b"/>
+    <rdfs:subClassOf rdf:nodeID="Nd1d2774da57b43f189ac8f197b6973ee"/>
+    <rdfs:subClassOf rdf:nodeID="N564f7ec7c0ac457baf3970644765ea29"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasStateType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">状态类型</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:comment xml:lang="zh">运行状态、空间安全状态、威胁状态、综合态势状态等。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SpaceEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">空间事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">描述引起态势变化的空间事件。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:nodeID="N06314a18fb9e4da89493be8e07d54914"/>
+    <rdfs:subClassOf rdf:nodeID="Nd4a75465101f43b6a273a6c8ff4fdce7"/>
+    <rdfs:subClassOf rdf:nodeID="N3b9a0cc64ed14d4eb709e1764ad6f756"/>
+    <rdfs:subClassOf rdf:nodeID="Nab0f42657a3646ed8c685181d970f726"/>
+    <rdfs:subClassOf rdf:nodeID="N9221545f374743a5aa4d850560414dec"/>
+    <rdfs:subClassOf rdf:nodeID="N624dcdd00f9b419298851c3472f822a3"/>
+    <rdfs:subClassOf rdf:nodeID="N6c6ea01681804c0c8f519732201caf57"/>
+    <rdfs:subClassOf rdf:nodeID="Ne85a7eee3ca54b58b6c7bb8483f54e00"/>
+    <rdfs:subClassOf rdf:nodeID="N5489ca3e84414843894574b537bbec08"/>
+    <rdfs:subClassOf rdf:nodeID="N1f771c77971c4abc995ce1342a6ab708"/>
+    <rdfs:subClassOf rdf:nodeID="Nc654c4afc1eb4262805b5f62bfa19c1d"/>
+    <rdfs:subClassOf rdf:nodeID="Nf4e20f976fa34b1894ff70408f3ed0d5"/>
+    <rdfs:subClassOf rdf:nodeID="N306427b656d541df866008b544749440"/>
+    <rdfs:subClassOf rdf:nodeID="Ncdb8a7c603694e58a514056a7d1f7157"/>
+    <rdfs:subClassOf rdf:nodeID="N89f016bded04407e9ef5615ae708f989"/>
+    <rdfs:subClassOf rdf:nodeID="N4b2e8aa1b7b8417c98d991a3ca549901"/>
+    <rdfs:subClassOf rdf:nodeID="Nc2d8acc81d9a43bb994c0944dcb6f125"/>
+    <rdfs:subClassOf rdf:nodeID="N7ef61d409b084bc0b56d0ca41ba19947"/>
+    <rdfs:subClassOf rdf:nodeID="N8b4ef06d12174915a02f4e777f544d7c"/>
+    <rdfs:subClassOf rdf:nodeID="N1a4d5e82007c4d828c088c3d7a767ec2"/>
+    <rdfs:subClassOf rdf:nodeID="N55d218d93a734561ad5c1c006334011c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SituationState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">态势状态</rdfs:label>
+    <rdfs:comment xml:lang="zh">描述某一阶段的安全态势。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:nodeID="Ne898e12c4ec2458aa22b3310538abfe5"/>
+    <rdfs:subClassOf rdf:nodeID="Nd38015caca4740449adaadc337256b51"/>
+    <rdfs:subClassOf rdf:nodeID="N14df74aab582497996f92a0f8ae011a1"/>
+    <rdfs:subClassOf rdf:nodeID="N2bfd54da5ba44b4091bb03db7e7cf0e8"/>
+    <rdfs:subClassOf rdf:nodeID="N501be36c74f84df9b49d0041cf02d484"/>
+    <rdfs:subClassOf rdf:nodeID="N6a01b426661741adad93556abd5a8917"/>
+    <rdfs:subClassOf rdf:nodeID="N00da46593b1c4d2ca585858bc56d258a"/>
+    <rdfs:subClassOf rdf:nodeID="N3fa5a2b6ed8e4927b18ef7d4dd11fe8b"/>
+    <rdfs:subClassOf rdf:nodeID="N49645661aef347f7a18f38af4dce94ab"/>
+    <rdfs:subClassOf rdf:nodeID="N8fe18ffcc4cd4580b75d68f0b5c826c0"/>
+    <rdfs:subClassOf rdf:nodeID="Ne032ce5546ce49c4b63cee7f07492347"/>
+    <rdfs:subClassOf rdf:nodeID="N18c004c2f1564873952e2303f4b4ff1b"/>
+    <rdfs:subClassOf rdf:nodeID="N1848c22ad64746beab43e79b518a02d3"/>
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    <onto:reusedOntology rdf:resource="http://www.w3.org/ns/prov#"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#detectedFromData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">由数据发现</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间事件由 SSA 数据发现。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasThreatLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="zh">威胁等级</rdfs:label>
+    <rdfs:comment xml:lang="zh">安全威胁等级</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6b8e9a3618a640c1b0af869a2979f348">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasSize"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1bae477298b340369e7322a8bb7b5225">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasRadiationLevel"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasRiskLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">风险等级</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:comment xml:lang="zh">低、中、高、极高。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8e54007affb147758609630def01fb03">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasResolution"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#increasesThreat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+    <rdfs:label xml:lang="zh">加剧威胁</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间事件加剧相关安全威胁</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#RiskAssessmentData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">风险评估数据</rdfs:label>
+    <rdfs:comment xml:lang="zh">风险评估数据。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SituationAssessmentData"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndec8ac58bf7c4429982cb45446154703">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasMissionType"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne898e12c4ec2458aa22b3310538abfe5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#stateCausedByEvent"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#CyberSecurityRisk">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">网络安全风险</rdfs:label>
+    <rdfs:comment xml:lang="zh">网络攻击导致的风险。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">extension</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SecurityRisk"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd15cf7da30054d3289bb82faec2f36e2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasMeasureDescription"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasDataType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">数据类型</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+    <rdfs:comment xml:lang="zh">数据类型说明。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#occursDuringEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">发生于另一事件期间</rdfs:label>
+    <rdfs:comment xml:lang="zh">某事件发生于另一事件期间。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#containsEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasStateDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">状态描述</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:comment xml:lang="zh">态势状态的文字说明。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SituationAssessmentData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">态势评估数据</rdfs:label>
+    <rdfs:comment xml:lang="zh">态势评估数据。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#AssessmentData"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#TimeInterval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">时间区间</rdfs:label>
+    <rdfs:comment xml:lang="zh">具有开始与结束两个端点的时间区间。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#TemporalEntity"/>
+    <rdfs:subClassOf rdf:nodeID="N1cdcdf127eae4403b409b96a4a157bff"/>
+    <rdfs:subClassOf rdf:nodeID="N6a3155cb2b124a189574ba2f05494bd0"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#Interval"/>
+    <onto:alignmentRationale xml:lang="en">TC-SSSAO TimeInterval is the application-domain time-interval representation, specialized from time:Interval.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasEnvironmentLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEnvironment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="zh">环境等级</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间环境等级，如正常、异常、严重</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8befabfc72fe4319b6c4170036d50a6c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasImpactScope"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#implementsMeasure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">实施措施</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间事件实施响应措施。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#isImplementedByEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasRiskDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SecurityRisk"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="zh">风险描述</rdfs:label>
+    <rdfs:comment xml:lang="zh">安全风险的文本描述</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0463c5a88d6b4df7b72d3dfb853ce710">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="N44babb5b8e9040838953faae3afa4943"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasEventID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">事件编号</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:comment xml:lang="zh">事件唯一标识。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#RiskEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">风险事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">描述空间安全风险的事件。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf96c9a860ea4461e9512397dd12a7e92">
+    <rdf:first rdf:resource="https://w3id.org/tc-sssao#DangerousSituationState"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8fe18ffcc4cd4580b75d68f0b5c826c0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasStateDuration"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5da0280121c94a5ca183e4ed0811b8df">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasThreatSource"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasDuration">
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/2006/time#hasXSDDuration"/>
+    <onto:reusedOntology rdf:resource="http://www.w3.org/2006/time#"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">持续时间</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:comment xml:lang="zh">事件持续时间（ISO 8601 时长字符串,如 PT1H30M）。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#CollisionRisk">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">碰撞风险</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间目标碰撞导致的风险。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SecurityRisk"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasManeuverType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#OrbitManeuverEvent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="zh">机动类型</rdfs:label>
+    <rdfs:comment xml:lang="zh">轨道机动事件类型</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#madeBySensor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">由传感器执行</rdfs:label>
+    <rdfs:comment xml:lang="zh">观测活动由传感器执行。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#ObservationActivity"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#Sensor"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/sosa/madeBySensor"/>
+    <onto:alignmentRationale xml:lang="en">Kept formal mapping: madeBySensor (domain ObservationActivity, range Sensor) is a sub-property of sosa:madeBySensor; with ObservationActivity aligned to sosa:Observation and Sensor to sosa:Sensor, the SOSA Observation-&gt;Sensor semantics is preserved.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#Orbit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">轨道</rdfs:label>
+    <rdfs:comment xml:lang="zh">描述空间目标运行轨道。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:seeAlso rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+    <onto:reusedOntology rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+    <rdfs:subClassOf rdf:nodeID="N8895674dd27d49deb4ca9a951b650d42"/>
+    <rdfs:subClassOf rdf:nodeID="Nf3b260aa1d8443f2a18542e3d628f935"/>
+    <rdfs:subClassOf rdf:nodeID="N0e72eb22c0c04833b432a167d265157f"/>
+    <rdfs:subClassOf rdf:nodeID="N371e3e838ad34076a5930654a1b888cd"/>
+    <rdfs:subClassOf rdf:nodeID="N974aa82fc6c54f91bce6c74a39700fa5"/>
+    <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+    <onto:alignmentRationale xml:lang="en">Orbit is modeled as a domain object carrying orbital parameters, orbit type and trajectory geometry, not as a pure geometry node; it is therefore a geo:Feature whose actual path geometry can be linked via geo:hasGeometry. Orbit is not equivalent to geo:Geometry.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SpaceDebris">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">空间碎片</rdfs:label>
+    <rdfs:comment xml:lang="zh">在地球轨道或深空运行、无实际功能的人造物体。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ArtificialSpaceObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#recoversTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">恢复为</rdfs:label>
+    <rdfs:comment xml:lang="zh">态势状态恢复为另一状态。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasThreatID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">威胁编号</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+    <rdfs:comment xml:lang="zh">安全威胁唯一标识。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N14df74aab582497996f92a0f8ae011a1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasStateConfidence"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#leadsToState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">导致状态</rdfs:label>
+    <rdfs:comment xml:lang="zh">事件导致态势状态。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#stateCausedByEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasStateStartTime">
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/2006/time#hasBeginning"/>
+    <onto:reusedOntology rdf:resource="http://www.w3.org/2006/time#"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">状态开始时间</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:comment xml:lang="zh">状态开始时间。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N00490889dd834ce9bb102eb5865ab683">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#affectsOrbit"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#ObservationActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">观测活动</rdfs:label>
+    <rdfs:comment xml:lang="zh">对空间目标进行观测的活动。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SSAActivity"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    <onto:alignmentRationale xml:lang="en">ObservationActivity is the activity of observing space objects; this corresponds to the observation act in SOSA, so it is specialized from sosa:Observation. This makes madeBySensor (domain ObservationActivity, range Sensor) consistent with its super-property sosa:madeBySensor.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4c0a990101e043c8bc0bb3cc26f6d723">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasSeverityRank"/>
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</owl:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#TrackingData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">跟踪数据</rdfs:label>
+    <rdfs:comment xml:lang="zh">跟踪数据。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3b9a0cc64ed14d4eb709e1764ad6f756">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasEventLevel"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#CyberThreat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">网络威胁</rdfs:label>
+    <rdfs:comment xml:lang="zh">通过网络手段对空间系统造成的威胁。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">extension</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SecurityRisk">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">安全风险</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间系统或任务面临损失的潜在可能性。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:nodeID="N863dfee0578c4935b545ebc05cec5671"/>
+    <rdfs:subClassOf rdf:nodeID="Ne8b48e0443db4a7589d0ab67eefbac0a"/>
+    <rdfs:subClassOf rdf:nodeID="N9543c6a1934e4992af36bea45f1ff0e2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#supportedByData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">由数据支撑</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间事件由 SSA 数据支撑。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#alignmentRationale">
+    <rdfs:label xml:lang="zh">对齐理由</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:comment xml:lang="zh">说明 TC-SSSAO 与标准词汇之间采用 subClassOf / subPropertyOf / seeAlso 或不做正式对齐的理由。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#threatMitigatedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">威胁被缓解</rdfs:label>
+    <rdfs:comment xml:lang="zh">安全威胁被响应措施缓解。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N624dcdd00f9b419298851c3472f822a3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasEndTime"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#RadarObservationData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">雷达观测数据</rdfs:label>
+    <rdfs:comment xml:lang="zh">雷达传感器产生的观测数据。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SensorObservationData"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6c426fc8ecae45d68f2343e05b39eb13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasSpatialRelationship"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5489ca3e84414843894574b537bbec08">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#occursInOrbit"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.opengis.net/ont/geosparql#wktLiteral">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasLaunchDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">发射日期</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+    <rdfs:comment xml:lang="zh">空间目标的发射日期与时间。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2bfd54da5ba44b4091bb03db7e7cf0e8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasStateStartTime"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#causedByEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">由事件导致</rdfs:label>
+    <rdfs:comment xml:lang="zh">某事件由另一事件导致。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#causesEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasRAAN">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">升交点赤经</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+    <rdfs:comment xml:lang="zh">升交点赤经（Right Ascension of Ascending Node）。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#occursInOrbit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">发生于轨道</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间事件发生于某轨道。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#triggersState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">触发状态</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间事件触发态势状态。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasLaunchCountry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">发射国家</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+    <rdfs:comment xml:lang="zh">空间目标的发射国家或责任机构。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasEndTime">
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/2006/time#hasEnd"/>
+    <onto:reusedOntology rdf:resource="http://www.w3.org/2006/time#"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">结束时间</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:comment xml:lang="zh">事件结束时间。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N812b8e3eb5cf4c3aafbfa9d701ef8798">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasMeasureID"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#ElectromagneticEnvironment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">电磁环境</rdfs:label>
+    <rdfs:comment xml:lang="zh">电磁环境。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SpaceEnvironment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#FragmentationEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">解体事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间目标发生碎裂或解体的事件。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#OrbitalEvent"/>
+    <rdfs:subClassOf rdf:nodeID="N87d85ab9d5ab44de9244395b7d278721"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#resultedFromEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">由事件产生</rdfs:label>
+    <rdfs:comment xml:lang="zh">某事件由另一事件产生。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#resultsInEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#TrackingEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">跟踪事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">对空间目标进行跟踪的事件。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ObservationEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd4a75465101f43b6a273a6c8ff4fdce7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasEventType"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne8b48e0443db4a7589d0ab67eefbac0a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#riskLeadsToState"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7ef61d409b084bc0b56d0ca41ba19947">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#updatesState"/>
+    <owl:allValuesFrom rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#GroundBasedSensor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">地基传感器</rdfs:label>
+    <rdfs:comment xml:lang="zh">部署于地面的传感器。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#Sensor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#RiskReductionTransition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">风险降级转移</rdfs:label>
+    <rdfs:comment xml:lang="zh">风险等级下降的状态转移。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">extension</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#StateTransition"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasObjectName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">目标名称</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+    <rdfs:comment xml:lang="zh">空间目标的名称。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#AssessmentData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">评估数据</rdfs:label>
+    <rdfs:comment xml:lang="zh">评估数据。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#MitigationMeasure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">缓解措施</rdfs:label>
+    <rdfs:comment xml:lang="zh">减轻威胁或风险后果的措施。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">extension</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1f771c77971c4abc995ce1342a6ab708">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasEventDescription"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#OpticalSensor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">光学传感器</rdfs:label>
+    <rdfs:comment xml:lang="zh">以光学为主要感知机制的传感器。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#Sensor"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc87be26ad07b4c769c23bfc90293d3f1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasEncounterID"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#OrbitalEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">轨道事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">发生在轨道环境中、由轨道运动直接引发的轨道事件。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:subClassOf rdf:nodeID="N35e18b4360c54bdeb038342aa3018ef3"/>
+    <rdfs:subClassOf rdf:nodeID="N3ff5239cea214e948a542c014e18b117"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#targetClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="zh">目标类</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasSecondaryObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">具有次目标</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间关系事件中交会对象对的次要目标，用于显式表示目标角色。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpatialRelationEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasObservationResult">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">具有观测结果</rdfs:label>
+    <rdfs:comment xml:lang="zh">观测数据具有观测结果目标。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#ObservationData"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+    <onto:alignmentRationale xml:lang="en">Local domain property (ObservationData -&gt; SpaceObject): it links observation data to the observed space object, which is NOT the SOSA hasResult relation (Observation -&gt; Result). The former subPropertyOf sosa:hasResult mapping has been removed; the property remains in use as a local property.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#mitigatedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">被缓解</rdfs:label>
+    <rdfs:comment xml:lang="zh">安全风险被响应措施缓解。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SecurityRisk"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#mitigatesRisk"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#NormalSituationState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">正常态势状态</rdfs:label>
+    <rdfs:comment xml:lang="zh">整体态势正常。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:subClassOf rdf:nodeID="N0e547461f6204fc689aee8771bb49975"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/tc-sssao#AttentionSituationState"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/tc-sssao#WarningSituationState"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/tc-sssao#DangerousSituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasEnd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">具有结束</rdfs:label>
+    <rdfs:comment xml:lang="zh">时间区间的结束时间点。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#TimeInterval"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#TimeInstant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#isOrbitOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">是某目标的轨道</rdfs:label>
+    <rdfs:comment xml:lang="zh">轨道属于空间目标。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#hasOrbit"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Necba4fdc62af409f8250c94004f3173f">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasMass"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#generatedBy">
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+    <onto:reusedOntology rdf:resource="http://www.w3.org/ns/prov#"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">由……生成</rdfs:label>
+    <rdfs:comment xml:lang="zh">观测数据由观测系统生成。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#ObservationData"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#ObservationSystem"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#generatesData"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#ObjectBehaviorEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">目标行为事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">由空间目标自身行为引发的事件。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:subClassOf rdf:nodeID="Nd0f70b25873041758fc8009cf9f139f2"/>
+    <rdfs:subClassOf rdf:nodeID="N00490889dd834ce9bb102eb5865ab683"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#RiskEscalationTransition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">风险升级转移</rdfs:label>
+    <rdfs:comment xml:lang="zh">风险等级上升的状态转移。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">extension</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#StateTransition"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasThreatConfidence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label xml:lang="zh">威胁置信度</rdfs:label>
+    <rdfs:comment xml:lang="zh">安全威胁评估的置信度</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#ObservationEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">观测事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">由观测活动产生的事件。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:subClassOf rdf:nodeID="Neb653e71f9ae4cf4a5523be16b6f6a9d"/>
+    <rdfs:subClassOf rdf:nodeID="N902c05a7184d4aa7ae66efaaef1e6157"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#mayManifestAsEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">可能表现为事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">安全威胁可能表现为空间事件。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#RecoveryTransition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">恢复转移</rdfs:label>
+    <rdfs:comment xml:lang="zh">态势从异常/危险向正常恢复的转移。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">extension</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#StateTransition"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne032ce5546ce49c4b63cee7f07492347">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasStateDescription"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6a01b426661741adad93556abd5a8917">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasStateUpdateTime"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasObjectID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">目标编号</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+    <rdfs:comment xml:lang="zh">空间目标的唯一标识编号。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1cc641089ebe400c877dd68ab75a67ef">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasManeuverType"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasErrorValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">误差值</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+    <rdfs:comment xml:lang="zh">观测或计算误差。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nca410809b54345b280522fc48812f4f1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasThreatLevel"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#causesEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">导致事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">某事件导致另一事件发生。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#causedByEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#generatesData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">生成数据</rdfs:label>
+    <rdfs:comment xml:lang="zh">观测系统生成观测数据。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#ObservationSystem"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#ObservationData"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#generatedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasOccurrenceTime">
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/2006/time#hasTime"/>
+    <onto:reusedOntology rdf:resource="http://www.w3.org/2006/time#"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">发生时间</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:comment xml:lang="zh">事件发生时间。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#riskLeadsToState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">风险导致状态</rdfs:label>
+    <rdfs:comment xml:lang="zh">安全风险导致态势状态。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SecurityRisk"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#indicatesThreat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+    <rdfs:label xml:lang="zh">指示威胁</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间事件指示相关安全威胁</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9543c6a1934e4992af36bea45f1ff0e2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasRiskDescription"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#CausalAssertion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">因果断言</rdfs:label>
+    <rdfs:comment xml:lang="zh">描述事件之间因果关系的断言。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:nodeID="Nd812fd5aefbe4af6a784fcdfd380f256"/>
+    <rdfs:subClassOf rdf:nodeID="N370750040aaa4bb681932d41d0ff6e02"/>
+    <rdfs:subClassOf rdf:nodeID="Nd487c9048aeb41b1a430c58261782789"/>
+    <rdfs:subClassOf rdf:nodeID="N30224725f06c4fd8b6946f0c19861a0c"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    <onto:alignmentRationale xml:lang="en">A CausalAssertion is a reified knowledge record (with cause, effect and evidence); as a piece of traceable information it is a prov:Entity.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#containsEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">包含事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">某事件包含另一事件。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#occursDuringEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#ObservationData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">观测数据</rdfs:label>
+    <rdfs:comment xml:lang="zh">通过观测系统获取的数据。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+    <rdfs:subClassOf rdf:nodeID="N552a7ac8371f4552aa1c5d9496b09f1a"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Result"/>
+    <onto:reusedOntology rdf:resource="http://www.w3.org/ns/sosa/"/>
+    <onto:alignmentRationale xml:lang="en">ObservationData is the data produced by an observation activity, i.e. the result of the act, not the act itself. It is therefore aligned with sosa:Result. The previous seeAlso link to sosa:Observation was conceptually inaccurate and has been removed.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#describesObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">描述目标</rdfs:label>
+    <rdfs:comment xml:lang="zh">SSA 数据描述空间目标。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#PromotingCausalAssertion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">促进型因果断言</rdfs:label>
+    <rdfs:comment xml:lang="zh">原因事件促进但非必然导致结果事件的因果断言。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">extension</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#CausalAssertion"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasFeatureOfInterest">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">具有关注目标</rdfs:label>
+    <rdfs:comment xml:lang="zh">SSA 数据所关注的空间目标。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+    <onto:alignmentRationale xml:lang="en">Local domain property (SSAData -&gt; SpaceObject): a data record points to its target of interest, whereas SOSA hasFeatureOfInterest relates an Observation/Actuation/Sampling ACT to its feature. Different semantic level; the former subPropertyOf sosa:hasFeatureOfInterest mapping has been removed.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#transitsTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">转移到</rdfs:label>
+    <rdfs:comment xml:lang="zh">态势状态转移到另一状态。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#transitsFrom"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#WarningMeasure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">预警措施</rdfs:label>
+    <rdfs:comment xml:lang="zh">提前发出预警的响应措施。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">extension</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#occursInTimeInterval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">发生于时间区间</rdfs:label>
+    <rdfs:comment xml:lang="zh">事件发生在某一时间区间内。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#TimeInterval"/>
+    <onto:alignmentRationale xml:lang="en">occursInTimeInterval links a SpaceEvent to a TimeInterval (aligned with time:Interval); it is therefore a specialization of time:hasTime.</onto:alignmentRationale>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2006/time#hasTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd487c9048aeb41b1a430c58261782789">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasCausalEvidence"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    <owl:onClass rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasArgumentOfPerigee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">近地点幅角</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+    <rdfs:comment xml:lang="zh">轨道近地点幅角。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#involvesObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">涉及目标</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间事件涉及空间目标。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#isInvolvedInEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#ThreatEscalationTransition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">威胁升级转移</rdfs:label>
+    <rdfs:comment xml:lang="zh">威胁等级上升的状态转移。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">extension</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#StateTransition"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#Sensor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">传感器</rdfs:label>
+    <rdfs:comment xml:lang="zh">能够探测空间目标的传感器。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ObservationSystem"/>
+    <rdfs:subClassOf rdf:nodeID="N8e54007affb147758609630def01fb03"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    <onto:mappedToExternalTerm rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    <onto:alignmentRationale xml:lang="en">TC-SSSAO Sensor represents sensing systems used for SSA and is modeled as a domain-specific specialization of sosa:Sensor.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9d3c3a3e128b44cdad60567bec35af0a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#respondsToEvent"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#Payload">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">有效载荷</rdfs:label>
+    <rdfs:comment xml:lang="zh">航天器或运载火箭上承载的任务设备或载荷。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ArtificialSpaceObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#DataProvider">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">数据提供方</rdfs:label>
+    <rdfs:comment xml:lang="zh">提供空间观测或态势数据的组织。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SpaceOrganization"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+    <onto:alignmentRationale xml:lang="en">DataProvider is the agent that provides SSA data; it is a domain specialization of prov:Agent.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasTargetState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">具有目标状态</rdfs:label>
+    <rdfs:comment xml:lang="zh">状态转移的目标状态。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#StateTransition"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#affectsState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">影响状态</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间事件影响态势状态。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9a988517c0404cbeb5425e0d59b36e27">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#mayManifestAsEvent"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#affectsOrbit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">影响轨道</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间事件影响轨道。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasCausalConfidence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">因果置信度</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#CausalAssertion"/>
+    <rdfs:comment xml:lang="zh">因果断言的可选置信度元数据。当数据来源、专家评估或外部模型提供定量置信信息时记录该值；来源未给出定量置信度时不强制赋值（M3 第一阶段起由 exactly 1 放宽为 max 1）。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasBeginning">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">具有开始</rdfs:label>
+    <rdfs:comment xml:lang="zh">时间区间的开始时间点。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#TimeInterval"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#TimeInstant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#meetsEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">邻接事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">一个事件结束时间等于另一个事件开始时间。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#Satellite">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">卫星</rdfs:label>
+    <rdfs:comment xml:lang="zh">围绕地球或其他天体运行的人造航天器。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#Spacecraft"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#updatesState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">更新状态</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间事件更新态势状态。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SecurityThreat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">安全威胁</rdfs:label>
+    <rdfs:comment xml:lang="zh">可能对太空资产、轨道环境或任务系统造成危害的威胁类型。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:nodeID="N9a988517c0404cbeb5425e0d59b36e27"/>
+    <rdfs:subClassOf rdf:nodeID="Na44333435de44416bd88b9cd110303b1"/>
+    <rdfs:subClassOf rdf:nodeID="N478044daa03843c5837ddeaf74bb352e"/>
+    <rdfs:subClassOf rdf:nodeID="Ndba2f21dceea42169550b4dd7f0673ce"/>
+    <rdfs:subClassOf rdf:nodeID="Nebac7b07aab647009e617ae6d641a30c"/>
+    <rdfs:subClassOf rdf:nodeID="N07f19d11a7104d64a8d489f2a277d3f5"/>
+    <rdfs:subClassOf rdf:nodeID="N5da0280121c94a5ca183e4ed0811b8df"/>
+    <rdfs:subClassOf rdf:nodeID="N8befabfc72fe4319b6c4170036d50a6c"/>
+    <rdfs:subClassOf rdf:nodeID="Nca410809b54345b280522fc48812f4f1"/>
+    <rdfs:subClassOf rdf:nodeID="N387e3feb48354297b88e59232a9fc354"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasStartTime">
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/2006/time#hasBeginning"/>
+    <onto:reusedOntology rdf:resource="http://www.w3.org/2006/time#"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">开始时间</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:comment xml:lang="zh">事件开始时间。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasStateDuration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">状态持续时间</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:comment xml:lang="zh">状态持续时间（ISO 8601 时长字符串，如 PT1H30M）。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N35e18b4360c54bdeb038342aa3018ef3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#occursInOrbit"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasSensorID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">传感器编号</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#Sensor"/>
+    <rdfs:comment xml:lang="zh">传感器唯一标识。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#ruleCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="zh">规则类别</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SpaceObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">空间目标</rdfs:label>
+    <rdfs:comment xml:lang="zh">太空安全态势感知中的顶层空间目标概念，涵盖自然空间目标与人造空间目标。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:nodeID="Nd3e5f0787c6b4e08a60685d42e7eca2d"/>
+    <rdfs:subClassOf rdf:nodeID="Necba4fdc62af409f8250c94004f3173f"/>
+    <rdfs:subClassOf rdf:nodeID="N6b8e9a3618a640c1b0af869a2979f348"/>
+    <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
+    <onto:mappedToExternalTerm rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
+    <onto:alignmentRationale xml:lang="en">SpaceObject is a domain entity with spatial location/geometry representation; as a Feature it may be linked to a geo:Geometry via geo:hasGeometry. The previous direct subPropertyOf geo:asWKT shortcut (SpaceObject -&gt; wktLiteral) conflated Feature and Geometry and has been removed.</onto:alignmentRationale>
+    <onto:alignmentRationale xml:lang="en">A SpaceObject can play the SOSA FeatureOfInterest role in concrete observation contexts, but it is a domain entity type; TC-SSSAO does not globally define every space object as a FeatureOfInterest.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf4e20f976fa34b1894ff70408f3ed0d5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#affectsObject"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#DebrisRisk">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">碎片风险</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间碎片导致的风险。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SecurityRisk"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc654c4afc1eb4262805b5f62bfa19c1d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasDuration"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SpaceEnvironment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">空间环境</rdfs:label>
+    <rdfs:comment xml:lang="zh">描述空间环境条件。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:nodeID="Na092948f8efc4e7699d2c41595be97da"/>
+    <rdfs:subClassOf rdf:nodeID="N8c1887b26676447f9a5613fcf24f6471"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasSpatialRelationship">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpatialRelationEvent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="zh">空间关系</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间关系事件中的关系类型</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasPredictedMissDistance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">预测最近交会距离</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#CollisionRiskEvent"/>
+    <rdfs:comment xml:lang="zh">碰撞风险事件预测最近交会距离。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#MicrometeoroidEnvironment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">微流星体环境</rdfs:label>
+    <rdfs:comment xml:lang="zh">微流星体环境。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SpaceEnvironment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#LowEarthOrbit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">低地球轨道</rdfs:label>
+    <rdfs:comment xml:lang="zh">低地球轨道（LEO）。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#EarthOrbit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasEventDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">事件描述</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:comment xml:lang="zh">事件文字说明。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9aebf27c1bba48068508cacafa987441">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#respondsToThreat"/>
+    <owl:allValuesFrom rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N387e3feb48354297b88e59232a9fc354">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasThreatConfidence"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#RocketBody">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">火箭体</rdfs:label>
+    <rdfs:comment xml:lang="zh">运载火箭的末级、助推器或相关结构体。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ArtificialSpaceObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#EarthOrbit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">地球轨道</rdfs:label>
+    <rdfs:comment xml:lang="zh">以地球为中心天体的轨道。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#formalExpression">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="zh">形式化表达</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#DirectCausalAssertion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">直接因果断言</rdfs:label>
+    <rdfs:comment xml:lang="zh">原因事件直接导致结果事件的因果断言。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">extension</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#CausalAssertion"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#DebrisRiskEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">碎片风险事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">由空间碎片引发的风险事件。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#RiskEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#mitigatesRisk">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">缓解风险</rdfs:label>
+    <rdfs:comment xml:lang="zh">响应措施缓解安全风险。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SecurityRisk"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#mitigatedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#GeometricConstruct">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">几何构造</rdfs:label>
+    <rdfs:comment xml:lang="zh">轨道与空间态势中使用的几何构造抽象。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:nodeID="N3e1cb0684c4c462992f50fb0143c4acc"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#ObservationSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">观测系统</rdfs:label>
+    <rdfs:comment xml:lang="zh">用于探测、监视、跟踪空间目标的观测系统。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:nodeID="N39b39d67dfd043768e870e9662f1efd7"/>
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+    <onto:reusedOntology rdf:resource="http://www.w3.org/ns/sosa/"/>
+    <onto:alignmentRationale xml:lang="en">TC-SSSAO ObservationSystem is an SSA-oriented aggregate covering sensors, sensor networks, ground stations, tracking and surveillance systems; since Sensor itself is a subclass, ObservationSystem is not strictly synonymous with sosa:Platform, so no formal subclass/equivalent mapping is made.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nedb397f271444d85bd91aeefb42e3861">
+    <rdf:first rdf:resource="https://w3id.org/tc-sssao#InfraredSensor"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasEventType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">事件类型</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:comment xml:lang="zh">轨道机动、接近、碰撞风险等。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasStateConfidence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">状态置信度</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:comment xml:lang="zh">状态判断的可信程度。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#GroundStation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">地面站</rdfs:label>
+    <rdfs:comment xml:lang="zh">用于数据接收、指令发送与任务控制的地面站。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ObservationSystem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#DetectionEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">探测事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">探测到空间目标的事件。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ObservationEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N653cf9e75b5445e3989312428a453840">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#isImplementedByEvent"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#generatedByActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">由活动生成</rdfs:label>
+    <rdfs:comment xml:lang="zh">SSA 数据由 SSA 活动生成。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SSAActivity"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#producesData"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+    <onto:alignmentRationale xml:lang="en">Kept formal mapping: generatedByActivity (domain SSAData, range SSAActivity) is a sub-property of prov:wasGeneratedBy; with SSAData aligned to prov:Entity and SSAActivity to prov:Activity, the PROV generation semantics is preserved.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#PredictionData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">预测数据</rdfs:label>
+    <rdfs:comment xml:lang="zh">预测数据。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N49645661aef347f7a18f38af4dce94ab">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasStateType"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#modelLayer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="zh">模型分层</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasEventLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">事件等级</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:comment xml:lang="zh">一般、重要、严重等。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N306427b656d541df866008b544749440">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#overlapsWithEvent"/>
+    <owl:allValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#ResponseMeasure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">响应措施</rdfs:label>
+    <rdfs:comment xml:lang="zh">为应对安全威胁或安全风险采取的措施。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:nodeID="N9aebf27c1bba48068508cacafa987441"/>
+    <rdfs:subClassOf rdf:nodeID="N9d3c3a3e128b44cdad60567bec35af0a"/>
+    <rdfs:subClassOf rdf:nodeID="Ne86c82bc52ba4486bd6a0a8b2c09b506"/>
+    <rdfs:subClassOf rdf:nodeID="N653cf9e75b5445e3989312428a453840"/>
+    <rdfs:subClassOf rdf:nodeID="N812b8e3eb5cf4c3aafbfa9d701ef8798"/>
+    <rdfs:subClassOf rdf:nodeID="Nd15cf7da30054d3289bb82faec2f36e2"/>
+    <rdfs:subClassOf rdf:nodeID="N7dd25893e47f47a4b090bbe800684e46"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasMeasureDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">措施描述</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+    <rdfs:comment xml:lang="zh">响应措施描述。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasLocation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">部署位置</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#ObservationSystem"/>
+    <rdfs:comment xml:lang="zh">观测系统或传感器的部署位置。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasEventConfidence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">事件置信度</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:comment xml:lang="zh">事件判断可信程度。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasOrbitalPeriod">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">轨道周期</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+    <rdfs:comment xml:lang="zh">轨道运行周期。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasCollisionProbability">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">碰撞概率</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#CollisionRiskEvent"/>
+    <rdfs:comment xml:lang="zh">碰撞风险概率。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionInfo>1.0.0</owl:versionInfo>
+    <owl:versionIRI rdf:resource="https://w3id.org/tc-sssao/1.0.0"/>
+    <dcterms:title>TC-SSSAO: Temporal-Causal Space Security Situational Awareness Ontology</dcterms:title>
+    <dcterms:title xml:lang="zh">TC-SSSAO：时序—因果太空安全态势感知本体</dcterms:title>
+    <dcterms:description xml:lang="en">OWL 2 ontology and SHACL-SPARQL rule set for representing and reasoning over space-security situational-awareness knowledge: space objects, orbits, observation systems and data, space events, temporal relations, reified causal assertions, graded situation states, threats, risks, and response measures.</dcterms:description>
+    <dcterms:description xml:lang="zh">面向太空安全态势感知知识的 OWL 2 本体与 SHACL-SPARQL 规则集，统一组织空间目标、轨道、观测系统与数据、空间事件、时序关系、实体化因果断言、分级态势状态、威胁、风险与响应措施。</dcterms:description>
+    <dcterms:created>2026-07</dcterms:created>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-04</dcterms:modified>
+    <dcterms:license rdf:resource="https://opensource.org/license/mit"/>
+    <rdfs:comment xml:lang="en">Canonical ontology identifier. The IRI is used as the ontology identifier for this release; resolution will be configured when the public repository is published.</rdfs:comment>
+    <rdfs:comment xml:lang="zh">规范本体标识符。当前发布包使用该 IRI 作为本体标识；解析地址将在公开仓库发布后同步配置。</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/tc-sssao/alignments"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Neb653e71f9ae4cf4a5523be16b6f6a9d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#detectedFromData"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#ObservationData"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne85a7eee3ca54b58b6c7bb8483f54e00">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#involvesObject"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9dd7682286484f2eb747d57b8bc3f402">
+    <rdf:first rdf:resource="https://w3id.org/tc-sssao#IndirectCausalAssertion"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#overlapsWithEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:label xml:lang="zh">与事件时间重叠</rdfs:label>
+    <rdfs:comment xml:lang="zh">两个事件在时间上重叠。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <onto:alignmentRationale xml:lang="en">time:intervalOverlaps relates time intervals; TC-SSSAO overlapsWithEvent relates SpaceEvent instances with overlapping time intervals. Different semantic level: seeAlso only.</onto:alignmentRationale>
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/2006/time#intervalOverlaps"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasThreatType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">威胁类型</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+    <rdfs:comment xml:lang="zh">威胁类型，如物理、网络、电磁、环境、运行等。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SensorObservationData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">传感器观测数据</rdfs:label>
+    <rdfs:comment xml:lang="zh">传感器产生的观测数据。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ObservationData"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8c1c175fbfbf41ac9edcadbcb68be77a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasTargetState"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/prov#Activity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3fa5a2b6ed8e4927b18ef7d4dd11fe8b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasStateID"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0e72eb22c0c04833b432a167d265157f">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasArgumentOfPerigee"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasSemiMajorAxis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">半长轴</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+    <rdfs:comment xml:lang="zh">轨道半长轴。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N501be36c74f84df9b49d0041cf02d484">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasStateEndTime"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#triggersEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">触发事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">某事件触发另一事件发生。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndba2f21dceea42169550b4dd7f0673ce">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#threatMitigatedBy"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasStateUpdateTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">态势状态更新时间</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:comment xml:lang="zh">态势状态最近一次更新时间。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd0f70b25873041758fc8009cf9f139f2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#involvesObject"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#changesOrbit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">改变轨道</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间事件改变轨道。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasRiskValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">风险值</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#RiskEvent"/>
+    <rdfs:comment xml:lang="zh">由外部风险评估模型、任务系统或应用层给出的可选综合风险评分，其计算方法与取值尺度由外部系统规定，不由本体规定；承载外部评估结果，不等同于碰撞概率 hasCollisionProbability；碰撞风险态势规则（R5—R8）不再以该属性为判定条件。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasCausalMechanism">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">因果机制</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#CausalAssertion"/>
+    <rdfs:comment xml:lang="zh">因果断言背后的物理或逻辑机制描述。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasMass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">质量</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+    <rdfs:comment xml:lang="zh">空间目标的质量，通常以千克为单位。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#stateCausedByEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">状态由事件导致</rdfs:label>
+    <rdfs:comment xml:lang="zh">态势状态由事件导致。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#leadsToState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#transitsFrom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">转移自</rdfs:label>
+    <rdfs:comment xml:lang="zh">态势状态转移自另一状态。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#transitsTo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#OrbitalCongestionEnvironment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">轨道拥堵环境</rdfs:label>
+    <rdfs:comment xml:lang="zh">轨道拥堵环境。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SpaceEnvironment"/>
+    <rdfs:subClassOf rdf:nodeID="Nbb7b7365b1e345049952e76ae52b7c14"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#precedesEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label xml:lang="zh">先于事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">某事件在时间上先于另一事件。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#followsEvent"/>
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/2006/time#before"/>
+    <onto:alignmentRationale xml:lang="en">OWL-Time time:before relates temporal entities; TC-SSSAO precedesEvent relates SpaceEvent instances (domain events, not temporal entities). The two are at different semantic levels, so only a seeAlso reference is kept.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0e547461f6204fc689aee8771bb49975">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasSeverityRank"/>
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</owl:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#followsEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label xml:lang="zh">后于事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">某事件在时间上后于另一事件。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#precedesEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfd20588b7149438bb6d5f8f812010ebd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="Naaf065d246894215b33895038dd5f29b"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N07f19d11a7104d64a8d489f2a277d3f5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasThreatType"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/sosa/Observation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N64035a8fc82d40758871c4771bb19ee5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasPredictedMissDistance"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#producesRisk">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">产生风险</rdfs:label>
+    <rdfs:comment xml:lang="zh">安全威胁产生安全风险。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SecurityRisk"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasRelativeDistance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">相对距离</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpatialRelationEvent"/>
+    <rdfs:comment xml:lang="zh">两目标之间距离。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#StateTransition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">状态转移</rdfs:label>
+    <rdfs:comment xml:lang="zh">态势状态之间的转移。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:nodeID="Nbdde30e1cfa6462e90f12a277bd019e6"/>
+    <rdfs:subClassOf rdf:nodeID="N8c1c175fbfbf41ac9edcadbcb68be77a"/>
+    <rdfs:subClassOf rdf:nodeID="Nae42b51f671244258d09cbc9c3b3924c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3ff5239cea214e948a542c014e18b117">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#involvesObject"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasSize">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">尺寸</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+    <rdfs:comment xml:lang="zh">空间目标的特征尺寸。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SpaceWeather">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">空间天气</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间天气。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SpaceEnvironment"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8895674dd27d49deb4ca9a951b650d42">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasSemiMajorAxis"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N598f8d154ba34822a2a6436f4cbe8d2b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasLaunchDate"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbc4609f50bcf49f89cf7ff334d5a4773">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasCause"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+    <owl:onClass rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na5aab7cf7e1345afab597db5f5d1b6ff">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasCollisionProbability"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N06314a18fb9e4da89493be8e07d54914">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasEventID"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasOperatorName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">运营方名称</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+    <rdfs:comment xml:lang="zh">空间目标当前运营方的名称。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#resultsInEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">产生事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">某事件产生另一事件。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#resultedFromEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasDataConfidence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">数据置信度</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+    <rdfs:comment xml:lang="zh">数据可信程度。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#degradesTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">恶化为</rdfs:label>
+    <rdfs:comment xml:lang="zh">态势状态恶化为另一状态。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#isImplementedByEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">由事件实施</rdfs:label>
+    <rdfs:comment xml:lang="zh">响应措施由空间事件实施。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#implementsMeasure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#EnvironmentalThreat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">环境威胁</rdfs:label>
+    <rdfs:comment xml:lang="zh">由空间环境异常导致的威胁。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasOrbitType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">轨道类型</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+    <rdfs:comment xml:lang="zh">轨道类型，如 LEO、MEO、GEO、HEO 等。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N65af3e52ba14409faa8a57f03ce166b0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasSecondaryObject"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#ApproachEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">接近事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">两个空间目标相互接近的事件。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SpatialRelationEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1848c22ad64746beab43e79b518a02d3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#evolvesTo"/>
+    <owl:allValuesFrom rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#TemporalEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">时序实体</rdfs:label>
+    <rdfs:comment xml:lang="zh">时间维度的顶层抽象。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#RocketDebris">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">火箭碎片</rdfs:label>
+    <rdfs:comment xml:lang="zh">由火箭体产生的空间碎片。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SpaceDebris"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#respondsToThreat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">响应威胁</rdfs:label>
+    <rdfs:comment xml:lang="zh">响应措施响应安全威胁。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#requiresResponseMeasure"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9726f0aa679b45fc970d23d13c088129">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#changesOrbit"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Naaf065d246894215b33895038dd5f29b">
+    <rdf:first rdf:resource="https://w3id.org/tc-sssao#PromotingCausalAssertion"/>
+    <rdf:rest rdf:nodeID="N75240854701c4e0188b48766e5899922"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N371e3e838ad34076a5930654a1b888cd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasMeanAnomaly"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasOrbit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">具有轨道</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间目标具有轨道。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#isOrbitOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nab0f42657a3646ed8c685181d970f726">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasOccurrenceTime"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N18c004c2f1564873952e2303f4b4ff1b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasRiskLevel"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1a4d5e82007c4d828c088c3d7a767ec2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#indicatesThreat"/>
+    <owl:allValuesFrom rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasStateLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">状态等级</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:comment xml:lang="zh">正常、关注、异常、预警、危险、恢复等。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#RadiationEnvironment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">辐射环境</rdfs:label>
+    <rdfs:comment xml:lang="zh">辐射环境。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SpaceEnvironment"/>
+    <rdfs:subClassOf rdf:nodeID="N1bae477298b340369e7322a8bb7b5225"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#affectsObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">影响目标</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间事件影响空间目标。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf3b260aa1d8443f2a18542e3d628f935">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasRAAN"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N75240854701c4e0188b48766e5899922">
+    <rdf:first rdf:resource="https://w3id.org/tc-sssao#InhibitingCausalAssertion"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#RadarSensor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">雷达传感器</rdfs:label>
+    <rdfs:comment xml:lang="zh">以雷达为主要感知机制的传感器。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#Sensor"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N478044daa03843c5837ddeaf74bb352e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#requiresResponseMeasure"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc7a116ab6a0e4d699ba5885088b1a879">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasPrimaryObject"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1b13b1dd1c2f4c6eb2b56f79aaea09c4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="N3d7675a4443a4e8ab07f6200d225934b"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9221545f374743a5aa4d850560414dec">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasStartTime"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.opengis.net/ont/geosparql#Geometry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N00da46593b1c4d2ca585858bc56d258a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasSeverityRank"/>
+    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7dd25893e47f47a4b090bbe800684e46">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#respondsToEvent"/>
+    <owl:allValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbb7b7365b1e345049952e76ae52b7c14">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasCongestionLevel"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8b4ef06d12174915a02f4e777f544d7c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#triggersState"/>
+    <owl:allValuesFrom rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasSourceState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">具有源状态</rdfs:label>
+    <rdfs:comment xml:lang="zh">状态转移的源状态。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#StateTransition"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasCausalEvidence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">具有因果证据</rdfs:label>
+    <rdfs:comment xml:lang="zh">支撑因果断言的 SSA 数据。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#CausalAssertion"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+    <onto:alignmentRationale xml:lang="en">hasCausalEvidence (domain CausalAssertion, range SSAData) states that the assertion is supported by evidence data; with CausalAssertion and SSAData both aligned to prov:Entity, this is a provenance derivation relation. It does NOT express event-level causation (causesEvent): provenance and causal relation are distinct.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#triggeredByEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">由事件触发</rdfs:label>
+    <rdfs:comment xml:lang="zh">触发状态转移的空间事件。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#StateTransition"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3e1cb0684c4c462992f50fb0143c4acc">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasGeometricErrorValue"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd3e5f0787c6b4e08a60685d42e7eca2d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasOrbit"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4b2e8aa1b7b8417c98d991a3ca549901">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#resultsInEvent"/>
+    <owl:allValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd1d2774da57b43f189ac8f197b6973ee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasLaunchCountry"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasEncounterID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">交会编号</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:comment xml:lang="zh">交会事件编号，标识同一物理交会事件的所有风险评估快照。ESA数据中对应event_id字段，同一物理交会的所有CDM共享同一event_id。B3规则使用此属性实现跨交会隔离。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncdb8a7c603694e58a514056a7d1f7157">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#occursDuringEvent"/>
+    <owl:allValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na44333435de44416bd88b9cd110303b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#producesRisk"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#SecurityRisk"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#isInvolvedInEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">参与事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间目标参与空间事件。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#involvesObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N552a7ac8371f4552aa1c5d9496b09f1a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasErrorValue"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N89f016bded04407e9ef5615ae708f989">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#triggersEvent"/>
+    <owl:allValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#OrbitManeuverEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">轨道机动事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">空间目标改变轨道的机动事件。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#OrbitalEvent"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ObjectBehaviorEvent"/>
+    <rdfs:subClassOf rdf:nodeID="Na0ac38ce25854793b8aba65ad85eaeea"/>
+    <rdfs:subClassOf rdf:nodeID="N9726f0aa679b45fc970d23d13c088129"/>
+    <rdfs:subClassOf rdf:nodeID="N1cc641089ebe400c877dd68ab75a67ef"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasMeanAnomaly">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">平近点角</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#Orbit"/>
+    <rdfs:comment xml:lang="zh">轨道平近点角。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#outputRelation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="zh">输出关系</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasCause">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">具有原因</rdfs:label>
+    <rdfs:comment xml:lang="zh">因果断言中的原因事件。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#CausalAssertion"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasCombinedHardBodyRadius">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">组合硬体半径</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#CollisionRiskEvent"/>
+    <rdfs:comment xml:lang="zh">当前交会风险评估中两个目标的组合硬体半径（combined hard-body radius），即两目标外接球半径之和；由外部交会评估给出，随评估事件变化，不作为全局部署常数。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SSAData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">太空态势感知数据</rdfs:label>
+    <rdfs:comment xml:lang="zh">支撑因果断言与事件判断的太空态势感知数据。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    <onto:alignmentRationale xml:lang="en">SSAData is information that is produced, used, cited and traced; all data subclasses (ObservationData, AssessmentData, PredictionData, RiskAssessmentData, TrackingData, ...) thereby become prov:Entity.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nae42b51f671244258d09cbc9c3b3924c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#triggeredByEvent"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    <owl:onClass rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N40c2047549ad4b89b7e34822dfb9a938">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasSeverityRank"/>
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9a731c1b78ce492aaf15d0d1c9eafbf8">
+    <rdf:first rdf:resource="https://w3id.org/tc-sssao#AttentionSituationState"/>
+    <rdf:rest rdf:nodeID="N1aab83d41f334ecca4459b9697f31b08"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SurveillanceSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">监视系统</rdfs:label>
+    <rdfs:comment xml:lang="zh">用于监视空间区域的系统。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">extension</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ObservationSystem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasRadiationLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#RadiationEnvironment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="zh">辐射水平</rdfs:label>
+    <rdfs:comment xml:lang="zh">辐射环境水平等级</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfb3afa5bbd9c490f94a919424bf2e35c">
+    <rdf:first rdf:resource="https://w3id.org/tc-sssao#GroundBasedSensor"/>
+    <rdf:rest rdf:nodeID="N2e9743f71fc649d88b53de09daee6101"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#DangerousSituationState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">危险态势状态</rdfs:label>
+    <rdfs:comment xml:lang="zh">整体态势处于危险级别。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:subClassOf rdf:nodeID="Nc86c9ca5c6d3457ab20297202d4119f8"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbdde30e1cfa6462e90f12a277bd019e6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasSourceState"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#reusedOntology">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="zh">复用本体</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasGeometricErrorValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">几何误差值</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#GeometricConstruct"/>
+    <rdfs:comment xml:lang="zh">几何构造的误差值。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N974aa82fc6c54f91bce6c74a39700fa5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasOrbitalPeriod"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd38015caca4740449adaadc337256b51">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasStateLevel"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne86c82bc52ba4486bd6a0a8b2c09b506">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#mitigatesRisk"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#SecurityRisk"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasThreatSource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">威胁来源</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+    <rdfs:comment xml:lang="zh">威胁来源，如碎片、目标、环境、网络等。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasMissionType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">任务类型</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#Spacecraft"/>
+    <rdfs:comment xml:lang="zh">航天器承担的任务类型。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasMeasureLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">措施等级</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+    <rdfs:comment xml:lang="zh">措施等级，如一般、重要、紧急。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SSAActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">空间态势感知活动</rdfs:label>
+    <rdfs:comment xml:lang="zh">支撑空间态势感知的各类活动。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+    <onto:alignmentRationale xml:lang="en">SSAActivity covers data/knowledge processing activities (observation, tracking, prediction, conjunction assessment); it is a domain specialization of prov:Activity.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd812fd5aefbe4af6a784fcdfd380f256">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasCause"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    <owl:onClass rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N863dfee0578c4935b545ebc05cec5671">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#mitigatedBy"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#InfraredSensor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">红外传感器</rdfs:label>
+    <rdfs:comment xml:lang="zh">以红外为主要感知机制的传感器。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#Sensor"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5ed86607c254488a9c4f629056718f24">
+    <rdf:first rdf:resource="https://w3id.org/tc-sssao#OpticalSensor"/>
+    <rdf:rest rdf:nodeID="Nedb397f271444d85bd91aeefb42e3861"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc86c9ca5c6d3457ab20297202d4119f8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasSeverityRank"/>
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</owl:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.opengis.net/ont/geosparql#hasGeometry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#validationSeverity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="zh">验证严重级别</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#respondsToEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">响应事件</rdfs:label>
+    <rdfs:comment xml:lang="zh">响应措施响应空间事件。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N370750040aaa4bb681932d41d0ff6e02">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasEffect"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.opengis.net/ont/geosparql#Feature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N30224725f06c4fd8b6946f0c19861a0c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasCausalConfidence"/>
+    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6a3155cb2b124a189574ba2f05494bd0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasEnd"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#TimeInstant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf34a407de3e44a17a12914f7103520ec">
+    <rdf:first rdf:resource="https://w3id.org/tc-sssao#DirectCausalAssertion"/>
+    <rdf:rest rdf:nodeID="N9dd7682286484f2eb747d57b8bc3f402"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#producesData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">产生活动数据</rdfs:label>
+    <rdfs:comment xml:lang="zh">SSA 活动产生 SSA 数据。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SSAActivity"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#SSAData"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/tc-sssao#generatedByActivity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#observedBySensor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">由传感器观测</rdfs:label>
+    <rdfs:comment xml:lang="zh">观测事件由传感器观测。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#ObservationEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#Sensor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasSeverityRank">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">严重度级别</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+    <rdfs:comment xml:lang="zh">分级风险态势的严重度排序值：正常=0、关注=1、预警=2、危险=3；仅用于支持分级态势之间的排序及跨时间演化规则。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N55d218d93a734561ad5c1c006334011c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#increasesThreat"/>
+    <owl:allValuesFrom rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8c1887b26676447f9a5613fcf24f6471">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasEnvironmentLevel"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N902c05a7184d4aa7ae66efaaef1e6157">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#observedBySensor"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#Sensor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#notation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#PhysicalThreat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">物理威胁</rdfs:label>
+    <rdfs:comment xml:lang="zh">由物理接近或碰撞等物理作用导致的威胁。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#SecurityThreat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#occursAtTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">发生于时间点</rdfs:label>
+    <rdfs:comment xml:lang="zh">事件发生在某一时间点。</rdfs:comment>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#SpaceEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/tc-sssao#TimeInstant"/>
+    <onto:alignmentRationale xml:lang="en">occursAtTime links a SpaceEvent to a TimeInstant (which is aligned with time:Instant); time:hasTime is the generic OWL-Time property connecting a resource to a temporal entity.</onto:alignmentRationale>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2006/time#hasTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N564f7ec7c0ac457baf3970644765ea29">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasOperatorName"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#inputProperties">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="zh">输入属性</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/prov#wasGeneratedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SpaceOrganization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">空间组织</rdfs:label>
+    <rdfs:comment xml:lang="zh">描述空间相关组织的顶层抽象类。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasMeasureType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">措施类型</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#ResponseMeasure"/>
+    <rdfs:comment xml:lang="zh">措施类型，如规避、应急、缓解、预警等。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6c6ea01681804c0c8f519732201caf57">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasEventConfidence"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3d7675a4443a4e8ab07f6200d225934b">
+    <rdf:first rdf:resource="https://w3id.org/tc-sssao#RadarSensor"/>
+    <rdf:rest rdf:nodeID="N5ed86607c254488a9c4f629056718f24"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na092948f8efc4e7699d2c41595be97da">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasEnvironmentType"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#TrackingSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">跟踪系统</rdfs:label>
+    <rdfs:comment xml:lang="zh">用于持续跟踪空间目标的系统。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">extension</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ObservationSystem"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1efd8f9b0dab4a86a1803f303d1f9a2c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="Nf34a407de3e44a17a12914f7103520ec"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/prov#Agent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc2d8acc81d9a43bb994c0944dcb6f125">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#affectsState"/>
+    <owl:allValuesFrom rdf:resource="https://w3id.org/tc-sssao#SituationState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#SensorNetwork">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">传感器网络</rdfs:label>
+    <rdfs:comment xml:lang="zh">由多个传感器组成的观测网络。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#ObservationSystem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#TimeInstant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">时间点</rdfs:label>
+    <rdfs:comment xml:lang="zh">零长度的时间点。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">core</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#TemporalEntity"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#Instant"/>
+    <onto:alignmentRationale xml:lang="en">TC-SSSAO TimeInstant is the application-domain time-point representation; it is specialized from time:Instant rather than redefining OWL-Time.</onto:alignmentRationale>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N87d85ab9d5ab44de9244395b7d278721">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#involvesObject"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#SpaceObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/sosa/Result">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N39b39d67dfd043768e870e9662f1efd7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#generatesData"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#ObservationData"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#InhibitingCausalAssertion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">抑制型因果断言</rdfs:label>
+    <rdfs:comment xml:lang="zh">原因事件抑制或削弱结果事件的因果断言。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">extension</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#CausalAssertion"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#implementationStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="zh">实现状态</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#Interval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1aab83d41f334ecca4459b9697f31b08">
+    <rdf:first rdf:resource="https://w3id.org/tc-sssao#WarningSituationState"/>
+    <rdf:rest rdf:nodeID="Nf96c9a860ea4461e9512397dd12a7e92"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/sosa/Sensor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1cdcdf127eae4403b409b96a4a157bff">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#hasBeginning"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#TimeInstant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#hasResolution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">分辨率</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="https://w3id.org/tc-sssao#Sensor"/>
+    <rdfs:comment xml:lang="zh">传感器探测分辨率。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#mappedToExternalTerm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="zh">映射到外部术语</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na0ac38ce25854793b8aba65ad85eaeea">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://w3id.org/tc-sssao#involvesObject"/>
+    <owl:someValuesFrom rdf:resource="https://w3id.org/tc-sssao#ArtificialSpaceObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1d173ece8bea4be5bf3ed62d6d29833d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Nfb3afa5bbd9c490f94a919424bf2e35c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N44babb5b8e9040838953faae3afa4943">
+    <rdf:first rdf:resource="https://w3id.org/tc-sssao#NormalSituationState"/>
+    <rdf:rest rdf:nodeID="N9a731c1b78ce492aaf15d0d1c9eafbf8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/prov#wasDerivedFrom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/prov#Entity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/tc-sssao#IndirectCausalAssertion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">间接因果断言</rdfs:label>
+    <rdfs:comment xml:lang="zh">原因事件通过中间环节导致结果事件的因果断言。</rdfs:comment>
+    <onto:modelLayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">extension</onto:modelLayer>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/tc-sssao#CausalAssertion"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#Instant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/sosa/madeBySensor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2006/time#hasTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+</rdf:RDF>
