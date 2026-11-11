@@ -1,17 +1,33 @@
-# Local Python environments and caches
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
+# Publish only ontology assets, source, and supporting tools.
+/*
+!/.gitignore
+!/.gitattributes
+!/AGENTS.md
+!/CITATION.cff
+!/README.md
+!/requirements.txt
+!/ontology/
+!/rules/
+!/src/
+!/scripts/
+/scripts/*
+!/scripts/__init__.py
+!/scripts/build/
+!/scripts/utils/
+/scripts/build/*
+!/scripts/build/build_ontology.py
+!/scripts/build/generate_fused_domain_layer.py
+!/scripts/build/export_owl.py
+!/scripts/build/modify_ontology.py
+!/scripts/build/apply_standard_alignments.py
+!/scripts/build/generate_ontology_anatomy.py
+/scripts/utils/*
+!/scripts/utils/__init__.py
+!/scripts/utils/shacl_utils.py
 
-# Local credentials and editor state
-.env
-.env.*
-!.env.example
-.idea/
-.vscode/
-.DS_Store
-Thumbs.db
+# Local generated files and credentials.
+**/__pycache__/
+**/*.py[cod]
+**/.env
+**/.env.*
+**/*.build_tmp

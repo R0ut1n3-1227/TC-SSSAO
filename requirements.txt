@@ -1,5 +1,4 @@
-# TC-SSSAO 实验复现运行时依赖（精确锁定，与实际验证环境一致）
-# 验证环境：Windows 11 + Python 3.14.2（见 README 与论文 4.1.3 节）
+# TC-SSSAO ontology authoring and SHACL reasoning dependencies.
 rdflib==7.6.0
 pyshacl==0.40.0
 owlrl==7.6.2

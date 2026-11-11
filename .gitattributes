@@ -1,27 +1,6 @@
 * text=auto
-# Normalize source and semantic-web files for cross-platform collaboration.
 *.py text eol=lf
 *.md text eol=lf
-*.tex text eol=lf
 *.ttl text eol=lf
 *.owl text eol=lf
-*.rq text eol=lf
-*.csv text eol=lf
-*.tsv text eol=lf
 *.json text eol=lf
-*.yaml text eol=lf
-*.yml text eol=lf
-*.dot text eol=lf
-*.svg text eol=lf
-# Binary research and publication assets.
-*.png binary
-*.jpg binary
-*.jpeg binary
-*.pdf binary
-*.jar binary
-*.pptx binary
-*.zip binary
-data/tracss/raw/IVV_Releasable_Dataset_SFSH_DiscreteHBR.csv.gz filter=lfs diff=lfs merge=lfs -text
-data/esa_cdm/raw/Collision[[:space:]]Avoidance[[:space:]]Challenge[[:space:]]-[[:space:]]Dataset.zip filter=lfs diff=lfs merge=lfs -text
-data/esa_cdm/raw/train_data.csv filter=lfs diff=lfs merge=lfs -text
-data/esa_cdm/raw/train_data.zip filter=lfs diff=lfs merge=lfs -text

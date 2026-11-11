@@ -1,5 +1,0 @@
-model,states,b3_transitions,invalid_rows_admitted
-Full,162634,1605,0
-w/o Situation,0,0,0
-w/o Temporal/B3,162634,0,0
-w/o execution-layer input contract,162634,1605,0

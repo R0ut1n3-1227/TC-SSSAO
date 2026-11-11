@@ -1,7 +1,0 @@
-PREFIX onto: <https://w3id.org/tc-sssao#>
-PREFIX case: <https://w3id.org/tc-sssao/data/cz6a-case#>
-SELECT ?laterEvent
-WHERE {
-  case:CZ6A_Fragmentation_2022 onto:precedesEvent ?laterEvent .
-}
-ORDER BY ?laterEvent

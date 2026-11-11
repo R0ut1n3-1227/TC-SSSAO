@@ -1,6 +1,0 @@
-pandas==3.0.1
-numpy==2.4.1
-matplotlib==3.10.8
-psutil==7.2.2
-rdflib==7.6.0
-pyshacl==0.40.0
